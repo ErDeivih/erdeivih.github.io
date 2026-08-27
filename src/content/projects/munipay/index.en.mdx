@@ -1,0 +1,37 @@
+---
+type: "project"
+lang: "en"
+title: "MuniPay"
+description: "Flutter app to manage fines, penalties and payments for sports teams."
+tagline: "Team fines and payments, in an app with a live demo."
+repo: "https://github.com/ErDeivih/MuniPay"
+demo: "https://multas-c2fed.web.app"
+color: "#22d3ee"
+status: "active"
+stack: ["Flutter", "Dart", "Firebase", "Firestore"]
+order: 1
+featured: true
+---
+
+MuniPay started because keeping track of fines in my football team with a spreadsheet was a mess.
+The app creates a team, each player joins with an **invite code**, and from there you record fines,
+track who owes and who has paid, and split shared expenses. There's a **dashboard** with what's
+happening per team and per player, and you can **export reports to Excel**.
+
+It's published and you can try it: there's a **web version** (no install) and an **Android APK**.
+
+## What it does
+
+- Teams with an invite code and their members.
+- Fines and penalties per player.
+- Payment and debt tracking.
+- Shared team expenses.
+- Dashboard with real-time stats.
+- Export reports to Excel.
+- Two roles: admin and player.
+
+## What I took from it
+
+The whole backend is **Firebase** (Auth + Firestore), no own server, and the UI updates live by
+subscribing to the data. The most interesting part was turning that "who owes what" model into a
+screen you understand at a glance.

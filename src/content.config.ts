@@ -10,6 +10,7 @@ const projects = defineCollection({
   schema: z
     .object({
       type: z.enum(["project", "tab"]),
+      lang: z.string().default("es"),
 
       // --- Campos de FICHA de proyecto (type === "project") ---
       slug: z.string().optional(),
@@ -36,7 +37,6 @@ const projects = defineCollection({
     })
     .superRefine((data, ctx) => {
       if (data.type === "project") {
-        if (!data.slug) ctx.addIssue({ code: "custom", message: "project requiere 'slug'" });
         if (!data.title) ctx.addIssue({ code: "custom", message: "project requiere 'title'" });
       } else {
         if (!data.project) ctx.addIssue({ code: "custom", message: "tab requiere 'project'" });

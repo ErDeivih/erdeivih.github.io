@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { locales, useTranslations, type Locale } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return locales.map((locale: Locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.currentLocale ?? "es";
+const t = useTranslations(locale);
+const prefix = `/${locale}`;
+
+const projects = (
+  await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout>
+  <Hero />
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <header class="reveal">
+      <p class="text-xs font-bold uppercase tracking-wide text-primary">
+        <span class="text-primary">$</span> {t.about.cmd}
+      </p>
+      <h2 class="mt-2 font-display text-xl text-foreground">{t.about.title}</h2>
+    </header>
+    <div class="reveal mt-6 grid gap-8 md:grid-cols-[2fr_1fr]">
+      <p class="max-w-2xl text-muted">{t.about.text}</p>
+      <div class="pixel-panel p-5 text-sm">
+        <p class="text-xs font-bold uppercase tracking-wide text-muted">{t.about.stackTitle}</p>
+        <ul class="mt-3 space-y-2 text-foreground">
+          {t.about.stack.map((s) => (
+            <li><span class="text-primary">›</span> {s}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <header class="reveal flex items-end justify-between gap-4">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wide text-primary">
+          <span class="text-primary">$</span> {t.projectsHome.cmd}
+        </p>
+        <h2 class="mt-2 font-display text-xl text-foreground">{t.projectsHome.title}</h2>
+      </div>
+      <a href={`${prefix}/proyectos/`} class="text-xs font-bold uppercase tracking-wide text-primary hover:underline">
+        {t.projectsHome.all} →
+      </a>
+    </header>
+
+    <div class="reveal mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((p) => <ProjectCard project={p.data} slug={p.id.split("/")[0]} />)}
+    </div>
+  </section>
+</BaseLayout>

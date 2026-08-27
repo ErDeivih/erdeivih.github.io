@@ -1,0 +1,28 @@
+---
+type: "tab"
+lang: "en"
+project: "munipay"
+tab: "teoria"
+label: "Theory"
+order: 2
+---
+
+## The underlying problem
+
+A team has several money flows mixed together: fines for being late or for a card, material
+expenses, and the shared pot. If everyone writes it down wherever, in the end nobody knows how much
+is owed or who has paid. MuniPay puts all of that in one place with two clear roles.
+
+## How it's modelled
+
+- **Team** — the group. Created and shared with an invite code.
+- **Member / player** — each person in the team, with their role.
+- **Fine** — recorded by the admin against a player.
+- **Payment** — settling a debt (fine or expense) by a player.
+- **Shared expense** — a cost split among members.
+
+## The part I liked most
+
+The relationship between **debt** and **payment**: a player owes an amount, and the app aggregates
+what's pending and what's paid without the logic getting complicated. With that, the dashboard and
+the export almost come out on their own.

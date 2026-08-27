@@ -1,0 +1,37 @@
+---
+type: "project"
+lang: "en"
+title: "DocumentChain"
+description: "Document management system with blockchain (Ethereum) and IPFS."
+tagline: "My final project: documents with traceability and access control on a blockchain."
+repo: "https://github.com/ErDeivih/DocumentChain"
+color: "#7ee8c9"
+status: "complete"
+stack: ["Solidity", "Ethereum", "IPFS", "TypeScript", "Docker"]
+order: 2
+featured: true
+---
+
+DocumentChain is my **final degree project**: a document management system that combines
+**blockchain (Ethereum)**, **IPFS** and **end-to-end encryption** to store documents securely, with
+full traceability and distributed access control.
+
+The idea is that the document's integrity (who uploaded it, when and which version) stays on the
+chain, while the content is stored in IPFS and encrypted, so control doesn't depend on a single
+server. Everything runs with Docker Compose on Windows, Linux and macOS.
+
+## What it includes
+
+- **Blockchain**: smart contracts on Ethereum (Solidity, Hardhat, Ethers.js) for traceability and
+  access control.
+- **Decentralized storage**: IPFS Cluster with several nodes and automatic replication.
+- **End-to-end encryption**: AES-256-GCM for files and ECIES to share keys.
+- **Versioning**: on-chain file versions.
+- **Digital signatures** that are verifiable and **per-file permissions**.
+- **Frontend** in React 18 + TypeScript + Vite + Tailwind, and **backend** Node.js + Express.
+
+## Why it caught my interest
+
+It was the first time I touched smart contracts and, at the same time, a project with frontend,
+backend and Docker deployment. It let me close the degree with something that combines security,
+cryptography and full-stack web development.

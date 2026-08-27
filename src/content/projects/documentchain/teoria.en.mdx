@@ -1,0 +1,30 @@
+---
+type: "tab"
+lang: "en"
+project: "documentchain"
+tab: "teoria"
+label: "Theory"
+order: 2
+---
+
+## The problem
+
+Storing important documents on a plain server has two limits: if the server goes down or is taken
+over, you lose control, and it's hard to prove a document hasn't been touched. The solution
+DocumentChain explores is to spread that trust: the chain guarantees **what** happened and **when**,
+and IPFS guarantees the content **is still there**, without depending on a single machine.
+
+## The three pieces
+
+- **Blockchain (Ethereum)** — used as an immutable ledger: who uploaded each document, its version
+  and the permissions. Smart contracts enforce those rules in code, not by a person.
+- **IPFS Cluster** — holds the actual document content, replicated across several nodes behind a
+  load balancer, so it doesn't rely on one server.
+- **End-to-end encryption** — the document is encrypted before being uploaded. AES-256-GCM for the
+  file and ECIES to share the keys with whoever should have access.
+
+## What each decision adds
+
+- **Traceability**: every change leaves an on-chain trace that can be verified.
+- **Distributed access control**: permissions live in the contracts, not in a database someone manages.
+- **Integrity**: with encryption and an on-chain record, a document can't be altered without being noticed.

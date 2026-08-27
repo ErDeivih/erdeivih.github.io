@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { useTranslations } from "../i18n/ui";
 
 interface Props {
   project: CollectionEntry<"projects">["data"];
@@ -7,13 +8,11 @@ interface Props {
 }
 const { project, slug } = Astro.props;
 
-const statusLabel: Record<string, string> = {
-  active: "ACTIVO",
-  maintained: "EN MANTENIMIENTO",
-  paused: "EN PAUSA",
-  archived: "ARCHIVADO",
-  complete: "COMPLETADO",
-};
+const locale = Astro.currentLocale ?? "es";
+const t = useTranslations(locale);
+const prefix = `/${locale}`;
+
+const statusLabel = t.project.statuses[project.status as keyof typeof t.project.statuses] ?? project.status;
 const statusColor: Record<string, string> = {
   active: "var(--color-primary)",
   maintained: "var(--color-accent)",
@@ -31,7 +30,7 @@ const accent = project.color ?? "var(--color-secondary)";
       class="rounded px-2 py-1 text-[10px] font-bold tracking-wide uppercase"
       style={`color: ${statusColor[project.status] ?? "var(--color-muted)"}`}
     >
-      {statusLabel[project.status] ?? project.status}
+      {statusLabel}
     </span>
     <span class="font-display text-[10px] text-faint">#{slug.slice(0, 8).toUpperCase()}</span>
   </div>
@@ -53,17 +52,13 @@ const accent = project.color ?? "var(--color-secondary)";
   }
 
   <div class="mt-5 flex items-center gap-3 border-t border-border pt-4 text-xs font-bold tracking-wide uppercase">
-    <a
-      href={`/proyectos/${slug}/`}
-      class="transition-colors hover:text-primary"
-      style={`color: ${accent}`}
-    >
-      Ver proyecto →
+    <a href={`${prefix}/proyectos/${slug}/`} class="transition-colors hover:text-primary" style={`color: ${accent}`}>
+      {t.project.card.view}
     </a>
     {
       project.repo && (
         <a href={project.repo} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-foreground">
-          Repo ↗
+          {t.project.card.repo}
         </a>
       )
     }

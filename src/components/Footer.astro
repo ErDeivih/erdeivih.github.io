@@ -1,6 +1,11 @@
 ---
 import { site, social } from "../config/site";
+import { useTranslations } from "../i18n/ui";
+
+const locale = Astro.currentLocale ?? "es";
+const t = useTranslations(locale);
 const year = new Date().getFullYear();
+const madeWith = t.footer.madeWith.replace("{year}", String(year));
 ---
 
 <footer class="relative z-10 mt-24 border-t border-border">
@@ -27,8 +32,6 @@ const year = new Date().getFullYear();
       }
     </div>
 
-    <p class="text-xs text-faint">
-      <span class="text-primary">$</span> Hecho con Astro · diseño propio retro-terminal · {year}
-    </p>
+    <p class="text-xs text-faint">{madeWith}</p>
   </div>
 </footer>

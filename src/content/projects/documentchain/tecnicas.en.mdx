@@ -1,0 +1,37 @@
+---
+type: "tab"
+lang: "en"
+project: "documentchain"
+tab: "tecnicas"
+label: "Techniques"
+order: 3
+---
+
+## Stack
+
+- **Frontend**: React 18 + TypeScript + Vite + TailwindCSS.
+- **Backend**: Node.js + Express, connected to IPFS Cluster.
+- **Blockchain**: Solidity + Hardhat + Ethers.js.
+- **Storage**: IPFS Cluster (several nodes with Nginx as load balancer).
+- **Security**: AES-256-GCM + ECIES + MetaMask.
+- **Deployment**: Docker Compose (Windows, Linux and macOS).
+
+## How it all connects
+
+```
+Frontend ──► Backend API ──► Blockchain (Hardhat/ETH)
+                 │
+                 └──► IPFS Cluster (nodes + load balancer)
+```
+
+The request goes from the frontend to the backend, which registers the operation on the chain and
+stores the content in IPFS. The bit that cost me the most work was the **automatic IPFS cleanup**
+triggered by blockchain events.
+
+## Ports once it's running
+
+| Service | URL |
+|----------|-----|
+| Frontend | `http://localhost:5173` |
+| Backend API | `http://localhost:3000/api/health` |
+| Hardhat RPC | `http://localhost:8545` |

@@ -10,6 +10,13 @@ export default defineConfig({
   // Salida 100% estática -> apta para GitHub Pages (gratis).
   output: "static",
   trailingSlash: "always",
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    // es en la raíz (/), en con prefijo (/en/). El script de idioma redirige
+    // según el idioma del navegador.
+    routing: { prefixDefaultLocale: false },
+  },
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

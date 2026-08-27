@@ -1,69 +1,23 @@
+﻿---
+// Redirige a la versión del sitio según el idioma del navegador.
+// Los `/es/` y `/en/` los genera Astro (i18n). El español es el predeterminado.
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import { site } from "../config/site";
-
-const projects = (await getCollection("projects", ({ data }) => data.type === "project")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
----
-
-<BaseLayout title={site.title} description={site.description}>
-  <Hero />
-
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal">
-      <p class="text-xs font-bold uppercase tracking-wide text-primary">
-        <span class="text-primary">$</span> cat about.md
-      </p>
-      <h2 class="mt-2 font-display text-xl text-foreground">Sobre mí</h2>
-    </header>
-    <div class="reveal mt-6 grid gap-8 md:grid-cols-[2fr_1fr]">
-      <p class="max-w-2xl text-muted">
-        Soy <span class="text-foreground">{site.name}</span>, ingeniero informático por la
-        <span class="text-foreground">Universidad de Salamanca</span> y ahora cursando el máster en
-        Ingeniería Informática. Empecé con Java y acabé aterrizando en el desarrollo web: TypeScript,
-        React y Node.js, con Spring Framework en la parte de backend. Mi TFG,{" "}
-        <span class="text-primary">DocumentChain</span>, junta blockchain (Ethereum), IPFS y cifrado
-        para gestionar documentos con trazabilidad y control de acceso. En prácticas en{" "}
-        <span class="text-foreground">NTT Data</span> desarrollé con Spring y metodología ágil.
-        Me gustan los proyectos donde hay sistema y producto a la vez: base de datos de verdad,
-        autenticación y una interfaz que no estorbe. Aquí cada proyecto explica qué es, cómo está
-        hecho y cómo se ejecuta y se prueba.
-      </p>
-      <div class="pixel-panel p-5 text-sm">
-        <p class="text-xs font-bold uppercase tracking-wide text-muted">stack con el que trabajo</p>
-        <ul class="mt-3 space-y-2 text-foreground">
-          <li><span class="text-primary">›</span> Java / Spring Framework</li>
-          <li><span class="text-primary">›</span> TypeScript / React / Node.js</li>
-          <li><span class="text-primary">›</span> Solidity / Blockchain / IPFS</li>
-          <li><span class="text-primary">›</span> Flutter · Docker · Git</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos -->
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal flex items-end justify-between gap-4">
-      <div>
-        <p class="text-xs font-bold uppercase tracking-wide text-primary">
-          <span class="text-primary">$</span> ls ./proyectos
-        </p>
-        <h2 class="mt-2 font-display text-xl text-foreground">Proyectos</h2>
-      </div>
-      <a href="/proyectos/" class="text-xs font-bold uppercase tracking-wide text-primary hover:underline">
-        ver todos →
-      </a>
-    </header>
-
-    <div class="reveal mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        projects.map((p) => <ProjectCard project={p.data} slug={p.data.slug!} />)
-      }
-    </div>
-  </section>
-</BaseLayout>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>David Pérez Velasco — Developer Portfolio</title>
+    <script is:inline>
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem("lang"); } catch (e) {}
+        var n = (navigator.language || "es").toLowerCase();
+        var loc = (stored === "en" || (stored !== "es" && n.indexOf("en") === 0)) ? "/en/" : "/es/";
+        window.location.replace(loc);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

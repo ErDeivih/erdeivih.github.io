@@ -1,0 +1,33 @@
+---
+type: "tab"
+lang: "en"
+project: "munipay"
+tab: "demo"
+label: "How to run"
+order: 4
+---
+
+## Without installing anything
+
+The **web version** runs in the browser: [Open MuniPay Web](https://multas-c2fed.web.app)
+
+For Android, download the **APK** from the [latest release](https://github.com/ErDeivih/MuniPay/releases/latest),
+allowing installs from unknown sources.
+
+## Run it locally
+
+```bash
+git clone https://github.com/ErDeivih/MuniPay.git
+cd MuniPay
+flutter pub get
+```
+
+Before starting you need to set up **Firebase** (Auth + Firestore) and add the `google-services.json`.
+Firestore rules are deployed with:
+
+```bash
+flutter run            # web or Android
+```
+
+Once inside you can **create a team**, **add players** with their invite code, **log a fine** and
+see it appear on the dashboard. The backend is Firebase on the free plan, so there's no server cost.
