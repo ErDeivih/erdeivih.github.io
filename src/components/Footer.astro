@@ -1,0 +1,34 @@
+---
+import { site, social } from "../config/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="relative z-10 mt-24 border-t border-border">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-10 text-center sm:px-6">
+    <p class="font-display text-[10px] text-primary glow">{site.brand}</p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-bold tracking-wide uppercase">
+      <a href={social.github} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">
+        GitHub {social.githubHandle}
+      </a>
+      {
+        social.linkedin && (
+          <a href={social.linkedin} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">
+            LinkedIn
+          </a>
+        )
+      }
+      {
+        social.email && (
+          <a href={social.email} class="text-muted transition-colors hover:text-primary">
+            Email
+          </a>
+        )
+      }
+    </div>
+
+    <p class="text-xs text-faint">
+      <span class="text-primary">$</span> Hecho con Astro · diseño propio retro-terminal · {year}
+    </p>
+  </div>
+</footer>

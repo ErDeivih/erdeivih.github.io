@@ -1,0 +1,33 @@
+---
+type: "tab"
+project: "munipay"
+tab: "demo"
+label: "Cómo probar"
+order: 4
+---
+
+## Sin instalar nada
+
+La **versión web** funciona en el navegador: [Abrir MuniPay Web](https://multas-c2fed.web.app)
+
+Para Android, descarga el **APK** desde la [última release](https://github.com/ErDeivih/MuniPay/releases/latest),
+permitiendo instalar desde fuentes desconocidas.
+
+## Correrla en local
+
+```bash
+git clone https://github.com/ErDeivih/MuniPay.git
+cd MuniPay
+flutter pub get
+```
+
+Antes de arrancar hay que configurar **Firebase** (Auth + Firestore) y añadir el
+`google-services.json`. Las reglas de Firestore se despliegan con:
+
+```bash
+flutter run            # web o Android
+```
+
+Una vez dentro puedes: **crear un equipo**, **añadir jugadores** con su código de invitación,
+**registrar una multa** y ver cómo aparece en el dashboard. El backend es Firebase en su plan
+gratuito, así que no hay coste de servidor.

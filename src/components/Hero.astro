@@ -1,0 +1,122 @@
+---
+import { site, social } from "../config/site";
+const stats = [
+  { n: "3+", l: "proyectos" },
+  { n: "100%", l: "código propio" },
+  { n: "0€", l: "en hosting" },
+];
+---
+
+<section id="inicio" class="relative overflow-hidden border-b border-border">
+  <!-- fondo: rejilla + blobs -->
+  <div class="grid-bg absolute inset-0 opacity-70" aria-hidden="true"></div>
+  <div
+    class="animate-floaty absolute -top-24 -left-24 h-72 w-72 rounded-full opacity-40 blur-3xl"
+    style="background: radial-gradient(circle, var(--color-secondary), transparent 70%)"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="animate-floaty absolute -right-24 top-24 h-72 w-72 rounded-full opacity-30 blur-3xl"
+    style="background: radial-gradient(circle, var(--color-accent), transparent 70%); animation-delay: -4s"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+    <p class="reveal text-sm font-bold tracking-wide uppercase text-primary">
+      <span class="text-primary">$</span> whoami — {social.githubHandle}
+    </p>
+
+    <h1
+      class="reveal mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl"
+      style="transition-delay: .05s"
+    >
+      Hola, soy <span class="font-display text-primary glow">{site.brand}</span>.<br />
+      <span data-rotator class="text-foreground">
+        <span class="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+          Desarrollador
+        </span>
+      </span>
+    </h1>
+
+    <p class="reveal mt-6 max-w-xl text-lg text-muted" style="transition-delay: .1s">
+      Construyo aplicaciones web y herramientas, y las documento aquí. Este es mi portfolio:
+      proyectos explicados con su teoría, sus técnicas y su código en GitHub.
+    </p>
+
+    <div class="reveal mt-8 flex flex-wrap items-center gap-3" style="transition-delay: .15s">
+      <a
+        href="/proyectos/"
+        class="rounded-sm bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-bold tracking-wide uppercase text-[#04120d] transition-transform hover:-translate-y-0.5"
+      >
+        Ver proyectos
+      </a>
+      <a
+        href={social.github}
+        target="_blank"
+        rel="noopener"
+        class="rounded-sm border-2 border-border px-5 py-3 text-sm font-bold tracking-wide uppercase text-foreground transition-colors hover:border-primary hover:text-primary"
+      >
+        GitHub ↗
+      </a>
+      <button
+        type="button"
+        id="celebrate"
+        class="rounded-sm border-2 border-border px-5 py-3 text-sm font-bold tracking-wide uppercase text-muted transition-colors hover:border-tertiary hover:text-tertiary"
+      >
+        ✨ ¡Celebrar!
+      </button>
+    </div>
+
+    <dl class="reveal mt-12 flex flex-wrap gap-8" style="transition-delay: .2s">
+      {
+        stats.map((s) => (
+          <div>
+            <dt class="font-display text-2xl text-primary glow">{s.n}</dt>
+            <dd class="text-xs font-bold uppercase tracking-wide text-muted">{s.l}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<script>
+  // Palabra rotativa
+  const rotator = document.querySelector<HTMLElement>("[data-rotator]");
+  const roles = ["Desarrollador", "Full-Stack", "Creador de apps", "Resolver problemas"];
+  if (rotator) {
+    let idx = 0;
+    const current = () => rotator.querySelector("span");
+    setInterval(() => {
+      idx = (idx + 1) % roles.length;
+      const el = current();
+      if (el) {
+        el.style.opacity = "0";
+        setTimeout(() => {
+          el.textContent = roles[idx];
+          el.style.opacity = "1";
+        }, 200);
+      }
+    }, 2600);
+    // estilos de la palabra
+    const el = current();
+    if (el) {
+      el.style.transition = "opacity .2s ease";
+      el.style.display = "inline-block";
+    }
+  }
+
+  // Confeti
+  import confetti from "canvas-confetti";
+  const btn = document.getElementById("celebrate");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const colors = ["#7ee8c9", "#a78bfa", "#22d3ee", "#f472b6"];
+      confetti({ particleCount: 120, spread: 75, origin: { y: 0.6 }, colors });
+      setTimeout(
+        () => confetti({ particleCount: 60, spread: 100, origin: { y: 0.6 }, colors, scalar: 0.8 }),
+        200,
+      );
+    });
+  }
+</script>

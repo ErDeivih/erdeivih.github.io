@@ -1,0 +1,79 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : site.title;
+const desc = description ?? site.description;
+const canonical = new URL(Astro.url.pathname, site.url);
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={site.locale} />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen bg-background text-foreground">
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="crt-vignette" aria-hidden="true"></div>
+
+    <Nav />
+
+    <main class="relative z-10">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      // Scroll-reveal. IntersectionObserver que añade .in-view a los .reveal.
+      // Se re-ejecuta en cada navegación (astro:page-load).
+      let io: IntersectionObserver | null = null;
+
+      function observeAll() {
+        const els = document.querySelectorAll<HTMLElement>(".reveal:not(.in-view)");
+        if (!io) {
+          io = new IntersectionObserver(
+            (entries) => {
+              for (const e of entries) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in-view");
+                  io!.unobserve(e.target);
+                }
+              }
+            },
+            { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+          );
+        }
+        els.forEach((el) => io!.observe(el));
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", observeAll);
+      } else {
+        observeAll();
+      }
+      document.addEventListener("astro:page-load", observeAll);
+    </script>
+  </body>
+</html>

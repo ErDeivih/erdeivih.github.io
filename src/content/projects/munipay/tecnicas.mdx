@@ -1,0 +1,37 @@
+---
+type: "tab"
+project: "munipay"
+tab: "tecnicas"
+label: "Técnicas"
+order: 3
+---
+
+## Stack
+
+- **Flutter 3.35** (Dart) — una sola base de código para Android, iOS y web.
+- **Firebase** — Authentication y Cloud Firestore como backend.
+- **Provider** — gestión de estado.
+- **Excel** — exportación de reportes.
+
+## Cómo funciona por dentro
+
+La interfaz se suscribe a Firestore, así que cuando cambia un dato en la base, la pantalla se
+actualiza sola. El estado se gestiona con `Provider`, y las colecciones guardan equipos, miembros,
+multas y pagos.
+
+La parte de deuda/pago es sencilla: cada multa tiene un `pagada`/no pagada, y con eso se agrega el
+total pendiente por jugador.
+
+```dart
+class Deuda {
+  final String jugadorId;
+  final double importe;
+  final bool pagada;
+}
+```
+
+## Decisiones que tomé
+
+- **Reglas de Firestore** para que cada rol solo vea y modifique lo suyo.
+- **Multiplataforma** desde un solo repo: web y APK se despliegan desde aquí.
+- **Exportar a Excel** para que los datos salgan de la app cuando hace falta.

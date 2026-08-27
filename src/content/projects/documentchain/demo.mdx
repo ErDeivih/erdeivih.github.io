@@ -1,0 +1,44 @@
+---
+type: "tab"
+project: "documentchain"
+tab: "demo"
+label: "Cómo empezar"
+order: 4
+---
+
+## Requisitos
+
+- Docker Desktop
+- Git
+
+## Arrancarlo
+
+```bash
+git clone https://github.com/ErDeivih/DocumentChain.git
+cd DocumentChain
+docker compose up -d --build
+```
+
+La primera vez tarda **~5 minutos** (descarga de imágenes y compilación). Los arranques siguientes
+son `docker compose up -d` (unos 30 segundos).
+
+## Usuarios de prueba
+
+El backend genera automáticamente dos usuarios al iniciar:
+
+| Usuario | Contraseña | Rol |
+|---------|-----------|-----|
+| `admin` | `Admin1234` | ADMIN |
+| `david` | `David1234` | USER |
+
+## Probar los smart contracts
+
+```bash
+cd smart-contracts
+npm install
+npx hardhat test
+```
+
+Con esto verificas que los contratos de Ethereum se comportan como esperas. Para probar la app
+completa, entra en el frontend (`http://localhost:5173`), inicia sesión con los usuarios de arriba
+y prueba a subir un documento, ver su versión y compartir el acceso.

@@ -1,0 +1,30 @@
+---
+type: "tab"
+project: "documentchain"
+tab: "teoria"
+label: "Teoría"
+order: 2
+---
+
+## El problema
+
+Guardar documentos importantes en un servidor normal tiene dos limitaciones: si el servidor cae o lo
+controlan, se pierde el control, y cuesta demostrar que un documento no se ha tocado. La solución
+que explora DocumentChain es repartir esa confianza: la cadena garantiza **qué** pasó y **cuándo**,
+e IPFS garantiza que el contenido **sigue ahí**, sin depender de una sola máquina.
+
+## Las tres piezas
+
+- **Blockchain (Ethereum)** — se usa como registro inmutable: quién subió cada documento, su versión
+  y los permisos. Los contratos inteligentes hacen cumplir esas reglas por código, no por una persona.
+- **IPFS Cluster** — guarda el contenido real de los documentos, replicado en varios nodos con un
+  balanceador delante, para que no dependa de un único servidor.
+- **Cifrado end-to-end** — el documento se cifra antes de subirse. AES-256-GCM para el archivo y
+  ECIES para compartir las llaves con quien corresponda.
+
+## Qué aporta cada decisión
+
+- **Trazabilidad**: cada cambio deja huella on-chain y se puede verificar.
+- **Control de acceso distribuido**: los permisos viven en los contratos, no en una base de datos
+  que alguien administra.
+- **Integridad**: al haber cifrado y registro en cadena, un documento no se puede alterar sin que se note.

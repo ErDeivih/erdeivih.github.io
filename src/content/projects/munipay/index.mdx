@@ -1,0 +1,37 @@
+---
+type: "project"
+slug: "munipay"
+title: "MuniPay"
+description: "App Flutter para gestionar multas, sanciones y pagos de equipos deportivos."
+tagline: "Las multas y los pagos del equipo, en una app con demo en vivo."
+repo: "https://github.com/ErDeivih/MuniPay"
+demo: "https://multas-c2fed.web.app"
+color: "#22d3ee"
+status: "active"
+stack: ["Flutter", "Dart", "Firebase", "Firestore"]
+order: 1
+featured: true
+---
+
+MuniPay nació porque en mi equipo de fútbol llevar las multas en un Excel era un caos. La app crea
+un equipo, cada jugador entra con un **código de invitación**, y desde ahí se registran multas,
+se controla quién debe y quién ha pagado, y se reparten los gastos comunes. Hay un **dashboard**
+con lo que va pasando por equipo y por jugador, y se pueden **exportar reportes a Excel**.
+
+Está publicada y se puede probar: hay **versión web** (sin instalar) y **APK para Android**.
+
+## Lo que hace
+
+- Equipos con código de invitación y sus miembros.
+- Multas y sanciones por jugador.
+- Seguimiento de pagos y deudas.
+- Gastos compartidos del equipo.
+- Dashboard con estadísticas en tiempo real.
+- Exportación de reportes a Excel.
+- Dos roles: administrador y jugador.
+
+## Qué me llevé
+
+El backend está montado entero con **Firebase** (Auth + Firestore), sin servidor propio, y la
+interfaz se actualiza en vivo suscribiéndose a los datos. Lo más interesante fue llevar ese modelo
+de "quién debe qué" a una pantalla que se entiende de un vistazo.

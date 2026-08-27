@@ -1,0 +1,26 @@
+---
+type: "tab"
+project: "munipay"
+tab: "teoria"
+label: "Teoría"
+order: 2
+---
+
+## El problema de fondo
+
+En un equipo hay varios flujos de dinero que se mezclan: multas por llegar tarde o por una tarjeta,
+gastos de material, y la caja común. Si cada uno lo apunta donde puede, al final nadie sabe cuánto
+debe ni quién ha pagado. MuniPay mete todo eso en un único sitio con dos roles claros.
+
+## Cómo está modelado
+
+- **Equipo** — el grupo. Se crea y se comparte con un código de invitación.
+- **Miembro / jugador** — cada persona del equipo, con su rol.
+- **Multa** — la registra el administrador contra un jugador.
+- **Pago** — la liquidación de una deuda (multa o gasto) por parte del jugador.
+- **Gasto compartido** — un coste que se reparte entre los miembros.
+
+## La parte que más me gustó
+
+La relación entre **deuda** y **pago**: un jugador debe una cantidad, y la app agrega lo pendiente
+y lo pagado sin que la lógica se complique. Con eso, el dashboard y la exportación salen casi solos.

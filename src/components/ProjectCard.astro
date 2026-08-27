@@ -1,0 +1,71 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">["data"];
+  slug: string;
+}
+const { project, slug } = Astro.props;
+
+const statusLabel: Record<string, string> = {
+  active: "ACTIVO",
+  maintained: "EN MANTENIMIENTO",
+  paused: "EN PAUSA",
+  archived: "ARCHIVADO",
+  complete: "COMPLETADO",
+};
+const statusColor: Record<string, string> = {
+  active: "var(--color-primary)",
+  maintained: "var(--color-accent)",
+  paused: "var(--color-tertiary)",
+  archived: "var(--color-muted)",
+  complete: "var(--color-secondary)",
+};
+
+const accent = project.color ?? "var(--color-secondary)";
+---
+
+<article class="project-card group flex flex-col rounded-md p-5 sm:p-6">
+  <div class="flex items-center justify-between gap-3">
+    <span
+      class="rounded px-2 py-1 text-[10px] font-bold tracking-wide uppercase"
+      style={`color: ${statusColor[project.status] ?? "var(--color-muted)"}`}
+    >
+      {statusLabel[project.status] ?? project.status}
+    </span>
+    <span class="font-display text-[10px] text-faint">#{slug.slice(0, 8).toUpperCase()}</span>
+  </div>
+
+  <h3 class="mt-4 text-lg font-bold" style={`text-shadow: 0 0 14px ${accent}55`}>
+    {project.title}
+  </h3>
+
+  <p class="mt-2 flex-1 text-sm text-muted">{project.description}</p>
+
+  {
+    project.stack && project.stack.length > 0 && (
+      <ul class="mt-4 flex flex-wrap gap-1.5">
+        {project.stack.map((s) => (
+          <li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">{s}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  <div class="mt-5 flex items-center gap-3 border-t border-border pt-4 text-xs font-bold tracking-wide uppercase">
+    <a
+      href={`/proyectos/${slug}/`}
+      class="transition-colors hover:text-primary"
+      style={`color: ${accent}`}
+    >
+      Ver proyecto →
+    </a>
+    {
+      project.repo && (
+        <a href={project.repo} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-foreground">
+          Repo ↗
+        </a>
+      )
+    }
+  </div>
+</article>
