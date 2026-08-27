@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MuniPay · David Pérez Velasco</title><meta name="description" content="App Flutter para gestionar multas, sanciones y pagos de equipos deportivos."><link rel="canonical" href="https://erdeivih.github.io/es/proyectos/munipay/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:title" content="MuniPay · David Pérez Velasco"><meta property="og:description" content="App Flutter para gestionar multas, sanciones y pagos de equipos deportivos."><meta property="og:url" content="https://erdeivih.github.io/es/proyectos/munipay/"><meta property="og:locale" content="es-ES"><meta property="og:site_name" content="David Pérez Velasco"><meta name="generator" content="Astro v7.2.7"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><script>
+      // i18n: redirige según el idioma del navegador (si no hay preferencia guardada).
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem("lang"); } catch (e) {}
+        var navlang = (navigator.language || "es").toLowerCase();
+        var wantsEn = navlang.indexOf("en") === 0;
+        var path = window.location.pathname;
+        var inEn = path === "/en" || path.indexOf("/en/") === 0;
+
+        var goEn = false, goEs = false;
+        if (stored === "en") goEn = !inEn;
+        else if (stored === "es") goEs = inEn;
+        else if (wantsEn) goEn = !inEn;
+
+        if (goEn) {
+          var enPath = (path === "/" || path === "") ? "/en/" : "/en" + path;
+          window.location.replace(enPath);
+        } else if (goEs) {
+          var esPath = (path === "/en" || path === "/en/") ? "/" : path.replace(/^\/en/, "");
+          window.location.replace(esPath || "/");
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.VJyE-nPi.css"></head><body class="min-h-screen bg-background text-foreground"><div class="scanlines" aria-hidden="true"></div><div class="crt-vignette" aria-hidden="true"></div><header class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur"><nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6"><a href="/es/" class="flex items-center gap-2 text-sm font-bold tracking-wide uppercase"><span class="font-display text-[11px] text-primary glow">David</span><span class="cursor-blink text-primary">▮</span></a><!-- Enlaces (escritorio) --><div class="flex items-center gap-1"><ul class="hidden items-center gap-1 sm:flex"><li><a href="/es/" class="px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors text-muted hover:text-foreground">Inicio</a></li><li><a href="/es/proyectos/" class="px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors text-muted hover:text-foreground">Proyectos</a></li><li><a href="/es/#sobre-mi" class="px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors text-muted hover:text-foreground">Sobre mí</a></li><li class="ml-2 flex items-center gap-1 border-l border-border pl-3 text-xs font-bold"><a href="/es/proyectos/munipay/" data-lang-switch="es" class="px-2 transition-colors text-primary">ES</a><span class="text-faint">/</span><a href="/en/proyectos/munipay/" data-lang-switch="en" class="px-2 transition-colors text-faint hover:text-foreground">EN</a></li></ul><!-- Botón menú (móvil) --><button type="button" id="menu-toggle" class="flex h-10 w-10 items-center justify-center rounded border border-border text-foreground sm:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></nav><!-- Drawer móvil --><div id="mobile-menu" class="hidden border-t border-border bg-background sm:hidden"><ul class="flex flex-col gap-1 px-4 py-3"><li><a href="/es/" class="block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors text-muted hover:bg-surface hover:text-foreground">Inicio</a></li><li><a href="/es/proyectos/" class="block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors text-muted hover:bg-surface hover:text-foreground">Proyectos</a></li><li><a href="/es/#sobre-mi" class="block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors text-muted hover:bg-surface hover:text-foreground">Sobre mí</a></li><li class="mt-1 flex items-center gap-1 border-t border-border pt-3 px-3 text-sm font-bold"><a href="/es/proyectos/munipay/" data-lang-switch="es" class="transition-colors text-primary">ES</a><span class="text-faint">/</span><a href="/en/proyectos/munipay/" data-lang-switch="en" class="transition-colors text-muted">EN</a></li></ul></div></header><script type="module" src="/_astro/Nav.astro_astro_type_script_index_0_lang.DiKTkN-v.js"></script><main class="relative z-10"><section class="mx-auto max-w-6xl px-4 py-14 sm:px-6"><a href="/es/proyectos/" class="text-xs font-bold uppercase tracking-wide text-muted transition-colors hover:text-primary">← volver a proyectos</a><!-- Hero del proyecto --><header class="pixel-panel mt-6 p-6 sm:p-8"><div class="flex flex-wrap items-center justify-between gap-3"><span class="rounded px-2 py-1 text-[10px] font-bold tracking-wide uppercase" style="color: var(--color-primary)">ACTIVO</span><span class="font-display text-[10px] text-faint">#MUNIPAY</span></div><h1 class="mt-4 text-3xl font-black tracking-tight sm:text-4xl"><span style="text-shadow: 0 0 20px #22d3ee66">MuniPay</span></h1><p class="mt-3 max-w-2xl text-lg text-muted">Las multas y los pagos del equipo, en una app con demo en vivo.</p><div class="mt-6 flex flex-wrap gap-3 text-xs font-bold tracking-wide uppercase"><a href="https://github.com/ErDeivih/MuniPay" target="_blank" rel="noopener" class="rounded-sm border-2 px-4 py-2 transition-colors" style="border-color: #22d3ee; color: #22d3ee">Ver repo ↗</a><a href="https://multas-c2fed.web.app" target="_blank" rel="noopener" class="rounded-sm bg-gradient-to-r from-primary to-accent px-4 py-2 text-[#04120d]">Demo en vivo ↗</a></div><ul class="mt-6 flex flex-wrap gap-1.5"><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Flutter</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Dart</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Firebase</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Firestore</li></ul></header><!-- Pestañas --><div class="mt-8"><div data-tabs class="w-full"><div role="tablist" aria-label="Secciones del proyecto" class="flex flex-wrap gap-1 border-b border-border pb-px"><button type="button" role="tab" data-value="resumen" aria-selected="true" tabindex="0" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Resumen</button><button type="button" role="tab" data-value="teoria" aria-selected="false" tabindex="-1" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Teoría</button><button type="button" role="tab" data-value="tecnicas" aria-selected="false" tabindex="-1" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Técnicas</button><button type="button" role="tab" data-value="demo" aria-selected="false" tabindex="-1" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Cómo probar</button></div><!-- Las páginas del contenido se pasan por slot, rodeadas de data-panel --><div><div role="tabpanel" id="panel-resumen" data-panel="resumen" class="reveal in-view py-5"><article class="prose-content max-w-3xl"><p>MuniPay nació porque en mi equipo de fútbol llevar las multas en un Excel era un caos. La app crea
+un equipo, cada jugador entra con un <strong>código de invitación</strong>, y desde ahí se registran multas,
+se controla quién debe y quién ha pagado, y se reparten los gastos comunes. Hay un <strong>dashboard</strong>
+con lo que va pasando por equipo y por jugador, y se pueden <strong>exportar reportes a Excel</strong>.</p>
+<p>Está publicada y se puede probar: hay <strong>versión web</strong> (sin instalar) y <strong>APK para Android</strong>.</p>
+<h2 id="lo-que-hace">Lo que hace</h2>
+<ul>
+<li>Equipos con código de invitación y sus miembros.</li>
+<li>Multas y sanciones por jugador.</li>
+<li>Seguimiento de pagos y deudas.</li>
+<li>Gastos compartidos del equipo.</li>
+<li>Dashboard con estadísticas en tiempo real.</li>
+<li>Exportación de reportes a Excel.</li>
+<li>Dos roles: administrador y jugador.</li>
+</ul>
+<h2 id="qué-me-llevé">Qué me llevé</h2>
+<p>El backend está montado entero con <strong>Firebase</strong> (Auth + Firestore), sin servidor propio, y la
+interfaz se actualiza en vivo suscribiéndose a los datos. Lo más interesante fue llevar ese modelo
+de “quién debe qué” a una pantalla que se entiende de un vistazo.</p></article></div><div role="tabpanel" id="panel-teoria" data-panel="teoria" hidden class="reveal in-view py-5"><article class="prose-content max-w-3xl"><h2 id="el-problema-de-fondo">El problema de fondo</h2>
+<p>En un equipo hay varios flujos de dinero que se mezclan: multas por llegar tarde o por una tarjeta,
+gastos de material, y la caja común. Si cada uno lo apunta donde puede, al final nadie sabe cuánto
+debe ni quién ha pagado. MuniPay mete todo eso en un único sitio con dos roles claros.</p>
+<h2 id="cómo-está-modelado">Cómo está modelado</h2>
+<ul>
+<li><strong>Equipo</strong> — el grupo. Se crea y se comparte con un código de invitación.</li>
+<li><strong>Miembro / jugador</strong> — cada persona del equipo, con su rol.</li>
+<li><strong>Multa</strong> — la registra el administrador contra un jugador.</li>
+<li><strong>Pago</strong> — la liquidación de una deuda (multa o gasto) por parte del jugador.</li>
+<li><strong>Gasto compartido</strong> — un coste que se reparte entre los miembros.</li>
+</ul>
+<h2 id="la-parte-que-más-me-gustó">La parte que más me gustó</h2>
+<p>La relación entre <strong>deuda</strong> y <strong>pago</strong>: un jugador debe una cantidad, y la app agrega lo pendiente
+y lo pagado sin que la lógica se complique. Con eso, el dashboard y la exportación salen casi solos.</p></article></div><div role="tabpanel" id="panel-tecnicas" data-panel="tecnicas" hidden class="reveal in-view py-5"><article class="prose-content max-w-3xl"><h2 id="stack">Stack</h2>
+<ul>
+<li><strong>Flutter 3.35</strong> (Dart) — una sola base de código para Android, iOS y web.</li>
+<li><strong>Firebase</strong> — Authentication y Cloud Firestore como backend.</li>
+<li><strong>Provider</strong> — gestión de estado.</li>
+<li><strong>Excel</strong> — exportación de reportes.</li>
+</ul>
+<h2 id="cómo-funciona-por-dentro">Cómo funciona por dentro</h2>
+<p>La interfaz se suscribe a Firestore, así que cuando cambia un dato en la base, la pantalla se
+actualiza sola. El estado se gestiona con <code>Provider</code>, y las colecciones guardan equipos, miembros,
+multas y pagos.</p>
+<p>La parte de deuda/pago es sencilla: cada multa tiene un <code>pagada</code>/no pagada, y con eso se agrega el
+total pendiente por jugador.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="dart"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#79B8FF"> Deuda</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  final</span><span style="color:#79B8FF"> String</span><span style="color:#E1E4E8"> jugadorId;</span></span>
+<span class="line"><span style="color:#F97583">  final</span><span style="color:#79B8FF"> double</span><span style="color:#E1E4E8"> importe;</span></span>
+<span class="line"><span style="color:#F97583">  final</span><span style="color:#79B8FF"> bool</span><span style="color:#E1E4E8"> pagada;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="decisiones-que-tomé">Decisiones que tomé</h2>
+<ul>
+<li><strong>Reglas de Firestore</strong> para que cada rol solo vea y modifique lo suyo.</li>
+<li><strong>Multiplataforma</strong> desde un solo repo: web y APK se despliegan desde aquí.</li>
+<li><strong>Exportar a Excel</strong> para que los datos salgan de la app cuando hace falta.</li>
+</ul></article></div><div role="tabpanel" id="panel-demo" data-panel="demo" hidden class="reveal in-view py-5"><article class="prose-content max-w-3xl"><h2 id="sin-instalar-nada">Sin instalar nada</h2>
+<p>La <strong>versión web</strong> funciona en el navegador: <a href="https://multas-c2fed.web.app">Abrir MuniPay Web</a></p>
+<p>Para Android, descarga el <strong>APK</strong> desde la <a href="https://github.com/ErDeivih/MuniPay/releases/latest">última release</a>,
+permitiendo instalar desde fuentes desconocidas.</p>
+<h2 id="correrla-en-local">Correrla en local</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#9ECBFF"> https://github.com/ErDeivih/MuniPay.git</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> MuniPay</span></span>
+<span class="line"><span style="color:#B392F0">flutter</span><span style="color:#9ECBFF"> pub</span><span style="color:#9ECBFF"> get</span></span></code></pre>
+<p>Antes de arrancar hay que configurar <strong>Firebase</strong> (Auth + Firestore) y añadir el
+<code>google-services.json</code>. Las reglas de Firestore se despliegan con:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">flutter</span><span style="color:#9ECBFF"> run</span><span style="color:#6A737D">            # web o Android</span></span></code></pre>
+<p>Una vez dentro puedes: <strong>crear un equipo</strong>, <strong>añadir jugadores</strong> con su código de invitación,
+<strong>registrar una multa</strong> y ver cómo aparece en el dashboard. El backend es Firebase en su plan
+gratuito, así que no hay coste de servidor.</p></article></div></div></div><script type="module" src="/_astro/Tabs.astro_astro_type_script_index_0_lang.CblquX8s.js"></script></div></section></main><footer class="relative z-10 mt-24 border-t border-border"><div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-10 text-center sm:px-6"><p class="font-display text-[10px] text-primary glow">David</p><div class="flex flex-wrap items-center justify-center gap-4 text-xs font-bold tracking-wide uppercase"><a href="https://github.com/ErDeivih" target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">GitHub @ErDeivih</a><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco" target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">LinkedIn</a><a href="mailto:davidpeve01@gmail.com" class="text-muted transition-colors hover:text-primary">Email</a></div><p class="text-xs text-faint">$ Hecho con Astro · diseño propio retro-terminal · 2026</p></div></footer><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.CvsF3tAw.js"></script></body></html>

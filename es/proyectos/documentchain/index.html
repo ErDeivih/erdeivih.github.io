@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>DocumentChain · David Pérez Velasco</title><meta name="description" content="Sistema de gestión documental con blockchain (Ethereum) e IPFS."><link rel="canonical" href="https://erdeivih.github.io/es/proyectos/documentchain/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:title" content="DocumentChain · David Pérez Velasco"><meta property="og:description" content="Sistema de gestión documental con blockchain (Ethereum) e IPFS."><meta property="og:url" content="https://erdeivih.github.io/es/proyectos/documentchain/"><meta property="og:locale" content="es-ES"><meta property="og:site_name" content="David Pérez Velasco"><meta name="generator" content="Astro v7.2.7"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><script>
+      // i18n: redirige según el idioma del navegador (si no hay preferencia guardada).
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem("lang"); } catch (e) {}
+        var navlang = (navigator.language || "es").toLowerCase();
+        var wantsEn = navlang.indexOf("en") === 0;
+        var path = window.location.pathname;
+        var inEn = path === "/en" || path.indexOf("/en/") === 0;
+
+        var goEn = false, goEs = false;
+        if (stored === "en") goEn = !inEn;
+        else if (stored === "es") goEs = inEn;
+        else if (wantsEn) goEn = !inEn;
+
+        if (goEn) {
+          var enPath = (path === "/" || path === "") ? "/en/" : "/en" + path;
+          window.location.replace(enPath);
+        } else if (goEs) {
+          var esPath = (path === "/en" || path === "/en/") ? "/" : path.replace(/^\/en/, "");
+          window.location.replace(esPath || "/");
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.VJyE-nPi.css"></head><body class="min-h-screen bg-background text-foreground"><div class="scanlines" aria-hidden="true"></div><div class="crt-vignette" aria-hidden="true"></div><header class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur"><nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6"><a href="/es/" class="flex items-center gap-2 text-sm font-bold tracking-wide uppercase"><span class="font-display text-[11px] text-primary glow">David</span><span class="cursor-blink text-primary">▮</span></a><!-- Enlaces (escritorio) --><div class="flex items-center gap-1"><ul class="hidden items-center gap-1 sm:flex"><li><a href="/es/" class="px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors text-muted hover:text-foreground">Inicio</a></li><li><a href="/es/proyectos/" class="px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors text-muted hover:text-foreground">Proyectos</a></li><li><a href="/es/#sobre-mi" class="px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors text-muted hover:text-foreground">Sobre mí</a></li><li class="ml-2 flex items-center gap-1 border-l border-border pl-3 text-xs font-bold"><a href="/es/proyectos/documentchain/" data-lang-switch="es" class="px-2 transition-colors text-primary">ES</a><span class="text-faint">/</span><a href="/en/proyectos/documentchain/" data-lang-switch="en" class="px-2 transition-colors text-faint hover:text-foreground">EN</a></li></ul><!-- Botón menú (móvil) --><button type="button" id="menu-toggle" class="flex h-10 w-10 items-center justify-center rounded border border-border text-foreground sm:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></nav><!-- Drawer móvil --><div id="mobile-menu" class="hidden border-t border-border bg-background sm:hidden"><ul class="flex flex-col gap-1 px-4 py-3"><li><a href="/es/" class="block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors text-muted hover:bg-surface hover:text-foreground">Inicio</a></li><li><a href="/es/proyectos/" class="block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors text-muted hover:bg-surface hover:text-foreground">Proyectos</a></li><li><a href="/es/#sobre-mi" class="block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors text-muted hover:bg-surface hover:text-foreground">Sobre mí</a></li><li class="mt-1 flex items-center gap-1 border-t border-border pt-3 px-3 text-sm font-bold"><a href="/es/proyectos/documentchain/" data-lang-switch="es" class="transition-colors text-primary">ES</a><span class="text-faint">/</span><a href="/en/proyectos/documentchain/" data-lang-switch="en" class="transition-colors text-muted">EN</a></li></ul></div></header><script type="module" src="/_astro/Nav.astro_astro_type_script_index_0_lang.DiKTkN-v.js"></script><main class="relative z-10"><section class="mx-auto max-w-6xl px-4 py-14 sm:px-6"><a href="/es/proyectos/" class="text-xs font-bold uppercase tracking-wide text-muted transition-colors hover:text-primary">← volver a proyectos</a><!-- Hero del proyecto --><header class="pixel-panel mt-6 p-6 sm:p-8"><div class="flex flex-wrap items-center justify-between gap-3"><span class="rounded px-2 py-1 text-[10px] font-bold tracking-wide uppercase" style="color: var(--color-secondary)">COMPLETADO</span><span class="font-display text-[10px] text-faint">#DOCUMENTCHAIN</span></div><h1 class="mt-4 text-3xl font-black tracking-tight sm:text-4xl"><span style="text-shadow: 0 0 20px #7ee8c966">DocumentChain</span></h1><p class="mt-3 max-w-2xl text-lg text-muted">Mi TFG: documentos con trazabilidad y control de acceso sobre una cadena de bloques.</p><div class="mt-6 flex flex-wrap gap-3 text-xs font-bold tracking-wide uppercase"><a href="https://github.com/ErDeivih/DocumentChain" target="_blank" rel="noopener" class="rounded-sm border-2 px-4 py-2 transition-colors" style="border-color: #7ee8c9; color: #7ee8c9">Ver repo ↗</a></div><ul class="mt-6 flex flex-wrap gap-1.5"><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Solidity</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Ethereum</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">IPFS</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">TypeScript</li><li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">Docker</li></ul></header><!-- Pestañas --><div class="mt-8"><div data-tabs class="w-full"><div role="tablist" aria-label="Secciones del proyecto" class="flex flex-wrap gap-1 border-b border-border pb-px"><button type="button" role="tab" data-value="resumen" aria-selected="true" tabindex="0" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Resumen</button><button type="button" role="tab" data-value="teoria" aria-selected="false" tabindex="-1" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Teoría</button><button type="button" role="tab" data-value="tecnicas" aria-selected="false" tabindex="-1" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Técnicas</button><button type="button" role="tab" data-value="demo" aria-selected="false" tabindex="-1" class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary">Cómo empezar</button></div><!-- Las páginas del contenido se pasan por slot, rodeadas de data-panel --><div><div role="tabpanel" id="panel-resumen" data-panel="resumen" class="reveal in-view py-5"><article class="prose-content max-w-3xl"><p>DocumentChain es mi <strong>Trabajo de Fin de Grado</strong>: un sistema de gestión documental que combina
+<strong>blockchain (Ethereum)</strong>, <strong>IPFS</strong> y <strong>cifrado de extremo a extremo</strong> para guardar documentos de
+forma segura, con trazabilidad completa y control de acceso distribuido.</p>
+<p>La idea es que la integridad del documento (quién lo subió, cuándo y qué versión) quede registrada
+en la cadena, mientras el contenido se almacena en IPFS y cifrado, de modo que el control no dependa
+de un único servidor. Todo se levanta con Docker Compose en Windows, Linux y macOS.</p>
+<h2 id="qué-incluye">Qué incluye</h2>
+<ul>
+<li><strong>Blockchain</strong>: contratos inteligentes en Ethereum (Solidity, Hardhat, Ethers.js) para trazabilidad
+y control de acceso.</li>
+<li><strong>Almacenamiento descentralizado</strong>: IPFS Cluster con varios nodos y replicación automática.</li>
+<li><strong>Cifrado end-to-end</strong>: AES-256-GCM para archivos y ECIES para compartir llaves.</li>
+<li><strong>Versionado</strong>: versiones de archivos on-chain.</li>
+<li><strong>Firmas digitales</strong> verificables y <strong>permisos</strong> a nivel de archivo.</li>
+<li><strong>Frontend</strong> en React 18 + TypeScript + Vite + Tailwind, y <strong>backend</strong> Node.js + Express.</li>
+</ul>
+<h2 id="por-qué-me-interesó">Por qué me interesó</h2>
+<p>Era la primera vez que tocaba smart contracts y a la vez un proyecto con frontend, backend y
+despliegue con Docker. Me sirvió para cerrar el máster con algo que junta seguridad, criptografía
+y desarrollo web full-stack.</p></article></div><div role="tabpanel" id="panel-teoria" data-panel="teoria" hidden class="reveal in-view py-5"><article class="prose-content max-w-3xl"><h2 id="el-problema">El problema</h2>
+<p>Guardar documentos importantes en un servidor normal tiene dos limitaciones: si el servidor cae o lo
+controlan, se pierde el control, y cuesta demostrar que un documento no se ha tocado. La solución
+que explora DocumentChain es repartir esa confianza: la cadena garantiza <strong>qué</strong> pasó y <strong>cuándo</strong>,
+e IPFS garantiza que el contenido <strong>sigue ahí</strong>, sin depender de una sola máquina.</p>
+<h2 id="las-tres-piezas">Las tres piezas</h2>
+<ul>
+<li><strong>Blockchain (Ethereum)</strong> — se usa como registro inmutable: quién subió cada documento, su versión
+y los permisos. Los contratos inteligentes hacen cumplir esas reglas por código, no por una persona.</li>
+<li><strong>IPFS Cluster</strong> — guarda el contenido real de los documentos, replicado en varios nodos con un
+balanceador delante, para que no dependa de un único servidor.</li>
+<li><strong>Cifrado end-to-end</strong> — el documento se cifra antes de subirse. AES-256-GCM para el archivo y
+ECIES para compartir las llaves con quien corresponda.</li>
+</ul>
+<h2 id="qué-aporta-cada-decisión">Qué aporta cada decisión</h2>
+<ul>
+<li><strong>Trazabilidad</strong>: cada cambio deja huella on-chain y se puede verificar.</li>
+<li><strong>Control de acceso distribuido</strong>: los permisos viven en los contratos, no en una base de datos
+que alguien administra.</li>
+<li><strong>Integridad</strong>: al haber cifrado y registro en cadena, un documento no se puede alterar sin que se note.</li>
+</ul></article></div><div role="tabpanel" id="panel-tecnicas" data-panel="tecnicas" hidden class="reveal in-view py-5"><article class="prose-content max-w-3xl"><h2 id="stack">Stack</h2>
+<ul>
+<li><strong>Frontend</strong>: React 18 + TypeScript + Vite + TailwindCSS.</li>
+<li><strong>Backend</strong>: Node.js + Express, conectado a IPFS Cluster.</li>
+<li><strong>Blockchain</strong>: Solidity + Hardhat + Ethers.js.</li>
+<li><strong>Almacenamiento</strong>: IPFS Cluster (varios nodos con Nginx como balanceador).</li>
+<li><strong>Seguridad</strong>: AES-256-GCM + ECIES + MetaMask.</li>
+<li><strong>Despliegue</strong>: Docker Compose (Windows, Linux y macOS).</li>
+</ul>
+<h2 id="cómo-se-conecta-todo">Cómo se conecta todo</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Frontend ──► Backend API ──► Blockchain (Hardhat/ETH)</span></span>
+<span class="line"><span>                 │</span></span>
+<span class="line"><span>                 └──► IPFS Cluster (nodos + load balancer)</span></span></code></pre>
+<p>La petición pasa del frontend al backend, este registra la operación en la cadena y guarda el
+contenido en IPFS. El detalle que más trabajo me costó fue la <strong>limpieza automática de IPFS</strong>
+disparada por eventos de la blockchain.</p>
+<h2 id="puertos-cuando-está-arrancado">Puertos cuando está arrancado</h2>
+<table>
+<thead>
+<tr>
+<th>Servicio</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend</td>
+<td><code>http://localhost:5173</code></td>
+</tr>
+<tr>
+<td>Backend API</td>
+<td><code>http://localhost:3000/api/health</code></td>
+</tr>
+<tr>
+<td>Hardhat RPC</td>
+<td><code>http://localhost:8545</code></td>
+</tr>
+</tbody>
+</table></article></div><div role="tabpanel" id="panel-demo" data-panel="demo" hidden class="reveal in-view py-5"><article class="prose-content max-w-3xl"><h2 id="requisitos">Requisitos</h2>
+<ul>
+<li>Docker Desktop</li>
+<li>Git</li>
+</ul>
+<h2 id="arrancarlo">Arrancarlo</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#9ECBFF"> https://github.com/ErDeivih/DocumentChain.git</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> DocumentChain</span></span>
+<span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> compose</span><span style="color:#9ECBFF"> up</span><span style="color:#79B8FF"> -d</span><span style="color:#79B8FF"> --build</span></span></code></pre>
+<p>La primera vez tarda <strong>~5 minutos</strong> (descarga de imágenes y compilación). Los arranques siguientes
+son <code>docker compose up -d</code> (unos 30 segundos).</p>
+<h2 id="usuarios-de-prueba">Usuarios de prueba</h2>
+<p>El backend genera automáticamente dos usuarios al iniciar:</p>
+<table>
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Contraseña</th>
+<th>Rol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin</code></td>
+<td><code>Admin1234</code></td>
+<td>ADMIN</td>
+</tr>
+<tr>
+<td><code>david</code></td>
+<td><code>David1234</code></td>
+<td>USER</td>
+</tr>
+</tbody>
+</table>
+<h2 id="probar-los-smart-contracts">Probar los smart contracts</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> smart-contracts</span></span>
+<span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span></span>
+<span class="line"><span style="color:#B392F0">npx</span><span style="color:#9ECBFF"> hardhat</span><span style="color:#9ECBFF"> test</span></span></code></pre>
+<p>Con esto verificas que los contratos de Ethereum se comportan como esperas. Para probar la app
+completa, entra en el frontend (<code>http://localhost:5173</code>), inicia sesión con los usuarios de arriba
+y prueba a subir un documento, ver su versión y compartir el acceso.</p></article></div></div></div><script type="module" src="/_astro/Tabs.astro_astro_type_script_index_0_lang.CblquX8s.js"></script></div></section></main><footer class="relative z-10 mt-24 border-t border-border"><div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-10 text-center sm:px-6"><p class="font-display text-[10px] text-primary glow">David</p><div class="flex flex-wrap items-center justify-center gap-4 text-xs font-bold tracking-wide uppercase"><a href="https://github.com/ErDeivih" target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">GitHub @ErDeivih</a><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco" target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">LinkedIn</a><a href="mailto:davidpeve01@gmail.com" class="text-muted transition-colors hover:text-primary">Email</a></div><p class="text-xs text-faint">$ Hecho con Astro · diseño propio retro-terminal · 2026</p></div></footer><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.CvsF3tAw.js"></script></body></html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow"><title>David Pérez Velasco — Developer Portfolio</title><script>
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem("lang"); } catch (e) {}
+        var n = (navigator.language || "es").toLowerCase();
+        var loc = (stored === "en" || (stored !== "es" && n.indexOf("en") === 0)) ? "/en/" : "/es/";
+        window.location.replace(loc);
+      })();
+    </script></head><body></body></html>
