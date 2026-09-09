@@ -22,10 +22,12 @@ flutter pub get
 ```
 
 Antes de arrancar hay que configurar **Firebase** (Auth + Firestore) y añadir el
-`google-services.json`. Las reglas de Firestore se despliegan con:
+`google-services.json`. Las reglas e índices de Firestore se despliegan con:
 
 ```bash
-flutter run            # web o Android
+firebase deploy --only firestore:rules
+firebase deploy --only firestore:indexes
+flutter run -d chrome
 ```
 
 Una vez dentro puedes: **crear un equipo**, **añadir jugadores** con su código de invitación,

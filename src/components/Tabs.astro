@@ -1,74 +1,49 @@
 ---
-interface Props {
-  tabs: { id: string; label: string }[];
-}
-const { tabs } = Astro.props;
+interface Props { tabs: { id: string; label: string }[]; ariaLabel?: string }
+const { tabs, ariaLabel = "Project sections" } = Astro.props;
 ---
 
-<div data-tabs class="w-full">
-  <div
-    role="tablist"
-    aria-label="Secciones del proyecto"
-    class="flex flex-wrap gap-1 border-b border-border pb-px"
-  >
-    {
-      tabs.map((t, i) => (
-        <button
-          type="button"
-          role="tab"
-          data-value={t.id}
-          aria-selected={i === 0 ? "true" : "false"}
-          tabindex={i === 0 ? 0 : -1}
-          class="-mb-px inline-flex items-center gap-2 border-b-2 border-transparent px-3 py-2 text-xs font-bold tracking-wide uppercase text-muted transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-primary"
-        >
-          {t.label}
-        </button>
-      ))
-    }
+<div data-tabs>
+  <div role="tablist" aria-label={ariaLabel} class="flex gap-1 overflow-x-auto border-b border-foreground pb-px">
+    {tabs.map((tab, i) => (
+      <button type="button" role="tab" data-value={tab.id} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}
+        class="whitespace-nowrap border-b-4 border-transparent px-4 py-3 font-mono text-[11px] font-bold uppercase tracking-wider text-muted hover:text-foreground aria-selected:border-primary aria-selected:text-foreground">
+        {String(i + 1).padStart(2, "0")} {tab.label}
+      </button>
+    ))}
   </div>
-
-  <!-- Las páginas del contenido se pasan por slot, rodeadas de data-panel -->
-  <div>
-    <slot />
-  </div>
+  <slot />
 </div>
 
 <script>
-  const root = document.querySelector<HTMLElement>("[data-tabs]");
-  if (root) {
-    const triggers = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
-    const panels = [...root.querySelectorAll<HTMLElement>("[data-panel]")];
-
-    function activate(id: string) {
-      triggers.forEach((t) => {
-        const active = t.dataset.value === id;
-        t.setAttribute("aria-selected", String(active));
-        t.tabIndex = active ? 0 : -1;
+  function setupTabs() {
+    document.querySelectorAll<HTMLElement>("[data-tabs]").forEach(root => {
+      if (root.dataset.ready) return;
+      root.dataset.ready = "true";
+      const triggers = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+      const panels = [...root.querySelectorAll<HTMLElement>("[data-panel]")];
+      const activate = (id: string) => {
+        triggers.forEach(trigger => {
+          const active = trigger.dataset.value === id;
+          trigger.setAttribute("aria-selected", String(active));
+          trigger.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach(panel => panel.hidden = panel.dataset.panel !== id);
+      };
+      triggers.forEach((trigger, i) => {
+        trigger.addEventListener("click", () => activate(trigger.dataset.value!));
+        trigger.addEventListener("keydown", event => {
+          let next: number | null = null;
+          if (event.key === "ArrowRight") next = (i + 1) % triggers.length;
+          if (event.key === "ArrowLeft") next = (i - 1 + triggers.length) % triggers.length;
+          if (event.key === "Home") next = 0;
+          if (event.key === "End") next = triggers.length - 1;
+          if (next !== null) { event.preventDefault(); activate(triggers[next].dataset.value!); triggers[next].focus(); }
+        });
       });
-      panels.forEach((p) => {
-        p.hidden = p.dataset.panel !== id;
-        if (!p.hidden) p.setAttribute("tabindex", "0");
-      });
-    }
-
-    triggers.forEach((t, i) => {
-      t.addEventListener("click", () => activate(t.dataset.value!));
-      t.addEventListener("keydown", (e) => {
-        let next: number | null = null;
-        if (e.key === "ArrowRight") next = (i + 1) % triggers.length;
-        else if (e.key === "ArrowLeft") next = (i - 1 + triggers.length) % triggers.length;
-        else if (e.key === "Home") next = 0;
-        else if (e.key === "End") next = triggers.length - 1;
-        if (next !== null) {
-          e.preventDefault();
-          const target = triggers[next];
-          activate(target.dataset.value!);
-          target.focus();
-        }
-      });
+      if (triggers[0]) activate(triggers[0].dataset.value!);
     });
-
-    // Estado inicial: muestra el primero, oculta el resto (progressive enhancement)
-    if (panels.length) activate(triggers[0]?.dataset.value ?? panels[0].dataset.panel!);
   }
+  setupTabs();
+  document.addEventListener("astro:page-load", setupTabs);
 </script>

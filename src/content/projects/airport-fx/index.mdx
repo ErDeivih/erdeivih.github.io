@@ -1,0 +1,43 @@
+---
+type: "project"
+title: "FX Aeropuertos"
+description: "Plataforma de datos para anticipar la demanda de efectivo por moneda y aeropuerto."
+tagline: "Una pregunta de tesorería: cuánto efectivo debería haber mañana en cada oficina."
+repo: "https://github.com/ErDeivih/airport-fx-data-platform"
+color: "#d7b51d"
+status: "active"
+year: "2026"
+role: "Data engineering y diseño analítico"
+highlight: "El proyecto separa de forma explícita datos oficiales, estimaciones por IPF y transacciones sintéticas; no presenta simulación como observación real."
+stack: ["Python", "Dagster", "dbt", "DuckDB", "Power BI", "pytest"]
+order: 4
+featured: true
+---
+
+FX Aeropuertos reconstruye un problema típico de una operadora de cambio de divisa: decidir cuánto
+efectivo de cada moneda necesita una oficina de aeropuerto sin inmovilizar más caja de la necesaria.
+
+El inventario se mueve en dos sentidos. Vender divisa a quien sale de España reduce ese stock;
+comprarla a quien llega lo repone y consume euros. Modelar ambos flujos por separado es imprescindible
+para poder pronosticar y tomar una decisión de inventario.
+
+## Qué hace distinto al proyecto
+
+No existe una fuente pública con transacciones individuales de cambio de moneda ni una tabla completa
+de turistas por país y aeropuerto. En vez de esconder ese hueco, el diseño distingue tres capas:
+
+- **Datos reales**: tipos de cambio, turismo, gasto, pasajeros y festivos procedentes de fuentes públicas.
+- **Datos estimados**: la distribución país × aeropuerto, reconstruida mediante ajuste proporcional iterativo (IPF).
+- **Datos sintéticos**: transacciones generadas por un simulador que debe volver a cuadrar con los agregados oficiales.
+
+## La decisión final que persigue
+
+Sobre esa base, el roadmap plantea pronósticos por cuantiles y una política *newsvendor*: elegir el
+nivel de stock según el coste de quedarse corto y el de mantener efectivo inmovilizado, y validarlo
+con backtesting temporal.
+
+## Estado real
+
+Está en desarrollo. Hoy existen el paquete Python, la política de fuentes, fixtures reales mínimos,
+normalización estricta, escritura atómica, validación de documentación y CI. La ingesta HTTP, el
+modelo dimensional, Power BI y el forecasting están diseñados pero todavía no se presentan como terminados.

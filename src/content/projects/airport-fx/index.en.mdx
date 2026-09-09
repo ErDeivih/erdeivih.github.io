@@ -1,0 +1,43 @@
+---
+type: "project"
+lang: "en"
+title: "Airport FX"
+description: "A data platform for anticipating cash demand by currency and airport."
+tagline: "A treasury question: how much cash should each airport office hold tomorrow?"
+repo: "https://github.com/ErDeivih/airport-fx-data-platform"
+color: "#d7b51d"
+status: "active"
+year: "2026"
+role: "Data engineering and analytical design"
+highlight: "The project explicitly separates official data, IPF estimates and synthetic transactions; it never presents simulation as observation."
+stack: ["Python", "Dagster", "dbt", "DuckDB", "Power BI", "pytest"]
+order: 4
+featured: true
+---
+
+Airport FX reconstructs a common foreign-exchange operator problem: deciding how much cash in each
+currency an airport office needs without locking up more money than necessary.
+
+Inventory moves in both directions. Selling foreign currency to somebody leaving Spain reduces that
+stock; buying it from somebody arriving replenishes it while consuming euros. Both flows need separate
+models before they can be forecast and turned into an inventory decision.
+
+## What makes the project different
+
+There is no public source of individual FX transactions or a complete country-by-airport tourism
+table. Instead of hiding that gap, the design distinguishes three layers:
+
+- **Real data**: exchange rates, tourism, spend, passenger and holiday data from public sources.
+- **Estimated data**: the country × airport distribution, reconstructed with iterative proportional fitting (IPF).
+- **Synthetic data**: simulated transactions that must aggregate back to the official totals.
+
+## The decision it is working towards
+
+On top of that foundation, the roadmap specifies quantile forecasts and a newsvendor policy: select
+inventory from the cost of shortage versus idle cash, then validate it with honest temporal backtesting.
+
+## Honest status
+
+This is under development. The Python package, source policy, minimal real fixtures, strict
+normalisation, atomic writes, documentation validation and CI exist today. HTTP ingestion, the
+dimensional model, Power BI and forecasting are designed but are not presented as complete.

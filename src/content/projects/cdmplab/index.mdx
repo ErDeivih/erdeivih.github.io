@@ -1,0 +1,47 @@
+---
+type: "project"
+title: "CDMPLab"
+description: "Pizarra táctica y biblioteca de ejercicios para entrenadores de fútbol."
+tagline: "Dibujar una sesión, organizarla y compartirla sin pelearse con la herramienta."
+repo: "https://github.com/ErDeivih/CDMPLab"
+demo: "https://erdeivih.github.io/CDMPLab/"
+image: "/projects/cdmplab.png"
+imageAlt: "Ejercicio de conservación dibujado sobre un campo de fútbol en CDMPLab"
+color: "#087e6b"
+status: "active"
+year: "2026"
+role: "Producto, frontend y datos"
+highlight: "El editor guarda una representación estable del ejercicio y separa la pantalla del origen de datos: local para probar, Supabase para colaborar."
+stack: ["Angular 22", "TypeScript", "SCSS", "Supabase", "Playwright"]
+order: 1
+featured: true
+---
+
+CDMPLab es una **pizarra táctica y biblioteca de ejercicios** para entrenadores. Permite colocar
+jugadores y material, dibujar movimientos, añadir texto y guardar cada composición dentro de una
+biblioteca organizada por carpetas.
+
+El reto no estaba en pintar un campo. Estaba en que seleccionar, arrastrar, girar, redimensionar,
+hacer zoom y cambiar la orientación siguiera siendo predecible tanto con ratón como en una pantalla
+pequeña.
+
+## Lo que funciona hoy
+
+- Campo completo, medio campo, F7 transversal y lienzo sin líneas.
+- Jugadores, balones, conos, picas, miniporterías, formas, flechas y texto.
+- Plantillas de formaciones, duplicado, carpetas, sesiones y exportación.
+- Modo local inmediato y modo multiusuario con propietario y hasta cuatro colaboradores.
+- Autenticación y aislamiento de datos por equipo mediante Supabase y Row Level Security.
+- Pruebas unitarias y recorridos E2E con Playwright, también sobre la build de producción.
+
+## Una decisión que no se ve
+
+Las pantallas no hablan directamente con Supabase. Se apoyan en una fuente de datos intercambiable:
+almacenamiento local durante el desarrollo o repositorio remoto al iniciar sesión. Así puedo probar
+la interacción sin depender de la red y mantener la seguridad como responsabilidad de la base de datos.
+
+## Estado real
+
+La demo pública está desplegada en GitHub Pages. El flujo multiusuario existe y las migraciones de
+base de datos están versionadas; el alta real de usuarios y el correo de invitación todavía requieren
+configuración operativa del proyecto Supabase.

@@ -23,10 +23,12 @@ flutter pub get
 ```
 
 Before starting you need to set up **Firebase** (Auth + Firestore) and add the `google-services.json`.
-Firestore rules are deployed with:
+Firestore rules and indexes are deployed with:
 
 ```bash
-flutter run            # web or Android
+firebase deploy --only firestore:rules
+firebase deploy --only firestore:indexes
+flutter run -d chrome
 ```
 
 Once inside you can **create a team**, **add players** with their invite code, **log a fine** and

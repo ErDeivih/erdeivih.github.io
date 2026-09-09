@@ -5,62 +5,43 @@ import { useTranslations } from "../i18n/ui";
 interface Props {
   project: CollectionEntry<"projects">["data"];
   slug: string;
+  index?: number;
 }
-const { project, slug } = Astro.props;
-
+const { project, slug, index = 0 } = Astro.props;
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
-const prefix = `/${locale}`;
-
 const statusLabel = t.project.statuses[project.status as keyof typeof t.project.statuses] ?? project.status;
-const statusColor: Record<string, string> = {
-  active: "var(--color-primary)",
-  maintained: "var(--color-accent)",
-  paused: "var(--color-tertiary)",
-  archived: "var(--color-muted)",
-  complete: "var(--color-secondary)",
-};
-
-const accent = project.color ?? "var(--color-secondary)";
+const monogram = project.title?.split(/\s+/).map(word => word[0]).join("").slice(0, 2) ?? "DP";
 ---
 
-<article class="project-card group flex flex-col rounded-md p-5 sm:p-6">
-  <div class="flex items-center justify-between gap-3">
-    <span
-      class="rounded px-2 py-1 text-[10px] font-bold tracking-wide uppercase"
-      style={`color: ${statusColor[project.status] ?? "var(--color-muted)"}`}
-    >
-      {statusLabel}
-    </span>
-    <span class="font-display text-[10px] text-faint">#{slug.slice(0, 8).toUpperCase()}</span>
-  </div>
-
-  <h3 class="mt-4 text-lg font-bold" style={`text-shadow: 0 0 14px ${accent}55`}>
-    {project.title}
-  </h3>
-
-  <p class="mt-2 flex-1 text-sm text-muted">{project.description}</p>
-
-  {
-    project.stack && project.stack.length > 0 && (
-      <ul class="mt-4 flex flex-wrap gap-1.5">
-        {project.stack.map((s) => (
-          <li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">{s}</li>
-        ))}
-      </ul>
-    )
-  }
-
-  <div class="mt-5 flex items-center gap-3 border-t border-border pt-4 text-xs font-bold tracking-wide uppercase">
-    <a href={`${prefix}/proyectos/${slug}/`} class="transition-colors hover:text-primary" style={`color: ${accent}`}>
-      {t.project.card.view}
+<article class="project-card reveal py-8 sm:py-10">
+  <div class="grid gap-6 lg:grid-cols-[minmax(18rem,.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12">
+    <a href={`/${locale}/proyectos/${slug}/`} class="project-visual block" style={`--project-accent:${project.color ?? "#3655f5"}`} aria-label={`${t.project.card.view}: ${project.title}`}>
+      {project.image ? (
+        <img src={project.image} alt={project.imageAlt ?? ""} width="1329" height="568" loading={index > 0 ? "lazy" : "eager"} />
+      ) : (
+        <>
+          <span class="absolute left-4 top-4 rounded-full bg-background px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">{project.highlight ?? project.stack?.[0]}</span>
+          <span class="project-monogram" aria-hidden="true">{monogram}</span>
+        </>
+      )}
     </a>
-    {
-      project.repo && (
-        <a href={project.repo} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-foreground">
-          {t.project.card.repo}
-        </a>
-      )
-    }
+
+    <div>
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="project-number">{String(index + 1).padStart(2, "0")} / {project.year ?? "2026"}</p>
+        <p class="kicker text-muted">{statusLabel}</p>
+      </div>
+      <h2 class="mt-5 text-4xl font-black tracking-[-.055em] sm:text-6xl">{project.title}</h2>
+      {project.tagline && <p class="mt-4 max-w-xl text-xl leading-snug text-muted">{project.tagline}</p>}
+      {project.highlight && <p class="mt-5 border-l-4 pl-4 font-mono text-sm" style={`border-color:${project.color ?? "#f0522d"}`}>{project.highlight}</p>}
+      <ul class="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-mono text-[11px] font-bold uppercase tracking-wide text-muted">
+        {project.stack?.slice(0, 5).map(item => <li>{item}</li>)}
+      </ul>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href={`/${locale}/proyectos/${slug}/`} class="button-primary">{t.project.card.view}</a>
+        {project.demo && <a href={project.demo} target="_blank" rel="noopener" class="button-secondary">{t.project.demo}</a>}
+      </div>
+    </div>
   </div>
 </article>

@@ -9,14 +9,16 @@ import { useTranslations } from "../i18n/ui";
 interface Props {
   title?: string;
   description?: string;
+  image?: string | null;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
 const fullTitle = title ? `${title} · ${site.name}` : t.metaTitle;
 const desc = description ?? t.metaDescription;
 const canonical = new URL(Astro.url.pathname, site.url);
+const socialImage = image === undefined ? new URL("/og.png", site.url) : image ? new URL(image, site.url) : null;
 ---
 
 <!doctype html>
@@ -34,6 +36,13 @@ const canonical = new URL(Astro.url.pathname, site.url);
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale === "en" ? "en-US" : "es-ES"} />
     <meta property="og:site_name" content={site.name} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:alt" content={title ?? "David Pérez Velasco — Software, datos y producto"} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
+    <meta name="theme-color" content="#f2efe7" />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
 
@@ -63,9 +72,6 @@ const canonical = new URL(Astro.url.pathname, site.url);
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground">
-    <div class="scanlines" aria-hidden="true"></div>
-    <div class="crt-vignette" aria-hidden="true"></div>
-
     <Nav />
 
     <main class="relative z-10">

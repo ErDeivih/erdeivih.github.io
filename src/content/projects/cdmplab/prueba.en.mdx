@@ -1,0 +1,34 @@
+---
+type: "tab"
+lang: "en"
+project: "cdmplab"
+tab: "prueba"
+label: "Try it"
+order: 3
+---
+
+## The short route
+
+The [public demo](https://erdeivih.github.io/CDMPLab/) shows authentication and the deployed build.
+To explore the editor without a backend, the repository starts in local mode:
+
+```bash
+git clone https://github.com/ErDeivih/CDMPLab.git
+cd CDMPLab
+npm install
+npm run start
+```
+
+Open `http://localhost:4200`, create an exercise, change the pitch template, place a formation, draw a
+movement and save it to the library.
+
+## Repository checks
+
+```bash
+npm run test:unit
+npm run test:e2e
+npm run build
+```
+
+There are also separate journeys for the production build, GitHub Pages and—opt in, with prepared
+accounts—the real Supabase project.

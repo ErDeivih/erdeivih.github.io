@@ -1,134 +1,123 @@
-// Diccionario i18n (es/en) — textos de la interfaz.
-// El contenido de los proyectos (MDX) se traduce en sus propios ficheros (campo `lang`).
-
 export type Locale = "es" | "en";
 export const locales: Locale[] = ["es", "en"];
 export const defaultLocale: Locale = "es";
 
 export const ui = {
   es: {
-    metaTitle: "David Pérez Velasco — Developer Portfolio",
-    metaDescription:
-      "Portfolio de David Pérez Velasco, ingeniero informático. Proyectos explicados con su teoría, sus técnicas y cómo ejecutarlos y probarlos.",
-    langLabel: "ES",
-    nav: { home: "Inicio", projects: "Proyectos", about: "Sobre mí" },
+    metaTitle: "David Pérez Velasco — Ingeniería de software, datos y producto",
+    metaDescription: "Portfolio de David Pérez Velasco: aplicaciones reales, sistemas distribuidos y proyectos de datos explicados desde el problema hasta las decisiones técnicas.",
+    nav: { home: "Inicio", projects: "Proyectos", about: "Perfil", contact: "Contacto", language: "Idioma" },
     hero: {
-      whoami: "whoami",
-      hello: "Hola, soy",
-      roles: ["Desarrollador", "Full-Stack", "Creador de apps", "Resolver problemas"],
-      intro:
-        "Construyo aplicaciones web y herramientas, y las documento aquí. Este es mi portfolio: proyectos explicados con su teoría, sus técnicas y su código en GitHub.",
+      eyebrow: "David Pérez Velasco · Ingeniero informático",
+      availability: "Portfolio / 2026",
+      headline: "Software para problemas concretos",
+      intro: "Me gusta partir de una necesidad real, entenderla bien y convertirla en una aplicación que se pueda usar y mantener. Aquí cuento qué hice, por qué lo hice así y qué queda por mejorar.",
       viewProjects: "Ver proyectos",
-      github: "GitHub",
-      celebrate: "✨ ¡Celebrar!",
-      stats: [
-        { n: "3+", l: "proyectos" },
-        { n: "100%", l: "código propio" },
-        { n: "0€", l: "en hosting" },
+      facts: [
+        { label: "Ahora", value: "Máster en Ingeniería Informática" },
+        { label: "Áreas", value: "Web · móvil · datos" },
+        { label: "En cada proyecto", value: "Código, decisiones y cómo probarlo" },
       ],
     },
     about: {
-      cmd: "cat about.md",
-      title: "Sobre mí",
-      text: "Soy David Pérez Velasco, ingeniero informático por la Universidad de Salamanca y ahora cursando el máster en Ingeniería Informática. Empecé con Java y acabé aterrizando en el desarrollo web: TypeScript, React y Node.js, con Spring Framework en la parte de backend. Mi TFG, DocumentChain, junta blockchain (Ethereum), IPFS y cifrado para gestionar documentos con trazabilidad y control de acceso. Me gustan los proyectos donde hay sistema y producto a la vez: base de datos de verdad, autenticación y una interfaz que no estorbe. Aquí cada proyecto explica qué es, cómo está hecho y cómo se ejecuta y se prueba.",
-      stackTitle: "stack con el que trabajo",
-      stack: [
-        "Java / Spring Framework",
-        "TypeScript / React / Node.js",
-        "Solidity / Blockchain / IPFS",
-        "Flutter · Docker · Git",
+      kicker: "Perfil",
+      title: "Un poco sobre mí",
+      lead: "Estudié Ingeniería Informática en la Universidad de Salamanca y ahora curso el máster. Suelo aprender mejor cuando tengo un problema real delante y algo que quiero dejar funcionando.",
+      text: "Por eso mis proyectos son bastante distintos: una app para las cuentas de un equipo de fútbol, una pizarra para entrenadores, mi TFG sobre documentos e IPFS y una plataforma de datos para aeropuertos. En cada uno he tenido que moverme entre la interfaz, la lógica y la parte que nadie ve.",
+      principles: [
+        { title: "Entender antes de programar", text: "MuniPay empezó con un Excel incómodo; CDMPLab, con una pizarra que tenía que ser fácil de manejar." },
+        { title: "Dejar las decisiones por escrito", text: "Intento explicar por qué elegí cada pieza y qué límites tiene, no solo enumerar tecnologías." },
+        { title: "No esconder lo pendiente", text: "Si una parte es un prototipo o todavía está en el roadmap, prefiero decirlo claramente." },
       ],
     },
-    projectsHome: { cmd: "ls ./proyectos", title: "Proyectos", all: "ver todos" },
-    projectsPage: {
-      cmd: "ls ./proyectos",
+    projectsHome: {
+      kicker: "Trabajo reciente",
       title: "Proyectos",
-      intro:
-        "Cada proyecto tiene su propia página con pestañas (resumen, teoría, técnicas y documentación) y su enlace al repositorio en GitHub.",
+      intro: "He elegido cuatro proyectos que enseñan partes distintas de mi trabajo. Cada uno incluye contexto, decisiones técnicas, estado actual y una forma de probarlo.",
+      all: "Ver archivo completo",
+    },
+    projectsPage: {
+      kicker: "Archivo / 04",
+      title: "Proyectos",
+      intro: "Una selección de proyectos personales y académicos. En cada ficha explico el problema, las decisiones técnicas y el estado real del trabajo.",
     },
     project: {
-      back: "← volver a proyectos",
-      viewRepo: "Ver repo ↗",
-      demo: "Demo en vivo ↗",
-      resumen: "Resumen",
-      notFound: "Proyecto no encontrado.",
-      backLink: "← volver",
-      card: { view: "Ver proyecto →", repo: "Repo ↗" },
-      statuses: {
-        active: "ACTIVO",
-        maintained: "EN MANTENIMIENTO",
-        paused: "EN PAUSA",
-        archived: "ARCHIVADO",
-        complete: "COMPLETADO",
-      },
+      back: "← Todos los proyectos",
+      viewRepo: "Código en GitHub ↗",
+      demo: "Abrir demo ↗",
+      resumen: "Caso de estudio",
+      sectionsLabel: "Secciones del proyecto",
+      keyPoint: "La idea clave",
+      notFound: "No encuentro ese proyecto.",
+      backLink: "← Volver",
+      card: { view: "Leer el caso", repo: "Repo ↗" },
+      statuses: { active: "En desarrollo", maintained: "En mantenimiento", paused: "En pausa", archived: "Archivado", complete: "Completado" },
     },
-    footer: { madeWith: "$ Hecho con Astro · diseño propio retro-terminal · {year}" },
+    footer: {
+      kicker: "Contacto",
+      title: "¿Quieres hablar?",
+      text: "Si te interesa alguno de los proyectos, crees que puedo encajar en una oportunidad o simplemente quieres comentar una decisión técnica, puedes escribirme.",
+      madeWith: "Diseñado y construido por David · Astro",
+    },
   },
-
   en: {
-    metaTitle: "David Pérez Velasco — Developer Portfolio",
-    metaDescription:
-      "Portfolio of David Pérez Velasco, software engineer. Projects explained with their theory, their techniques and how to run and test them.",
-    langLabel: "EN",
-    nav: { home: "Home", projects: "Projects", about: "About me" },
+    metaTitle: "David Pérez Velasco — Software engineering, data and product",
+    metaDescription: "David Pérez Velasco's portfolio: real applications, distributed systems and data projects explained from problem to technical decisions.",
+    nav: { home: "Home", projects: "Projects", about: "Profile", contact: "Contact", language: "Language" },
     hero: {
-      whoami: "whoami",
-      hello: "Hi, I'm",
-      roles: ["Developer", "Full-Stack", "App builder", "Problem solver"],
-      intro:
-        "I build web apps and tools and document them here. This is my portfolio: projects explained with their theory, techniques and code on GitHub.",
+      eyebrow: "David Pérez Velasco · Software engineer",
+      availability: "Portfolio / 2026",
+      headline: "Software for concrete problems",
+      intro: "I like to start with a real need, understand it properly and turn it into software that people can use and maintain. Here I explain what I built, why I made those choices and what still needs work.",
       viewProjects: "View projects",
-      github: "GitHub",
-      celebrate: "✨ Celebrate!",
-      stats: [
-        { n: "3+", l: "projects" },
-        { n: "100%", l: "own code" },
-        { n: "€0", l: "hosting" },
+      facts: [
+        { label: "Currently", value: "MSc in Computer Engineering" },
+        { label: "Areas", value: "Web · mobile · data" },
+        { label: "In each project", value: "Code, decisions and how to try it" },
       ],
     },
     about: {
-      cmd: "cat about.md",
-      title: "About me",
-      text: "I'm David Pérez Velasco, software engineer from the University of Salamanca, now doing an MSc in Computer Engineering. I started with Java and ended up in web development: TypeScript, React and Node.js, with Spring Framework on the backend. My final project, DocumentChain, combines blockchain (Ethereum), IPFS and encryption to manage documents with traceability and access control. I like projects that mix system and product: a real database, authentication and an interface that doesn't get in the way. Here each project explains what it is, how it's built and how to run and test it.",
-      stackTitle: "stack I work with",
-      stack: [
-        "Java / Spring Framework",
-        "TypeScript / React / Node.js",
-        "Solidity / Blockchain / IPFS",
-        "Flutter · Docker · Git",
+      kicker: "Profile",
+      title: "A little about me",
+      lead: "I studied Computer Engineering at the University of Salamanca and I am now completing my master's. I learn best when I have a real problem in front of me and something I want to leave working.",
+      text: "That is why my projects are quite different: an app for a football team's accounts, a tactical board for coaches, my final project on documents and IPFS, and an airport data platform. Each one made me work across the interface, the logic and the parts users never see.",
+      principles: [
+        { title: "Understand before coding", text: "MuniPay began with an awkward spreadsheet; CDMPLab with a board that needed to be easy to handle." },
+        { title: "Write decisions down", text: "I try to explain why I chose each part and where its limits are, not just list technologies." },
+        { title: "Be clear about unfinished work", text: "If something is a prototype or still on the roadmap, I would rather say so plainly." },
       ],
     },
-    projectsHome: { cmd: "ls ./projects", title: "Projects", all: "view all" },
-    projectsPage: {
-      cmd: "ls ./projects",
+    projectsHome: {
+      kicker: "Recent work",
       title: "Projects",
-      intro:
-        "Each project has its own page with tabs (overview, theory, techniques and how-to-run) and a link to its GitHub repository.",
+      intro: "I chose four projects that show different parts of my work. Each one includes context, technical decisions, current status and a way to try it.",
+      all: "View full archive",
+    },
+    projectsPage: {
+      kicker: "Archive / 04",
+      title: "Projects",
+      intro: "A selection of personal and academic projects. Each case explains the problem, the technical decisions and the work's current state.",
     },
     project: {
-      back: "← back to projects",
-      viewRepo: "View repo ↗",
-      demo: "Live demo ↗",
-      resumen: "Overview",
-      notFound: "Project not found.",
-      backLink: "← back",
-      card: { view: "View project →", repo: "Repo ↗" },
-      statuses: {
-        active: "ACTIVE",
-        maintained: "MAINTAINED",
-        paused: "PAUSED",
-        archived: "ARCHIVED",
-        complete: "COMPLETED",
-      },
+      back: "← All projects",
+      viewRepo: "Code on GitHub ↗",
+      demo: "Open live demo ↗",
+      resumen: "Case study",
+      sectionsLabel: "Project sections",
+      keyPoint: "The key idea",
+      notFound: "I couldn't find that project.",
+      backLink: "← Back",
+      card: { view: "Read the case", repo: "Repo ↗" },
+      statuses: { active: "In development", maintained: "Maintained", paused: "Paused", archived: "Archived", complete: "Complete" },
     },
-    footer: { madeWith: "$ Made with Astro · custom retro-terminal design · {year}" },
+    footer: {
+      kicker: "Contact",
+      title: "Want to talk?",
+      text: "If a project caught your attention, you think I could fit an opportunity, or you simply want to discuss a technical decision, feel free to write.",
+      madeWith: "Designed and built by David · Astro",
+    },
   },
 };
 
-export function useTranslations(locale: string): typeof ui.es {
-  return locale === "en" ? ui.en : ui.es;
-}
-
-export function isLocale(locale: string): locale is Locale {
-  return locale === "es" || locale === "en";
-}
+export function useTranslations(locale: string): typeof ui.es { return locale === "en" ? ui.en : ui.es; }
+export function isLocale(locale: string): locale is Locale { return locale === "es" || locale === "en"; }

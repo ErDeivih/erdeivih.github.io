@@ -2,36 +2,42 @@
 type: "project"
 lang: "en"
 title: "MuniPay"
-description: "Flutter app to manage fines, penalties and payments for sports teams."
-tagline: "Team fines and payments, in an app with a live demo."
+description: "A Flutter app for sports teams to manage fines, payments and shared expenses."
+tagline: "Replacing the team's spreadsheet with a shared account everybody can understand."
 repo: "https://github.com/ErDeivih/MuniPay"
 demo: "https://multas-c2fed.web.app"
-color: "#22d3ee"
+color: "#3655f5"
 status: "active"
-stack: ["Flutter", "Dart", "Firebase", "Firestore"]
-order: 1
+year: "2025–26"
+role: "Product and full-stack development"
+highlight: "One Flutter codebase for web and Android, with real-time data and separate permissions for admins and players."
+stack: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Provider"]
+order: 2
 featured: true
 ---
 
-MuniPay started because keeping track of fines in my football team with a spreadsheet was a mess.
-The app creates a team, each player joins with an **invite code**, and from there you record fines,
-track who owes and who has paid, and split shared expenses. There's a **dashboard** with what's
-happening per team and per player, and you can **export reports to Excel**.
+MuniPay was not built to showcase Flutter. It started because my football team tracked fines,
+payments and expenses in a spreadsheet that did a poor job of explaining who owed what.
 
-It's published and you can try it: there's a **web version** (no install) and an **Android APK**.
+I turned that routine into a product with two clear roles. The administrator creates the team,
+records fines and tracks payments; each player joins with an invite code and sees their own position.
+The same codebase ships on the **web** and as an **Android APK**.
 
-## What it does
+## What it solves today
 
-- Teams with an invite code and their members.
-- Fines and penalties per player.
-- Payment and debt tracking.
-- Shared team expenses.
-- Dashboard with real-time stats.
-- Export reports to Excel.
-- Two roles: admin and player.
+- Teams and members connected by invite code.
+- Fines, penalties, payments and shared expenses.
+- A live summary for each team and player.
+- Excel exports so the data is not trapped inside the app.
+- Separate admin and player access through Firebase Authentication and Firestore rules.
 
-## What I took from it
+## The decision behind the project
 
-The whole backend is **Firebase** (Auth + Firestore), no own server, and the UI updates live by
-subscribing to the data. The most interesting part was turning that "who owes what" model into a
-screen you understand at a glance.
+There is no custom server. The UI subscribes to Firestore and derives debts, payments and totals
+from those records. That kept infrastructure light, but also made **security rules** and collection
+design a central part of the architecture.
+
+## Honest status
+
+The web build is live and the repository offers an Android release. It remains under development:
+some technical documentation needs cleanup and local setup requires your own Firebase project.

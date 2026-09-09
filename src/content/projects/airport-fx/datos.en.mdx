@@ -1,0 +1,39 @@
+---
+type: "tab"
+lang: "en"
+project: "airport-fx"
+tab: "datos"
+label: "Data and method"
+order: 2
+---
+
+## Sources with provenance
+
+The design uses institutional exchange rates, Spain's FRONTUR and EGATUR datasets, resident travel
+statistics, AENA passenger counts and holiday calendars. Every record keeps requested date, effective
+date, source and attribution; gaps are never filled without recording how.
+
+## Reconstructing what is not published
+
+The INE publishes tourists by country and destination, while AENA publishes passengers by airport.
+The joint matrix is missing. IPF starts with a seed matrix and alternately adjusts rows and columns
+until both margins are respected within a declared tolerance.
+
+That does not turn the internal matrix into observed data. It remains an **estimate driven by explicit
+assumptions**, and the repository labels it accordingly.
+
+## Simulating in order to validate
+
+Synthetic transactions make it possible to develop the pipeline and models without pretending to
+hold company data. The important test is a round trip: once grouped by month, airport, currency and
+flow, they must reproduce the aggregates used for calibration.
+
+## Intended architecture
+
+```text
+Public sources → partitioned bronze → dbt / dimensional model
+                                   ↘ simulator → forecasting → stock policy
+```
+
+Dagster orchestrates assets and backfills; DuckDB supports local work; dbt validates transformations;
+Power BI is the analytical surface. AWS equivalents are documented, not deployed.

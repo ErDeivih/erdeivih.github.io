@@ -6,143 +6,40 @@ const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
 const { pathname } = Astro.url;
 const prefix = `/${locale}`;
-
-const localized = (href: string) => (href === "/" ? `${prefix}/` : `${prefix}${href}`);
+const localized = (href: string) => href === "/" ? `${prefix}/` : `${prefix}${href}`;
 const navItems = [
-  { label: t.nav.home, href: localized("/") },
   { label: t.nav.projects, href: localized("/proyectos/") },
   { label: t.nav.about, href: localized("/#sobre-mi") },
+  { label: t.nav.contact, href: localized("/#contacto") },
 ];
-
-const isActive = (href: string) => {
-  const clean = href.split("#")[0];
-  const norm = clean.endsWith("/") ? clean.slice(0, -1) : clean;
-  const cur = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
-  return cur === norm;
-};
-
-// Selector de idioma: versiona la página actual en es y en en.
 const withPrefix = (loc: string) => {
   const p = `/${loc}`;
-  if (pathname === p || pathname === `${p}/`) return `${p}/`;
-  if (pathname.startsWith("/es/") || pathname === "/es") return pathname.replace(/^\/es/, p);
-  if (pathname.startsWith("/en/") || pathname === "/en") return pathname.replace(/^\/en/, p);
+  if (pathname === "/es" || pathname.startsWith("/es/")) return pathname.replace(/^\/es/, p);
+  if (pathname === "/en" || pathname.startsWith("/en/")) return pathname.replace(/^\/en/, p);
   return `${p}${pathname}`;
 };
-const esHref = withPrefix("es");
-const enHref = withPrefix("en");
 ---
 
-<header class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
-  <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-    <a href={localized("/")} class="flex items-center gap-2 text-sm font-bold tracking-wide uppercase">
-      <span class="font-display text-[11px] text-primary glow">{site.brand}</span>
-      <span class="cursor-blink text-primary">▮</span>
-    </a>
-
-    <!-- Enlaces (escritorio) -->
-    <div class="flex items-center gap-1">
-      <ul class="hidden items-center gap-1 sm:flex">
-        {
-          navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class:list={[
-                  "px-3 py-2 text-xs font-bold tracking-wide uppercase transition-colors",
-                  isActive(item.href) ? "text-primary" : "text-muted hover:text-foreground",
-                ]}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-        <li class="ml-2 flex items-center gap-1 border-l border-border pl-3 text-xs font-bold">
-          <a
-            href={esHref}
-            data-lang-switch="es"
-            class:list={["px-2 transition-colors", locale === "es" ? "text-primary" : "text-faint hover:text-foreground"]}
-          >
-            ES
-          </a>
-          <span class="text-faint">/</span>
-          <a
-            href={enHref}
-            data-lang-switch="en"
-            class:list={["px-2 transition-colors", locale === "en" ? "text-primary" : "text-faint hover:text-foreground"]}
-          >
-            EN
-          </a>
-        </li>
+<header class="sticky top-0 z-40 border-b border-foreground bg-background/95 backdrop-blur">
+  <nav class="mx-auto flex max-w-[88rem] items-center justify-between gap-4 px-5 py-4 sm:px-8" aria-label="Principal">
+    <a href={localized("/")} class="font-display text-lg tracking-[-.05em]">{site.name}<span class="text-primary">/</span></a>
+    <div class="flex items-center gap-4 sm:gap-7">
+      <ul class="hidden items-center gap-7 sm:flex">
+        {navItems.map(item => <li><a class="kicker underline-offset-4 hover:underline" href={item.href}>{item.label}</a></li>)}
       </ul>
-
-      <!-- Botón menú (móvil) -->
-      <button
-        type="button"
-        id="menu-toggle"
-        class="flex h-10 w-10 items-center justify-center rounded border border-border text-foreground sm:hidden"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Menu"
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-1 font-mono text-[11px] font-bold" aria-label={t.nav.language}>
+        <a href={withPrefix("es")} data-lang-switch="es" class:list={["px-1", locale === "es" ? "text-primary" : "text-muted"]}>ES</a>
+        <span aria-hidden="true">/</span>
+        <a href={withPrefix("en")} data-lang-switch="en" class:list={["px-1", locale === "en" ? "text-primary" : "text-muted"]}>EN</a>
+      </div>
     </div>
   </nav>
-
-  <!-- Drawer móvil -->
-  <div id="mobile-menu" class="hidden border-t border-border bg-background sm:hidden">
-    <ul class="flex flex-col gap-1 px-4 py-3">
-      {
-        navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class:list={[
-                "block rounded px-3 py-3 text-sm font-bold tracking-wide uppercase transition-colors",
-                isActive(item.href) ? "bg-surface text-primary" : "text-muted hover:bg-surface hover:text-foreground",
-              ]}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-      <li class="mt-1 flex items-center gap-1 border-t border-border pt-3 px-3 text-sm font-bold">
-        <a href={esHref} data-lang-switch="es" class:list={["transition-colors", locale === "es" ? "text-primary" : "text-muted"]}>ES</a>
-        <span class="text-faint">/</span>
-        <a href={enHref} data-lang-switch="en" class:list={["transition-colors", locale === "en" ? "text-primary" : "text-muted"]}>EN</a>
-      </li>
-    </ul>
-  </div>
 </header>
 
 <script>
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      const open = menu.classList.toggle("hidden") === false;
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    });
-    menu.addEventListener("click", (e) => {
-      if ((e.target as HTMLElement).matches("a")) {
-        menu.classList.add("hidden");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  // Selector de idioma: guarda la preferencia para que gane sobre la detección automática.
-  document.querySelectorAll<HTMLElement>("[data-lang-switch]").forEach((a) => {
-    a.addEventListener("click", () => {
-      try { localStorage.setItem("lang", a.dataset.langSwitch || ""); } catch (e) {}
+  document.querySelectorAll<HTMLElement>("[data-lang-switch]").forEach((link) => {
+    link.addEventListener("click", () => {
+      try { localStorage.setItem("lang", link.dataset.langSwitch || ""); } catch {}
     });
   });
 </script>

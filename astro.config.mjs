@@ -13,9 +13,8 @@ export default defineConfig({
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
-    // es en la raíz (/), en con prefijo (/en/). El script de idioma redirige
-    // según el idioma del navegador.
-    routing: { prefixDefaultLocale: false },
+    // Ambas versiones usan prefijo explícito. La raíz decide el idioma y redirige.
+    routing: { prefixDefaultLocale: true },
   },
   integrations: [mdx(), sitemap()],
   vite: {

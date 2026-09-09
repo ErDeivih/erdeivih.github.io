@@ -5,59 +5,49 @@ import Hero from "../../components/Hero.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 import { locales, useTranslations, type Locale } from "../../i18n/ui";
 
-export function getStaticPaths() {
-  return locales.map((locale: Locale) => ({ params: { locale } }));
-}
-
+export function getStaticPaths() { return locales.map((locale: Locale) => ({ params: { locale } })); }
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
-const prefix = `/${locale}`;
-
-const projects = (
-  await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale)
-).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale))
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout>
   <Hero />
 
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal">
-      <p class="text-xs font-bold uppercase tracking-wide text-primary">
-        <span class="text-primary">$</span> {t.about.cmd}
-      </p>
-      <h2 class="mt-2 font-display text-xl text-foreground">{t.about.title}</h2>
-    </header>
-    <div class="reveal mt-6 grid gap-8 md:grid-cols-[2fr_1fr]">
-      <p class="max-w-2xl text-muted">{t.about.text}</p>
-      <div class="pixel-panel p-5 text-sm">
-        <p class="text-xs font-bold uppercase tracking-wide text-muted">{t.about.stackTitle}</p>
-        <ul class="mt-3 space-y-2 text-foreground">
-          {t.about.stack.map((s) => (
-            <li><span class="text-primary">›</span> {s}</li>
-          ))}
-        </ul>
+  <section aria-labelledby="projects-title" class="mx-auto max-w-[88rem] px-5 py-20 sm:px-8 sm:py-28">
+    <header class="reveal grid gap-8 border-b border-foreground pb-8 md:grid-cols-[1fr_minmax(18rem,34rem)] md:items-end">
+      <div>
+        <p class="kicker text-primary">{t.projectsHome.kicker}</p>
+        <h2 id="projects-title" class="section-title mt-4">{t.projectsHome.title}</h2>
       </div>
+      <p class="text-lg text-muted">{t.projectsHome.intro}</p>
+    </header>
+    <div>
+      {projects.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}
     </div>
+    <a href={`/${locale}/proyectos/`} class="button-secondary mt-10">{t.projectsHome.all} →</a>
   </section>
 
-  <!-- Proyectos -->
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal flex items-end justify-between gap-4">
-      <div>
-        <p class="text-xs font-bold uppercase tracking-wide text-primary">
-          <span class="text-primary">$</span> {t.projectsHome.cmd}
-        </p>
-        <h2 class="mt-2 font-display text-xl text-foreground">{t.projectsHome.title}</h2>
+  <section id="sobre-mi" class="border-y border-foreground bg-surface">
+    <div class="mx-auto grid max-w-[88rem] gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[.8fr_1.2fr]">
+      <div class="reveal">
+        <p class="kicker text-secondary">{t.about.kicker}</p>
+        <h2 class="section-title mt-4">{t.about.title}</h2>
       </div>
-      <a href={`${prefix}/proyectos/`} class="text-xs font-bold uppercase tracking-wide text-primary hover:underline">
-        {t.projectsHome.all} →
-      </a>
-    </header>
-
-    <div class="reveal mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((p) => <ProjectCard project={p.data} slug={p.id.split("/")[0]} />)}
+      <div class="reveal">
+        <p class="max-w-3xl text-2xl font-semibold leading-snug tracking-[-.025em] sm:text-3xl">{t.about.lead}</p>
+        <p class="mt-6 max-w-2xl text-lg text-muted">{t.about.text}</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-3">
+          {t.about.principles.map((item, index) => (
+            <div class="border-t border-foreground pt-4">
+              <p class="project-number text-primary">0{index + 1}</p>
+              <h3 class="mt-3 text-lg font-bold">{item.title}</h3>
+              <p class="mt-2 text-sm text-muted">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>

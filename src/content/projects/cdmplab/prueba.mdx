@@ -1,0 +1,33 @@
+---
+type: "tab"
+project: "cdmplab"
+tab: "prueba"
+label: "Cómo probarlo"
+order: 3
+---
+
+## La ruta corta
+
+La [demo pública](https://erdeivih.github.io/CDMPLab/) permite ver la autenticación y la aplicación
+desplegada. Para explorar el editor sin backend, el repositorio arranca en modo local:
+
+```bash
+git clone https://github.com/ErDeivih/CDMPLab.git
+cd CDMPLab
+npm install
+npm run start
+```
+
+Abre `http://localhost:4200`, crea un ejercicio, cambia la plantilla de campo, coloca una formación,
+dibuja un movimiento y guárdalo en la biblioteca.
+
+## Comprobaciones del repositorio
+
+```bash
+npm run test:unit
+npm run test:e2e
+npm run build
+```
+
+También hay recorridos separados para la build de producción, GitHub Pages y —de forma voluntaria,
+con cuentas preparadas— el proyecto Supabase real.

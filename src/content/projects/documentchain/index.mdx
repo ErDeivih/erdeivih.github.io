@@ -1,36 +1,42 @@
 ---
 type: "project"
 title: "DocumentChain"
-description: "Sistema de gestión documental con blockchain (Ethereum) e IPFS."
-tagline: "Mi TFG: documentos con trazabilidad y control de acceso sobre una cadena de bloques."
+description: "Gestión documental con Ethereum, IPFS Cluster y cifrado en el cliente."
+tagline: "Mi TFG: separar el contenido, la prueba de integridad y el control de acceso."
 repo: "https://github.com/ErDeivih/DocumentChain"
-color: "#7ee8c9"
+color: "#f0522d"
 status: "complete"
-stack: ["Solidity", "Ethereum", "IPFS", "TypeScript", "Docker"]
-order: 2
+year: "2025"
+role: "TFG · arquitectura y desarrollo completo"
+highlight: "Los archivos cifrados viven en IPFS; la blockchain conserva versiones, permisos y trazabilidad sin almacenar el documento."
+stack: ["Solidity", "Ethereum", "IPFS", "React", "Node.js", "Docker"]
+order: 3
 featured: true
 ---
 
-DocumentChain es mi **Trabajo de Fin de Grado**: un sistema de gestión documental que combina
-**blockchain (Ethereum)**, **IPFS** y **cifrado de extremo a extremo** para guardar documentos de
-forma segura, con trazabilidad completa y control de acceso distribuido.
+DocumentChain es mi **Trabajo de Fin de Grado**. La pregunta de partida era concreta: ¿cómo se puede
+demostrar quién hizo qué con un documento sin entregar todo el control a un único servidor?
 
-La idea es que la integridad del documento (quién lo subió, cuándo y qué versión) quede registrada
-en la cadena, mientras el contenido se almacena en IPFS y cifrado, de modo que el control no dependa
-de un único servidor. Todo se levanta con Docker Compose en Windows, Linux y macOS.
+La respuesta del proyecto reparte responsabilidades. El contenido se cifra en el cliente y se guarda
+en un clúster IPFS; los contratos de Ethereum registran versiones, permisos y operaciones; un backend
+coordina ambos mundos y la interfaz permite trabajar con ellos sin exponer esa complejidad.
 
-## Qué incluye
+## Qué construí
 
-- **Blockchain**: contratos inteligentes en Ethereum (Solidity, Hardhat, Ethers.js) para trazabilidad
-  y control de acceso.
-- **Almacenamiento descentralizado**: IPFS Cluster con varios nodos y replicación automática.
-- **Cifrado end-to-end**: AES-256-GCM para archivos y ECIES para compartir llaves.
-- **Versionado**: versiones de archivos on-chain.
-- **Firmas digitales** verificables y **permisos** a nivel de archivo.
-- **Frontend** en React 18 + TypeScript + Vite + Tailwind, y **backend** Node.js + Express.
+- Contratos en Solidity para trazabilidad, versionado y permisos por archivo.
+- Cifrado AES-256-GCM del contenido y ECIES para compartir claves.
+- IPFS Cluster con tres nodos, replicación y balanceo mediante Nginx.
+- Frontend React + TypeScript y API Node.js + Express.
+- Entorno reproducible con Docker Compose y pruebas de contratos con Hardhat.
 
-## Por qué me interesó
+## La parte difícil
 
-Era la primera vez que tocaba smart contracts y a la vez un proyecto con frontend, backend y
-despliegue con Docker. Me sirvió para cerrar el máster con algo que junta seguridad, criptografía
-y desarrollo web full-stack.
+No era “subir un PDF a blockchain”: eso sería caro y poco práctico. El trabajo estuvo en coordinar
+tres fuentes de verdad con fallos distintos y mantener una referencia verificable entre el hash,
+la versión registrada y el contenido cifrado. También implementé limpieza de IPFS dirigida por eventos
+de los contratos.
+
+## Hasta dónde llega
+
+Es un prototipo académico completo para ejecución local. Usa una red Hardhat de desarrollo y no debe
+confundirse con un servicio auditado o preparado para mainnet. Esa frontera está documentada en el repositorio.

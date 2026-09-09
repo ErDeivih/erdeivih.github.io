@@ -1,0 +1,34 @@
+---
+type: "tab"
+project: "cdmplab"
+tab: "arquitectura"
+label: "Decisiones"
+order: 2
+---
+
+## Un editor, dos formas de guardar
+
+`StoreService` concentra el estado de la aplicación y trabaja contra una interfaz `DataSource`.
+En local, esa interfaz persiste en el navegador; con sesión, la implementa `SupabaseRepository`.
+Los componentes no necesitan saber cuál está activa.
+
+```text
+Pantallas → StoreService → DataSource
+                         ↙          ↘
+                localStorage     Supabase + RLS
+```
+
+## El dibujo es un documento
+
+El ejercicio no se guarda como una captura, sino como datos: terreno, objetos, posiciones,
+rotaciones, capas y texto. El SVG se renderiza a partir de ese modelo. Esto permite reabrirlo,
+editarlo y exportarlo sin perder estructura.
+
+Los documentos antiguos se normalizan de forma idempotente hasta la versión actual del canvas.
+Fue una decisión importante: corregir el formato sin dejar atrás ejercicios ya creados.
+
+## La seguridad no depende de ocultar botones
+
+La interfaz adapta acciones según el rol, pero la barrera real está en las políticas RLS. El
+propietario administra el equipo; los colaboradores editan jugadores y ejercicios, pero no miembros.
+Las funciones de administración quedan detrás de funciones `SECURITY DEFINER` y una tabla privada.

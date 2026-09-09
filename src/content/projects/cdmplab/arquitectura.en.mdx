@@ -1,0 +1,35 @@
+---
+type: "tab"
+lang: "en"
+project: "cdmplab"
+tab: "arquitectura"
+label: "Decisions"
+order: 2
+---
+
+## One editor, two storage modes
+
+`StoreService` owns application state and talks to a `DataSource` interface. Locally, that interface
+persists in the browser; after sign-in, `SupabaseRepository` implements it. Components do not need to
+know which one is active.
+
+```text
+Screens → StoreService → DataSource
+                       ↙          ↘
+              localStorage     Supabase + RLS
+```
+
+## The drawing is a document
+
+An exercise is not stored as a screenshot. It is data: pitch, objects, positions, rotations, layers
+and text. The SVG is rendered from that model, so the exercise can be reopened, edited and exported
+without losing structure.
+
+Old documents are normalised idempotently into the current canvas version. That keeps format changes
+from leaving existing exercises behind.
+
+## Security does not depend on hidden buttons
+
+The UI adapts actions to each role, but RLS policies are the real boundary. Owners manage their team;
+collaborators edit players and exercises, but not members. Platform administration sits behind
+`SECURITY DEFINER` functions and a private table.

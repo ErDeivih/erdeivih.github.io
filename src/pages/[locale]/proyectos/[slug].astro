@@ -6,146 +6,66 @@ import { locales, useTranslations, type Locale } from "../../../i18n/ui";
 
 export async function getStaticPaths() {
   const all = await getCollection("projects");
-  const pairs: { params: { locale: string; slug: string } }[] = [];
-  for (const locale of locales) {
-    const slugs = new Set(
-      all
-        .filter((p) => (p.data.lang ?? "es") === locale && p.data.type === "project")
-        .map((p) => p.id.split("/")[0]),
-    );
-    for (const slug of slugs) pairs.push({ params: { locale, slug } });
-  }
-  return pairs;
+  return locales.flatMap(locale => all
+    .filter(entry => entry.data.type === "project" && (entry.data.lang ?? "es") === locale)
+    .map(entry => ({ params: { locale, slug: entry.id.split("/")[0] } })));
 }
-
 const locale = (Astro.currentLocale ?? "es") as Locale;
 const slug = Astro.params.slug!;
 const t = useTranslations(locale);
-
 const all = await getCollection("projects");
-const project = all.find(
-  (p) => p.data.type === "project" && (p.data.lang ?? "es") === locale && p.id.split("/")[0] === slug,
-);
-const tabEntries = all
-  .filter((p) => p.data.type === "tab" && p.data.project === slug && (p.data.lang ?? "es") === locale)
-  .sort((a, b) => a.data.order - b.data.order);
-
-const statusColor: Record<string, string> = {
-  active: "var(--color-primary)",
-  maintained: "var(--color-accent)",
-  paused: "var(--color-tertiary)",
-  archived: "var(--color-muted)",
-  complete: "var(--color-secondary)",
-};
-
-const accent = project?.data.color ?? "var(--color-secondary)";
-
-// Renderizamos el resumen (index) y cada pestaña UNA sola vez, en el frontmatter.
+const project = all.find(entry => entry.data.type === "project" && (entry.data.lang ?? "es") === locale && entry.id.split("/")[0] === slug);
+const tabEntries = all.filter(entry => entry.data.type === "tab" && entry.data.project === slug && (entry.data.lang ?? "es") === locale).sort((a,b) => a.data.order - b.data.order);
 let panels: { id: string; label: string; Content: any }[] = [];
-let tabs: { id: string; label: string }[] = [];
 if (project) {
-  const { Content: Overview } = await render(project);
-  panels.push({ id: "resumen", label: t.project.resumen, Content: Overview });
-  for (const te of tabEntries) {
-    const { Content } = await render(te);
-    panels.push({ id: te.data.tab!, label: te.data.label!, Content });
+  const { Content } = await render(project);
+  panels.push({ id: "resumen", label: t.project.resumen, Content });
+  for (const tab of tabEntries) {
+    const { Content } = await render(tab);
+    panels.push({ id: tab.data.tab!, label: tab.data.label!, Content });
   }
-  tabs = panels.map((p) => ({ id: p.id, label: p.label }));
 }
 ---
 
-<BaseLayout title={project?.data.title} description={project?.data.description}>
-  {
-    project ? (
-      <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <a
-          href={`/${locale}/proyectos/`}
-          class="text-xs font-bold uppercase tracking-wide text-muted transition-colors hover:text-primary"
-        >
-          {t.project.back}
-        </a>
-
-        <!-- Hero del proyecto -->
-        <header class="pixel-panel mt-6 p-6 sm:p-8">
-          <div class="flex flex-wrap items-center justify-between gap-3">
-            <span
-              class="rounded px-2 py-1 text-[10px] font-bold tracking-wide uppercase"
-              style={`color: ${statusColor[project.data.status] ?? "var(--color-muted)"}`}
-            >
-              {t.project.statuses[project.data.status as keyof typeof t.project.statuses] ?? project.data.status}
-            </span>
-            <span class="font-display text-[10px] text-faint">#{slug.toUpperCase()}</span>
-          </div>
-
-          <h1 class="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
-            <span style={`text-shadow: 0 0 20px ${accent}66`}>{project.data.title}</span>
-          </h1>
-          {project.data.tagline && <p class="mt-3 max-w-2xl text-lg text-muted">{project.data.tagline}</p>}
-
-          <div class="mt-6 flex flex-wrap gap-3 text-xs font-bold tracking-wide uppercase">
-            {
-              project.data.repo && (
-                <a
-                  href={project.data.repo}
-                  target="_blank"
-                  rel="noopener"
-                  class="rounded-sm border-2 px-4 py-2 transition-colors"
-                  style={`border-color: ${accent}; color: ${accent}`}
-                >
-                  {t.project.viewRepo}
-                </a>
-              )
-            }
-            {project.data.demo && (
-              <a
-                href={project.data.demo}
-                target="_blank"
-                rel="noopener"
-                class="rounded-sm bg-gradient-to-r from-primary to-accent px-4 py-2 text-[#04120d]"
-              >
-                {t.project.demo}
-              </a>
-            )}
-          </div>
-
-          {
-            project.data.stack && project.data.stack.length > 0 && (
-              <ul class="mt-6 flex flex-wrap gap-1.5">
-                {project.data.stack.map((s) => (
-                  <li class="rounded border border-border px-2 py-0.5 text-[11px] text-muted">{s}</li>
-                ))}
-              </ul>
-            )
-          }
-        </header>
-
-        <!-- Pestañas -->
-        <div class="mt-8">
-          <Tabs tabs={tabs}>
-            {panels.map(({ id, Content }, i) => (
-              <div
-                role="tabpanel"
-                id={`panel-${id}`}
-                data-panel={id}
-                hidden={i > 0}
-                class="reveal in-view py-5"
-              >
-                <article class="prose-content max-w-3xl">
-                  <Content />
-                </article>
+<BaseLayout title={project?.data.title} description={project?.data.description} image={project ? project.data.image ?? null : null}>
+  {project ? (
+    <>
+      <section style={`--project-accent:${project.data.color ?? "#3655f5"}`}>
+        <div class="mx-auto max-w-[88rem] px-5 pb-12 pt-8 sm:px-8 sm:pb-20 sm:pt-12">
+          <a href={`/${locale}/proyectos/`} class="kicker underline-offset-4 hover:underline">{t.project.back}</a>
+          <div class="mt-10 grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+            <div>
+              <div class="flex flex-wrap gap-4"><span class="kicker text-primary">{project.data.year}</span><span class="kicker text-muted">{project.data.role}</span></div>
+              <h1 class="editorial-title mt-5">{project.data.title}</h1>
+              {project.data.tagline && <p class="mt-7 max-w-2xl text-2xl leading-snug text-muted">{project.data.tagline}</p>}
+            </div>
+            <div>
+              <div class="project-visual" style={`--project-accent:${project.data.color ?? "#3655f5"}`}>
+                {project.data.image ? <img src={project.data.image} alt={project.data.imageAlt ?? ""} width="1329" height="568" /> : <span class="project-monogram" aria-hidden="true">{project.data.title?.slice(0,2).toUpperCase()}</span>}
               </div>
-            ))}
-          </Tabs>
+            </div>
+          </div>
+          <div class="mt-10 flex flex-wrap items-center justify-between gap-6 border-y border-foreground py-5">
+            <ul class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{project.data.stack?.map(item => <li>{item}</li>)}</ul>
+            <div class="flex flex-wrap gap-3">
+              {project.data.demo && <a href={project.data.demo} target="_blank" rel="noopener" class="button-primary">{t.project.demo}</a>}
+              {project.data.repo && <a href={project.data.repo} target="_blank" rel="noopener" class="button-secondary">{t.project.viewRepo}</a>}
+            </div>
+          </div>
         </div>
       </section>
-    ) : (
-      <section class="mx-auto max-w-6xl px-4 py-24 text-center sm:px-6">
-        <h1 class="font-display text-xl text-primary">404</h1>
-        <p class="mt-4 text-muted">{t.project.notFound}</p>
-        <a href={`/${locale}/proyectos/`} class="mt-6 inline-block text-xs font-bold uppercase text-primary hover:underline">
-          {t.project.backLink}
-        </a>
+      <section class="mx-auto max-w-[88rem] px-5 sm:px-8">
+        <Tabs tabs={panels.map(({id,label}) => ({id,label}))} ariaLabel={t.project.sectionsLabel}>
+          {panels.map(({id,Content}, index) => (
+            <div role="tabpanel" data-panel={id} hidden={index > 0} class="grid gap-10 py-10 lg:grid-cols-[minmax(0,47rem)_1fr] lg:py-16">
+              <article class="prose-content"><Content /></article>
+              {index === 0 && project.data.highlight && <aside class="h-fit border-t-8 border-primary bg-surface p-6"><p class="kicker text-muted">{t.project.keyPoint}</p><p class="mt-3 text-xl font-bold leading-snug">{project.data.highlight}</p></aside>}
+            </div>
+          ))}
+        </Tabs>
       </section>
-    )
-  }
+    </>
+  ) : (
+    <section class="mx-auto max-w-[88rem] px-5 py-24 sm:px-8"><h1 class="section-title">404</h1><p class="mt-5 text-muted">{t.project.notFound}</p></section>
+  )}
 </BaseLayout>

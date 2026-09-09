@@ -17,11 +17,14 @@ const projects = defineCollection({
       title: z.string().optional(),
       description: z.string().optional(),
       tagline: z.string().optional(),
-      repo: z.string().url().optional(),
-      demo: z.string().url().optional(),
+      repo: z.url().optional(),
+      demo: z.url().optional(),
       image: z.string().optional(),
       imageAlt: z.string().optional(),
       color: z.string().optional(),
+      year: z.string().optional(),
+      role: z.string().optional(),
+      highlight: z.string().optional(),
       status: z
         .enum(["active", "maintained", "paused", "archived", "complete"])
         .default("active"),

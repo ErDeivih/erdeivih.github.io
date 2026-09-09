@@ -1,37 +1,26 @@
 ---
 import { site, social } from "../config/site";
 import { useTranslations } from "../i18n/ui";
-
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
-const year = new Date().getFullYear();
-const madeWith = t.footer.madeWith.replace("{year}", String(year));
 ---
 
-<footer class="relative z-10 mt-24 border-t border-border">
-  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-10 text-center sm:px-6">
-    <p class="font-display text-[10px] text-primary glow">{site.brand}</p>
-
-    <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-bold tracking-wide uppercase">
-      <a href={social.github} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">
-        GitHub {social.githubHandle}
-      </a>
-      {
-        social.linkedin && (
-          <a href={social.linkedin} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-primary">
-            LinkedIn
-          </a>
-        )
-      }
-      {
-        social.email && (
-          <a href={social.email} class="text-muted transition-colors hover:text-primary">
-            Email
-          </a>
-        )
-      }
+<footer id="contacto" class="mt-24 bg-foreground text-background">
+  <div class="mx-auto max-w-[88rem] px-5 py-14 sm:px-8 sm:py-20">
+    <p class="kicker text-tertiary">{t.footer.kicker}</p>
+    <div class="mt-5 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+      <div>
+        <h2 class="section-title max-w-[11ch]">{t.footer.title}</h2>
+        <p class="mt-5 max-w-xl text-lg text-[#bbb7ae]">{t.footer.text}</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {social.email && <a href={social.email} class="button-secondary !border-background !text-background">Email ↗</a>}
+        {social.linkedin && <a href={social.linkedin} target="_blank" rel="noopener" class="button-secondary !border-background !text-background">LinkedIn ↗</a>}
+      </div>
     </div>
-
-    <p class="text-xs text-faint">{madeWith}</p>
+    <div class="mt-16 flex flex-wrap justify-between gap-4 border-t border-[#44443f] pt-5 font-mono text-[10px] uppercase tracking-wider text-[#8f8d85]">
+      <p>© {new Date().getFullYear()} {site.name}</p>
+      <p>{t.footer.madeWith}</p>
+    </div>
   </div>
 </footer>

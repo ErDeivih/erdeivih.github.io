@@ -1,0 +1,38 @@
+---
+type: "tab"
+project: "airport-fx"
+tab: "datos"
+label: "Datos y método"
+order: 2
+---
+
+## Fuentes con procedencia
+
+El diseño usa tipos de cambio institucionales, FRONTUR y EGATUR del INE, estadísticas de viajes de
+residentes, pasajeros de AENA y calendario laboral. Cada dato conserva fecha solicitada, fecha efectiva,
+fuente y atribución; no se rellena un hueco sin registrar cómo se obtuvo.
+
+## Reconstruir lo que no se publica
+
+El INE ofrece turistas por país y destino, mientras AENA publica pasajeros por aeropuerto. Falta la
+matriz conjunta. IPF parte de una matriz semilla y ajusta filas y columnas de forma alterna hasta
+respetar ambas marginales dentro de una tolerancia declarada.
+
+Eso no convierte la matriz interna en un dato observado. Es una **estimación condicionada por
+supuestos**, y el repositorio la etiqueta como tal.
+
+## Simular para poder validar
+
+Las transacciones sintéticas sirven para desarrollar el pipeline y los modelos sin fingir acceso a
+datos empresariales. La prueba importante es de ida y vuelta: al reagruparlas por mes, aeropuerto,
+moneda y flujo deben reproducir los agregados que las calibraron.
+
+## Arquitectura prevista
+
+```text
+Fuentes públicas → bronze particionado → dbt / modelo dimensional
+                                      ↘ simulador → forecasting → política de stock
+```
+
+Dagster orquesta activos y backfills; DuckDB permite trabajar en local; dbt valida transformaciones;
+Power BI queda como superficie analítica. La equivalencia con servicios AWS está documentada, no desplegada.

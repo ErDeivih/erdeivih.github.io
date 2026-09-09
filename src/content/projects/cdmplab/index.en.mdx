@@ -1,0 +1,45 @@
+---
+type: "project"
+lang: "en"
+title: "CDMPLab"
+description: "A tactical board and exercise library for football coaches."
+tagline: "Draw a session, organise it and share it without fighting the tool."
+repo: "https://github.com/ErDeivih/CDMPLab"
+demo: "https://erdeivih.github.io/CDMPLab/"
+image: "/projects/cdmplab.png"
+imageAlt: "A possession drill drawn on a football pitch in CDMPLab"
+color: "#087e6b"
+status: "active"
+year: "2026"
+role: "Product, frontend and data"
+highlight: "The editor stores a stable exercise representation and separates the screen from its data source: local for testing, Supabase for collaboration."
+stack: ["Angular 22", "TypeScript", "SCSS", "Supabase", "Playwright"]
+order: 1
+featured: true
+---
+
+CDMPLab is a **tactical board and exercise library** for football coaches. It lets a coach place
+players and equipment, draw movements, add text and save every composition in a folder-based library.
+
+The challenge was not drawing a pitch. It was making selection, dragging, rotation, resizing, zoom
+and orientation changes feel predictable with both a mouse and a small touch screen.
+
+## What works today
+
+- Full pitch, half pitch, transverse 7-a-side pitch and blank canvas.
+- Players, balls, cones, poles, mini goals, shapes, arrows and text.
+- Formation templates, duplication, folders, sessions and export.
+- Immediate local mode and multi-user mode with one owner and up to four collaborators.
+- Authentication and team-level data isolation through Supabase Row Level Security.
+- Unit tests and Playwright E2E journeys, including the production build.
+
+## A decision you cannot see
+
+Screens never talk directly to Supabase. They use an interchangeable data source: local storage while
+developing or a remote repository after sign-in. That makes interaction testing independent from the
+network and keeps security as a database responsibility.
+
+## Honest status
+
+The public demo is deployed on GitHub Pages. The multi-user flow exists and database migrations are
+versioned; real user onboarding and invitation email still require operational Supabase configuration.

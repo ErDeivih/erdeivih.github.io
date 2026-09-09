@@ -3,9 +3,9 @@ export const site = {
   // Nombre real de la persona. "ErDeivih" se usa solo para lo que es de GitHub.
   name: "David Pérez Velasco",
   brand: "David",
-  title: "David Pérez Velasco — Developer Portfolio",
+  title: "David Pérez Velasco — Ingeniería de software, datos y producto",
   description:
-    "Portfolio de David Pérez Velasco, ingeniero informático. Proyectos explicados con su teoría, sus técnicas y cómo ejecutarlos y probarlos.",
+    "Portfolio de David Pérez Velasco: aplicaciones reales, sistemas distribuidos y proyectos de datos explicados desde el problema hasta las decisiones técnicas.",
   author: "David Pérez Velasco",
   lang: "es",
   locale: "es-ES",
@@ -26,9 +26,3 @@ export const social: Social = {
   linkedin: "https://www.linkedin.com/in/david-p%C3%A9rez-velasco",
   email: "mailto:davidpeve01@gmail.com",
 };
-
-export const nav = [
-  { label: "Inicio", href: "/" },
-  { label: "Proyectos", href: "/proyectos/" },
-  { label: "Sobre mí", href: "/#sobre-mi" },
-] as const;
