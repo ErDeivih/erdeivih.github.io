@@ -6,7 +6,7 @@ export const ui = {
   es: {
     metaTitle: "David Pérez Velasco — Ingeniería de software, datos y producto",
     metaDescription: "Portfolio de David Pérez Velasco: aplicaciones reales, sistemas distribuidos y proyectos de datos explicados desde el problema hasta las decisiones técnicas.",
-    nav: { home: "Inicio", projects: "Proyectos", about: "Perfil", contact: "Contacto", language: "Idioma" },
+    nav: { home: "Inicio", projects: "Proyectos", about: "Perfil", certifications: "Certificaciones", contact: "Contacto", language: "Idioma" },
     hero: {
       eyebrow: "David Pérez Velasco · Ingeniero informático",
       availability: "Portfolio / 2026",
@@ -23,7 +23,7 @@ export const ui = {
       kicker: "Perfil",
       title: "Un poco sobre mí",
       lead: "Estudié Ingeniería Informática en la Universidad de Salamanca y ahora curso el máster. Suelo aprender mejor cuando tengo un problema real delante y algo que quiero dejar funcionando.",
-      text: "Por eso mis proyectos son bastante distintos: una app para las cuentas de un equipo de fútbol, una pizarra para entrenadores, mi TFG sobre documentos e IPFS y una plataforma de datos para aeropuertos. En cada uno he tenido que moverme entre la interfaz, la lógica y la parte que nadie ve.",
+      text: "Por eso mis proyectos son bastante distintos: una app para las cuentas de un equipo de fútbol, una pizarra para entrenadores, mi TFG sobre documentos e IPFS, una plataforma de datos para aeropuertos y una futura web de fútbol federado. En cada uno he tenido que moverme entre la interfaz, la lógica y la parte que nadie ve.",
       principles: [
         { title: "Entender antes de programar", text: "MuniPay empezó con un Excel incómodo; CDMPLab, con una pizarra que tenía que ser fácil de manejar." },
         { title: "Dejar las decisiones por escrito", text: "Intento explicar por qué elegí cada pieza y qué límites tiene, no solo enumerar tecnologías." },
@@ -33,11 +33,11 @@ export const ui = {
     projectsHome: {
       kicker: "Trabajo reciente",
       title: "Proyectos",
-      intro: "He elegido cuatro proyectos que enseñan partes distintas de mi trabajo. Cada uno incluye contexto, decisiones técnicas, estado actual y una forma de probarlo.",
+      intro: "He elegido cinco proyectos que enseñan partes distintas de mi trabajo. Algunos ya se pueden probar y otros aparecen atenuados porque todavía están en preparación.",
       all: "Ver archivo completo",
     },
     projectsPage: {
-      kicker: "Archivo / 04",
+      kicker: "Archivo / 05",
       title: "Proyectos",
       intro: "Una selección de proyectos personales y académicos. En cada ficha explico el problema, las decisiones técnicas y el estado real del trabajo.",
     },
@@ -45,13 +45,21 @@ export const ui = {
       back: "← Todos los proyectos",
       viewRepo: "Código en GitHub ↗",
       demo: "Abrir demo ↗",
+      plannedNote: "Todavía no está montado",
       resumen: "Caso de estudio",
       sectionsLabel: "Secciones del proyecto",
       keyPoint: "La idea clave",
       notFound: "No encuentro ese proyecto.",
       backLink: "← Volver",
       card: { view: "Leer el caso", repo: "Repo ↗" },
-      statuses: { active: "En desarrollo", maintained: "En mantenimiento", paused: "En pausa", archived: "Archivado", complete: "Completado" },
+      statuses: { active: "En desarrollo", maintained: "En mantenimiento", paused: "En pausa", planned: "En preparación", archived: "Archivado", complete: "Completado" },
+    },
+    certifications: {
+      kicker: "En formación",
+      title: "Certificaciones",
+      intro: "Esta sección está preparada para ir reuniendo las certificaciones que vaya completando. Prefiero dejarla vacía por ahora antes que rellenarla con cursos o conocimientos que no sean una acreditación real.",
+      groups: [{ label: "Desarrollo" }, { label: "Cloud y datos" }, { label: "Idiomas y otras" }],
+      empty: "Próximamente",
     },
     footer: {
       kicker: "Contacto",
@@ -63,7 +71,7 @@ export const ui = {
   en: {
     metaTitle: "David Pérez Velasco — Software engineering, data and product",
     metaDescription: "David Pérez Velasco's portfolio: real applications, distributed systems and data projects explained from problem to technical decisions.",
-    nav: { home: "Home", projects: "Projects", about: "Profile", contact: "Contact", language: "Language" },
+    nav: { home: "Home", projects: "Projects", about: "Profile", certifications: "Certifications", contact: "Contact", language: "Language" },
     hero: {
       eyebrow: "David Pérez Velasco · Software engineer",
       availability: "Portfolio / 2026",
@@ -80,7 +88,7 @@ export const ui = {
       kicker: "Profile",
       title: "A little about me",
       lead: "I studied Computer Engineering at the University of Salamanca and I am now completing my master's. I learn best when I have a real problem in front of me and something I want to leave working.",
-      text: "That is why my projects are quite different: an app for a football team's accounts, a tactical board for coaches, my final project on documents and IPFS, and an airport data platform. Each one made me work across the interface, the logic and the parts users never see.",
+      text: "That is why my projects are quite different: an app for a football team's accounts, a tactical board for coaches, my final project on documents and IPFS, an airport data platform, and a future site for federated football. Each one made me work across the interface, the logic and the parts users never see.",
       principles: [
         { title: "Understand before coding", text: "MuniPay began with an awkward spreadsheet; CDMPLab with a board that needed to be easy to handle." },
         { title: "Write decisions down", text: "I try to explain why I chose each part and where its limits are, not just list technologies." },
@@ -90,11 +98,11 @@ export const ui = {
     projectsHome: {
       kicker: "Recent work",
       title: "Projects",
-      intro: "I chose four projects that show different parts of my work. Each one includes context, technical decisions, current status and a way to try it.",
+      intro: "I chose five projects that show different parts of my work. Some can already be tried; others are dimmed because they are still being prepared.",
       all: "View full archive",
     },
     projectsPage: {
-      kicker: "Archive / 04",
+      kicker: "Archive / 05",
       title: "Projects",
       intro: "A selection of personal and academic projects. Each case explains the problem, the technical decisions and the work's current state.",
     },
@@ -102,13 +110,21 @@ export const ui = {
       back: "← All projects",
       viewRepo: "Code on GitHub ↗",
       demo: "Open live demo ↗",
+      plannedNote: "Not built yet",
       resumen: "Case study",
       sectionsLabel: "Project sections",
       keyPoint: "The key idea",
       notFound: "I couldn't find that project.",
       backLink: "← Back",
       card: { view: "Read the case", repo: "Repo ↗" },
-      statuses: { active: "In development", maintained: "Maintained", paused: "Paused", archived: "Archived", complete: "Complete" },
+      statuses: { active: "In development", maintained: "Maintained", paused: "Paused", planned: "In preparation", archived: "Archived", complete: "Complete" },
+    },
+    certifications: {
+      kicker: "Ongoing learning",
+      title: "Certifications",
+      intro: "This section is ready to collect certifications as I complete them. For now, I would rather leave it empty than pad it with courses or skills that are not actual credentials.",
+      groups: [{ label: "Development" }, { label: "Cloud and data" }, { label: "Languages and other" }],
+      empty: "Coming soon",
     },
     footer: {
       kicker: "Contact",

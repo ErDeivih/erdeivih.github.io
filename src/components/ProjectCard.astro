@@ -14,7 +14,7 @@ const statusLabel = t.project.statuses[project.status as keyof typeof t.project.
 const monogram = project.title?.split(/\s+/).map(word => word[0]).join("").slice(0, 2) ?? "DP";
 ---
 
-<article class="project-card reveal py-8 sm:py-10">
+<article class:list={["project-card reveal py-8 sm:py-10", project.status === "planned" && "project-card-planned"]}>
   <div class="grid gap-6 lg:grid-cols-[minmax(18rem,.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12">
     <a href={`/${locale}/proyectos/${slug}/`} class="project-visual block" style={`--project-accent:${project.color ?? "#3655f5"}`} aria-label={`${t.project.card.view}: ${project.title}`}>
       {project.image ? (
@@ -32,6 +32,7 @@ const monogram = project.title?.split(/\s+/).map(word => word[0]).join("").slice
         <p class="project-number">{String(index + 1).padStart(2, "0")} / {project.year ?? "2026"}</p>
         <p class="kicker text-muted">{statusLabel}</p>
       </div>
+      {project.status === "planned" && <p class="mt-4 inline-flex border border-foreground bg-panel px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">{t.project.plannedNote}</p>}
       <h2 class="mt-5 text-4xl font-black tracking-[-.055em] sm:text-6xl">{project.title}</h2>
       {project.tagline && <p class="mt-4 max-w-xl text-xl leading-snug text-muted">{project.tagline}</p>}
       {project.highlight && <p class="mt-5 border-l-4 pl-4 font-mono text-sm" style={`border-color:${project.color ?? "#f0522d"}`}>{project.highlight}</p>}

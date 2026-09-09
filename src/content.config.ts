@@ -26,7 +26,7 @@ const projects = defineCollection({
       role: z.string().optional(),
       highlight: z.string().optional(),
       status: z
-        .enum(["active", "maintained", "paused", "archived", "complete"])
+        .enum(["active", "maintained", "paused", "planned", "archived", "complete"])
         .default("active"),
       tags: z.array(z.string()).default([]),
       stack: z.array(z.string()).optional(),

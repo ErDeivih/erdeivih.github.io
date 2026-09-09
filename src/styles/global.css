@@ -85,6 +85,9 @@
     transition: background .2s ease;
   }
   .project-card:hover { background: var(--color-surface); }
+  .project-card-planned { opacity: .52; }
+  .project-card-planned:hover { opacity: .82; }
+  .project-card-planned .project-visual { filter: grayscale(.65); }
   .project-visual {
     position: relative;
     min-height: 15rem;

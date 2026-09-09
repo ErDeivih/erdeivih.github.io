@@ -29,6 +29,26 @@ const projects = (await getCollection("projects", ({ data }) => data.type === "p
     <a href={`/${locale}/proyectos/`} class="button-secondary mt-10">{t.projectsHome.all} →</a>
   </section>
 
+  <section id="certificaciones" class="mx-auto max-w-[88rem] px-5 py-20 sm:px-8 sm:py-28">
+    <div class="reveal grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <div>
+        <p class="kicker text-primary">{t.certifications.kicker}</p>
+        <h2 class="section-title mt-4">{t.certifications.title}</h2>
+      </div>
+      <div>
+        <p class="max-w-2xl text-xl leading-snug text-muted">{t.certifications.intro}</p>
+        <div class="mt-10 grid gap-4 sm:grid-cols-3">
+          {t.certifications.groups.map(group => (
+            <div class="min-h-44 border border-foreground p-5">
+              <p class="kicker text-muted">{group.label}</p>
+              <p class="mt-8 text-lg font-bold">{t.certifications.empty}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="sobre-mi" class="border-y border-foreground bg-surface">
     <div class="mx-auto grid max-w-[88rem] gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[.8fr_1.2fr]">
       <div class="reveal">

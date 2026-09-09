@@ -10,6 +10,7 @@ const localized = (href: string) => href === "/" ? `${prefix}/` : `${prefix}${hr
 const navItems = [
   { label: t.nav.projects, href: localized("/proyectos/") },
   { label: t.nav.about, href: localized("/#sobre-mi") },
+  { label: t.nav.certifications, href: localized("/#certificaciones") },
   { label: t.nav.contact, href: localized("/#contacto") },
 ];
 const withPrefix = (loc: string) => {
@@ -24,9 +25,10 @@ const withPrefix = (loc: string) => {
   <nav class="mx-auto flex max-w-[88rem] items-center justify-between gap-4 px-5 py-4 sm:px-8" aria-label="Principal">
     <a href={localized("/")} class="font-display text-lg tracking-[-.05em]">{site.name}<span class="text-primary">/</span></a>
     <div class="flex items-center gap-4 sm:gap-7">
-      <ul class="hidden items-center gap-7 sm:flex">
+      <ul class="hidden items-center gap-7 md:flex">
         {navItems.map(item => <li><a class="kicker underline-offset-4 hover:underline" href={item.href}>{item.label}</a></li>)}
       </ul>
+      <a class="kicker underline-offset-4 hover:underline md:hidden" href={localized("/proyectos/")}>{t.nav.projects}</a>
       <div class="flex items-center gap-1 font-mono text-[11px] font-bold" aria-label={t.nav.language}>
         <a href={withPrefix("es")} data-lang-switch="es" class:list={["px-1", locale === "es" ? "text-primary" : "text-muted"]}>ES</a>
         <span aria-hidden="true">/</span>
