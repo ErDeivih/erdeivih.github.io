@@ -23,12 +23,17 @@ const withPrefix = (loc: string) => {
 
 <header class="sticky top-0 z-40 border-b border-foreground bg-background/95 backdrop-blur">
   <nav class="mx-auto flex max-w-[88rem] items-center justify-between gap-4 px-5 py-4 sm:px-8" aria-label="Principal">
-    <a href={localized("/")} class="font-display text-lg tracking-[-.05em]">{site.name}<span class="text-primary">/</span></a>
+    <a href={localized("/")} class="font-display text-lg tracking-[-.05em]"><span class="hidden sm:inline">{site.name}</span><span class="sm:hidden">{site.brand}</span><span class="text-primary">/</span></a>
     <div class="flex items-center gap-4 sm:gap-7">
       <ul class="hidden items-center gap-7 md:flex">
         {navItems.map(item => <li><a class="kicker underline-offset-4 hover:underline" href={item.href}>{item.label}</a></li>)}
       </ul>
-      <a class="kicker underline-offset-4 hover:underline md:hidden" href={localized("/proyectos/")}>{t.nav.projects}</a>
+      <details class="relative md:hidden">
+        <summary class="kicker cursor-pointer py-2">{locale === "es" ? "Menú" : "Menu"}</summary>
+        <ul class="absolute right-0 top-full mt-3 min-w-56 border border-foreground bg-background p-4 shadow-lg">
+          {navItems.map(item => <li><a class="block py-3 text-sm" href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </details>
       <div class="flex items-center gap-1 font-mono text-[11px] font-bold" aria-label={t.nav.language}>
         <a href={withPrefix("es")} data-lang-switch="es" class:list={["px-1", locale === "es" ? "text-primary" : "text-muted"]}>ES</a>
         <span aria-hidden="true">/</span>
@@ -39,9 +44,12 @@ const withPrefix = (loc: string) => {
 </header>
 
 <script>
-  document.querySelectorAll<HTMLElement>("[data-lang-switch]").forEach((link) => {
-    link.addEventListener("click", () => {
+  document.addEventListener("click", event => {
+    const anchor = event.target instanceof Element ? event.target.closest("a") : null;
+    anchor?.closest("details")?.removeAttribute("open");
+    const link = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-lang-switch]") : null;
+    if (link) {
       try { localStorage.setItem("lang", link.dataset.langSwitch || ""); } catch {}
-    });
+    }
   });
 </script>

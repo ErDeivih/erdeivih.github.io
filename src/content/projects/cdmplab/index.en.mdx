@@ -12,7 +12,7 @@ color: "#087e6b"
 status: "active"
 year: "2026"
 role: "Product, frontend and data"
-highlight: "The editor stores a stable exercise representation and separates the screen from its data source: local for testing, Supabase for collaboration."
+highlight: "A tactical board and exercise library with a published web version. I am preparing access for more coaches."
 stack: ["Angular 22", "TypeScript", "SCSS", "Supabase", "Playwright"]
 order: 1
 featured: true
@@ -29,7 +29,7 @@ and orientation changes feel predictable with both a mouse and a small touch scr
 - Full pitch, half pitch, transverse 7-a-side pitch and blank canvas.
 - Players, balls, cones, poles, mini goals, shapes, arrows and text.
 - Formation templates, duplication, folders, sessions and export.
-- Immediate local mode and multi-user mode with one owner and up to four collaborators.
+- Local mode and team management with different permissions.
 - Authentication and team-level data isolation through Supabase Row Level Security.
 - Unit tests and Playwright E2E journeys, including the production build.
 
@@ -39,7 +39,8 @@ Screens never talk directly to Supabase. They use an interchangeable data source
 developing or a remote repository after sign-in. That makes interaction testing independent from the
 network and keeps security as a database responsibility.
 
-## Honest status
+## Next steps
 
-The public demo is deployed on GitHub Pages. The multi-user flow exists and database migrations are
-versioned; real user onboarding and invitation email still require operational Supabase configuration.
+The web version is published on GitHub Pages. I am preparing it for more coaches: reviewing editor errors, improving the first visit and checking permissions and account recovery.
+
+A published interface does not mean every registration, invitation and collaboration flow has been verified for general access. That review is part of the remaining work.

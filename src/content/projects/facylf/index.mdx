@@ -1,38 +1,37 @@
 ---
 type: "project"
 title: "FACyLF"
-description: "Futura web para consultar resultados y estadísticas del fútbol federado de Castilla y León."
-tagline: "Tener competiciones, jornadas y datos de fútbol regional en un sitio fácil de consultar."
+description: "Datos del fútbol federado e informes para preparar rivales."
+tagline: "Consultar competiciones y preparar un rival a partir de los datos de las federaciones."
 color: "#7a1f2b"
-status: "planned"
-year: "Próximamente"
-role: "Idea y diseño de producto"
-highlight: "El proyecto está en fase de definición. La prioridad será ordenar bien la información antes de decidir la tecnología."
-stack: ["Resultados", "Clasificaciones", "Estadísticas", "Fútbol base"]
-order: 4
+status: "active"
+year: "2026"
+role: "Proyecto personal"
+highlight: "La recogida de datos y la consulta local ya existen. La cobertura y los informes siguen ampliándose."
+stack: ["TypeScript","SQLite","Ingesta de datos","Analítica de fútbol"]
+order: 2
 featured: true
 ---
 
-FACyLF será una web para seguir el **fútbol federado de Castilla y León** sin tener que saltar entre
-páginas o buscar cada competición por separado.
+FACyLF empezó con el fútbol de Castilla y León y ha ido creciendo hacia otras federaciones autonómicas. Reúne información que suele estar repartida entre calendarios, clasificaciones y actas, para consultar equipos y preparar partidos.
 
-La idea es reunir resultados, clasificaciones y estadísticas en una interfaz clara, pensada tanto
-para consultar la última jornada como para seguir la evolución de un equipo durante la temporada.
+## Lo que hay ahora
 
-## Qué quiero resolver
+El proyecto tiene recolectores por federación y una web local para consultar competiciones, jornadas, resultados y fichas de equipos y jugadores. La ingesta se puede reanudar y conserva las actas originales para corregir el procesamiento sin tener que descargarlas otra vez.
 
-- Encontrar rápido una competición, categoría o equipo.
-- Consultar jornadas, resultados y clasificación desde el móvil.
-- Presentar las estadísticas sin convertir cada pantalla en una tabla interminable.
-- Mantener una navegación coherente entre temporadas y competiciones.
+Las bases de datos se mantienen separadas por federación. Las métricas iniciales muestran la cobertura disponible: que exista una ficha no significa que toda su trayectoria esté recogida.
 
-## Antes de empezar a construir
+## En qué estoy trabajando
 
-El primer trabajo será concretar qué datos están disponibles, con qué frecuencia se actualizan y qué
-condiciones de uso tienen. A partir de ahí podré definir el modelo de competiciones, equipos, partidos
-y estadísticas, y elegir una arquitectura que no complique el proyecto antes de tiempo.
+- Ingestar más temporadas y competiciones, y comprobar la calidad de los datos.
+- Mejorar las consultas para que la búsqueda y las fichas respondan más rápido.
+- Dar una forma más útil a los informes de rivales y jugadores.
+- Preparar una versión pública con un alcance definido.
 
-## Estado real
+## Información sin fotografías
 
-Es un proyecto futuro. El repositorio está reservado, pero la aplicación todavía no está montada.
-Esta ficha recoge la intención y se irá completando cuando existan decisiones y avances que enseñar.
+La presentación pública prevista se centrará en resultados y estadísticas, sin fotografías de jugadores. Las capturas que se añadan al portfolio también seguirán ese criterio.
+
+## Acceso
+
+Por ahora se ejecuta en local y no hay una demo pública enlazada. Esta ficha irá recogiendo los avances de la aplicación y de los informes.

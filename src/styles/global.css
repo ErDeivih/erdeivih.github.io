@@ -47,10 +47,11 @@
   }
   .editorial-title {
     font-family: var(--font-display);
-    font-size: clamp(3.2rem, 9vw, 8.75rem);
+    font-size: clamp(3rem, 7vw, 6.8rem);
     font-weight: 900;
     letter-spacing: -.075em;
-    line-height: .82;
+    line-height: .98;
+    overflow-wrap: anywhere;
   }
   .section-title {
     font-family: var(--font-display);
@@ -85,8 +86,8 @@
     transition: background .2s ease;
   }
   .project-card:hover { background: var(--color-surface); }
-  .project-card-planned { opacity: .52; }
-  .project-card-planned:hover { opacity: .82; }
+  .project-card-planned { background: var(--color-panel); }
+  .project-card-planned .project-visual { opacity: .55; }
   .project-card-planned .project-visual { filter: grayscale(.65); }
   .project-visual {
     position: relative;
@@ -114,9 +115,29 @@
     font-weight: 700;
     letter-spacing: .08em;
   }
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal { opacity: 1; transform: none; transition: opacity .55s ease, transform .55s ease; }
   .reveal.in-view { opacity: 1; transform: none; }
 }
+
+section[id], footer[id] { scroll-margin-top: 6rem; }
+.skip-link { position: fixed; top: -10rem; left: 1rem; z-index: 100; padding: 1rem; background: var(--color-foreground); color: var(--color-background); }
+.skip-link:focus { top: 1rem; }
+.project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; margin-top: 2rem; }
+.project-grid .project-card { border: 1px solid var(--color-border); padding: 1.5rem; background: var(--color-surface); }
+.project-grid .project-card > div { display: flex; flex-direction: column; align-items: stretch; gap: 1.5rem; height: 100%; }
+.project-grid .project-card > div > div { display: flex; flex-direction: column; flex: 1; }
+.project-grid .project-card h2 { font-size: clamp(1.9rem,3vw,2.8rem); line-height: 1.1; }
+.project-grid .project-card .project-visual { min-height: 12rem; height: 13rem; }
+.project-grid .project-card .project-visual img { object-fit: contain; background: #e6f0ea; }
+.project-grid .project-card .project-monogram { font-size: 9rem; }
+.project-grid .project-card .mt-7 { margin-top: auto; padding-top: 1.5rem; }
+.project-grid .project-card-planned { background: var(--color-panel); }
+.status-badge { border: 1px solid var(--color-border); padding: .3rem .55rem; font-size: .65rem; background: var(--color-background); }
+.project-filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+.project-filters button { cursor: pointer; border: 1px solid var(--color-border); border-radius: 2rem; padding: .6rem 1rem; font-size: .85rem; }
+.project-filters button[aria-pressed="true"] { background: var(--color-foreground); color: var(--color-background); }
+.project-card[hidden] { display: none; }
+@media(max-width: 640px) { .project-grid { grid-template-columns: minmax(0,1fr); } .project-grid .project-card { padding: 1rem; } }
 
 .prose-content { max-width: 47rem; color: var(--color-muted); font-size: 1.05rem; }
 .prose-content :where(h2,h3,h4) { color: var(--color-foreground); font-weight: 800; letter-spacing: -.025em; line-height: 1.15; }

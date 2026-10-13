@@ -46,35 +46,12 @@ const socialImage = image === undefined ? new URL("/og.png", site.url) : image ?
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
 
-    <script is:inline>
-      // i18n: redirige según el idioma del navegador (si no hay preferencia guardada).
-      (function () {
-        var stored = null;
-        try { stored = localStorage.getItem("lang"); } catch (e) {}
-        var navlang = (navigator.language || "es").toLowerCase();
-        var wantsEn = navlang.indexOf("en") === 0;
-        var path = window.location.pathname;
-        var inEn = path === "/en" || path.indexOf("/en/") === 0;
-
-        var goEn = false, goEs = false;
-        if (stored === "en") goEn = !inEn;
-        else if (stored === "es") goEs = inEn;
-        else if (wantsEn) goEn = !inEn;
-
-        if (goEn) {
-          var enPath = (path === "/" || path === "") ? "/en/" : "/en" + path;
-          window.location.replace(enPath);
-        } else if (goEs) {
-          var esPath = (path === "/en" || path === "/en/") ? "/" : path.replace(/^\/en/, "");
-          window.location.replace(esPath || "/");
-        }
-      })();
-    </script>
   </head>
   <body class="min-h-screen bg-background text-foreground">
+    <a href="#contenido" class="skip-link">{locale === "es" ? "Saltar al contenido" : "Skip to content"}</a>
     <Nav />
 
-    <main class="relative z-10">
+    <main id="contenido" class="relative z-10">
       <slot />
     </main>
 

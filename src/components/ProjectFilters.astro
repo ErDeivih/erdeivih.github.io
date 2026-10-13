@@ -1,0 +1,31 @@
+---
+import { useTranslations } from "../i18n/ui";
+const locale = Astro.currentLocale ?? "es";
+const t = useTranslations(locale);
+---
+<div class="project-filters" role="group" aria-label={locale === "es" ? "Filtrar proyectos por estado" : "Filter projects by status"}>
+  <button type="button" data-project-filter="all" aria-pressed="true">{locale === "es" ? "Todos" : "All"}</button>
+  <button type="button" data-project-filter="active" aria-pressed="false">{t.project.statuses.active}</button>
+  <button type="button" data-project-filter="complete" aria-pressed="false">{t.project.statuses.complete}</button>
+  <button type="button" data-project-filter="planned" aria-pressed="false">{t.project.statuses.planned}</button>
+</div>
+<p class="sr-only" aria-live="polite" data-filter-count></p>
+<script>
+  function setupFilters() {
+    document.querySelectorAll<HTMLButtonElement>("[data-project-filter]").forEach(button => {
+      button.onclick = () => {
+        const filter = button.dataset.projectFilter;
+        document.querySelectorAll("[data-project-filter]").forEach(other => other.setAttribute("aria-pressed", String(other === button)));
+        let count = 0;
+        document.querySelectorAll<HTMLElement>("[data-project-status]").forEach(card => {
+          card.hidden = filter !== "all" && card.dataset.projectStatus !== filter;
+          if (!card.hidden) count++;
+        });
+        const result = document.querySelector("[data-filter-count]");
+        if (result) result.textContent = `${count} ${document.documentElement.lang === "es" ? "proyectos" : "projects"}`;
+      };
+    });
+  }
+  setupFilters();
+  document.addEventListener("astro:page-load", setupFilters);
+</script>

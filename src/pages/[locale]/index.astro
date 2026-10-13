@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
+import ProjectFilters from "../../components/ProjectFilters.astro";
+import { certifications } from "../../data/certifications";
 import { locales, useTranslations, type Locale } from "../../i18n/ui";
 
 export function getStaticPaths() { return locales.map((locale: Locale) => ({ params: { locale } })); }
@@ -23,7 +25,8 @@ const projects = (await getCollection("projects", ({ data }) => data.type === "p
       </div>
       <p class="text-lg text-muted">{t.projectsHome.intro}</p>
     </header>
-    <div>
+    <ProjectFilters />
+    <div class="project-grid">
       {projects.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}
     </div>
     <a href={`/${locale}/proyectos/`} class="button-secondary mt-10">{t.projectsHome.all} →</a>
@@ -37,13 +40,14 @@ const projects = (await getCollection("projects", ({ data }) => data.type === "p
       </div>
       <div>
         <p class="max-w-2xl text-xl leading-snug text-muted">{t.certifications.intro}</p>
-        <div class="mt-10 grid gap-4 sm:grid-cols-3">
-          {t.certifications.groups.map(group => (
-            <div class="min-h-44 border border-foreground p-5">
-              <p class="kicker text-muted">{group.label}</p>
-              <p class="mt-8 text-lg font-bold">{t.certifications.empty}</p>
-            </div>
-          ))}
+        <div class="mt-8 border-t border-foreground">
+          {certifications.length ? certifications.map(item => (
+            <article class="border-b border-foreground py-6">
+              <p class="kicker text-muted">{item.issuer} · {item.date}</p>
+              <h3 class="mt-2 text-2xl font-bold">{item.title}</h3>
+              <a class="button-secondary mt-4" href={item.verification} target="_blank" rel="noopener">{locale === "es" ? "Verificar acreditación ↗" : "Verify credential ↗"}</a>
+            </article>
+          )) : <p class="py-6 font-mono text-sm text-muted">{t.certifications.empty}</p>}
         </div>
       </div>
     </div>

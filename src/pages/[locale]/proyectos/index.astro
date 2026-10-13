@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
+import ProjectFilters from "../../../components/ProjectFilters.astro";
 import { locales, useTranslations, type Locale } from "../../../i18n/ui";
 export function getStaticPaths() { return locales.map((locale: Locale) => ({ params: { locale } })); }
 const locale = Astro.currentLocale ?? "es";
@@ -13,9 +14,10 @@ const projects = (await getCollection("projects", ({ data }) => data.type === "p
 <BaseLayout title={t.projectsPage.title} description={t.projectsPage.intro}>
   <section class="mx-auto max-w-[88rem] px-5 py-16 sm:px-8 sm:py-24">
     <header class="grid gap-8 border-b border-foreground pb-10 md:grid-cols-[1fr_minmax(18rem,36rem)] md:items-end">
-      <div><p class="kicker text-primary">{t.projectsPage.kicker}</p><h1 class="editorial-title mt-5">{t.projectsPage.title}</h1></div>
+      <div><p class="kicker text-primary">{t.projectsPage.kicker} / {String(projects.length).padStart(2, "0")}</p><h1 class="editorial-title mt-5">{t.projectsPage.title}</h1></div>
       <p class="text-xl text-muted">{t.projectsPage.intro}</p>
     </header>
-    <div>{projects.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}</div>
+    <ProjectFilters />
+    <div class="project-grid">{projects.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}</div>
   </section>
 </BaseLayout>

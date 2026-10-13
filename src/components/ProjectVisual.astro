@@ -1,0 +1,37 @@
+---
+interface Props { slug: string; title?: string; image?: string; imageAlt?: string; eager?: boolean; }
+const { slug, image, imageAlt = "", eager = false } = Astro.props;
+---
+{image ? <img src={image} alt={imageAlt} width="1329" height="568" loading={eager ? "eager" : "lazy"} /> : (
+  <svg viewBox="0 0 480 210" width="480" height="210" class="project-illustration" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      {slug === "facylf" ? <>
+        <rect x="35" y="28" width="235" height="154" rx="2" /><path d="M152 28v154M35 66h40v78H35m235-78h-40v78h40" /><circle cx="152" cy="105" r="30" />
+        <path d="M305 162h134M315 162v-35h25v35m18 0V91h25v71m18 0V54h25v108" />
+        <circle cx="100" cy="78" r="6" fill="currentColor" /><circle cx="180" cy="140" r="6" fill="currentColor" /><path d="m110 80 62 52m-17-3 17 3-4-15" stroke-dasharray="5 4" />
+      </> : slug === "compra-alimentacion" ? <>
+        <path d="M40 54h25l21 90h132l19-64H73M99 157a10 10 0 1 0 1 0m91 0a10 10 0 1 0 1 0M111 80l9 64m32-64v64m43-64-9 64" />
+        <rect x="283" y="29" width="153" height="153" rx="8" /><path d="M305 64h100m-100 29h69m-69 29h83m-83 29h48" /><path d="m391 141 10 10 17-21" />
+      </> : slug === "cue-digital" ? <>
+        <path d="m39 110 112-72 99 76-118 63ZM151 38l-19 139M39 110l211 4M39 110v19l93 67 118-63v-19" />
+        <path d="M297 163V55h124v108ZM316 79h29m-29 24h79m-79 24h79m-79 24h48" /><circle cx="385" cy="62" r="27" fill="var(--project-accent)" /><path d="M385 76V52m0 12c-19 0-17-15-17-15s17 0 17 15Zm0-5c17 0 15-15 15-15s-15 0-15 15Z" />
+      </> : slug === "opofuente" ? <>
+        <path d="M46 51q68-28 134 0v116q-66-28-134 0Zm134 0q68-28 134 0v116q-66-28-134 0Z" /><path d="M65 73q47-17 93 0m-93 25q47-17 93 0m-93 25q47-17 93 0m42-50q47-17 93 0m-93 25q47-17 93 0m-93 25q47-17 93 0" />
+        <path d="M350 70h76m-76 35h76m-76 35h76" /><path d="m350 61 8 8 13-16m-21 43 8 8 13-16m-21 43 8 8 13-16" />
+      </> : slug === "munipay" ? <>
+        <rect x="75" y="22" width="100" height="167" rx="14" /><path d="M111 38h28M93 71h63m-63 29h63m-63 29h63m-63 29h36" />
+        <circle cx="313" cy="105" r="65" /><path d="M337 73h-45v64h45m-64-43h55m-55 22h55" />
+      </> : slug === "documentchain" ? <>
+        <rect x="37" y="49" width="90" height="112" rx="3" /><path d="M53 75h55M53 97h55M53 119h35M127 105h48m45 0h47m47 0h47" />
+        <rect x="175" y="83" width="45" height="45" rx="8" /><rect x="267" y="83" width="45" height="45" rx="8" /><rect x="361" y="83" width="45" height="45" rx="8" />
+        <path d="M197 83V63h92v20m0 45v24h94v-24" />
+      </> : <>
+        <path d="M44 158h386M70 151v-33h42v33m33 0V92h42v59m33 0V65h42v86m33 0V42h42v109" />
+        <path d="m57 102 91-35 78-28 80-15" stroke-dasharray="6 6" />
+      </>}
+    </g>
+  </svg>
+)}
+<style>
+  .project-illustration { display:block; width:100%; height:100%; min-height:12rem; color:rgba(24,24,20,.65); background:linear-gradient(135deg,rgba(255,255,255,.4),rgba(255,255,255,.08)); }
+</style>

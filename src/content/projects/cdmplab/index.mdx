@@ -11,7 +11,7 @@ color: "#087e6b"
 status: "active"
 year: "2026"
 role: "Producto, frontend y datos"
-highlight: "El editor guarda una representación estable del ejercicio y separa la pantalla del origen de datos: local para probar, Supabase para colaborar."
+highlight: "Pizarra y biblioteca de ejercicios con una versión web publicada. Estoy preparando el acceso para más entrenadores."
 stack: ["Angular 22", "TypeScript", "SCSS", "Supabase", "Playwright"]
 order: 1
 featured: true
@@ -30,7 +30,7 @@ pequeña.
 - Campo completo, medio campo, F7 transversal y lienzo sin líneas.
 - Jugadores, balones, conos, picas, miniporterías, formas, flechas y texto.
 - Plantillas de formaciones, duplicado, carpetas, sesiones y exportación.
-- Modo local inmediato y modo multiusuario con propietario y hasta cuatro colaboradores.
+- Modo local y gestión de equipos con distintos permisos.
 - Autenticación y aislamiento de datos por equipo mediante Supabase y Row Level Security.
 - Pruebas unitarias y recorridos E2E con Playwright, también sobre la build de producción.
 
@@ -40,8 +40,8 @@ Las pantallas no hablan directamente con Supabase. Se apoyan en una fuente de da
 almacenamiento local durante el desarrollo o repositorio remoto al iniciar sesión. Así puedo probar
 la interacción sin depender de la red y mantener la seguridad como responsabilidad de la base de datos.
 
-## Estado real
+## Próximos pasos
 
-La demo pública está desplegada en GitHub Pages. El flujo multiusuario existe y las migraciones de
-base de datos están versionadas; el alta real de usuarios y el correo de invitación todavía requieren
-configuración operativa del proyecto Supabase.
+La versión web está publicada en GitHub Pages. Estoy preparando su uso por más entrenadores: revisar errores del editor, mejorar el primer acceso y comprobar los permisos y la recuperación de cuenta.
+
+La publicación de la interfaz no significa que todos los flujos de registro, invitación y colaboración estén comprobados para una apertura general. Esa revisión es parte del trabajo pendiente.

@@ -2,38 +2,37 @@
 type: "project"
 lang: "en"
 title: "FACyLF"
-description: "A future website for federated football results and statistics in Castile and León."
-tagline: "Competitions, matchdays and regional football data in one place that is easy to browse."
+description: "Federated football data and reports for preparing opponents."
+tagline: "Explore competitions and prepare for opponents using federation data."
 color: "#7a1f2b"
-status: "planned"
-year: "Coming soon"
-role: "Product idea and design"
-highlight: "The project is still being defined. The priority is to organise the information properly before choosing the technology."
-stack: ["Results", "Standings", "Statistics", "Youth football"]
-order: 4
+status: "active"
+year: "2026"
+role: "Personal project"
+highlight: "Data collection and local browsing already exist. Coverage and reports are still being expanded."
+stack: ["TypeScript", "SQLite", "Data collection", "Football analytics"]
+order: 2
 featured: true
 ---
 
-FACyLF will be a website for following **federated football in Castile and León** without jumping
-between pages or searching for every competition separately.
+FACyLF started with football in Castile and León and has expanded towards other regional federations. It brings together schedules, standings and match reports to explore teams and prepare for matches.
 
-The idea is to bring results, standings and statistics together in a clear interface, useful both
-for checking the latest matchday and following a team's progress through the season.
+## Available now
 
-## What I want to solve
+The project has collectors for each federation and a local website for competitions, matchdays, results, teams and players. Collection can resume after interruptions; original match reports are retained so parsing can be corrected without downloading them again.
 
-- Find a competition, category or team quickly.
-- Check matchdays, results and standings on a phone.
-- Present statistics without turning every screen into an endless table.
-- Keep navigation consistent across seasons and competitions.
+Each federation has separate databases. Initial metrics show available coverage: a profile does not mean a complete playing history has been collected.
 
-## Before building
+## Current work
 
-The first job is to confirm which data is available, how often it is updated and under which terms
-it can be used. From there I can define the competition, team, match and statistics model and choose
-an architecture without making the project more complicated than it needs to be.
+- Collect more seasons and competitions and check data quality.
+- Improve queries so search and profile pages respond faster.
+- Make opponent and player reports more useful.
+- Prepare a public version with a defined scope.
 
-## Honest status
+## No player photographs
 
-This is a future project. The repository name is reserved, but the application has not been built yet.
-This page records the intention and will grow once there are real decisions and progress to show.
+The planned public presentation will focus on results and statistics, without player photographs. Portfolio screenshots will follow the same rule.
+
+## Access
+
+The application currently runs locally. There is no public demo linked here yet; this page will track application and reporting progress.

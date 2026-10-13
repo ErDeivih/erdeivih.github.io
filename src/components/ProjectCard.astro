@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { useTranslations } from "../i18n/ui";
+import ProjectVisual from "./ProjectVisual.astro";
 
 interface Props {
   project: CollectionEntry<"projects">["data"];
@@ -11,26 +12,18 @@ const { project, slug, index = 0 } = Astro.props;
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
 const statusLabel = t.project.statuses[project.status as keyof typeof t.project.statuses] ?? project.status;
-const monogram = project.title?.split(/\s+/).map(word => word[0]).join("").slice(0, 2) ?? "DP";
 ---
 
-<article class:list={["project-card reveal py-8 sm:py-10", project.status === "planned" && "project-card-planned"]}>
+<article data-project-status={project.status} class:list={["project-card reveal py-8 sm:py-10", project.status === "planned" && "project-card-planned"]}>
   <div class="grid gap-6 lg:grid-cols-[minmax(18rem,.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12">
     <a href={`/${locale}/proyectos/${slug}/`} class="project-visual block" style={`--project-accent:${project.color ?? "#3655f5"}`} aria-label={`${t.project.card.view}: ${project.title}`}>
-      {project.image ? (
-        <img src={project.image} alt={project.imageAlt ?? ""} width="1329" height="568" loading={index > 0 ? "lazy" : "eager"} />
-      ) : (
-        <>
-          <span class="absolute left-4 top-4 rounded-full bg-background px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">{project.highlight ?? project.stack?.[0]}</span>
-          <span class="project-monogram" aria-hidden="true">{monogram}</span>
-        </>
-      )}
+      <ProjectVisual slug={slug} title={project.title} image={project.image} imageAlt={project.imageAlt} eager={index === 0} />
     </a>
 
     <div>
       <div class="flex flex-wrap items-center justify-between gap-3">
         <p class="project-number">{String(index + 1).padStart(2, "0")} / {project.year ?? "2026"}</p>
-        <p class="kicker text-muted">{statusLabel}</p>
+        <p class="kicker status-badge text-muted">{statusLabel}</p>
       </div>
       {project.status === "planned" && <p class="mt-4 inline-flex border border-foreground bg-panel px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">{t.project.plannedNote}</p>}
       <h2 class="mt-5 text-4xl font-black tracking-[-.055em] sm:text-6xl">{project.title}</h2>
