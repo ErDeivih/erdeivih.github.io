@@ -2,42 +2,38 @@
 type: "project"
 lang: "en"
 title: "MuniPay"
-description: "A Flutter app for sports teams to manage fines, payments and shared expenses."
-tagline: "Replacing the team's spreadsheet with a shared account everybody can understand."
+description: "A web and Android application for a sports team's fines, payments and shared expenses."
+tagline: "Check the team's accounts without relying on a spreadsheet."
 repo: "https://github.com/ErDeivih/MuniPay"
 demo: "https://multas-c2fed.web.app"
 color: "#3655f5"
 status: "active"
 year: "2025–26"
 role: "Product and full-stack development"
-highlight: "One Flutter codebase for web and Android, with real-time data and separate permissions for admins and players."
+highlight: "Published web version and an Android application available to download."
 stack: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Provider"]
 order: 6
 featured: true
 ---
 
-MuniPay was not built to showcase Flutter. It started because my football team tracked fines,
-payments and expenses in a spreadsheet that did a poor job of explaining who owed what.
+MuniPay grew out of my football team's accounts: fines, payments and expenses kept in a spreadsheet. The application brings those records together and lets each player check their position.
 
-I turned that routine into a product with two clear roles. The administrator creates the team,
-records fines and tracks payments; each player joins with an invite code and sees their own position.
-The same codebase ships on the **web** and as an **Android APK**.
+## Manage team accounts
 
-## What it solves today
+Administrators record fines, payments and shared expenses. Players join with an invitation code and can check their outstanding amounts.
 
-- Teams and members connected by invite code.
-- Fines, penalties, payments and shared expenses.
-- A live summary for each team and player.
-- Excel exports so the data is not trapped inside the app.
-- Separate admin and player access through Firebase Authentication and Firestore rules.
+Summaries update when data changes. Accounts can also be exported to Excel for review outside the application.
 
-## The decision behind the project
+## Web and Android
 
-There is no custom server. The UI subscribes to Firestore and derives debts, payments and totals
-from those records. That kept infrastructure light, but also made **security rules** and collection
-design a central part of the architecture.
+[The web version is available here](https://multas-c2fed.web.app) and works in the browser.
 
-## Honest status
+[Download the Android version from GitHub](https://github.com/ErDeivih/MuniPay/releases/latest). Both versions share a Flutter codebase.
 
-The web build is live and the repository offers an Android release. It remains under development:
-some technical documentation needs cleanup and local setup requires your own Firebase project.
+## How it is organised
+
+The application separates administrator and player actions. Firebase manages accounts and team data; the interface displays records and summaries.
+
+## Development
+
+The application is published. I continue to review management workflows and the presentation of accounts.

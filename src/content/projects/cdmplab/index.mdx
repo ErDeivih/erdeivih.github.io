@@ -1,8 +1,8 @@
 ---
 type: "project"
 title: "CDMPLab"
-description: "Pizarra táctica y biblioteca de ejercicios para entrenadores de fútbol."
-tagline: "Dibujar una sesión, organizarla y compartirla sin pelearse con la herramienta."
+description: "Pizarra de fútbol para diseñar ejercicios, organizar sesiones y compartirlas con el cuerpo técnico."
+tagline: "Preparar un entrenamiento y guardar los ejercicios para volver a usarlos."
 repo: "https://github.com/ErDeivih/CDMPLab"
 demo: "https://erdeivih.github.io/CDMPLab/"
 image: "/projects/cdmplab.png"
@@ -11,37 +11,32 @@ color: "#087e6b"
 status: "active"
 year: "2026"
 role: "Producto, frontend y datos"
-highlight: "Pizarra y biblioteca de ejercicios con una versión web publicada. Estoy preparando el acceso para más entrenadores."
-stack: ["Angular 22", "TypeScript", "SCSS", "Supabase", "Playwright"]
+highlight: "Disponible en la web, con pizarra, biblioteca de ejercicios y sesiones."
+stack: ["Angular","TypeScript","SVG","Supabase"]
 order: 1
 featured: true
 ---
 
-CDMPLab es una **pizarra táctica y biblioteca de ejercicios** para entrenadores. Permite colocar
-jugadores y material, dibujar movimientos, añadir texto y guardar cada composición dentro de una
-biblioteca organizada por carpetas.
+CDMPLab es la pizarra táctica del CDM Pizarrales. La uso para preparar ejercicios de fútbol, guardarlos y reunirlos en sesiones que se puedan compartir con el cuerpo técnico.
 
-El reto no estaba en pintar un campo. Estaba en que seleccionar, arrastrar, girar, redimensionar,
-hacer zoom y cambiar la orientación siguiera siendo predecible tanto con ratón como en una pantalla
-pequeña.
+## Diseñar un ejercicio
 
-## Lo que funciona hoy
+La pizarra permite colocar jugadores y material, dibujar movimientos con flechas, añadir indicaciones y dibujar a mano alzada. Tiene campo completo, medio campo, tercio de campo, fútbol sala, F7 transversal y un lienzo libre.
 
-- Campo completo, medio campo, F7 transversal y lienzo sin líneas.
-- Jugadores, balones, conos, picas, miniporterías, formas, flechas y texto.
-- Plantillas de formaciones, duplicado, carpetas, sesiones y exportación.
-- Modo local y gestión de equipos con distintos permisos.
-- Autenticación y aislamiento de datos por equipo mediante Supabase y Row Level Security.
-- Pruebas unitarias y recorridos E2E con Playwright, también sobre la build de producción.
+Se puede trabajar desde el ordenador, el móvil o la tableta, con controles para mover, seleccionar y ajustar los elementos.
 
-## Una decisión que no se ve
+## Organizar el entrenamiento
 
-Las pantallas no hablan directamente con Supabase. Se apoyan en una fuente de datos intercambiable:
-almacenamiento local durante el desarrollo o repositorio remoto al iniciar sesión. Así puedo probar
-la interacción sin depender de la red y mantener la seguridad como responsabilidad de la base de datos.
+Los ejercicios se guardan en una biblioteca con carpetas. Se pueden buscar, duplicar y mover para reutilizar una tarea sin empezar otra vez.
 
-## Próximos pasos
+Las sesiones reúnen varios ejercicios con sus tiempos y permiten exportar un PDF del entrenamiento.
 
-La versión web está publicada en GitHub Pages. Estoy preparando su uso por más entrenadores: revisar errores del editor, mejorar el primer acceso y comprobar los permisos y la recuperación de cuenta.
+## Trabajar con el cuerpo técnico
 
-La publicación de la interfaz no significa que todos los flujos de registro, invitación y colaboración estén comprobados para una apertura general. Esa revisión es parte del trabajo pendiente.
+La aplicación incluye equipos, invitaciones y permisos para propietarios y colaboradores. El acceso a un equipo depende de la invitación y de las autorizaciones de la cuenta.
+
+## Acceso y mejoras
+
+[Abre CDMPLab en el navegador](https://erdeivih.github.io/CDMPLab/). No necesitas instalar nada.
+
+Sigo mejorando el manejo de la pizarra y el proceso de acceso. La ampliación a más entrenadores incluye revisar las invitaciones, la recuperación de cuenta y los permisos.

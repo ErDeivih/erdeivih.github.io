@@ -3,37 +3,24 @@ type: "tab"
 lang: "en"
 project: "airport-fx"
 tab: "datos"
-label: "Data and method"
+label: "Data and approach"
 order: 2
 ---
 
-## Sources with provenance
+## Planned sources
 
-The design uses institutional exchange rates, Spain's FRONTUR and EGATUR datasets, resident travel
-statistics, AENA passenger counts and holiday calendars. Every record keeps requested date, effective
-date, source and attribution; gaps are never filled without recording how.
+The design considers exchange rates, tourism and spending statistics, airport passenger figures and calendars. Each data point is intended to retain its source and reporting period.
 
-## Reconstructing what is not published
+## Observed and estimated information
 
-The INE publishes tourists by country and destination, while AENA publishes passengers by airport.
-The joint matrix is missing. IPF starts with a seed matrix and alternately adjusts rows and columns
-until both margins are respected within a declared tolerance.
+Public sources provide aggregate data, but not a complete relationship between origin country, airport and currency exchange transactions.
 
-That does not turn the internal matrix into observed data. It remains an **estimate driven by explicit
-assumptions**, and the repository labels it accordingly.
+The approach explores combining aggregates and estimating missing relationships. Estimates will be identified with their assumptions.
 
-## Simulating in order to validate
+## Simulation and analysis
 
-Synthetic transactions make it possible to develop the pipeline and models without pretending to
-hold company data. The important test is a round trip: once grouped by month, airport, currency and
-flow, they must reproduce the aggregates used for calibration.
+Simulated transactions would support analysis without using real business transactions. Their aggregates would then need to be checked against the source data.
 
-## Intended architecture
+## Planned tools
 
-```text
-Public sources → partitioned bronze → dbt / dimensional model
-                                   ↘ simulator → forecasting → stock policy
-```
-
-Dagster orchestrates assets and backfills; DuckDB supports local work; dbt validates transformations;
-Power BI is the analytical surface. AWS equivalents are documented, not deployed.
+The design proposes Python and DuckDB for data work, Dagster for collection and transformation, dbt for the model and Power BI for reports. These components are planned; the combined system is not presented as finished.

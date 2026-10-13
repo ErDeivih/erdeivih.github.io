@@ -3,28 +3,22 @@ type: "tab"
 lang: "en"
 project: "documentchain"
 tab: "teoria"
-label: "Theory"
+label: "What it explores"
 order: 2
 ---
 
-## The problem
+## Separate documents from their records
 
-Storing important documents on a plain server has two limits: if the server goes down or is taken
-over, you lose control, and it's hard to prove a document hasn't been touched. The solution
-DocumentChain explores is to spread that trust: the chain guarantees **what** happened and **when**,
-and IPFS guarantees the content **is still there**, without depending on a single machine.
+The degree project explores keeping encrypted documents and recording versions and permissions through coordinated components.
 
-## The three pieces
+## Each component's role
 
-- **Blockchain (Ethereum)** — used as an immutable ledger: who uploaded each document, its version
-  and the permissions. Smart contracts enforce those rules in code, not by a person.
-- **IPFS Cluster** — holds the actual document content, replicated across several nodes behind a
-  load balancer, so it doesn't rely on one server.
-- **End-to-end encryption** — the document is encrypted before being uploaded. AES-256-GCM for the
-  file and ECIES to share the keys with whoever should have access.
+- **Ethereum:** contracts record versions, permissions and operations.
+- **IPFS Cluster:** stores encrypted content and replicates it between nodes.
+- **Client-side encryption:** prepares files before sending them and supports sharing access keys.
 
-## What each decision adds
+## Integrity and availability
 
-- **Traceability**: every change leaves an on-chain trace that can be verified.
-- **Distributed access control**: permissions live in the contracts, not in a database someone manages.
-- **Integrity**: with encryption and an on-chain record, a document can't be altered without being noticed.
+The content reference allows checking whether it matches the expected document. Availability depends on the nodes storing that content remaining operational; IPFS alone does not guarantee retention.
+
+The project uses a development network. Its scope and limitations are documented in the [repository](https://github.com/ErDeivih/DocumentChain).

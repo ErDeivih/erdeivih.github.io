@@ -2,35 +2,20 @@
 type: "tab"
 project: "documentchain"
 tab: "tecnicas"
-label: "Técnicas"
+label: "Cómo está hecho"
 order: 3
 ---
 
-## Stack
+## Interfaz y coordinación
 
-- **Frontend**: React 18 + TypeScript + Vite + TailwindCSS.
-- **Backend**: Node.js + Express, conectado a IPFS Cluster.
-- **Blockchain**: Solidity + Hardhat + Ethers.js.
-- **Almacenamiento**: IPFS Cluster (varios nodos con Nginx como balanceador).
-- **Seguridad**: AES-256-GCM + ECIES + MetaMask.
-- **Despliegue**: Docker Compose (Windows, Linux y macOS).
+React y TypeScript forman la interfaz web. Una API en Node.js y Express coordina las operaciones con el almacenamiento y los contratos.
 
-## Cómo se conecta todo
+## Documentos y versiones
 
-```
-Frontend ──► Backend API ──► Blockchain (Hardhat/ETH)
-                 │
-                 └──► IPFS Cluster (nodos + load balancer)
-```
+Los contratos están escritos en Solidity. El contenido se almacena en IPFS Cluster con varios nodos y Nginx como balanceador.
 
-La petición pasa del frontend al backend, este registra la operación en la cadena y guarda el
-contenido en IPFS. El detalle que más trabajo me costó fue la **limpieza automática de IPFS**
-disparada por eventos de la blockchain.
+El cifrado del archivo utiliza AES-256-GCM y el intercambio de claves utiliza ECIES. El documento cifrado y el registro de su versión se gestionan por separado.
 
-## Puertos cuando está arrancado
+## Entorno del proyecto
 
-| Servicio | URL |
-|----------|-----|
-| Frontend | `http://localhost:5173` |
-| Backend API | `http://localhost:3000/api/health` |
-| Hardhat RPC | `http://localhost:8545` |
+Docker Compose reúne las piezas del prototipo, incluida la red de desarrollo. La documentación del [repositorio](https://github.com/ErDeivih/DocumentChain) describe la arquitectura y cómo reproducirla.

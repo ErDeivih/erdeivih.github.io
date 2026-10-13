@@ -3,33 +3,24 @@ type: "tab"
 lang: "en"
 project: "munipay"
 tab: "demo"
-label: "How to run"
+label: "Using the app"
 order: 4
 ---
 
-## Without installing anything
+## Open in the browser
 
-The **web version** runs in the browser: [Open MuniPay Web](https://multas-c2fed.web.app)
+[Open MuniPay](https://multas-c2fed.web.app) to use the web version.
 
-For Android, download the **APK** from the [latest release](https://github.com/ErDeivih/MuniPay/releases/latest),
-allowing installs from unknown sources.
+## Review the accounts
 
-## Run it locally
+An administrator can create a team, add players and record fines, payments and expenses. Players join with an invitation code and check their position.
 
-```bash
-git clone https://github.com/ErDeivih/MuniPay.git
-cd MuniPay
-flutter pub get
-```
+The summary displays records and outstanding amounts. Excel export lets accounts be reviewed or shared outside the application.
 
-Before starting you need to set up **Firebase** (Auth + Firestore) and add the `google-services.json`.
-Firestore rules and indexes are deployed with:
+## Android
 
-```bash
-firebase deploy --only firestore:rules
-firebase deploy --only firestore:indexes
-flutter run -d chrome
-```
+An [Android version is also available on GitHub](https://github.com/ErDeivih/MuniPay/releases/latest), distributed as an APK.
 
-Once inside you can **create a team**, **add players** with their invite code, **log a fine** and
-see it appear on the dashboard. The backend is Firebase on the free plan, so there's no server cost.
+## Code
+
+[The repository](https://github.com/ErDeivih/MuniPay) contains the source and implementation documentation.

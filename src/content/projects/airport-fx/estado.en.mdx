@@ -3,34 +3,21 @@ type: "tab"
 lang: "en"
 project: "airport-fx"
 tab: "estado"
-label: "Status and setup"
+label: "Project progress"
 order: 3
 ---
 
-## What runs today
+## In preparation
 
-```powershell
-git clone https://github.com/ErDeivih/airport-fx-data-platform.git
-cd airport-fx-data-platform
-uv sync --group dev --group design
-uv run ruff format --check .
-uv run ruff check .
-uv run pytest -q
-uv run python -X utf8 scripts/validar_documentacion.py
-```
+The repository contains the project's starting point, source documentation and analysis design. There is no published dashboard or application yet.
 
-The numerical design check uses a separate dependency group:
+## Next steps
 
-```powershell
-uv run --group design python -X utf8 scripts/validar_diseno.py
-```
+- Complete collection from selected sources.
+- Build a model relating tourism, passengers and currencies.
+- Prepare reports and evaluate forecasts against historical data.
+- Study inventory decisions using those results.
 
-## What I do not claim yet
+## Code and documentation
 
-The repository is in its first phase. It does not yet download sources over HTTP or write the bronze
-layer; it also does not contain the dbt project, Power BI report or forecasting results. The README
-keeps those items in the roadmap and leaves improvement percentages blank until reproducible
-backtesting exists.
-
-That distinction is deliberate: in a data project, documenting uncertainty and unfinished work is
-as important as the completed pipeline.
+[The repository](https://github.com/ErDeivih/airport-fx-data-platform) records progress and development instructions. Analytical results will be added when available.

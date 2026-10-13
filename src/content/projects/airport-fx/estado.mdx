@@ -2,34 +2,21 @@
 type: "tab"
 project: "airport-fx"
 tab: "estado"
-label: "Estado y ejecución"
+label: "Avance del proyecto"
 order: 3
 ---
 
-## Qué se puede ejecutar ahora
+## En preparación
 
-```powershell
-git clone https://github.com/ErDeivih/airport-fx-data-platform.git
-cd airport-fx-data-platform
-uv sync --group dev --group design
-uv run ruff format --check .
-uv run ruff check .
-uv run pytest -q
-uv run python -X utf8 scripts/validar_documentacion.py
-```
+El repositorio contiene la base del proyecto, la documentación de fuentes y el diseño del análisis. Todavía no hay un panel ni una aplicación publicados.
 
-La prueba numérica del diseño usa un grupo de dependencias separado:
+## Siguientes pasos
 
-```powershell
-uv run --group design python -X utf8 scripts/validar_diseno.py
-```
+- Completar la recogida de datos de las fuentes seleccionadas.
+- Construir el modelo que permita relacionar turismo, pasajeros y monedas.
+- Preparar los informes y evaluar las previsiones con datos históricos.
+- Estudiar las decisiones de inventario a partir de esos resultados.
 
-## Qué no afirmo todavía
+## Código y documentación
 
-El repositorio está en la primera fase. Aún no descarga las fuentes por HTTP ni escribe la capa
-bronze; tampoco incluye el proyecto dbt, el informe Power BI o resultados de forecasting. El README
-mantiene esos elementos como roadmap y deja los porcentajes de mejora sin rellenar hasta que haya
-backtesting reproducible.
-
-Esa distinción es deliberada: en un proyecto de datos, documentar la incertidumbre y el trabajo
-pendiente es tan importante como el pipeline terminado.
+[El repositorio](https://github.com/ErDeivih/airport-fx-data-platform) recoge el estado del trabajo y las instrucciones de desarrollo. Los resultados analíticos se añadirán cuando estén disponibles.

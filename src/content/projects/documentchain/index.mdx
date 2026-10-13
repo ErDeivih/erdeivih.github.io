@@ -1,42 +1,41 @@
 ---
 type: "project"
 title: "DocumentChain"
-description: "Gestión documental con Ethereum, IPFS Cluster y cifrado en el cliente."
-tagline: "Mi TFG: separar el contenido, la prueba de integridad y el control de acceso."
+description: "Trabajo de Fin de Grado sobre documentos cifrados, historial de versiones y permisos con Ethereum e IPFS."
+tagline: "Guardar documentos cifrados y conservar un registro de sus versiones y permisos."
 repo: "https://github.com/ErDeivih/DocumentChain"
 color: "#f0522d"
 status: "complete"
 year: "2025"
 role: "TFG · arquitectura y desarrollo completo"
-highlight: "Los archivos cifrados viven en IPFS; la blockchain conserva versiones, permisos y trazabilidad sin almacenar el documento."
+highlight: "Prototipo académico terminado, con código y documentación disponibles en GitHub."
 stack: ["Solidity", "Ethereum", "IPFS", "React", "Node.js", "Docker"]
 order: 7
 featured: true
 ---
 
-DocumentChain es mi **Trabajo de Fin de Grado**. La pregunta de partida era concreta: ¿cómo se puede
-demostrar quién hizo qué con un documento sin entregar todo el control a un único servidor?
+DocumentChain es mi Trabajo de Fin de Grado. Explora cómo gestionar documentos cifrados y mantener un registro de sus versiones, permisos y operaciones usando Ethereum e IPFS.
 
-La respuesta del proyecto reparte responsabilidades. El contenido se cifra en el cliente y se guarda
-en un clúster IPFS; los contratos de Ethereum registran versiones, permisos y operaciones; un backend
-coordina ambos mundos y la interfaz permite trabajar con ellos sin exponer esa complejidad.
+## El recorrido de un documento
 
-## Qué construí
+El archivo se cifra antes de almacenarse en IPFS. Los contratos de Ethereum registran la información de versiones y permisos, y una aplicación web permite consultar los documentos y trabajar con ellos.
 
-- Contratos en Solidity para trazabilidad, versionado y permisos por archivo.
-- Cifrado AES-256-GCM del contenido y ECIES para compartir claves.
-- IPFS Cluster con tres nodos, replicación y balanceo mediante Nginx.
-- Frontend React + TypeScript y API Node.js + Express.
-- Entorno reproducible con Docker Compose y pruebas de contratos con Hardhat.
+El contenido y su registro se guardan en piezas distintas: el documento no se almacena dentro de la blockchain.
 
-## La parte difícil
+## Qué incluye
 
-No era “subir un PDF a blockchain”: eso sería caro y poco práctico. El trabajo estuvo en coordinar
-tres fuentes de verdad con fallos distintos y mantener una referencia verificable entre el hash,
-la versión registrada y el contenido cifrado. También implementé limpieza de IPFS dirigida por eventos
-de los contratos.
+- Subida y consulta de documentos cifrados.
+- Versiones y trazabilidad de las operaciones.
+- Permisos para compartir acceso.
+- Almacenamiento en un clúster IPFS con varios nodos.
+- Interfaz web y un entorno de ejecución con Docker.
 
-## Hasta dónde llega
+## Decisiones del trabajo
 
-Es un prototipo académico completo para ejecución local. Usa una red Hardhat de desarrollo y no debe
-confundirse con un servicio auditado o preparado para mainnet. Esa frontera está documentada en el repositorio.
+El proyecto combina cifrado en el cliente, contratos en Solidity y almacenamiento distribuido. La coordinación entre estas piezas fue una parte importante del TFG, especialmente al actualizar o retirar contenido.
+
+## Disponibilidad
+
+El trabajo académico está terminado. [El repositorio](https://github.com/ErDeivih/DocumentChain) contiene el código y las instrucciones para reproducir el entorno.
+
+No tiene una aplicación pública desplegada. Utiliza una red de desarrollo y su alcance es el de un prototipo académico.

@@ -1,43 +1,33 @@
 ---
 type: "project"
 title: "FX Aeropuertos"
-description: "Plataforma de datos para anticipar la demanda de efectivo por moneda y aeropuerto."
-tagline: "Una pregunta de tesorería: cuánto efectivo debería haber mañana en cada oficina."
+description: "Proyecto en preparación para estudiar las necesidades de efectivo de oficinas de cambio en aeropuertos."
+tagline: "Estudiar cuánto efectivo de cada moneda necesita una oficina de aeropuerto."
 repo: "https://github.com/ErDeivih/airport-fx-data-platform"
 color: "#d7b51d"
 status: "planned"
 year: "2026"
 role: "Data engineering y diseño analítico"
-highlight: "El proyecto separa de forma explícita datos oficiales, estimaciones por IPF y transacciones sintéticas; no presenta simulación como observación real."
-stack: ["Python", "Dagster", "dbt", "DuckDB", "Power BI", "pytest"]
+highlight: "En preparación: fuentes y diseño definidos, con el análisis y el despliegue pendientes."
+stack: ["Python","Diseño de datos","Análisis de demanda"]
 order: 8
 featured: true
 ---
 
-FX Aeropuertos reconstruye un problema típico de una operadora de cambio de divisa: decidir cuánto
-efectivo de cada moneda necesita una oficina de aeropuerto sin inmovilizar más caja de la necesaria.
+FX Aeropuertos es un proyecto de datos en preparación. Parte de una pregunta de una oficina de cambio: cuánto efectivo de cada moneda necesita para atender la demanda sin mantener más caja de la necesaria.
 
-El inventario se mueve en dos sentidos. Vender divisa a quien sale de España reduce ese stock;
-comprarla a quien llega lo repone y consume euros. Modelar ambos flujos por separado es imprescindible
-para poder pronosticar y tomar una decisión de inventario.
+## Qué quiero estudiar
 
-## Qué hace distinto al proyecto
+La venta de divisa a viajeros reduce el stock; la compra de divisa lo repone y consume euros. El análisis previsto separa ambos movimientos para estudiar las necesidades de cada oficina.
 
-No existe una fuente pública con transacciones individuales de cambio de moneda ni una tabla completa
-de turistas por país y aeropuerto. En vez de esconder ese hueco, el diseño distingue tres capas:
+## Las fuentes
 
-- **Datos reales**: tipos de cambio, turismo, gasto, pasajeros y festivos procedentes de fuentes públicas.
-- **Datos estimados**: la distribución país × aeropuerto, reconstruida mediante ajuste proporcional iterativo (IPF).
-- **Datos sintéticos**: transacciones generadas por un simulador que debe volver a cuadrar con los agregados oficiales.
+El diseño contempla tipos de cambio, turismo, pasajeros y calendarios de fuentes públicas. Como esos datos no incluyen operaciones individuales de cambio, el proyecto distingue información observada, estimaciones y transacciones simuladas.
 
-## La decisión final que persigue
+## Trabajo pendiente
 
-Sobre esa base, el roadmap plantea pronósticos por cuantiles y una política *newsvendor*: elegir el
-nivel de stock según el coste de quedarse corto y el de mantener efectivo inmovilizado, y validarlo
-con backtesting temporal.
+Queda por completar la recogida de fuentes, construir el modelo de datos y preparar los informes. Después se podrán evaluar las previsiones y las decisiones de inventario con resultados medidos.
 
-## Estado real
+## Disponibilidad
 
-Está en desarrollo. Hoy existen el paquete Python, la política de fuentes, fixtures reales mínimos,
-normalización estricta, escritura atómica, validación de documentación y CI. La ingesta HTTP, el
-modelo dimensional, Power BI y el forecasting están diseñados pero todavía no se presentan como terminados.
+[El repositorio](https://github.com/ErDeivih/airport-fx-data-platform) recoge la base y el diseño del proyecto. Todavía no hay una aplicación, un panel público ni resultados de predicción publicados.

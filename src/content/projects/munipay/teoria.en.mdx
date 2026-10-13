@@ -3,26 +3,21 @@ type: "tab"
 lang: "en"
 project: "munipay"
 tab: "teoria"
-label: "Theory"
+label: "What it does"
 order: 2
 ---
 
-## The underlying problem
+## Team accounts
 
-A team has several money flows mixed together: fines for being late or for a card, material
-expenses, and the shared pot. If everyone writes it down wherever, in the end nobody knows how much
-is owed or who has paid. MuniPay puts all of that in one place with two clear roles.
+Fines, payments and shared expenses can end up scattered across messages and spreadsheets. MuniPay brings them together so administrators can keep accounts and players can check their position.
 
-## How it's modelled
+## Records
 
-- **Team** — the group. Created and shared with an invite code.
-- **Member / player** — each person in the team, with their role.
-- **Fine** — recorded by the admin against a player.
-- **Payment** — settling a debt (fine or expense) by a player.
-- **Shared expense** — a cost split among members.
+- **Team and members:** who belongs to the group and their role.
+- **Fines:** amounts recorded by administrators for each player.
+- **Payments:** records for tracking amounts paid.
+- **Shared expenses:** team costs split between members.
 
-## The part I liked most
+## Review and export
 
-The relationship between **debt** and **payment**: a player owes an amount, and the app aggregates
-what's pending and what's paid without the logic getting complicated. With that, the dashboard and
-the export almost come out on their own.
+Summaries show each player's and the team's position. Excel export provides a way to review data outside the application.

@@ -3,33 +3,22 @@ type: "tab"
 lang: "en"
 project: "cdmplab"
 tab: "arquitectura"
-label: "Decisions"
+label: "How it is built"
 order: 2
 ---
 
-## One editor, two storage modes
+## An editable board
 
-`StoreService` owns application state and talks to a `DataSource` interface. Locally, that interface
-persists in the browser; after sign-in, `SupabaseRepository` implements it. Components do not need to
-know which one is active.
+A drill is saved as structured elements: pitch, players, equipment, positions, arrows and text. This lets it be reopened and edited instead of keeping only an image.
 
-```text
-Screens → StoreService → DataSource
-                       ↙          ↘
-              localStorage     Supabase + RLS
-```
+The pitch uses SVG. The interface is built with Angular and TypeScript.
 
-## The drawing is a document
+## Library and sessions
 
-An exercise is not stored as a screenshot. It is data: pitch, objects, positions, rotations, layers
-and text. The SVG is rendered from that model, so the exercise can be reopened, edited and exported
-without losing structure.
+Folders organise drills in the library. Sessions combine tasks and timings, with PDF output for taking a prepared plan to training.
 
-Old documents are normalised idempotently into the current canvas version. That keeps format changes
-from leaving existing exercises behind.
+## Teams and permissions
 
-## Security does not depend on hidden buttons
+Accounts and shared data use Supabase. Permissions are checked on the server and distinguish team management from exercise editing.
 
-The UI adapts actions to each role, but RLS policies are the real boundary. Owners manage their team;
-collaborators edit players and exercises, but not members. Platform administration sits behind
-`SECURITY DEFINER` functions and a private table.
+The [repository](https://github.com/ErDeivih/CDMPLab) documents storage, access and collaboration decisions.

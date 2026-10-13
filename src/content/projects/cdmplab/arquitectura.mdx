@@ -2,33 +2,22 @@
 type: "tab"
 project: "cdmplab"
 tab: "arquitectura"
-label: "Decisiones"
+label: "Cómo está hecha"
 order: 2
 ---
 
-## Un editor, dos formas de guardar
+## Una pizarra editable
 
-`StoreService` concentra el estado de la aplicación y trabaja contra una interfaz `DataSource`.
-En local, esa interfaz persiste en el navegador; con sesión, la implementa `SupabaseRepository`.
-Los componentes no necesitan saber cuál está activa.
+El ejercicio se guarda como un conjunto de elementos: campo, jugadores, material, posiciones, flechas y texto. Así se puede abrir de nuevo y modificarlo, en lugar de conservar solamente una imagen.
 
-```text
-Pantallas → StoreService → DataSource
-                         ↙          ↘
-                localStorage     Supabase + RLS
-```
+La representación del campo utiliza SVG. La interfaz está construida con Angular y TypeScript.
 
-## El dibujo es un documento
+## Biblioteca y sesiones
 
-El ejercicio no se guarda como una captura, sino como datos: terreno, objetos, posiciones,
-rotaciones, capas y texto. El SVG se renderiza a partir de ese modelo. Esto permite reabrirlo,
-editarlo y exportarlo sin perder estructura.
+La biblioteca organiza los ejercicios en carpetas. Las sesiones reúnen tareas y tiempos, con una salida en PDF para llevar el entrenamiento preparado.
 
-Los documentos antiguos se normalizan de forma idempotente hasta la versión actual del canvas.
-Fue una decisión importante: corregir el formato sin dejar atrás ejercicios ya creados.
+## Equipos y permisos
 
-## La seguridad no depende de ocultar botones
+Las cuentas y los datos compartidos se apoyan en Supabase. Los permisos se comprueban en el servidor y distinguen la gestión del equipo de la edición de ejercicios.
 
-La interfaz adapta acciones según el rol, pero la barrera real está en las políticas RLS. El
-propietario administra el equipo; los colaboradores editan jugadores y ejercicios, pero no miembros.
-Las funciones de administración quedan detrás de funciones `SECURITY DEFINER` y una tabla privada.
+La documentación técnica del [repositorio](https://github.com/ErDeivih/CDMPLab) recoge las decisiones de almacenamiento, acceso y colaboración.

@@ -1,42 +1,38 @@
 ---
 type: "project"
 title: "MuniPay"
-description: "Aplicación Flutter para gestionar multas, pagos y gastos compartidos en equipos deportivos."
-tagline: "Sustituir el Excel del equipo por una cuenta común que todos entiendan."
+description: "Aplicación web y Android para llevar las multas, pagos y gastos compartidos de un equipo deportivo."
+tagline: "Consultar las cuentas del equipo sin depender de una hoja de cálculo."
 repo: "https://github.com/ErDeivih/MuniPay"
 demo: "https://multas-c2fed.web.app"
 color: "#3655f5"
 status: "active"
 year: "2025–26"
 role: "Producto y desarrollo full-stack"
-highlight: "Un único código Flutter para web y Android, con datos en tiempo real y permisos distintos para administradores y jugadores."
+highlight: "Versión web publicada y aplicación Android disponible para descargar."
 stack: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Provider"]
 order: 6
 featured: true
 ---
 
-MuniPay no nació para demostrar Flutter. Nació porque en mi equipo de fútbol llevábamos multas,
-pagos y gastos en un Excel que cada vez explicaba peor quién debía qué.
+MuniPay salió de las cuentas de mi equipo de fútbol: multas, pagos y gastos que llevábamos en una hoja de cálculo. La aplicación reúne esos movimientos y permite que cada jugador consulte su situación.
 
-Convertí esa dinámica en un producto con dos papeles claros. El administrador crea el equipo,
-registra multas y controla pagos; cada jugador entra con un código de invitación y ve su situación.
-La misma base de código se publica en **web** y como **APK para Android**.
+## Llevar las cuentas del equipo
 
-## Qué resuelve hoy
+El administrador registra multas, pagos y gastos compartidos. Los jugadores acceden al equipo con un código de invitación y pueden consultar lo que tienen pendiente.
 
-- Equipos y miembros mediante código de invitación.
-- Multas, sanciones, pagos y gastos compartidos.
-- Resumen actualizado en tiempo real por equipo y jugador.
-- Exportación a Excel para no encerrar los datos dentro de la aplicación.
-- Acceso diferenciado para administrador y jugador mediante Firebase Authentication y reglas de Firestore.
+Los resúmenes se actualizan cuando cambian los datos. También se pueden exportar a Excel para revisar las cuentas fuera de la aplicación.
 
-## La decisión que estructura el proyecto
+## Web y Android
 
-No hay un servidor propio. La interfaz se suscribe a Firestore y deriva de ahí deudas, pagos y
-totales. Eso redujo infraestructura y encajó bien con una app pequeña, aunque obliga a tratar las
-**reglas de seguridad** y el diseño de colecciones como parte central de la arquitectura.
+[La versión web está disponible aquí](https://multas-c2fed.web.app) y se utiliza desde el navegador.
 
-## Estado real
+La [versión Android se descarga desde GitHub](https://github.com/ErDeivih/MuniPay/releases/latest). Ambas versiones comparten la misma base de código en Flutter.
 
-La versión web está publicada y el repositorio ofrece una release para Android. Sigue en desarrollo:
-hay documentación técnica que limpiar y algunos flujos dependen de una configuración propia de Firebase.
+## Cómo está organizada
+
+La aplicación distingue las acciones del administrador y las del jugador. Firebase gestiona las cuentas y los datos del equipo; la interfaz muestra los movimientos y sus resúmenes.
+
+## Desarrollo
+
+La aplicación está publicada y sigo revisando los recorridos de gestión y la presentación de las cuentas.
