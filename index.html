@@ -1,9 +1,153 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow"><title>David Pérez Velasco — Developer Portfolio</title><script>
-      (function () {
-        var stored = null;
-        try { stored = localStorage.getItem("lang"); } catch (e) {}
-        var n = (navigator.language || "es").toLowerCase();
-        var loc = (stored === "en" || (stored !== "es" && n.indexOf("en") === 0)) ? "/en/" : "/es/";
-        window.location.replace(loc);
-      })();
-    </script></head><body></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Pérez Velasco · Business Analyst</title>
+<meta name="description" content="Portfolio de David Pérez Velasco, Business Analyst. BI, KPI, ETL y Data Marts aplicados a proyectos reales.">
+<style>
+  :root {
+    --tinta: #14202e;
+    --tinta-suave: #4a5a6d;
+    --acento: #1f6feb;
+    --fondo: #f6f8fb;
+    --tarjeta: #ffffff;
+    --borde: #dfe6ee;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--tinta);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .envoltura { width: min(1080px, 100% - 2.5rem); margin: 0 auto; }
+
+  header { padding: 4.5rem 0 2.5rem; }
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .reclamo {
+    margin: 0 0 2rem;
+    max-width: 46ch;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--tinta-suave);
+  }
+  .boton {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    background: var(--acento);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .boton:hover, .boton:focus-visible { background: #1a5fd0; transform: translateY(-1px); }
+
+  .casos { padding: 1.5rem 0 3rem; }
+  .casos h2 {
+    margin: 0 0 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+  }
+  .rejilla {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .tarjeta {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  a.tarjeta:hover, a.tarjeta:focus-visible {
+    border-color: var(--acento);
+    box-shadow: 0 6px 20px rgba(31, 111, 235, 0.12);
+    transform: translateY(-2px);
+  }
+  .tarjeta h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+  .cifra {
+    margin: 0 0 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--acento);
+    font-variant-numeric: tabular-nums;
+  }
+  .accion {
+    margin-top: auto;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--tinta-suave);
+  }
+  a.tarjeta:hover .accion, a.tarjeta:focus-visible .accion { color: var(--acento); }
+  .accion::after { content: " \2192"; }
+
+  footer {
+    padding: 2.5rem 0 4rem;
+    border-top: 1px solid var(--borde);
+    font-size: 0.95rem;
+    color: var(--tinta-suave);
+  }
+  .contacto { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
+  .contacto a { color: var(--acento); font-weight: 600; text-decoration: none; }
+  .contacto a:hover, .contacto a:focus-visible { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    header { padding-top: 3rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="envoltura">
+    <header>
+      <h1>David Pérez Velasco · Business Analyst</h1>
+      <p class="reclamo">BI, KPI, ETL y Data Marts aplicados a proyectos reales.</p>
+      <a class="boton" href="cv.html">Descargar CV</a>
+    </header>
+
+    <main class="casos">
+      <h2>Casos</h2>
+      <div class="rejilla">
+        <a class="tarjeta" href="https://erdeivih.github.io/fondo-popular-demo/">
+          <h3>Fondo Popular</h3>
+          <p class="cifra">807 ediciones auditadas</p>
+          <span class="accion">Ver demo</span>
+        </a>
+        <a class="tarjeta" href="https://erdeivih.github.io/empleo-demo/">
+          <h3>Empleo</h3>
+          <p class="cifra">23 fuentes vigiladas</p>
+          <span class="accion">Ver demo</span>
+        </a>
+        <div class="tarjeta">
+          <h3>Cesta</h3>
+          <p class="cifra">5 cadenas · 1.447 pruebas</p>
+          <span class="accion">Ver caso</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <ul class="contacto">
+        <li><a href="https://github.com/ErDeivih">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>

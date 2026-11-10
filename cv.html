@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>David Pérez Velasco — CV</title>
+<style>
+  @page { size: A4 portrait; margin: 14mm 15mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9.5pt;
+    line-height: 1.34;
+    color: #1d1d1d;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  h1 {
+    font-size: 19pt;
+    font-weight: 700;
+    letter-spacing: 0.6pt;
+    margin: 0 0 2pt 0;
+    color: #111;
+  }
+  .sub {
+    font-size: 9.6pt;
+    margin: 0 0 1pt 0;
+  }
+  .sub strong { font-weight: 700; }
+  .contact { font-size: 8.9pt; color: #333; margin: 0; }
+  a { color: #14506e; text-decoration: none; }
+  h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.2pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.1pt;
+    color: #14506e;
+    border-bottom: 0.7pt solid #b8b8b8;
+    padding-bottom: 1.5pt;
+    margin: 9pt 0 4pt 0;
+  }
+  p { margin: 0 0 3pt 0; text-align: justify; }
+  .role { font-weight: 700; font-size: 9.6pt; margin: 0; }
+  .role .when { font-weight: 400; font-style: italic; color: #444; }
+  .proj { font-weight: 700; font-size: 9.6pt; margin: 0; }
+  .proj .stack { font-weight: 400; font-style: italic; color: #444; font-size: 8.9pt; }
+  ul { margin: 1pt 0 0 0; padding-left: 12pt; }
+  li { margin: 0 0 1.5pt 0; }
+  .links { font-size: 8.9pt; margin: 1.5pt 0 0 0; }
+  .pend {
+    background: #efefef;
+    border-bottom: 0.5pt dotted #888;
+    padding: 0 1.5pt;
+    font-size: 8.7pt;
+    font-style: normal;
+  }
+  .avoid { break-inside: avoid; page-break-inside: avoid; }
+  section { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>DAVID PÉREZ VELASCO</h1>
+<p class="sub"><strong>Business Analyst · Data Analyst junior</strong> — Salamanca · 634 59 74 58 · davidpeve01@gmail.com</p>
+<p class="contact"><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">linkedin.com/in/david-pérez-velasco</a> · <a href="https://github.com/ErDeivih">github.com/ErDeivih</a></p>
+
+<section>
+<h2>Perfil</h2>
+<p>Ingeniero Informático con experiencia práctica construyendo soluciones de datos de principio a fin: ingesta, modelado, calidad y explotación en consultas y cuadros de mando. Mis proyectos parten de un problema concreto y terminan en una base consultable, con las cifras medidas. Busco incorporarme como Business Analyst / Data Analyst junior.</p>
+</section>
+
+<section>
+<h2>Experiencia</h2>
+<div class="avoid">
+  <p class="role">Prácticas curriculares — NTT Data <span class="when">(2023)</span></p>
+  <p>Herramientas internas con Spring Framework; control de versiones con Git y trabajo en equipo ágil.</p>
+</div>
+<div class="avoid">
+  <p class="role">Otros empleos <span class="when">(2020–2024)</span></p>
+  <p>Repartidor (Burguer King, Salamanca, 2020) y camarero (2022–2024): atención al cliente, organización y trabajo coordinado.</p>
+</div>
+</section>
+
+<section>
+<h2>Proyectos de datos</h2>
+
+<div class="avoid">
+  <p class="proj">Fondo Popular — ETL y modelo de datos del fútbol federado de Castilla y León <span class="stack">· <a href="https://erdeivih.github.io/fondo-popular-demo/">demo</a></span></p>
+  <ul>
+    <li>ETL reanudable: recolección con Selenium, cola SQLite, importador idempotente y PostgreSQL; 15 temporadas, 867 competiciones y 328.100 partidos.</li>
+    <li>Modelo canónico en esquemas separados (core, analytics, app, ops, source), con procedencia en cada dato y entidades distintas para club, equipo-temporada e inscripción.</li>
+    <li>KPIs con una definición única de cobertura, publicada por temporada (206 de 867 completas); comprobador de calidad que falla con doble codificación o UTF-8 inválido.</li>
+  </ul>
+</div>
+
+<div class="avoid">
+  <p class="proj">Cesta — comparador de precios de supermercado <span class="stack">· repositorio privado, demo bajo petición</span></p>
+  <ul>
+    <li>Pipeline diario de seis cadenas: limpieza y almacén DuckDB/Parquet con 2,8 millones de filas y 65 días de histórico.</li>
+    <li>Calidad del dato: identidad por EAN, reglas de unidad (€/kg, €/l) y 91,1 % de precisión de emparejamiento sobre 4.804 pares.</li>
+    <li>Del dato a la decisión: ahorro calculado (6,78 € en una lista de ocho productos) y huecos declarados en vez de ceros.</li>
+  </ul>
+</div>
+
+<div class="avoid">
+  <p class="proj">Lyfta — ingesta y panel de indicadores de entrenamiento <span class="stack">· <a href="https://github.com/ErDeivih/garmin-athletics">garmin-athletics</a></span></p>
+  <ul>
+    <li>Ingesta de Garmin Connect (sueño, HRV, FC en reposo) y modelo de carga ATL/CTL/TSB; API FastAPI y SQLAlchemy con migraciones idempotentes.</li>
+  </ul>
+</div>
+
+<div class="avoid">
+  <p><strong>TFG — DocumentChain:</strong> aplicación full-stack (React, Node.js, Solidity, IPFS, Docker) para firmar y verificar documentos con integridad y trazabilidad.</p>
+</div>
+
+<p class="links"><strong>Otros proyectos:</strong>
+<a href="https://erdeivih.github.io/panel/">panel</a> ·
+<a href="https://erdeivih.github.io/data-school-site/">Data School</a> ·
+<a href="https://erdeivih.github.io/empleo-demo/">Empleo</a> ·
+<a href="https://erdeivih.github.io/opofuente-demo/">OpoFuente</a> ·
+<a href="https://erdeivih.github.io/CDMPLab/">CDMPLab</a></p>
+</section>
+
+<section>
+<h2>Habilidades técnicas</h2>
+<ul>
+  <li><strong>Datos:</strong> SQL (PostgreSQL, DuckDB, SQLite), modelado de datos y esquemas, ETL, calidad y depuración, KPIs, informes y cuadros de mando.</li>
+  <li><strong>Lenguajes:</strong> Python (Polars, Parquet), Java, TypeScript, C, C#, Perl, HTML, CSS, XAML.</li>
+  <li><strong>Desarrollo y herramientas:</strong> React, Node.js, Spring, Git, Jira, Docker, IDEs (NetBeans, Visual Studio, Eclipse), AutoCAD básico.</li>
+</ul>
+</section>
+
+<section>
+<h2>Formación</h2>
+<p><strong>Máster en Ingeniería Informática — Universidad de Salamanca.</strong> En curso.</p>
+<p><strong>Grado en Ingeniería Informática — Universidad de Salamanca.</strong> <span class="pend">[PENDIENTE: confirmar año de fin]</span></p>
+<p><strong>Bachillerato Científico — IES Federico García Bernalt,</strong> 2017–2019.</p>
+</section>
+
+<section>
+<h2>Idiomas y competencias</h2>
+<p>Inglés intermedio (sin certificación acreditada). Francés básico.</p>
+<p>Adaptación y aprendizaje rápido · Resolución de problemas · Trabajo en equipo · Autonomía · Comunicación. Vehículo propio.</p>
+</section>
+
+</body>
+</html>
