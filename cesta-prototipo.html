@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparativa · prototipo · Cesta</title>
+<meta name="description" content="Prototipo estático de la comparativa de Cesta. Datos ficticios, marcados como tales.">
+<style>
+  :root{
+    --tinta:#14202e; --suave:#4a5a6d; --papel:#fffdf8; --bosque:#184d3b;
+    --lima:#d7e86a; --borde:#d9d4c7; --fondo:#f4f0e6; --aviso:#8a4b00; --ok:#166044;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;max-width:100%;overflow-x:hidden}
+  body{background:var(--fondo);color:var(--tinta);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .envuelve{max-width:760px;margin:0 auto;padding:14px}
+  header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .marca{font-weight:700;letter-spacing:.2px}
+  .aviso{background:#fff3cd;border:1px solid #e3c66b;color:#5c4300;border-radius:8px;padding:6px 10px;font-size:13px;margin-left:auto;max-width:100%}
+  h1{font-family:Georgia,"Times New Roman",serif;font-size:27px;line-height:1.15;margin:8px 0 2px}
+  .sub{color:var(--suave);margin:0 0 14px;overflow-wrap:anywhere}
+  .resumen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 14px}
+  .dato{background:#fff;border:1px solid var(--borde);border-radius:10px;padding:9px;min-width:0}
+  .dato span{display:block;font-size:11px;color:var(--suave);text-transform:uppercase;letter-spacing:.6px}
+  .dato b{display:block;font-size:19px;line-height:1.2;margin-top:2px;overflow-wrap:anywhere}
+  .dato small{display:block;font-size:11px;color:var(--suave)}
+  .tarjeta{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:14px;margin:0 0 12px;min-width:0}
+  .tarjeta h2{font-size:16px;margin:0 0 8px;overflow-wrap:anywhere}
+  .cadena{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid #eee8db;min-width:0}
+  .cadena:first-of-type{border-top:0}
+  .cadena .n{min-width:0;overflow-wrap:anywhere}
+  .cadena .v{text-align:right;white-space:nowrap}
+  .cadena .v small{display:block;color:var(--suave);font-size:12px;font-weight:400}
+  .barra{height:6px;border-radius:99px;background:#eee7d7;margin-top:4px;overflow:hidden}
+  .barra i{display:block;height:100%;background:var(--bosque)}
+  .producto{border-top:1px solid #eee8db;padding:10px 0;min-width:0}
+  .producto:first-of-type{border-top:0}
+  .producto h3{font-size:15px;margin:0 0 2px;overflow-wrap:anywhere}
+  .fila{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0;min-width:0}
+  .fila .nom{min-width:0;overflow-wrap:anywhere;color:var(--suave);font-size:14px}
+  .fila .precio{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+  .fila .precio small{display:block;font-size:12px;font-weight:400;color:var(--suave)}
+  .et{display:inline-block;font-size:11px;border:1px solid var(--borde);border-radius:99px;padding:1px 7px;margin-left:5px;white-space:nowrap;vertical-align:middle}
+  .et.ok{border-color:#9cc7b3;color:#0f5c40}
+  .et.alt{border-color:#e0b45c;color:#714500}
+  .et.sin{border-color:#cfc7b8;color:#5f5a50}
+  .motivo{display:block;font-size:12px;color:var(--suave);margin-top:1px}
+  .multipack{background:#f7f6ee;border:1px dashed var(--borde);border-radius:8px;padding:8px;margin-top:6px;font-size:13px;overflow-wrap:anywhere}
+  .multipack b{color:var(--tinta)}
+  .optima{border-left:4px solid var(--lima);background:#f6f8e6}
+  .optima p{margin:0 0 4px;overflow-wrap:anywhere}
+  .nota{font-size:12px;color:var(--suave);margin:10px 0 0}
+  a{color:#0b5cad}
+  footer{font-size:12px;color:var(--suave);margin-top:14px;padding-top:10px;border-top:1px solid var(--borde)}
+  @media (max-width:420px){
+    .resumen{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+    .dato{padding:7px}
+    .dato b{font-size:17px}
+  }
+</style>
+</head>
+<body>
+<div class="envuelve">
+  <header>
+    <span class="marca">Cesta · prototipo</span>
+    <span class="aviso">Datos ficticios · no es la app real</span>
+  </header>
+
+  <h1>Comparar mi cesta</h1>
+  <p class="sub">Compra de la semana · 8 productos de ejemplo · precios inventados para la galería</p>
+
+  <section class="resumen" aria-label="Resumen">
+    <div class="dato"><span>Ahorro</span><b>3,80 €</b><small>−17 %</small></div>
+    <div class="dato"><span>Total</span><b>18,40 €</b><small>en una tienda</small></div>
+    <div class="dato"><span>Cobertura</span><b>7/8</b><small>productos</small></div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Total en cada cadena</h2>
+    <div class="cadena"><span class="n">Mercadona</span><span class="v">18,40 €<small>Cesta completa · la más barata</small></span></div>
+    <div class="barra"><i style="width:100%"></i></div>
+    <div class="cadena"><span class="n">Carrefour</span><span class="v">19,10 €<small>Cesta completa</small></span></div>
+    <div class="barra"><i style="width:96%"></i></div>
+    <div class="cadena"><span class="n">DIA</span><span class="v">21,50 €<small>Cesta completa</small></span></div>
+    <div class="barra"><i style="width:86%"></i></div>
+    <div class="cadena"><span class="n">Aldi</span><span class="v">16,10 €<small>Subtotal · faltan 1</small></span></div>
+    <p class="nota">Una cadena incompleta no compite como «la más barata»: su total es un subtotal.</p>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Producto a producto</h2>
+
+    <div class="producto">
+      <h3>Café molido · pack 500 g</h3>
+      <div class="fila"><span class="nom">Mercadona</span><span class="precio">4,40 €<small>8,80 €/kg</small></span><span class="et alt">Alternativa</span></div>
+      <div class="fila"><span class="nom">Carrefour</span><span class="precio">8,19 €<small>16,38 €/kg</small></span><span class="et ok">Mismo producto</span></div>
+      <div class="fila"><span class="nom">Aldi</span><span class="precio">—</span><span class="et sin">Sin equivalente</span></div>
+      <span class="motivo">no lo tiene en esta cadena · no se pinta 0 €</span>
+    </div>
+
+    <div class="producto">
+      <h3>Galletas · pack 6 × 125 g (750 g)</h3>
+      <div class="fila"><span class="nom">Carrefour</span><span class="precio">2,40 €<small>3,20 €/kg</small></span><span class="et ok">Mismo producto</span></div>
+      <div class="fila"><span class="nom">Aldi</span><span class="precio">—</span><span class="et sin">Sin equivalente</span></div>
+      <span class="motivo">no tiene el formato de 750 g; no se pinta 0 €</span>
+      <div class="multipack">Para <b>1 kg</b>: 2 packs = <b>4,80 €</b> · sobran <b>0,50 kg</b> · <b>3,20 €/kg</b></div>
+    </div>
+  </section>
+
+  <section class="tarjeta optima">
+    <h2>La cesta más barata en 1 o 2 tiendas</h2>
+    <p>Comprando todo en Mercadona: <b>18,40 €</b>.</p>
+    <p>Repartiendo entre Mercadona y Carrefour: <b>16,20 €</b>.</p>
+    <p><b>Te ahorras 2,20 €</b> frente a una sola tienda.</p>
+  </section>
+
+  <footer>
+    Prototipo estático para la galería del portfolio. Datos inventados; la app real y el caso
+    completo están en <a href="/cesta-caso.html">cesta-caso.html</a>.
+  </footer>
+</div>
+</body>
+</html>
