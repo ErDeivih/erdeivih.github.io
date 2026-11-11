@@ -13,6 +13,7 @@
     --fondo: #f6f8fb;
     --tarjeta: #ffffff;
     --borde: #dfe6ee;
+    --verde: #0f7b4f;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -26,19 +27,47 @@
   }
   .envoltura { width: min(1080px, 100% - 2.5rem); margin: 0 auto; }
 
-  header { padding: 4.5rem 0 2.5rem; }
+  header { padding: 3rem 0 2rem; }
   h1 {
-    margin: 0 0 1rem;
-    font-size: clamp(1.9rem, 5vw, 3rem);
+    margin: 0 0 0.7rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
   .reclamo {
-    margin: 0 0 2rem;
+    margin: 0 0 1.1rem;
     max-width: 46ch;
     font-size: clamp(1.05rem, 2.2vw, 1.3rem);
     color: var(--tinta-suave);
   }
+
+  .ficha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.1rem;
+    margin: 0 0 0.65rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.95rem;
+    color: var(--tinta-suave);
+  }
+  .ficha li { display: flex; align-items: center; gap: 0.45rem; }
+  .ficha a { color: var(--acento); font-weight: 600; text-decoration: none; }
+  .ficha a:hover, .ficha a:focus-visible { text-decoration: underline; }
+  .ficha .disp { color: var(--verde); font-weight: 600; }
+  .ficha .disp::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--verde);
+    display: inline-block;
+    flex: none;
+  }
+
+  .herramientas { margin: 0 0 1.5rem; font-size: 0.95rem; color: var(--tinta-suave); }
+  .herramientas strong { color: var(--tinta); font-weight: 600; }
+
   .boton {
     display: inline-block;
     padding: 0.8rem 1.6rem;
@@ -51,7 +80,7 @@
   }
   .boton:hover, .boton:focus-visible { background: #1a5fd0; transform: translateY(-1px); }
 
-  .casos { padding: 1.5rem 0 3rem; }
+  .casos { padding: 1rem 0 2rem; }
   .casos h2 {
     margin: 0 0 1.5rem;
     font-size: 0.8rem;
@@ -89,6 +118,13 @@
     color: var(--acento);
     font-variant-numeric: tabular-nums;
   }
+  .cifra small {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--tinta-suave);
+  }
   .accion {
     margin-top: auto;
     font-size: 0.92rem;
@@ -97,6 +133,17 @@
   }
   a.tarjeta:hover .accion, a.tarjeta:focus-visible .accion { color: var(--acento); }
   .accion::after { content: " \2192"; }
+
+  .nota-cifras {
+    margin: 1.6rem 0 0;
+    padding: 0.9rem 1.1rem;
+    border-left: 3px solid var(--borde);
+    background: #fbfcfe;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--tinta-suave);
+  }
+  .nota-cifras strong { color: var(--tinta); }
 
   footer {
     padding: 2.5rem 0 4rem;
@@ -109,7 +156,10 @@
   .contacto a:hover, .contacto a:focus-visible { text-decoration: underline; }
 
   @media (max-width: 480px) {
-    header { padding-top: 3rem; }
+    header { padding-top: 1.75rem; }
+    .ficha { font-size: 0.9rem; }
+    .herramientas { font-size: 0.9rem; }
+    .nota-cifras { font-size: 0.82rem; }
   }
 </style>
 </head>
@@ -118,6 +168,12 @@
     <header>
       <h1>David Pérez Velasco · Business Analyst</h1>
       <p class="reclamo">BI, KPI, ETL y Data Marts aplicados a proyectos reales.</p>
+      <ul class="ficha">
+        <li class="disp">Disponible para prácticas · Ávila/Salamanca</li>
+        <li>Ingeniería Informática · USAL</li>
+        <li><a href="mailto:davidpeve01@gmail.com">davidpeve01@gmail.com</a></li>
+      </ul>
+      <p class="herramientas"><strong>SQL</strong> · Python · DuckDB · ETL · KPIs · cuadros de mando</p>
       <a class="boton" href="cv.html">Descargar CV</a>
     </header>
 
@@ -126,26 +182,43 @@
       <div class="rejilla">
         <a class="tarjeta" href="https://erdeivih.github.io/fondo-popular-demo/">
           <h3>Fondo Popular</h3>
-          <p class="cifra">807 ediciones auditadas</p>
+          <p class="cifra">867 competiciones · 206 completas
+            <small>23,8 % de las ediciones del catálogo de Castilla y León</small>
+          </p>
           <span class="accion">Ver demo</span>
         </a>
         <a class="tarjeta" href="https://erdeivih.github.io/empleo-demo/">
           <h3>Empleo</h3>
-          <p class="cifra">23 fuentes vigiladas</p>
+          <p class="cifra">23 fuentes vigiladas · 33 fichas
+            <small>Última pasada del vigía de convocatorias</small>
+          </p>
           <span class="accion">Ver demo</span>
         </a>
-        <a class="tarjeta" href="/cesta-caso.html">
+        <a class="tarjeta" href="cesta-caso.html">
           <h3>Cesta</h3>
-          <p class="cifra">6 cadenas · 2,8 M filas · 91,1 %</p>
+          <p class="cifra">6 cadenas · 2,8 M filas · 91,1 %
+            <small>5 con catálogo completo; 65 días de histórico</small>
+          </p>
           <span class="accion">Ver caso</span>
         </a>
       </div>
+      <p class="nota-cifras">
+        <strong>Qué mide cada cifra.</strong> <strong>Fondo Popular:</strong> 867 es el número de
+        competiciones (ediciones) del catálogo de Castilla y León tras el cierre del 10/11/2026, y 206
+        son las que tienen todos sus grupos completos (23,8 %); la auditoría del 09/11 partía de 807
+        ediciones y 221 completas, que son dos fotos de la misma base y no una corrección.
+        <strong>Cesta:</strong> 6 es el número de cadenas recolectadas, de las que 5 tienen catálogo
+        completo (Lidl solo publica folleto semanal); 2,8 M es el histórico acumulado en 65 días y
+        91,1 % es la precisión del emparejamiento medida sobre 4.804 pares con código de barras.
+      </p>
     </main>
 
     <footer>
       <ul class="contacto">
+        <li><a href="mailto:davidpeve01@gmail.com">Email</a></li>
         <li><a href="https://github.com/ErDeivih">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">LinkedIn</a></li>
+        <li><a href="David-Perez-Velasco-CV.pdf">CV en PDF</a></li>
       </ul>
     </footer>
   </div>
