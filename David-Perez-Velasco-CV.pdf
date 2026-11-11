@@ -1,0 +1,94 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [5 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 6787 >>
+stream
+BT /F2 19.00 Tf 0.000 0.000 0.000 rg 51.00 790.89 Td (DAVID PEREZ VELASCO) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 778.29 Td (Business Analyst · Data Analyst junior — Salamanca · 634 59 74 58 · davidpeve01@gmail.com) Tj ET
+BT /F1 8.90 Tf 0.000 0.000 0.000 rg 51.00 765.69 Td (linkedin.com/in/david-perez-velasco · github.com/ErDeivih · erdeivih.github.io) Tj ET
+0.706 0.706 0.706 RG 0.7 w 51.00 760.59 m 544.28 760.59 l S
+BT /F2 9.20 Tf 0.078 0.314 0.431 rg 51.00 747.09 Td (PERFIL) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 734.09 Td (Ingeniero Informatico con experiencia practica construyendo soluciones de datos de principio a fin:) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 721.49 Td (ingesta, modelado, calidad y explotacion en consultas y cuadros de mando. Mis proyectos parten de un) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 708.89 Td (problema concreto y terminan en una base consultable, con las cifras medidas. Busco incorporarme como) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 696.29 Td (Business Analyst / Data Analyst junior.) Tj ET
+0.706 0.706 0.706 RG 0.7 w 51.00 691.19 m 544.28 691.19 l S
+BT /F2 9.20 Tf 0.078 0.314 0.431 rg 51.00 677.69 Td (EXPERIENCIA) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 664.69 Td (Practicas curriculares — NTT Data \(2023\)) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 652.09 Td (Herramientas internas con Spring Framework; control de versiones con Git y trabajo en equipo agil.) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 639.49 Td (Otros empleos \(2020-2024\)) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 626.89 Td (Repartidor \(Burger King, Salamanca, 2020\) y camarero \(2022-2024\): atencion al cliente, organizacion y) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 614.29 Td (trabajo coordinado.) Tj ET
+0.706 0.706 0.706 RG 0.7 w 51.00 609.19 m 544.28 609.19 l S
+BT /F2 9.20 Tf 0.078 0.314 0.431 rg 51.00 595.69 Td (PROYECTOS DE DATOS) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 582.69 Td (Fondo Popular — ETL y modelo de datos del futbol federado de Castilla y Leon) Tj ET
+BT /F1 8.90 Tf 0.000 0.000 0.000 rg 51.00 570.09 Td (erdeivih.github.io/fondo-popular-demo) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 557.49 Td (-  ETL reanudable: recoleccion con Selenium, cola SQLite, importador idempotente y PostgreSQL; 15) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 544.89 Td (   temporadas, 867 competiciones y 328.100 partidos.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 532.29 Td (-  Modelo canonico en esquemas separados \(core, analytics, app, ops, source\), con procedencia en cada) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 519.69 Td (   dato y entidades distintas para club, equipo-temporada e inscripcion.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 507.09 Td (-  KPIs con una definicion unica de cobertura, publicada por temporada \(206 de 867 completas\);) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 494.49 Td (   comprobador de calidad que falla con doble codificacion o UTF-8 invalido.) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 481.89 Td (Cesta — comparador de precios de supermercado) Tj ET
+BT /F1 8.90 Tf 0.000 0.000 0.000 rg 51.00 469.29 Td (repositorio privado · demo bajo peticion) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 456.69 Td (-  Pipeline diario de seis cadenas: limpieza y almacen DuckDB/Parquet con 2,8 millones de filas y 65) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 444.09 Td (   dias de historico.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 431.49 Td (-  Calidad del dato: identidad por EAN, reglas de unidad \(EUR/kg, EUR/l\) y 91,1 % de precision de) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 418.89 Td (   emparejamiento sobre 4.804 pares.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 406.29 Td (-  Del dato a la decision: ahorro calculado \(6,78 EUR en una lista de ocho productos\) y huecos) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 393.69 Td (   declarados en vez de ceros.) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 381.09 Td (Lyfta — ingesta y panel de indicadores de entrenamiento) Tj ET
+BT /F1 8.90 Tf 0.000 0.000 0.000 rg 51.00 368.49 Td (github.com/ErDeivih/garmin-athletics) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 355.89 Td (-  Ingesta de Garmin Connect \(sueno, HRV, FC en reposo\) y modelo de carga ATL/CTL/TSB; API FastAPI y) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 343.29 Td (   SQLAlchemy con migraciones idempotentes.) Tj ET
+BT /F2 9.80 Tf 0.000 0.000 0.000 rg 51.00 330.69 Td (TFG — DocumentChain) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 318.09 Td (Aplicacion full-stack \(React, Node.js, Solidity, IPFS, Docker\) para firmar y verificar documentos con) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 305.49 Td (integridad y trazabilidad.) Tj ET
+BT /F1 8.90 Tf 0.000 0.000 0.000 rg 51.00 292.89 Td (Otros proyectos: panel · Data School · Empleo · OpoFuente · CDMPLab \(erdeivih.github.io\)) Tj ET
+0.706 0.706 0.706 RG 0.7 w 51.00 287.79 m 544.28 287.79 l S
+BT /F2 9.20 Tf 0.078 0.314 0.431 rg 51.00 274.29 Td (HABILIDADES TECNICAS) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 261.29 Td (-  Datos: SQL \(PostgreSQL, DuckDB, SQLite\), modelado de datos y esquemas, ETL, calidad y depuracion,) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 248.69 Td (   KPIs, informes y cuadros de mando.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 236.09 Td (-  Lenguajes: Python \(Polars, Parquet\), Java, TypeScript, C, C#, Perl, HTML, CSS, XAML.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 223.49 Td (-  Desarrollo y herramientas: React, Node.js, Spring, Git, Jira, Docker, IDEs \(NetBeans, Visual Studio,) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 63.00 210.89 Td (   Eclipse\), AutoCAD basico.) Tj ET
+0.706 0.706 0.706 RG 0.7 w 51.00 205.79 m 544.28 205.79 l S
+BT /F2 9.20 Tf 0.078 0.314 0.431 rg 51.00 192.29 Td (FORMACION) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 179.29 Td (Master en Ingenieria Informatica — Universidad de Salamanca. En curso.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 166.69 Td (Grado en Ingenieria Informatica — Universidad de Salamanca.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 154.09 Td (Bachillerato Cientifico — IES Federico Garcia Bernalt, 2017-2019.) Tj ET
+0.706 0.706 0.706 RG 0.7 w 51.00 148.99 m 544.28 148.99 l S
+BT /F2 9.20 Tf 0.078 0.314 0.431 rg 51.00 135.49 Td (IDIOMAS Y COMPETENCIAS) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 122.49 Td (Ingles intermedio \(sin certificacion acreditada\). Frances basico.) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 109.89 Td (Adaptacion y aprendizaje rapido · Resolucion de problemas · Trabajo en equipo · Autonomia ·) Tj ET
+BT /F1 9.60 Tf 0.000 0.000 0.000 rg 51.00 97.29 Td (Comunicacion. Vehiculo propio.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000007153 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+7295
+%%EOF

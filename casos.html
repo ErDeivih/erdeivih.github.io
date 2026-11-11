@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casos · David Pérez Velasco</title>
+<meta name="description" content="Tres casos de datos: Fondo Popular (ETL y modelo), Empleo (calidad de fuentes) y Cesta (normalización de precios).">
+<style>
+  :root{
+    --tinta:#14202e; --suave:#4a5a6d; --acento:#1f6feb; --fondo:#f6f8fb;
+    --tarjeta:#fff; --borde:#dfe6ee; --ok:#0f7b4f; --aviso:#a35a00;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fondo);color:var(--tinta);
+    font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--acento)}
+  header{background:#fff;border-bottom:1px solid var(--borde)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}
+  .bar b{font-size:15px;letter-spacing:.2px}
+  .bar nav a{font-size:14px;margin-left:14px;text-decoration:none}
+  .hero{padding:28px 0 6px}
+  .hero h1{margin:0 0 8px;font-size:30px;line-height:1.2;letter-spacing:-.4px}
+  .hero p{margin:0;color:var(--suave)}
+  .nav-casos{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px}
+  .nav-casos a{font-size:14px;text-decoration:none;border:1px solid var(--borde);
+    background:#fff;border-radius:999px;padding:7px 13px;color:var(--tinta)}
+  .nav-casos a:hover{border-color:var(--acento);color:var(--acento)}
+  article{background:var(--tarjeta);border:1px solid var(--borde);border-radius:14px;
+    padding:22px;margin:0 0 22px}
+  article h2{margin:0 0 4px;font-size:23px;letter-spacing:-.2px}
+  .sub{color:var(--suave);font-size:15px;margin:0 0 16px}
+  .cifras{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+  .cifra{border:1px solid var(--borde);border-radius:10px;padding:10px 12px;min-width:104px;background:#fbfcfe}
+  .cifra b{display:block;font-size:20px;line-height:1.2}
+  .cifra span{font-size:12px;color:var(--suave)}
+  h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--acento);
+    margin:18px 0 4px;border-bottom:1px solid var(--borde);padding-bottom:4px}
+  p{margin:0 0 8px}
+  ul{margin:0 0 8px;padding-left:20px}
+  li{margin:0 0 5px}
+  .nota{font-size:13.5px;color:var(--suave);border-left:3px solid var(--borde);padding-left:12px;margin:14px 0 0}
+  .acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .btn{display:inline-block;text-decoration:none;font-size:15px;padding:10px 16px;border-radius:9px;
+    border:1px solid var(--acento);color:#fff;background:var(--acento)}
+  .btn.sec{background:#fff;color:var(--acento)}
+  footer{border-top:1px solid var(--borde);margin-top:8px;padding:20px 0 34px;color:var(--suave);font-size:14px}
+  .volver{font-size:14px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <b>David Pérez Velasco · Business Analyst</b>
+    <nav>
+      <a href="/">Portada</a>
+      <a href="/cv.html">CV</a>
+      <a href="/David-Perez-Velasco-CV.pdf">CV (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Tres casos, tres decisiones</h1>
+    <p>Cada caso sigue el mismo orden: la pregunta de negocio, los datos, el modelo, el indicador y el resultado.
+       Lo que sigue es lo que se puede comprobar hoy.</p>
+  </section>
+
+  <div class="nav-casos">
+    <a href="#fondo-popular">Fondo Popular</a>
+    <a href="#empleo">Empleo</a>
+    <a href="#cesta">Cesta</a>
+  </div>
+
+  <article id="fondo-popular">
+    <h2>Fondo Popular</h2>
+    <p class="sub">Resultados del fútbol y fútbol sala federados de Castilla y León, convertidos en una base consultable.</p>
+    <div class="cifras">
+      <div class="cifra"><b>328.100</b><span>partidos</span></div>
+      <div class="cifra"><b>867</b><span>competiciones</span></div>
+      <div class="cifra"><b>15</b><span>temporadas</span></div>
+      <div class="cifra"><b>807</b><span>ediciones auditadas</span></div>
+    </div>
+
+    <h3>Pregunta de negocio</h3>
+    <p>¿En qué grupos faltan actas y qué temporadas están lo bastante completas como para comparar equipos sin sesgo?</p>
+
+    <h3>Datos</h3>
+    <p>Resultados y clasificaciones publicados por las federaciones provinciales de Castilla y León, recogidos
+       temporada a temporada. Cada fila guarda su procedencia: de qué competición, grupo y jornada sale.</p>
+
+    <h3>Modelo</h3>
+    <p>Modelo canónico en esquemas separados (<em>core</em>, <em>analytics</em>, <em>app</em>, <em>ops</em>,
+       <em>source</em>) con entidades distintas para club, equipo-temporada e inscripción, de forma que un club
+       pueda cambiar de categoría sin romper el histórico. El grano del hecho es <strong>un partido</strong>.</p>
+
+    <h3>Indicador</h3>
+    <p>La cobertura se define una sola vez y se publica con su denominador: partidos con resultado sobre partidos
+       esperados, por temporada y por grupo. Sin esa definición, un 60 % de cobertura y un 60 % de actas parecen
+       lo mismo y no lo son.</p>
+
+    <h3>Resultado</h3>
+    <p>La clasificación se recalcula desde los partidos: puntos = 3·V + E, PJ = V + E + D y la suma de goles a favor
+       igual a la suma de goles en contra del mismo grupo. Cuando el corte de la fuente y el del cálculo no coinciden,
+       se declara «cortes distintos» en vez de presentar una tabla que no cuadra.</p>
+
+    <div class="acciones">
+      <a class="btn" href="https://erdeivih.github.io/fondo-popular-demo/">Abrir demo</a>
+      <a class="btn sec" href="https://erdeivih.github.io/fondo-popular-demo/explorar">Explorar competiciones</a>
+    </div>
+    <p class="nota">La demo es estática: los filtros del formulario no consultan el servidor completo. Se indica en la propia página.</p>
+  </article>
+
+  <article id="empleo">
+    <h2>Empleo</h2>
+    <p class="sub">Vigía de convocatorias públicas: qué plazo exige acción y cuál solo informa.</p>
+    <div class="cifras">
+      <div class="cifra"><b>23</b><span>fuentes vigiladas</span></div>
+      <div class="cifra"><b>33</b><span>fichas en la última pasada</span></div>
+      <div class="cifra"><b>2</b><span>plazos abiertos</span></div>
+    </div>
+
+    <h3>Pregunta de negocio</h3>
+    <p>De todo lo publicado cada día, ¿qué requiere que alguien actúe esta semana y qué es solo un trámite de un
+       proceso que ya está en marcha?</p>
+
+    <h3>Datos</h3>
+    <p>Convocatorias y publicaciones oficiales de 23 fuentes. Se guarda el texto original, la fecha interpretada y la
+       evidencia del tipo de plazo, para poder volver a comprobarlo.</p>
+
+    <h3>Modelo</h3>
+    <p>Cada registro tiene proceso, evento (inscripción, méritos, alegaciones, listas) y plazo. Los eventos de un mismo
+       proceso se enlazan, y una rectificación sustituye la fecha vigente sin borrar la anterior.</p>
+
+    <h3>Indicador</h3>
+    <p>Calidad por fuente: fuentes correctas sobre previstas, fichas con plazo interpretado, horas desde la última
+       lectura correcta y fichas perdidas en la auditoría. Una fuente correcta con cero novedades no es un error.</p>
+
+    <h3>Resultado</h3>
+    <p>Los plazos se separan en «solicitar plaza» y «trámites en curso», cada uno con su tipo y los días restantes.
+       La demo distingue lo que se puede probar sin cuenta.</p>
+
+    <div class="acciones">
+      <a class="btn" href="https://erdeivih.github.io/empleo-demo/">Abrir demo</a>
+    </div>
+  </article>
+
+  <article id="cesta">
+    <h2>Cesta</h2>
+    <p class="sub">Comparador de precios entre cadenas: mismo producto, misma unidad, mismo día.</p>
+    <div class="cifras">
+      <div class="cifra"><b>6</b><span>cadenas</span></div>
+      <div class="cifra"><b>2,8 M</b><span>filas</span></div>
+      <div class="cifra"><b>91,1 %</b><span>precisión de emparejamiento</span></div>
+      <div class="cifra"><b>4.804</b><span>pares evaluados</span></div>
+    </div>
+
+    <h3>Pregunta de negocio</h3>
+    <p>¿Dónde sale más barata esta lista concreta, y cuánto se ahorra de verdad al cambiar de tienda?</p>
+
+    <h3>Datos</h3>
+    <p>Precios diarios de seis cadenas con formato, cantidad neta y unidad. Almacén en DuckDB y Parquet con
+       2,8 millones de filas y 65 días de histórico.</p>
+
+    <h3>Modelo</h3>
+    <p>Producto identificado por EAN cuando existe; si no, por nombre normalizado, formato y marca. Cada precio se
+       normaliza a €/kg o €/L, y el emparejamiento se clasifica como exacto, alternativa aceptada o sin equivalente.</p>
+
+    <h3>Indicador</h3>
+    <p>El ahorro solo se calcula sobre conjuntos comparables: si una cadena no tiene uno de los productos, se muestra
+       su subtotal parcial y <strong>no</strong> compite como «la más barata».</p>
+
+    <h3>Resultado</h3>
+    <p>Ejemplo real del pipeline: una lista de ocho productos daba un ahorro de 6,78 € comprando en la cadena más
+       barata frente a la más cara. Un pack de 6 × 125 g a 2,40 € se compara como 3,20 €/kg, y para cubrir 1 kg hay
+       que comprar dos packs: 1,5 kg por 4,80 €.</p>
+
+    <div class="acciones">
+      <a class="btn sec" href="/">Ver portada</a>
+    </div>
+    <p class="nota">Repositorio privado: la demo se muestra bajo petición. Las cifras de esta página están tomadas de la última auditoría del pipeline.</p>
+  </article>
+
+  <a class="volver" href="/">← Volver a la portada</a>
+</main>
+
+<footer>
+  <div class="wrap">
+    David Pérez Velasco · davidpeve01@gmail.com ·
+    <a href="https://github.com/ErDeivih">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
