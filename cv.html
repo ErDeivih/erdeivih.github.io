@@ -2,68 +2,135 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Pérez Velasco — CV</title>
 <style>
-  @page { size: A4 portrait; margin: 14mm 15mm; }
-  * { box-sizing: border-box; }
+  /* Mismos tokens que publicado/assets/ui.css; se repiten embebidos para que el PDF
+     se genere igual sin depender de la hoja compartida. */
+  :root {
+    --tinta: #101a24;
+    --tinta-2: #3d4c5c;
+    --tinta-3: #6b7a8a;
+    --papel: #fbfaf8;
+    --superficie: #ffffff;
+    --borde: #e2ddd4;
+    --acento: #14506e;
+    --acento-fuerte: #0d3b52;
+    --ok: #0f7b4f;
+    --aviso: #8a4b00;
+    --foco: #1f6feb;
+    --s1: 4px;
+    --s2: 8px;
+    --s3: 12px;
+    --s4: 16px;
+    --s5: 24px;
+    --s6: 32px;
+    --s7: 48px;
+    --s8: 64px;
+    --fuente-texto: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --fuente-titulo: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --fuente-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --t-xs: .75rem;
+    --t-sm: .875rem;
+    --t-base: 1rem;
+    --t-md: 1.125rem;
+    --t-lg: 1.375rem;
+    --t-xl: 1.75rem;
+    --t-2xl: 2.25rem;
+    --t-3xl: 2.75rem;
+    --lh-titulo: 1.15;
+    --lh-texto: 1.6;
+    --r-sm: 4px;
+    --r-md: 8px;
+    --r-full: 999px;
+    --sombra-1: 0 1px 2px rgba(16, 26, 36, .06);
+    --sombra-2: 0 6px 18px rgba(16, 26, 36, .10);
+    --medida: 68ch;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 9.5pt;
-    line-height: 1.34;
-    color: #1d1d1d;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  h1 {
-    font-size: 19pt;
-    font-weight: 700;
-    letter-spacing: 0.6pt;
-    margin: 0 0 2pt 0;
-    color: #111;
-  }
-  .sub {
-    font-size: 9.6pt;
-    margin: 0 0 1pt 0;
-  }
+  body { color: var(--tinta); background: var(--papel); }
+  a { color: var(--acento); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  :focus-visible { outline: 2px solid var(--foco); outline-offset: 3px; border-radius: var(--r-sm); }
+  h1, h2 { line-height: var(--lh-titulo); }
+  h1 { font-family: var(--fuente-titulo); font-size: var(--t-2xl); letter-spacing: -.01em; margin: 0 0 var(--s2); }
+  .sub { font-family: var(--fuente-texto); font-size: var(--t-base); margin: 0 0 var(--s1); }
   .sub strong { font-weight: 700; }
-  .contact { font-size: 8.9pt; color: #333; margin: 0; }
-  a { color: #14506e; text-decoration: none; }
-  h2 {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 9.2pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.1pt;
-    color: #14506e;
-    border-bottom: 0.7pt solid #b8b8b8;
-    padding-bottom: 1.5pt;
-    margin: 9pt 0 4pt 0;
+  .contact { font-size: var(--t-sm); margin: 0; }
+  h2 { font-family: var(--fuente-titulo); font-size: var(--t-lg); color: var(--tinta); border-bottom: 1px solid var(--borde); padding-bottom: var(--s1); margin: var(--s5) 0 var(--s2); }
+  p { margin: 0 0 var(--s3); }
+  ul { margin: 0 0 var(--s3); padding-left: 1.2em; }
+  li { margin: 0 0 var(--s1); }
+  .role, .proj { font-weight: 700; margin: 0 0 var(--s1); }
+  .when, .stack { font-weight: 400; font-style: italic; color: var(--tinta-2); }
+  .avoid, section { break-inside: avoid; page-break-inside: avoid; }
+  .cv { max-width: var(--medida); margin-inline: auto; padding: var(--s5) 20px var(--s7); }
+
+  @media screen {
+    body { font-family: var(--fuente-texto); font-size: 16px; line-height: 1.55; }
+    .cv { max-width: 760px; padding: var(--s5) 20px var(--s7); }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.25rem; }
+    .role, .proj { font-size: var(--t-base); }
+    .when, .stack { font-size: var(--t-sm); }
+    /* Fila de acciones: solo en pantalla. En papel no existe (ver @media print),
+       asi que no puede empujar el CV a una segunda pagina. */
+    .acciones { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); margin: var(--s4) 0 0; padding: 0; }
+    .acciones a {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; min-width: 44px; padding: var(--s2) var(--s4);
+      border: 1px solid var(--acento); border-radius: var(--r-md);
+      background: var(--acento); color: var(--superficie);
+      font-size: var(--t-sm); font-weight: 600; line-height: 1.2;
+    }
+    .acciones a:hover { background: var(--acento-fuerte); border-color: var(--acento-fuerte); text-decoration: none; }
+    .acciones a.secundario { background: var(--superficie); color: var(--acento); border-color: var(--borde); }
+    .acciones a.secundario:hover { border-color: var(--acento); text-decoration: none; }
   }
-  p { margin: 0 0 3pt 0; text-align: justify; }
-  .role { font-weight: 700; font-size: 9.6pt; margin: 0; }
-  .role .when { font-weight: 400; font-style: italic; color: #444; }
-  .proj { font-weight: 700; font-size: 9.6pt; margin: 0; }
-  .proj .stack { font-weight: 400; font-style: italic; color: #444; font-size: 8.9pt; }
-  ul { margin: 1pt 0 0 0; padding-left: 12pt; }
-  li { margin: 0 0 1.5pt 0; }
-  .links { font-size: 8.9pt; margin: 1.5pt 0 0 0; }
-  .pend {
-    background: #efefef;
-    border-bottom: 0.5pt dotted #888;
-    padding: 0 1.5pt;
-    font-size: 8.7pt;
-    font-style: normal;
+
+  @media print {
+    @page { size: A4 portrait; margin: 14mm 15mm; }
+    body {
+      background: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 9.5pt;
+      line-height: 1.34;
+      color: #1d1d1d;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cv { max-width: none; margin: 0; padding: 0; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: 19pt; font-weight: 700; letter-spacing: .6pt; margin: 0 0 2pt; color: #111; text-transform: uppercase; }
+    .sub { font-size: 9.6pt; margin: 0 0 1pt; }
+    .contact { font-size: 8.9pt; color: #333; }
+    h2 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.2pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.1pt; color: #14506e; border-bottom: .7pt solid #b8b8b8; padding-bottom: 1.5pt; margin: 9pt 0 4pt; }
+    p { margin: 0 0 3pt; text-align: left; }
+    ul { margin: 1pt 0 0; padding-left: 12pt; }
+    li { margin: 0 0 1.5pt; }
+    .role, .proj { font-size: 9.6pt; margin: 0; }
+    .when, .stack { color: #444; font-size: 8.9pt; }
+    a { color: #14506e; }
+    .acciones { display: none !important; }
   }
-  .avoid { break-inside: avoid; page-break-inside: avoid; }
-  section { break-inside: avoid; page-break-inside: avoid; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; transform: none !important; }
+  }
 </style>
 </head>
 <body>
+<div class="cv">
 
-<h1>DAVID PÉREZ VELASCO</h1>
+<h1>David Pérez Velasco</h1>
 <p class="sub"><strong>Business Analyst · Data Analyst junior</strong> — Salamanca · 634 59 74 58 · davidpeve01@gmail.com</p>
 <p class="contact"><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">linkedin.com/in/david-pérez-velasco</a> · <a href="https://github.com/ErDeivih">github.com/ErDeivih</a></p>
+
+<div class="acciones" aria-label="Acciones del CV">
+  <a href="David-Perez-Velasco-CV.pdf">Descargar PDF</a>
+  <a class="secundario" href="casos.html">Casos</a>
+  <a class="secundario" href="index.html">Portada</a>
+</div>
 
 <section>
 <h2>Perfil</h2>
@@ -97,7 +164,7 @@
 <div class="avoid">
   <p class="proj">Cesta — comparador de precios de supermercado <span class="stack">· repositorio privado, demo bajo petición</span></p>
   <ul>
-    <li>Pipeline diario de 6 cadenas: limpieza y almacén DuckDB/Parquet con 2,8 millones de filas y 65 días de histórico.</li>
+    <li>Pipeline diario de 6 cadenas (5 con catálogo completo): limpieza y almacén DuckDB/Parquet con 2,8 millones de filas y 65 días de histórico.</li>
     <li>Calidad del dato: identidad por EAN, reglas de unidad (€/kg, €/l) y 91,1 % de precisión de emparejamiento sobre 4.804 pares.</li>
     <li>Del dato a la decisión: ahorro calculado (6,78 € en una lista de ocho productos) y huecos declarados en vez de ceros.</li>
   </ul>
@@ -144,5 +211,6 @@
 <p>Adaptación y aprendizaje rápido · Resolución de problemas · Trabajo en equipo · Autonomía · Comunicación. Vehículo propio.</p>
 </section>
 
+</div>
 </body>
 </html>

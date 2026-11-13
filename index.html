@@ -5,222 +5,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Pérez Velasco · Business Analyst</title>
 <meta name="description" content="Portfolio de David Pérez Velasco, Business Analyst. BI, KPI, ETL y Data Marts aplicados a proyectos reales.">
-<style>
-  :root {
-    --tinta: #14202e;
-    --tinta-suave: #4a5a6d;
-    --acento: #1f6feb;
-    --fondo: #f6f8fb;
-    --tarjeta: #ffffff;
-    --borde: #dfe6ee;
-    --verde: #0f7b4f;
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--fondo);
-    color: var(--tinta);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-  }
-  .envoltura { width: min(1080px, 100% - 2.5rem); margin: 0 auto; }
-
-  header { padding: 3rem 0 2rem; }
-  h1 {
-    margin: 0 0 0.7rem;
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-  .reclamo {
-    margin: 0 0 1.1rem;
-    max-width: 46ch;
-    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-    color: var(--tinta-suave);
-  }
-
-  .ficha {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 1.1rem;
-    margin: 0 0 0.65rem;
-    padding: 0;
-    list-style: none;
-    font-size: 0.95rem;
-    color: var(--tinta-suave);
-  }
-  .ficha li { display: flex; align-items: center; gap: 0.45rem; }
-  .ficha a { color: var(--acento); font-weight: 600; text-decoration: none; }
-  .ficha a:hover, .ficha a:focus-visible { text-decoration: underline; }
-  .ficha .disp { color: var(--verde); font-weight: 600; }
-  .ficha .disp::before {
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--verde);
-    display: inline-block;
-    flex: none;
-  }
-
-  .herramientas { margin: 0 0 1.5rem; font-size: 0.95rem; color: var(--tinta-suave); }
-  .herramientas strong { color: var(--tinta); font-weight: 600; }
-
-  .boton {
-    display: inline-block;
-    padding: 0.8rem 1.6rem;
-    border-radius: 8px;
-    background: var(--acento);
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .boton:hover, .boton:focus-visible { background: #1a5fd0; transform: translateY(-1px); }
-
-  .casos { padding: 1rem 0 2rem; }
-  .casos h2 {
-    margin: 0 0 1.5rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--tinta-suave);
-  }
-  .rejilla {
-    display: grid;
-    gap: 1.25rem;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-  .tarjeta {
-    display: flex;
-    flex-direction: column;
-    padding: 1.6rem;
-    background: var(--tarjeta);
-    border: 1px solid var(--borde);
-    border-radius: 12px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-  }
-  a.tarjeta:hover, a.tarjeta:focus-visible {
-    border-color: var(--acento);
-    box-shadow: 0 6px 20px rgba(31, 111, 235, 0.12);
-    transform: translateY(-2px);
-  }
-  .tarjeta h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
-  .cifra {
-    margin: 0 0 1.2rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--acento);
-    font-variant-numeric: tabular-nums;
-  }
-  .cifra small {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.82rem;
-    font-weight: 400;
-    color: var(--tinta-suave);
-  }
-  .accion {
-    margin-top: auto;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--tinta-suave);
-  }
-  a.tarjeta:hover .accion, a.tarjeta:focus-visible .accion { color: var(--acento); }
-  .accion::after { content: " \2192"; }
-
-  .nota-cifras {
-    margin: 1.6rem 0 0;
-    padding: 0.9rem 1.1rem;
-    border-left: 3px solid var(--borde);
-    background: #fbfcfe;
-    font-size: 0.86rem;
-    line-height: 1.55;
-    color: var(--tinta-suave);
-  }
-  .nota-cifras strong { color: var(--tinta); }
-
-  footer {
-    padding: 2.5rem 0 4rem;
-    border-top: 1px solid var(--borde);
-    font-size: 0.95rem;
-    color: var(--tinta-suave);
-  }
-  .contacto { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
-  .contacto a { color: var(--acento); font-weight: 600; text-decoration: none; }
-  .contacto a:hover, .contacto a:focus-visible { text-decoration: underline; }
-
-  @media (max-width: 480px) {
-    header { padding-top: 1.75rem; }
-    .ficha { font-size: 0.9rem; }
-    .herramientas { font-size: 0.9rem; }
-    .nota-cifras { font-size: 0.82rem; }
-  }
-</style>
+<link rel="stylesheet" href="assets/ui.css">
 </head>
 <body>
-  <div class="envoltura">
-    <header>
-      <h1>David Pérez Velasco · Business Analyst</h1>
-      <p class="reclamo">BI, KPI, ETL y Data Marts aplicados a proyectos reales.</p>
-      <ul class="ficha">
-        <li class="disp">Disponible para prácticas · Ávila/Salamanca</li>
-        <li>Ingeniería Informática · USAL</li>
-        <li><a href="mailto:davidpeve01@gmail.com">davidpeve01@gmail.com</a></li>
-      </ul>
-      <p class="herramientas"><strong>SQL</strong> · Python · DuckDB · ETL · KPIs · cuadros de mando</p>
-      <a class="boton" href="cv.html">Descargar CV</a>
-    </header>
-
-    <main class="casos">
-      <h2>Casos</h2>
-      <div class="rejilla">
-        <a class="tarjeta" href="https://erdeivih.github.io/fondo-popular-demo/">
-          <h3>Fondo Popular</h3>
-          <p class="cifra">867 competiciones · 206 completas
-            <small>23,8 % de las ediciones del catálogo de Castilla y León</small>
-          </p>
-          <span class="accion">Ver demo</span>
-        </a>
-        <a class="tarjeta" href="https://erdeivih.github.io/empleo-demo/">
-          <h3>Empleo</h3>
-          <p class="cifra">23 fuentes vigiladas · 33 fichas
-            <small>Última pasada del vigía de convocatorias</small>
-          </p>
-          <span class="accion">Ver demo</span>
-        </a>
-        <a class="tarjeta" href="cesta-caso.html">
-          <h3>Cesta</h3>
-          <p class="cifra">6 cadenas · 2,8 M filas · 91,1 %
-            <small>5 con catálogo completo; 65 días de histórico</small>
-          </p>
-          <span class="accion">Ver caso</span>
-        </a>
-      </div>
-      <p class="nota-cifras">
-        <strong>Qué mide cada cifra.</strong> <strong>Fondo Popular:</strong> 867 es el número de
-        competiciones (ediciones) del catálogo de Castilla y León tras el cierre del 10/11/2026, y 206
-        son las que tienen todos sus grupos completos (23,8 %); la auditoría del 09/11 partía de 807
-        ediciones y 221 completas, que son dos fotos de la misma base y no una corrección.
-        <strong>Cesta:</strong> 6 es el número de cadenas recolectadas, de las que 5 tienen catálogo
-        completo (Lidl solo publica folleto semanal); 2,8 M es el histórico acumulado en 65 días y
-        91,1 % es la precisión del emparejamiento medida sobre 4.804 pares con código de barras.
-      </p>
-    </main>
-
-    <footer>
-      <ul class="contacto">
-        <li><a href="mailto:davidpeve01@gmail.com">Email</a></li>
-        <li><a href="https://github.com/ErDeivih">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">LinkedIn</a></li>
-        <li><a href="David-Perez-Velasco-CV.pdf">CV en PDF</a></li>
-      </ul>
-    </footer>
+<header class="cabecera">
+  <div class="contenedor">
+    <h1>David Pérez Velasco · Business Analyst</h1>
+    <p class="reclamo">BI, KPI, ETL y Data Marts aplicados a proyectos reales.</p>
+    <ul class="ficha">
+      <li><span class="etiqueta etiqueta--ok">Disponible para prácticas · Ávila/Salamanca</span></li>
+      <li>Ingeniería Informática · USAL</li>
+      <li><a href="mailto:davidpeve01@gmail.com">davidpeve01@gmail.com</a></li>
+    </ul>
+    <p class="herramientas"><strong>SQL</strong> · Python · DuckDB · ETL · KPIs · cuadros de mando</p>
+    <div class="botones">
+      <a class="boton" href="David-Perez-Velasco-CV.pdf">Descargar CV</a>
+      <a class="boton boton--secundario" href="cv.html">Ver CV</a>
+      <a class="boton boton--secundario" href="casos.html">Ver casos</a>
+      <a class="boton boton--secundario" href="mailto:davidpeve01@gmail.com">Email</a>
+    </div>
   </div>
+</header>
+
+<main class="contenedor">
+  <h2>Casos</h2>
+  <div class="rejilla">
+    <a class="tarjeta" href="https://erdeivih.github.io/fondo-popular-demo/">
+      <h3>Fondo Popular</h3>
+      <p>Resultados del fútbol federado de Castilla y León convertidos en una base consultable.</p>
+      <p class="cifra-en-linea"><strong>867 competiciones · 206 completas</strong></p>
+      <p class="cifra__etiqueta">23,8 % del catálogo de Castilla y León</p>
+      <span class="accion">Ver demo</span>
+    </a>
+    <a class="tarjeta" href="https://erdeivih.github.io/empleo-demo/">
+      <h3>Empleo</h3>
+      <p>Vigía de convocatorias públicas: qué plazo exige acción y cuál solo informa.</p>
+      <p class="cifra-en-linea"><strong>23 fuentes vigiladas · 33 fichas</strong></p>
+      <p class="cifra__etiqueta">Última pasada del vigía</p>
+      <span class="accion">Ver demo</span>
+    </a>
+    <a class="tarjeta" href="cesta-caso.html">
+      <h3>Cesta</h3>
+      <p>Comparador de precios: mismo producto, misma unidad, mismo día.</p>
+      <p class="cifra-en-linea"><strong>6 cadenas · 2,8 M filas · 91,1 %</strong></p>
+      <p class="cifra__etiqueta">5 con catálogo completo · 65 días de histórico</p>
+      <span class="accion">Ver caso</span>
+    </a>
+  </div>
+  <p class="nota-cifras"><strong>Qué mide cada cifra.</strong> <strong>Fondo Popular:</strong> 867 es el número de competiciones (ediciones) del catálogo de Castilla y León tras el cierre del 10/11/2026, y 206 son las que tienen todos sus grupos completos (23,8 %); la auditoría del 09/11 partía de 807 ediciones y 221 completas, que son dos fotos de la misma base y no una corrección. <strong>Cesta:</strong> 6 es el número de cadenas recolectadas, de las que 5 tienen catálogo completo (Lidl solo publica folleto semanal); 2,8 M es el histórico acumulado en 65 días y 91,1 % es la precisión del emparejamiento medida sobre 4.804 pares con código de barras.</p>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <ul>
+      <li><a href="mailto:davidpeve01@gmail.com">Email</a></li>
+      <li><a href="https://github.com/ErDeivih">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/david-p%C3%A9rez-velasco">LinkedIn</a></li>
+      <li><a href="David-Perez-Velasco-CV.pdf">CV en PDF</a></li>
+    </ul>
+  </div>
+</footer>
 </body>
 </html>
