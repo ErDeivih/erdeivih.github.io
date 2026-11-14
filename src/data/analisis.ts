@@ -89,14 +89,14 @@ export const analisis: Analisis[] = [
     alt: "Ingresos por tienda y gasto medio por día de la semana en una tienda de barrio",
     stack: ["Python", "NumPy", "pandas", "matplotlib"],
     es: {
-      titulo: "Ventas de una tienda por día de la semana",
+      titulo: "Ventas de tres tiendas de barrio",
       pregunta: "¿Qué días vende más una tienda de barrio y cuánto pesa cada tienda en el total?",
       fuente: "Dataset CC0 de Data School: 180 días de ventas de tres tiendas entre enero y junio de 2026.",
       metodo: "Con NumPy sumé los ingresos por tienda y calculé la media por día de la semana agrupando las fechas.",
       conclusion: "Las tres tiendas venden parecido (entre 62 y 65 k€ en seis meses), pero el día pesa: sábado y domingo son los mejores (1.331 € y 1.180 € de media) y el martes el peor (809 €). El fin de semana concentra la caja.",
     },
     en: {
-      titulo: "Store sales by day of the week",
+      titulo: "Sales of three neighbourhood stores",
       pregunta: "Which days does a neighbourhood shop sell more, and how much does each store weigh in the total?",
       fuente: "CC0 dataset from Data School: 180 days of sales for three stores between January and June 2026.",
       metodo: "With NumPy I summed revenue per store and computed the average per weekday by grouping the dates.",
