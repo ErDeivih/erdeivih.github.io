@@ -16,7 +16,7 @@ import os
 BASE = os.environ.get("MEDIR_BASE", "http://127.0.0.1:8910")
 ROOT = Path(__file__).resolve().parent.parent
 CAPTURAS = ROOT.parent / "capturas"
-PAGINAS = ["/", "/proyectos/", "/proyectos/facylf/", "/proyectos/compra-alimentacion/", "/en/", "/cv.html"]
+PAGINAS = ["/", "/proyectos/", "/proyectos/facylf/", "/proyectos/documentchain/", "/analisis/", "/en/"]
 VIEWPORTS = [(390, 844, "390"), (1280, 900, "escritorio")]
 
 

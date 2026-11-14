@@ -11,7 +11,7 @@ export const ui = {
       eyebrow: "David Pérez Velasco · Ingeniero Informático",
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
-      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En cada ficha cuento qué hace, cómo está hecho y qué falta.",
+      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). En cada ficha cuento qué hace, cómo está hecho y qué falta.",
       viewProjects: "Ver proyectos",
       facts: [
         { label: "Formación", value: "Grado en Ingeniería Informática · USAL (2025)" },
@@ -55,6 +55,16 @@ export const ui = {
       card: { view: "Ver proyecto", repo: "Repo ↗" },
       statuses: { active: "En desarrollo", maintained: "En mantenimiento", paused: "En pausa", planned: "En preparación", archived: "Archivado", complete: "Completado" },
     },
+    analysis: {
+      title: "Datos y análisis",
+      intro: "Análisis cortos que hago para aprender: una pregunta concreta, datos reales y el cálculo hecho con NumPy. No es mi especialidad; es la parte de datos que uso cuando un proyecto la necesita.",
+      question: "La pregunta",
+      source: "De dónde salen los datos",
+      method: "Qué hice",
+      conclusion: "Qué saco",
+      back: "← Volver al inicio",
+      link: "Ver los análisis",
+    },
     certifications: {
       kicker: "Formación",
       title: "Certificaciones",
@@ -77,7 +87,7 @@ export const ui = {
       eyebrow: "David Pérez Velasco · Computer Engineer",
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
-      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. Each page explains what it does, how it is built and what is missing.",
+      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). Each page explains what it does, how it is built and what is missing.",
       viewProjects: "View projects",
       facts: [
         { label: "Education", value: "BSc in Computer Engineering · USAL (2025)" },
@@ -120,6 +130,16 @@ export const ui = {
       backLink: "← Back",
       card: { view: "View project", repo: "Repo ↗" },
       statuses: { active: "In development", maintained: "Maintained", paused: "Paused", planned: "In preparation", archived: "Archived", complete: "Complete" },
+    },
+    analysis: {
+      title: "Data and analysis",
+      intro: "Short analyses I do to learn: one concrete question, real data and the work done with NumPy. It is not my speciality; it is the data side I use when a project needs it.",
+      question: "The question",
+      source: "Where the data comes from",
+      method: "What I did",
+      conclusion: "What I take away",
+      back: "← Back to home",
+      link: "See the analyses",
     },
     certifications: {
       kicker: "Learning",

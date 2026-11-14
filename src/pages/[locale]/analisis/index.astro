@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { analisis } from "../../../data/analisis";
+import { useTranslations } from "../../../i18n/ui";
+export function getStaticPaths() { return [{ params: { locale: "en" } }]; }
+const locale = Astro.currentLocale ?? "en";
+const t = useTranslations(locale);
+const idioma = locale === "en" ? "en" : "es";
+---
+
+<BaseLayout title={t.analysis.title} description={t.analysis.intro}>
+  <section class="mx-auto max-w-[88rem] px-5 py-12 sm:px-8 sm:py-16">
+    <header class="max-w-3xl">
+      <h1 class="editorial-title">{t.analysis.title}<span class="text-primary">.</span></h1>
+      <p class="mt-6 text-xl leading-snug text-muted">{t.analysis.intro}</p>
+    </header>
+    <div class="mt-14 grid gap-16">
+      {analisis.map((a) => {
+        const texto = a[idioma];
+        return (
+          <article class="grid gap-8 border-t border-foreground pt-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-12">
+            <figure><img src={a.imagen} alt={a.alt} loading="lazy" class="w-full border border-foreground" /></figure>
+            <div>
+              <h2 class="text-3xl font-black tracking-[-.04em] sm:text-4xl">{texto.titulo}</h2>
+              <p class="mt-4 text-lg leading-snug text-muted">{texto.pregunta}</p>
+              <dl class="mt-6 grid gap-4">
+                <div class="border-l-4 border-primary pl-4"><dt class="kicker text-muted">{t.analysis.source}</dt><dd class="mt-1 text-sm leading-relaxed">{texto.fuente}</dd></div>
+                <div class="border-l-4 border-secondary pl-4"><dt class="kicker text-muted">{t.analysis.method}</dt><dd class="mt-1 text-sm leading-relaxed">{texto.metodo}</dd></div>
+                <div class="border-l-4 border-accent pl-4"><dt class="kicker text-muted">{t.analysis.conclusion}</dt><dd class="mt-1 text-sm leading-relaxed">{texto.conclusion}</dd></div>
+              </dl>
+              <p class="mt-5 font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{a.stack.join(" · ")}</p>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+    <p class="mt-14"><a href="/en/" class="button-secondary">{t.analysis.back}</a></p>
+  </section>
+</BaseLayout>

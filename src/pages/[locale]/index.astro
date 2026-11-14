@@ -33,6 +33,16 @@ const destacados = projects.filter((p) => p.data.featured);
   </section>
 
 
+  <section class="mx-auto max-w-[88rem] px-5 py-16 sm:px-8 sm:py-20">
+    <div class="grid gap-6 border-y border-foreground py-10 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <h2 class="section-title">{t.analysis.title}</h2>
+        <p class="mt-4 max-w-2xl text-lg text-muted">{t.analysis.intro}</p>
+      </div>
+      <a href={localePath(locale, "/analisis/")} class="button-primary">{t.analysis.link} <span class="ml-2" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
   <section id="sobre-mi" class="border-y border-foreground bg-surface">
     <div class="mx-auto grid max-w-[88rem] gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[.8fr_1.2fr]">
       <div class="reveal">
