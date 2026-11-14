@@ -21,5 +21,12 @@ const projects = (await getCollection("projects", ({ data }) => data.type === "p
     <div class="project-grid">{projects.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}</div>
 
     <EnMarcha locale={locale} />
+
+    <p class="mt-12 text-sm text-muted">
+      <a href="/analisis/" class="underline underline-offset-4 hover:text-primary">{t.analysis.title} →</a>
+      <span class="mx-2">·</span>
+      <a href="/formacion/" class="underline underline-offset-4 hover:text-primary">{t.formacion.title} →</a>
+    </p>
+
   </section>
 </BaseLayout>

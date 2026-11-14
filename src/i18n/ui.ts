@@ -10,7 +10,7 @@ export const ui = {
     hero: {
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
-      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). En cada ficha cuento qué hace, cómo está hecho y qué falta. Busco mi primera oportunidad como desarrollador.",
+      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). Busco mi primera oportunidad como desarrollador.",
       viewProjects: "Ver proyectos",
       downloadCv: "Descargar CV (PDF)",
       facts: [
@@ -23,7 +23,7 @@ export const ui = {
       kicker: "Sobre mí",
       title: "Sobre mí",
       lead: "Soy ingeniero informático y estoy cursando el Máster en Ingeniería Informática en la Universidad de Salamanca. Me interesa construir software que funcione de verdad: aplicaciones, servicios y las piezas de sistema que hay detrás.",
-      text: "Programo sobre todo en Java, TypeScript, C# y Python, y he trabajado con Node.js, React, Spring, PostgreSQL, Docker y Git. En los proyectos de este porfolio he montado la recolección de datos, el modelo, el backend, el frontend y el despliegue; algunos están publicados y otros solo funcionan en local, y lo digo en cada ficha. Los análisis de datos los hago como aprendizaje, no como especialidad. Inglés intermedio y francés básico.",
+      text: "Programo sobre todo en Java, TypeScript, C# y Python, y he trabajado con Node.js, React, Spring, PostgreSQL, Docker y Git. En los proyectos de este porfolio he montado la recolección de datos, el modelo, el backend, el frontend y el despliegue; algunos están publicados y otros solo funcionan en local, y lo digo en cada ficha. Inglés intermedio y francés básico.",
       cv: "Descargar CV (PDF)",
       rows: [
         { label: "Formación", value: "Grado en Ingeniería Informática · Universidad de Salamanca (2025)" },
@@ -89,9 +89,16 @@ export const ui = {
       costeLabel: "Coste",
       volver: "← Volver al inicio",
     },
+    experience: {
+      kicker: "Experiencia",
+      title: "Experiencia",
+      lead: "Prácticas curriculares en NTT Data (2023).",
+      text: "Trabajé con Spring Framework y Git dentro de un equipo: servicios, control de versiones y revisión de cambios. Fue mi primer contacto con un flujo de trabajo real, no con un proyecto de clase.",
+      cv: "Ver el CV (PDF)",
+    },
     marcha: {
       title: "Proyectos en marcha",
-      intro: "Lo que está en desarrollo ahora mismo, más los análisis de datos que estoy empezando. Sin fechas ni promesas: cada línea dice en qué punto está.",
+      intro: "Lo que está en desarrollo ahora mismo y los análisis que estoy empezando. Cada línea dice en qué punto está.",
     },
     datos: {
       title: "Proyectos de datos",
@@ -126,7 +133,7 @@ export const ui = {
     hero: {
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
-      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). Each page explains what it does, how it is built and what is missing. I am looking for my first opportunity as a developer.",
+      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). I am looking for my first opportunity as a developer.",
       viewProjects: "View projects",
       downloadCv: "Download CV (PDF)",
       facts: [
@@ -139,7 +146,7 @@ export const ui = {
       kicker: "About",
       title: "About me",
       lead: "I am a computer engineer studying the Master's in Computer Engineering at the University of Salamanca. I like building software that actually works: applications, services and the system pieces behind them.",
-      text: "I code mainly in Java, TypeScript, C# and Python, and I have worked with Node.js, React, Spring, PostgreSQL, Docker and Git. In the projects in this portfolio I have built the data collection, the model, the backend, the frontend and the deployment; some are published and others only run locally, and each page says which. I do data analysis as a way of learning, not as a speciality. Intermediate English and basic French.",
+      text: "I code mainly in Java, TypeScript, C# and Python, and I have worked with Node.js, React, Spring, PostgreSQL, Docker and Git. In the projects in this portfolio I have built the data collection, the model, the backend, the frontend and the deployment; some are published and others only run locally, and each page says which. Intermediate English and basic French.",
       cv: "Download CV (PDF)",
       rows: [
         { label: "Education", value: "BSc in Computer Engineering · University of Salamanca (2025)" },
@@ -207,7 +214,14 @@ export const ui = {
     },
     marcha: {
       title: "Work in progress",
-      intro: "What is in development right now, plus the data analyses I am starting. No dates, no promises: each line says where it stands.",
+      intro: "What is in development right now and the analyses I am starting. Each line says where it stands.",
+    },
+    experience: {
+      kicker: "Experience",
+      title: "Experience",
+      lead: "Curricular internship at NTT Data (2023).",
+      text: "I worked with Spring Framework and Git inside a team: services, version control and change review. It was my first contact with a real workflow, not a class project.",
+      cv: "See the CV (PDF)",
     },
     datos: {
       title: "Data projects",

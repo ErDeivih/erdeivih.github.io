@@ -3,14 +3,17 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import ProjectFilters from "../components/ProjectFilters.astro";
 import { localePath, useTranslations } from "../i18n/ui";
 
 const locale = "es";
 const t = useTranslations(locale);
 const projects = (await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale))
   .sort((a, b) => a.data.order - b.data.order);
-const destacados = projects.filter((p) => p.data.featured);
+const ELEGIDOS = ["documentchain", "facylf", "compra-alimentacion"];
+const destacados = ELEGIDOS.flatMap((slug) => {
+  const p = projects.find((x) => x.id.split("/")[0] === slug);
+  return p ? [p] : [];
+});
 ---
 
 <BaseLayout>
@@ -24,7 +27,6 @@ const destacados = projects.filter((p) => p.data.featured);
       </div>
       <p class="text-lg text-muted">{t.projectsHome.intro}</p>
     </header>
-    <ProjectFilters />
     <div class="project-grid">
       {destacados.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}
     </div>
@@ -33,13 +35,15 @@ const destacados = projects.filter((p) => p.data.featured);
   </section>
 
 
-  <section class="mx-auto max-w-[88rem] px-5 py-16 sm:px-8 sm:py-20">
+  <section id="experiencia" class="mx-auto max-w-[88rem] px-5 py-16 sm:px-8 sm:py-20">
     <div class="grid gap-6 border-y border-foreground py-10 md:grid-cols-[1fr_auto] md:items-center">
       <div>
-        <h2 class="section-title">{t.analysis.title}</h2>
-        <p class="mt-4 max-w-2xl text-lg text-muted">{t.analysis.intro}</p>
+        <p class="kicker text-primary">{t.experience.kicker}</p>
+        <h2 class="section-title mt-4">{t.experience.title}</h2>
+        <p class="mt-4 max-w-2xl text-lg font-semibold">{t.experience.lead}</p>
+        <p class="mt-2 max-w-2xl text-lg text-muted">{t.experience.text}</p>
       </div>
-      <a href={localePath(locale, "/analisis/")} class="button-primary">{t.analysis.link} <span class="ml-2" aria-hidden="true">→</span></a>
+      <a href="/David-Perez-Velasco-CV.pdf" class="button-primary">{t.experience.cv} <span class="ml-2" aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -62,15 +66,6 @@ const destacados = projects.filter((p) => p.data.featured);
         </dl>
         <p class="mt-8"><a href="/David-Perez-Velasco-CV.pdf" class="button-secondary">{t.about.cv}</a></p>
         <p class="mt-4"><a href={localePath(locale, "/formacion/")} class="inline-flex min-h-11 items-center font-mono text-[11px] font-bold uppercase tracking-wide underline underline-offset-4 hover:text-primary">{t.formacion.title} →</a></p>
-        <div class="mt-10 grid gap-6 sm:grid-cols-3">
-          {t.about.principles.map((item, index) => (
-            <div class="border-t border-foreground pt-4">
-              <p class="project-number text-primary">0{index + 1}</p>
-              <h3 class="mt-3 text-lg font-bold">{item.title}</h3>
-              <p class="mt-2 text-sm text-muted">{item.text}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   </section>
