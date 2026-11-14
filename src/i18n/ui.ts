@@ -119,6 +119,7 @@ export const ui = {
       pendienteUrl: "Pendiente: la URL del dataset y del repositorio se publican cuando Data School las entregue.",
       dataset: "Dataset",
       repositorio: "Repositorio",
+      caso: "Ver la ficha del caso",
     },
     certifications: {
       kicker: "Formación",
@@ -250,6 +251,7 @@ export const ui = {
       pendienteUrl: "Pending: the dataset and repository URLs will be published when Data School provides them.",
       dataset: "Dataset",
       repositorio: "Repository",
+      caso: "See the case sheet",
     },
     certifications: {
       kicker: "Learning",

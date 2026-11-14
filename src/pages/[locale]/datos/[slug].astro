@@ -27,8 +27,10 @@ const { Content } = await render(ficha);
         <div class="mt-6 flex flex-wrap gap-4 text-sm">
           {ficha.data.datasetUrl && <a href={ficha.data.datasetUrl} target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-primary">{t.datos.dataset} →</a>}
           {ficha.data.repoUrl && <a href={ficha.data.repoUrl} target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-primary">{t.datos.repositorio} →</a>}
-          {!ficha.data.datasetUrl && !ficha.data.repoUrl && <p class="text-muted">{t.datos.pendienteUrl}</p>}
+          {ficha.data.casoUrl && <a href={ficha.data.casoUrl} target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-primary">{t.datos.caso} →</a>}
+          {!ficha.data.datasetUrl && !ficha.data.repoUrl && !ficha.data.casoUrl && <p class="text-muted">{t.datos.pendienteUrl}</p>}
         </div>
+        {ficha.data.image && <figure class="mt-8"><img src={ficha.data.image} alt={ficha.data.imageAlt ?? ficha.data.title} class="w-full border border-foreground" /></figure>}
         <div class="prose-content mt-10"><Content /></div>
       </article>
       <aside class="h-fit border-t-8 border-primary bg-surface p-6">

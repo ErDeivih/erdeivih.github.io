@@ -67,6 +67,9 @@ const datos = defineCollection({
     // Se rellenan cuando Data School entregue el dataset y su repositorio.
     datasetUrl: z.url().optional(),
     repoUrl: z.url().optional(),
+    casoUrl: z.url().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 

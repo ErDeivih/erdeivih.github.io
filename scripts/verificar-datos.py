@@ -8,7 +8,7 @@ CAB = {"User-Agent": "verificador-datos/1.0", "Cache-Control": "no-cache"}
 urls = []
 for ficha in sorted((ROOT / "src" / "content" / "datos").glob("*/index.mdx")):
     texto = ficha.read_text(encoding="utf-8", errors="replace")
-    for clave in ("datasetUrl", "repoUrl"):
+    for clave in ("datasetUrl", "repoUrl", "casoUrl"):
         m = re.search(rf'^{clave}:\s*"([^"]+)"', texto, re.M)
         if m:
             urls.append((ficha.parent.name, clave, m.group(1)))
