@@ -24,6 +24,8 @@ PAGINAS = [
     ("/datos/", "datos/index.html"),
     ("/analisis/", "analisis/index.html"),
     ("/en/", "en/index.html"),
+    ("/en/proyectos/", "en/proyectos/index.html"),
+    ("/en/formacion/", "en/formacion/index.html"),
     ("/David-Perez-Velasco-CV.pdf", "David-Perez-Velasco-CV.pdf"),
 ]
 
@@ -80,6 +82,21 @@ for marca in ("Certificado gratuito", "Badge gratuito al completarlo", "examen d
     if marca not in texto_formacion:
         fallos.append(f"/formacion/ no muestra la marca «{marca}»")
 print(f"{'OK ' if not any('no muestra' in f for f in fallos) else 'MAL'} secciones: proyectos en marcha ({len(MARCHA)} líneas) y formación ({len(CURSOS)} cursos)")
+
+# Versión inglesa de las dos secciones.
+_, en_proyectos_html, _ = descargar("/en/proyectos/")
+_, en_formacion_html, _ = descargar("/en/formacion/")
+texto_en_proyectos = en_proyectos_html.decode("utf-8", "replace")
+texto_en_formacion = en_formacion_html.decode("utf-8", "replace")
+for texto in ("Work in progress", "Data · finance", "Data · Formula 1", "Data · football"):
+    if texto not in texto_en_proyectos:
+        fallos.append(f"/en/proyectos/ no muestra «{texto}»")
+for curso in CURSOS:
+    if curso not in texto_en_formacion:
+        fallos.append(f"/en/formacion/ no muestra el curso «{curso}»")
+if "Free" not in texto_en_formacion:
+    fallos.append("/en/formacion/ no marca lo que es gratis")
+print(f"{'OK ' if not any('/en/' in f for f in fallos) else 'MAL'} secciones en inglés: proyectos en marcha y formación")
 
 if fallos:
     print(f"ROJO: {len(fallos)} problema(s)")
