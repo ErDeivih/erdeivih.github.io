@@ -17,11 +17,10 @@ const { hero } = useTranslations(locale);
         <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
         <div id="prueba" class="reveal mt-5 max-w-2xl border-l-4 border-primary pl-4" style="transition-delay:.12s">
           <p class="text-sm font-bold text-muted">{hero.featuredLabel}</p>
-          <a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="mt-1 block underline-offset-4 hover:underline">
-            <span class="text-xl font-black tracking-[-.02em]">{hero.featuredName}</span>
-            <span class="mt-1 block font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{hero.featuredStack}</span>
-            <span class="mt-2 block text-base font-semibold">{hero.proof} →</span>
-          </a>
+          <p class="mt-1 text-xl font-black tracking-[-.02em]">{hero.featuredName}</p>
+          <p class="mt-1 font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{hero.featuredStack}</p>
+          <p class="mt-2 text-base font-semibold">{hero.proof}</p>
+          <p class="mt-2"><a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="inline-flex min-h-11 items-center font-bold underline underline-offset-4 hover:text-primary">{hero.featuredCta}</a></p>
         </div>
       </div>
       <div class="reveal grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-end" style="transition-delay:.15s">
