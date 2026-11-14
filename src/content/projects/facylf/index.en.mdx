@@ -48,6 +48,16 @@ Fondo Popular (internal and repository name, **FACyLF**) brings federated footba
 León, futsal included, into a canonical database and publishes a web front end to explore it:
 standings, fixtures, results, line-ups, top scorers and player histories.
 
+## What it is, what it is for and what I built
+
+**What it is.** A canonical database of federated football and futsal in Castile and León, with a web front end to query it: standings, fixtures, match reports, top scorers and player histories.
+
+**What it is for.** To answer questions that today take dozens of federation portals: how many matches have a report, which teams have played at national level or how a table has changed.
+
+**What I built.** Collection with Selenium and a resumable SQLite queue, the idempotent PostgreSQL importer, the `core`, `analytics`, `source` and `ops` schemas, the aggregate projection and the web front end. Also the publishing step with a check: the published database is compared table by table with the canonical one.
+
+**What I did not do.** The data is not mine: the federation publishes it. I do not include club crests without permission and the full application is not public; what is published is a static demo with real data.
+
 ## The problem
 
 Fixtures, matchdays, standings and match reports live on federation HTML portals, with one page per

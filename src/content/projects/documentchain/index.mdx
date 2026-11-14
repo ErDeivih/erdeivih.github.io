@@ -39,6 +39,16 @@ captures:
 
 DocumentChain es mi Trabajo de Fin de Grado. Explora cómo gestionar documentos cifrados y mantener un registro de sus versiones, permisos y operaciones usando Ethereum e IPFS.
 
+## Qué es, para qué sirve y qué he hecho
+
+**Qué es.** Mi Trabajo de Fin de Grado: gestión documental con blockchain e IPFS. Los documentos se cifran en el cliente, las versiones y los permisos se registran en contratos y el contenido se guarda fuera de la cadena.
+
+**Para qué sirve.** Para estudiar y demostrar cómo se registra un documento y se conserva la traza de sus versiones y accesos. **No sirve tal cual para uso empresarial**: la red es local y no hay auditoría externa.
+
+**Qué he hecho yo.** La arquitectura, los contratos en Solidity, el cifrado en el cliente, el backend en Node, el frontend en React y el entorno Docker con Hardhat e IPFS.
+
+**Qué no he hecho.** No está desplegado, no ha pasado una auditoría de seguridad y no tiene usuarios reales. Los requisitos y la instalación están en el README del repositorio.
+
 ## El recorrido de un documento
 
 El archivo se cifra antes de almacenarse en IPFS. Los contratos de Ethereum registran la información de versiones y permisos, y una aplicación web permite consultar los documentos y trabajar con ellos.

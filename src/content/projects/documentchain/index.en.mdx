@@ -38,6 +38,16 @@ captures:
 
 DocumentChain is my final degree project. It explores managing encrypted documents and recording versions, permissions and operations using Ethereum and IPFS.
 
+## What it is, what it is for and what I built
+
+**What it is.** My final degree project: document management with blockchain and IPFS. Documents are encrypted on the client, versions and permissions are recorded in contracts and the content is stored off-chain.
+
+**What it is for.** To study and demonstrate how a document is registered and how its version and access trail is kept. **It is not ready for business use as it stands**: the network is local and there is no external audit.
+
+**What I built.** The architecture, the Solidity contracts, client-side encryption, the Node backend, the React front end and the Docker environment with Hardhat and IPFS.
+
+**What I did not do.** It is not deployed, it has not passed a security audit and it has no real users. Requirements and installation are in the repository README.
+
 ## A document's journey
 
 Files are encrypted before being stored in IPFS. Ethereum contracts record version and permission information, while a web application lets users view and manage documents.

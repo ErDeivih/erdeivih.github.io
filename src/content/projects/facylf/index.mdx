@@ -48,6 +48,16 @@ Fondo Popular (nombre interno y de repositorio, **FACyLF**) reúne en una base d
 fútbol federado de Castilla y León, fútbol sala incluido, y publica una web para consultarlo:
 clasificaciones, calendarios, resultados, alineaciones, goleadores y trayectorias.
 
+## Qué es, para qué sirve y qué he hecho
+
+**Qué es.** Una base de datos canónica del fútbol y el fútbol sala federado de Castilla y León, con una web para consultarla: clasificaciones, calendarios, actas, goleadores y trayectorias.
+
+**Para qué sirve.** Para responder preguntas que hoy exigen abrir decenas de portales de federación: cuántos partidos tienen acta, qué equipos han jugado en categoría nacional o cómo ha cambiado una clasificación.
+
+**Qué he hecho yo.** La recolección con Selenium y una cola SQLite reanudable, el importador idempotente a PostgreSQL, los esquemas `core`, `analytics`, `source` y `ops`, la proyección de agregados y la web. También la publicación con cotejo: la base publicada se compara tabla a tabla con la canónica.
+
+**Qué no he hecho.** Los datos no son míos: los publica la federación. No incluyo escudos sin permiso del club y la aplicación completa no está abierta al público; lo que está publicado es una demo estática con datos reales.
+
 ## El problema
 
 Los calendarios, jornadas, clasificaciones y actas viven en portales HTML de la federación, con una
