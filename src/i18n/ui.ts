@@ -11,9 +11,9 @@ export const ui = {
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
       intro: "Ingeniero Informático (USAL, 2025) y estudiante del Máster en Ingeniería Informática. Java, TypeScript y Python; Spring, React y PostgreSQL. Busco mi primera oportunidad como desarrollador.",
-      proof: "En Cesta emparejé 4.804 productos entre seis cadenas con un 91,1 % de acierto comprobado con código de barras; la decisión está en el repositorio.",
+      proof: "En Cesta desarrollé el emparejamiento entre seis cadenas: 91,1 % de precisión sobre 4.804 pares verificados con código de barras.",
       viewProjects: "Ver proyectos",
-      downloadCv: "Descargar CV (PDF)",
+      downloadCv: "CV (PDF)",
       facts: [
         { label: "Formación", value: "Grado en Ingeniería Informática · USAL (2025)" },
         { label: "Ahora", value: "Máster en Ingeniería Informática · USAL" },
@@ -135,9 +135,9 @@ export const ui = {
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
       intro: "Computer Engineer (USAL, 2025) and MSc in Computer Engineering student. Java, TypeScript and Python; Spring, React and PostgreSQL. Looking for my first opportunity as a developer.",
-      proof: "In Cesta I matched 4,804 products across six supermarket chains with 91.1% accuracy checked against barcodes; the decision is in the repository.",
+      proof: "In Cesta I built the matching across six chains: 91.1% precision over 4,804 pairs checked against barcodes.",
       viewProjects: "View projects",
-      downloadCv: "Download CV (PDF)",
+      downloadCv: "CV (PDF)",
       facts: [
         { label: "Education", value: "BSc in Computer Engineering · USAL (2025)" },
         { label: "Now", value: "MSc in Computer Engineering · USAL" },
