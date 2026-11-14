@@ -5,7 +5,7 @@ leaves the app, reaches the watch and comes back as a history that can be correc
 <p><strong>What it is for.</strong> To plan the session on the phone, train it on the watch and correct the real weight lifted afterwards.</p>
 <p><strong>What I built.</strong> The plan and history data model, the React and TypeScript app, the FastAPI API, the Connect IQ integration and the private deployment.</p>
 <p><strong>Decision I can point to:</strong> Sending to the watch is first tested in validation mode with the serialised plan: the Garmin is not touched until the message is correct.</p>
-<p><strong>What I did not do.</strong> The physical test with the Forerunner 255 is still missing: sending is tested in validation mode. The app is private, not in any store and has no user accounts.</p>
+<p><strong>What I did not do.</strong> The watch firmware and Connect IQ are Garmin’s; I built the app, the API and the message that is sent. The physical test with the Forerunner 255 is still missing: sending is tested in validation mode. The app is private and not in any store.</p>
 <h2 id="the-problem">The problem</h2>
 <p>Garmin Connect is built for running and for general strength training. To progress by sets (a 60 kg
 warm-up, 65 kg working set, 70 kg top set) it forces you to create the workout on the phone, wait for
