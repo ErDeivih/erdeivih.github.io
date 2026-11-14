@@ -17,7 +17,7 @@ const statusLabel = t.project.statuses[project.status as keyof typeof t.project.
 <article data-project-status={project.status} class:list={["project-card reveal py-8 sm:py-10", project.status === "planned" && "project-card-planned"]} style={`--delay:${Math.min(index, 6) * 60}ms`}>
   <div class="grid gap-6 lg:grid-cols-[minmax(18rem,.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12">
     <a href={localePath(locale, `/proyectos/${slug}/`)} class="project-visual block" style={`--project-accent:${project.color ?? "#3655f5"}`} aria-label={`${t.project.card.view}: ${project.title}`}>
-      <ProjectVisual slug={slug} title={project.title} image={project.image} imageAlt={project.imageAlt} eager={index === 0} />
+      <ProjectVisual slug={slug} title={project.title} image={project.captures?.[0]?.src ?? project.image} imageAlt={project.captures?.[0]?.alt ?? project.imageAlt} eager={index === 0} />
     </a>
 
     <div>

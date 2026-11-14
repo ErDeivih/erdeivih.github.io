@@ -2,7 +2,7 @@
 interface Props { slug: string; title?: string; image?: string; imageAlt?: string; eager?: boolean; }
 const { slug, image, imageAlt = "", eager = false } = Astro.props;
 ---
-{image ? <img src={image} alt={imageAlt} width="1329" height="568" loading={eager ? "eager" : "lazy"} /> : (
+{image ? <img src={image} alt={imageAlt} width="390" height="844" loading={eager ? "eager" : "lazy"} /> : (
   <svg viewBox="0 0 480 210" width="480" height="210" class="project-illustration" aria-hidden="true">
     <g fill="none" stroke="currentColor" stroke-width="2">
       {slug === "facylf" ? <>
