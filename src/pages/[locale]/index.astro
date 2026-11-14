@@ -52,6 +52,14 @@ const destacados = projects.filter((p) => p.data.featured);
       <div class="reveal">
         <p class="max-w-3xl text-2xl font-semibold leading-snug tracking-[-.025em] sm:text-3xl">{t.about.lead}</p>
         <p class="mt-6 max-w-2xl text-lg text-muted">{t.about.text}</p>
+        <dl class="mt-8 grid gap-4 border-t border-foreground pt-6 sm:grid-cols-2">
+          {t.about.rows.map((row) => (
+            <div>
+              <dt class="text-sm font-bold">{row.label}</dt>
+              <dd class="text-sm text-muted">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
         <div class="mt-10 grid gap-6 sm:grid-cols-3">
           {t.about.principles.map((item, index) => (
             <div class="border-t border-foreground pt-4">
