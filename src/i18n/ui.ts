@@ -8,7 +8,6 @@ export const ui = {
     metaDescription: "Porfolio de David Pérez Velasco: Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. Proyectos de software, sistemas y datos.",
     nav: { home: "Inicio", projects: "Proyectos", analysis: "Datos", about: "Sobre mí", contact: "Contacto", cv: "CV", language: "Idioma" },
     hero: {
-      eyebrow: "David Pérez Velasco · Ingeniero Informático",
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
       intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). En cada ficha cuento qué hace, cómo está hecho y qué falta.",
@@ -84,7 +83,6 @@ export const ui = {
     metaDescription: "Portfolio of David Pérez Velasco: Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. Software, systems and data projects.",
     nav: { home: "Home", projects: "Projects", analysis: "Data", about: "About", contact: "Contact", cv: "CV", language: "Language" },
     hero: {
-      eyebrow: "David Pérez Velasco · Computer Engineer",
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
       intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). Each page explains what it does, how it is built and what is missing.",
