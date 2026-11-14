@@ -3,8 +3,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
 import ProjectFilters from "../../../components/ProjectFilters.astro";
-import { locales, useTranslations, type Locale } from "../../../i18n/ui";
-export function getStaticPaths() { return locales.map((locale: Locale) => ({ params: { locale } })); }
+import { useTranslations } from "../../../i18n/ui";
+export function getStaticPaths() { return [{ params: { locale: "en" } }]; }
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
 const projects = (await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale))

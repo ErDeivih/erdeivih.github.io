@@ -1,20 +1,41 @@
 ---
-type: "project"
-lang: "en"
-title: "Cesta"
-description: "A weekly grocery comparison across six supermarkets: price per unit, price history and measured data quality."
-tagline: "Compare the weekly shop across six supermarkets by price per unit, without counting conditional offers as a discount."
-image: "/projects/cesta.png"
-imageAlt: "Milk search in Cesta with 40 results, price per unit and supermarket comparison"
-color: "#b5c98a"
-status: "active"
-year: "2026"
-role: "Personal project: data, pipeline, backend and frontend"
-highlight: "Cross-chain matching with a measured precision of 91.1% over 4,804 barcode-verified pairs."
-tags: ["ETL", "data quality", "KPIs"]
-stack: ["Python", "Polars", "DuckDB", "PostgreSQL", "FastAPI"]
+type: project
+lang: en
+title: Cesta
+description: 'A weekly grocery comparison across six supermarkets: price per unit,
+  price history and measured data quality.'
+tagline: Compare the weekly shop across six supermarkets by price per unit, without
+  counting conditional offers as a discount.
+image: /projects/compra-alimentacion/01-compra.png
+imageAlt: Milk search in Cesta with 40 results, price per unit and supermarket comparison
+color: '#b5c98a'
+status: planned
+year: '2026'
+role: 'Personal project: data, pipeline, backend and frontend'
+highlight: Cross-chain matching with a measured precision of 91.1% over 4,804 barcode-verified
+  pairs.
+tags:
+- ETL
+- data quality
+- KPIs
+stack:
+- Python
+- Polars
+- DuckDB
+- PostgreSQL
+- FastAPI
 order: 2
 featured: true
+captures:
+- src: /projects/compra-alimentacion/01-compra.png
+  alt: Grocery search with unit price
+  caption: Results with unit price and cross-chain comparison.
+- src: /projects/compra-alimentacion/02-comparar.png
+  alt: Weekly basket comparison across supermarkets
+  caption: Weekly basket comparison across supermarkets with the calculated saving.
+- src: /projects/compra-alimentacion/01-compra-390.png
+  alt: The same grocery search at 390 px
+  caption: 'The same basket at 390 px: results, unit price and comparison.'
 ---
 
 Cesta answers one concrete question: "this shopping list — where is it cheapest, and how much do I
@@ -68,6 +89,8 @@ carefully.
   against the most expensive chain.
 
 ## Real state
+
+**Public label: in preparation.** The app runs locally, but there is no deployed demo: the demo URL does not exist yet and is not linked, to avoid a dead link. The screenshots in this entry come from the real app running locally.
 
 **Done and verifiable:** functional end to end, checked on 2026-11-10 against the production app and
 the day's real catalogue (enter, list, compare, suggestions and CSV export), with the automated flow

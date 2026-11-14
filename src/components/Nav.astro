@@ -1,29 +1,28 @@
 ---
 import { site } from "../config/site";
-import { useTranslations } from "../i18n/ui";
+import { localePath, useTranslations } from "../i18n/ui";
 
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
 const { pathname } = Astro.url;
-const prefix = `/${locale}`;
-const localized = (href: string) => href === "/" ? `${prefix}/` : `${prefix}${href}`;
+const localized = (href: string) => localePath(locale, href);
 const navItems = [
   { label: t.nav.projects, href: localized("/proyectos/") },
   { label: t.nav.about, href: localized("/#sobre-mi") },
   { label: t.nav.certifications, href: localized("/#certificaciones") },
   { label: t.nav.contact, href: localized("/#contacto") },
+  { label: t.nav.cv, href: "/cv.html" },
 ];
 const withPrefix = (loc: string) => {
-  const p = `/${loc}`;
-  if (pathname === "/es" || pathname.startsWith("/es/")) return pathname.replace(/^\/es/, p);
-  if (pathname === "/en" || pathname.startsWith("/en/")) return pathname.replace(/^\/en/, p);
-  return `${p}${pathname}`;
+  // Ruta actual sin el prefijo de idioma, y de ahí a la ruta en el idioma pedido.
+  const sinPrefijo = pathname.replace(/^\/(es|en)(?=\/|$)/, "") || "/";
+  return localePath(loc, sinPrefijo);
 };
 ---
 
 <header class="sticky top-0 z-40 border-b border-foreground bg-background/95 backdrop-blur">
   <nav class="mx-auto flex max-w-[88rem] items-center justify-between gap-4 px-5 py-4 sm:px-8" aria-label="Principal">
-    <a href={localized("/")} class="font-display text-lg tracking-[-.05em]"><span class="hidden sm:inline">{site.name}</span><span class="sm:hidden">{site.brand}</span><span class="text-primary">/</span></a>
+    <a href={localized("/")} class="nav-brand font-display text-lg tracking-[-.05em]"><span class="hidden sm:inline">{site.name}</span><span class="sm:hidden">{site.brand}</span><span class="text-primary">/</span></a>
     <div class="flex items-center gap-4 sm:gap-7">
       <ul class="hidden items-center gap-7 md:flex">
         {navItems.map(item => <li><a class="kicker underline-offset-4 hover:underline" href={item.href}>{item.label}</a></li>)}
@@ -35,9 +34,9 @@ const withPrefix = (loc: string) => {
         </ul>
       </details>
       <div class="flex items-center gap-1 font-mono text-[11px] font-bold" aria-label={t.nav.language}>
-        <a href={withPrefix("es")} data-lang-switch="es" class:list={["px-1", locale === "es" ? "text-primary" : "text-muted"]}>ES</a>
+        <a href={withPrefix("es")} data-lang-switch="es" class:list={["lang-link px-1", locale === "es" ? "text-primary" : "text-muted"]}>ES</a>
         <span aria-hidden="true">/</span>
-        <a href={withPrefix("en")} data-lang-switch="en" class:list={["px-1", locale === "en" ? "text-primary" : "text-muted"]}>EN</a>
+        <a href={withPrefix("en")} data-lang-switch="en" class:list={["lang-link px-1", locale === "en" ? "text-primary" : "text-muted"]}>EN</a>
       </div>
     </div>
   </nav>

@@ -38,6 +38,8 @@
 
 @layer components {
   .font-display { font-family: var(--font-display); font-weight: 900; }
+  .nav-brand, .lang-link { display: inline-flex; min-height: 2.75rem; align-items: center; }
+  .lang-link { min-width: 2.75rem; justify-content: center; }
   .kicker {
     font-family: var(--font-mono);
     font-size: .72rem;
@@ -79,13 +81,15 @@
   .button-secondary { background: transparent; color: var(--color-foreground); }
   .button-primary:hover,
   .button-secondary:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--color-primary); }
+  .button-primary:active,
+  .button-secondary:active { transform: translate(0, 0) scale(.97); box-shadow: none; }
   .project-card {
     position: relative;
     overflow: hidden;
     border-top: 1px solid var(--color-border-strong);
-    transition: background .2s ease;
+    transition: background .2s ease, transform .2s ease-out, box-shadow .2s ease-out;
   }
-  .project-card:hover { background: var(--color-surface); }
+  .project-card:hover { background: var(--color-surface); transform: translateY(-4px); box-shadow: 0 14px 30px rgba(24,24,20,.10); }
   .project-card-planned { background: var(--color-panel); }
   .project-card-planned .project-visual { opacity: .55; }
   .project-card-planned .project-visual { filter: grayscale(.65); }
@@ -115,8 +119,14 @@
     font-weight: 700;
     letter-spacing: .08em;
   }
-  .reveal { opacity: 1; transform: none; transition: opacity .55s ease, transform .55s ease; }
-  .reveal.in-view { opacity: 1; transform: none; }
+  /* Movimiento con proposito: entrada escalonada al hacer scroll, solo si hay JS.
+     Sin JS (o con prefers-reduced-motion) el contenido se ve siempre. */
+  .reveal { opacity: 1; transform: none; transition: opacity .5s ease-out, transform .5s ease-out; transition-delay: var(--delay, 0ms); }
+  .js .reveal { opacity: 0; transform: translateY(18px); }
+  .js .reveal.in-view { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal, .js .reveal.in-view { opacity: 1; transform: none; }
+  }
 }
 
 section[id], footer[id] { scroll-margin-top: 6rem; }
@@ -134,7 +144,7 @@ section[id], footer[id] { scroll-margin-top: 6rem; }
 .project-grid .project-card-planned { background: var(--color-panel); }
 .status-badge { border: 1px solid var(--color-border); padding: .3rem .55rem; font-size: .65rem; background: var(--color-background); }
 .project-filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
-.project-filters button { cursor: pointer; border: 1px solid var(--color-border); border-radius: 2rem; padding: .6rem 1rem; font-size: .85rem; }
+.project-filters button { cursor: pointer; border: 1px solid var(--color-border); border-radius: 2rem; padding: .6rem 1rem; min-height: 2.75rem; font-size: .85rem; }
 .project-filters button[aria-pressed="true"] { background: var(--color-foreground); color: var(--color-background); }
 .project-card[hidden] { display: none; }
 @media(max-width: 640px) { .project-grid { grid-template-columns: minmax(0,1fr); } .project-grid .project-card { padding: 1rem; } }

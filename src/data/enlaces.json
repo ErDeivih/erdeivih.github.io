@@ -1,0 +1,93 @@
+[
+  {
+    "slug": "airport-fx",
+    "campo": "repo",
+    "url": "https://github.com/ErDeivih/airport-fx-data-platform",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:21Z"
+  },
+  {
+    "slug": "cdmplab",
+    "campo": "demo",
+    "url": "https://erdeivih.github.io/CDMPLab/",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:22Z"
+  },
+  {
+    "slug": "cdmplab",
+    "campo": "repo",
+    "url": "https://github.com/ErDeivih/CDMPLab",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:23Z"
+  },
+  {
+    "slug": "cue-digital",
+    "campo": "demo",
+    "url": "https://erdeivih.github.io/cuedigital-demo/",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:23Z"
+  },
+  {
+    "slug": "data-school",
+    "campo": "demo",
+    "url": "https://erdeivih.github.io/data-school-site/",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:23Z"
+  },
+  {
+    "slug": "data-school",
+    "campo": "repo",
+    "url": "https://github.com/ErDeivih/data-school-site",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:23Z"
+  },
+  {
+    "slug": "documentchain",
+    "campo": "repo",
+    "url": "https://github.com/ErDeivih/DocumentChain",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:24Z"
+  },
+  {
+    "slug": "entrenolab",
+    "campo": "demo",
+    "url": "https://erdeivih.github.io/entrenolab-demo/",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:24Z"
+  },
+  {
+    "slug": "facylf",
+    "campo": "demo",
+    "url": "https://erdeivih.github.io/fondo-popular-demo/",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:24Z"
+  },
+  {
+    "slug": "munipay",
+    "campo": "demo",
+    "url": "https://multas-c2fed.web.app",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:25Z"
+  },
+  {
+    "slug": "munipay",
+    "campo": "repo",
+    "url": "https://github.com/ErDeivih/MuniPay",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:25Z"
+  },
+  {
+    "slug": "opofuente",
+    "campo": "demo",
+    "url": "https://erdeivih.github.io/opofuente-demo/",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:26Z"
+  },
+  {
+    "slug": "opofuente",
+    "campo": "repo",
+    "url": "https://github.com/ErDeivih/opofuente-demo",
+    "code": 200,
+    "comprobado": "2026-11-14T10:24:26Z"
+  }
+]

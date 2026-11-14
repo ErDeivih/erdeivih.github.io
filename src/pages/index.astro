@@ -1,23 +1,77 @@
 ---
-// Redirige a la versión del sitio según el idioma del navegador.
-// Los `/es/` y `/en/` los genera Astro (i18n). El español es el predeterminado.
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ProjectFilters from "../components/ProjectFilters.astro";
+import { certifications } from "../data/certifications";
+import { localePath, useTranslations } from "../i18n/ui";
+
+const locale = "es";
+const t = useTranslations(locale);
+const projects = (await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale))
+  .sort((a, b) => a.data.order - b.data.order);
+const destacados = projects.filter((p) => p.data.featured);
 ---
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, follow" />
-    <title>David Pérez Velasco — Business Analyst · Datos y BI</title>
-    <script is:inline>
-      (function () {
-        var stored = null;
-        try { stored = localStorage.getItem("lang"); } catch (e) {}
-        var n = (navigator.language || "es").toLowerCase();
-        var loc = (stored === "en" || (stored !== "es" && n.indexOf("en") === 0)) ? "/en/" : "/es/";
-        window.location.replace(loc);
-      })();
-    </script>
-  </head>
-  <body><p><a href="/es/">Portfolio de David Pérez Velasco · Español</a> / <a href="/en/">English</a></p></body>
-</html>
+
+<BaseLayout>
+  <Hero />
+
+  <section aria-labelledby="projects-title" class="mx-auto max-w-[88rem] px-5 py-20 sm:px-8 sm:py-28">
+    <header class="reveal grid gap-8 border-b border-foreground pb-8 md:grid-cols-[1fr_minmax(18rem,34rem)] md:items-end">
+      <div>
+        <p class="kicker text-primary">{t.projectsHome.kicker}</p>
+        <h2 id="projects-title" class="section-title mt-4">{t.projectsHome.title}</h2>
+      </div>
+      <p class="text-lg text-muted">{t.projectsHome.intro}</p>
+    </header>
+    <ProjectFilters />
+    <div class="project-grid">
+      {destacados.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}
+    </div>
+    <a href={localePath("es", "/proyectos/")} class="button-secondary mt-10">{t.projectsHome.all} →</a>
+  </section>
+
+  <section id="certificaciones" class="mx-auto max-w-[88rem] px-5 py-20 sm:px-8 sm:py-28">
+    <div class="reveal grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <div>
+        <p class="kicker text-primary">{t.certifications.kicker}</p>
+        <h2 class="section-title mt-4">{t.certifications.title}</h2>
+      </div>
+      <div>
+        <p class="max-w-2xl text-xl leading-snug text-muted">{t.certifications.intro}</p>
+        <div class="mt-8 border-t border-foreground">
+          {certifications.length ? certifications.map(item => (
+            <article class="border-b border-foreground py-6">
+              <p class="kicker text-muted">{item.issuer} · {item.date}</p>
+              <h3 class="mt-2 text-2xl font-bold">{item.title}</h3>
+              <a class="button-secondary mt-4" href={item.verification} target="_blank" rel="noopener">{locale === "es" ? "Verificar acreditación ↗" : "Verify credential ↗"}</a>
+            </article>
+          )) : <p class="py-6 font-mono text-sm text-muted">{t.certifications.empty}</p>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="border-y border-foreground bg-surface">
+    <div class="mx-auto grid max-w-[88rem] gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[.8fr_1.2fr]">
+      <div class="reveal">
+        <p class="kicker text-secondary">{t.about.kicker}</p>
+        <h2 class="section-title mt-4">{t.about.title}</h2>
+      </div>
+      <div class="reveal">
+        <p class="max-w-3xl text-2xl font-semibold leading-snug tracking-[-.025em] sm:text-3xl">{t.about.lead}</p>
+        <p class="mt-6 max-w-2xl text-lg text-muted">{t.about.text}</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-3">
+          {t.about.principles.map((item, index) => (
+            <div class="border-t border-foreground pt-4">
+              <p class="project-number text-primary">0{index + 1}</p>
+              <h3 class="mt-3 text-lg font-bold">{item.title}</h3>
+              <p class="mt-2 text-sm text-muted">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

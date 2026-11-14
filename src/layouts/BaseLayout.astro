@@ -43,6 +43,7 @@ const socialImage = image === undefined ? new URL("/og.png", site.url) : image ?
     <meta name="twitter:description" content={desc} />
     {socialImage && <meta name="twitter:image" content={socialImage} />}
     <meta name="theme-color" content="#f2efe7" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
 

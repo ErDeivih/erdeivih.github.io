@@ -13,8 +13,8 @@ export default defineConfig({
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
-    // Ambas versiones usan prefijo explícito. La raíz decide el idioma y redirige.
-    routing: { prefixDefaultLocale: true },
+    // El español vive en la raíz (/ y /proyectos/) y el inglés con prefijo (/en/).
+    routing: { prefixDefaultLocale: false },
   },
   integrations: [mdx(), sitemap()],
   vite: {

@@ -6,7 +6,7 @@ export const ui = {
   es: {
     metaTitle: "David Pérez Velasco — Business Analyst · Datos y BI",
     metaDescription: "Portfolio de David Pérez Velasco, ingeniero informático: proyectos de datos y BI con fuentes, modelos de datos, procesos de carga, KPIs e informes. En busca de prácticas de Business Analyst.",
-    nav: { home: "Inicio", projects: "Proyectos", about: "Perfil", certifications: "Certificaciones", contact: "Contacto", language: "Idioma" },
+    nav: { home: "Inicio", projects: "Proyectos", about: "Perfil", certifications: "Certificaciones", contact: "Contacto", cv: "CV", language: "Idioma" },
     hero: {
       eyebrow: "David Pérez Velasco · Business Analyst / datos y BI",
       availability: "Abierto a prácticas · 2026",
@@ -48,6 +48,7 @@ export const ui = {
       plannedNote: "Todavía no está montado",
       resumen: "El proyecto",
       sectionsLabel: "Secciones del proyecto",
+      capturesLabel: "Capturas reales del proyecto",
       keyPoint: "La idea clave",
       notFound: "No encuentro ese proyecto.",
       backLink: "← Volver",
@@ -71,7 +72,7 @@ export const ui = {
   en: {
     metaTitle: "David Pérez Velasco — Business Analyst · Data & BI",
     metaDescription: "Portfolio of David Pérez Velasco, computer engineer: data and BI projects covering sources, data models, loading processes, KPIs and reports. Looking for a Business Analyst internship.",
-    nav: { home: "Home", projects: "Projects", about: "Profile", certifications: "Certifications", contact: "Contact", language: "Language" },
+    nav: { home: "Home", projects: "Projects", about: "Profile", certifications: "Certifications", contact: "Contact", cv: "CV", language: "Language" },
     hero: {
       eyebrow: "David Pérez Velasco · Business Analyst / data & BI",
       availability: "Open to internships · 2026",
@@ -113,6 +114,7 @@ export const ui = {
       plannedNote: "Not built yet",
       resumen: "Overview",
       sectionsLabel: "Project sections",
+      capturesLabel: "Real project screenshots",
       keyPoint: "The key idea",
       notFound: "I couldn't find that project.",
       backLink: "← Back",
@@ -136,4 +138,9 @@ export const ui = {
 };
 
 export function useTranslations(locale: string): typeof ui.es { return locale === "en" ? ui.en : ui.es; }
+/** Ruta localizada: el idioma por defecto va en la raíz, el resto con prefijo. */
+export function localePath(locale: string, path: string): string {
+  const prefix = locale === defaultLocale ? "" : `/${locale}`;
+  return `${prefix}${path}`;
+}
 export function isLocale(locale: string): locale is Locale { return locale === "es" || locale === "en"; }

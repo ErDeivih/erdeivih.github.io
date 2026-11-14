@@ -1,19 +1,40 @@
 ---
-type: "project"
-title: "Cesta"
-description: "Comparador de la compra semanal entre seis supermercados: precio por unidad, histórico de precios y calidad del dato medida."
-tagline: "Comparar la compra de la semana entre seis supermercados con precio por unidad y sin contar ofertas condicionadas como descuento."
-image: "/projects/cesta.png"
-imageAlt: "Búsqueda de leche en Cesta con 40 resultados, precio por unidad y comparación entre supermercados"
-color: "#b5c98a"
-status: "active"
-year: "2026"
-role: "Proyecto personal: datos, pipeline, backend y frontend"
-highlight: "Emparejamiento entre cadenas con una precisión medida del 91,1 % sobre 4.804 pares con verdad de código de barras."
-tags: ["ETL", "calidad de datos", "KPIs"]
-stack: ["Python", "Polars", "DuckDB", "PostgreSQL", "FastAPI"]
+type: project
+title: Cesta
+description: 'Comparador de la compra semanal entre seis supermercados: precio por
+  unidad, histórico de precios y calidad del dato medida.'
+tagline: Comparar la compra de la semana entre seis supermercados con precio por unidad
+  y sin contar ofertas condicionadas como descuento.
+image: /projects/compra-alimentacion/01-compra.png
+imageAlt: Búsqueda de la compra con precio por unidad y comparación entre supermercados
+color: '#b5c98a'
+status: planned
+year: '2026'
+role: 'Proyecto personal: datos, pipeline, backend y frontend'
+highlight: Emparejamiento entre cadenas con una precisión medida del 91,1 % sobre
+  4.804 pares con verdad de código de barras.
+tags:
+- ETL
+- calidad de datos
+- KPIs
+stack:
+- Python
+- Polars
+- DuckDB
+- PostgreSQL
+- FastAPI
 order: 2
 featured: true
+captures:
+- src: /projects/compra-alimentacion/01-compra.png
+  alt: Búsqueda de la compra con precio por unidad
+  caption: Resultados de la compra con precio por unidad y comparación entre cadenas.
+- src: /projects/compra-alimentacion/02-comparar.png
+  alt: Comparativa de la cesta entre supermercados
+  caption: Comparativa de la cesta semanal entre supermercados con el ahorro calculado.
+- src: /projects/compra-alimentacion/01-compra-390.png
+  alt: La compra en móvil
+  caption: 'La misma compra a 390 px: resultados, precio por unidad y comparación.'
 ---
 
 Cesta responde a una pregunta concreta: «esta lista de la compra, ¿dónde me sale mejor y cuánto me
@@ -69,6 +90,8 @@ catálogo público y trabajar con él con criterio.
   (−28 %) frente a la cadena más cara.
 
 ## Estado real
+
+**Etiqueta pública: en preparación.** La app funciona en local, pero no hay demo desplegada: la URL de demo todavía no existe y no se enlaza para no dejar un enlace muerto. Las capturas de esta ficha son de la app real en local.
 
 **Hecho y comprobable:** funcional de punta a punta, comprobado el 10/11/2026 contra la app de
 producción y el catálogo real del día (entrar, lista, comparativa, sugerencias y exportar CSV), con

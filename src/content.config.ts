@@ -30,6 +30,9 @@ const projects = defineCollection({
         .default("active"),
       tags: z.array(z.string()).default([]),
       stack: z.array(z.string()).optional(),
+      captures: z
+        .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() }))
+        .default([]),
       order: z.number().default(0),
       featured: z.boolean().default(false),
 

@@ -3,15 +3,15 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Tabs from "../../../components/Tabs.astro";
 import ProjectVisual from "../../../components/ProjectVisual.astro";
-import { locales, useTranslations, type Locale } from "../../../i18n/ui";
+import { localePath, useTranslations } from "../../../i18n/ui";
 
 export async function getStaticPaths() {
   const all = await getCollection("projects");
-  return locales.flatMap(locale => all
-    .filter(entry => entry.data.type === "project" && (entry.data.lang ?? "es") === locale)
-    .map(entry => ({ params: { locale, slug: entry.id.split("/")[0] } })));
+  return all
+    .filter(entry => entry.data.type === "project" && (entry.data.lang ?? "es") === "en")
+    .map(entry => ({ params: { locale: "en", slug: entry.id.split("/")[0] } }));
 }
-const locale = (Astro.currentLocale ?? "es") as Locale;
+const locale = Astro.currentLocale ?? "es";
 const slug = Astro.params.slug!;
 const t = useTranslations(locale);
 const all = await getCollection("projects");
@@ -33,7 +33,7 @@ if (project) {
     <>
       <section style={`--project-accent:${project.data.color ?? "#3655f5"}`}>
         <div class="mx-auto max-w-[88rem] px-5 pb-12 pt-8 sm:px-8 sm:pb-20 sm:pt-12">
-          <a href={`/${locale}/proyectos/`} class="kicker underline-offset-4 hover:underline">{t.project.back}</a>
+          <a href={localePath(locale, "/proyectos/")} class="kicker underline-offset-4 hover:underline">{t.project.back}</a>
           <div class="mt-10 grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
               <div class="flex flex-wrap gap-4"><span class="kicker text-primary">{project.data.year}</span><span class="kicker text-muted">{project.data.role}</span><span class="kicker status-badge">{t.project.statuses[project.data.status]}</span></div>
@@ -54,6 +54,18 @@ if (project) {
             </div>
           </div>
         </div>
+      </section>
+      <section class="mx-auto max-w-[88rem] px-5 sm:px-8" aria-label={t.project.capturesLabel}>
+        {project.data.captures?.length ? (
+          <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {project.data.captures.map((captura, i) => (
+              <figure class:list={["overflow-hidden border border-foreground", i === 0 && "sm:col-span-2 lg:col-span-1"]}>
+                <img src={captura.src} alt={captura.alt} loading={i === 0 ? "eager" : "lazy"} class="block h-auto w-full" />
+                {captura.caption && <figcaption class="border-t border-foreground bg-surface px-4 py-3 font-mono text-[11px] leading-relaxed text-muted">{captura.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        ) : null}
       </section>
       <section class="mx-auto max-w-[88rem] px-5 sm:px-8">
         <Tabs tabs={panels.map(({id,label}) => ({id,label}))} ariaLabel={t.project.sectionsLabel}>
