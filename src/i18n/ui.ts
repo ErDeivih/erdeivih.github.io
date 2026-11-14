@@ -8,7 +8,6 @@ export const ui = {
     metaDescription: "Porfolio de David Pérez Velasco: Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. Proyectos de software, sistemas y datos.",
     nav: { home: "Inicio", projects: "Proyectos", analysis: "Datos", about: "Sobre mí", contact: "Contacto", cv: "CV", language: "Idioma" },
     hero: {
-      availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
       intro: "Ingeniero Informático (USAL, 2025) y estudiante del Máster en Ingeniería Informática. Java, TypeScript y Python; Spring, React y PostgreSQL. Busco mi primera oportunidad como desarrollador.",
       proof: "En Cesta desarrollé el emparejamiento entre seis cadenas: 91,1 % de precisión sobre 4.804 pares verificados con código de barras.",
@@ -17,7 +16,6 @@ export const ui = {
       facts: [
         { label: "Formación", value: "Grado en Ingeniería Informática · USAL (2025)" },
         { label: "Ahora", value: "Máster en Ingeniería Informática · USAL" },
-        { label: "En cada ficha", value: "Qué hace y cómo está hecho" },
       ],
     },
     about: {
@@ -132,7 +130,6 @@ export const ui = {
     metaDescription: "Portfolio of David Pérez Velasco: Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. Software, systems and data projects.",
     nav: { home: "Home", projects: "Projects", analysis: "Data", about: "About", contact: "Contact", cv: "CV", language: "Language" },
     hero: {
-      availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
       intro: "Computer Engineer (USAL, 2025) and MSc in Computer Engineering student. Java, TypeScript and Python; Spring, React and PostgreSQL. Looking for my first opportunity as a developer.",
       proof: "In Cesta I built the matching across six chains: 91.1% precision over 4,804 pairs checked against barcodes.",
@@ -141,7 +138,6 @@ export const ui = {
       facts: [
         { label: "Education", value: "BSc in Computer Engineering · USAL (2025)" },
         { label: "Now", value: "MSc in Computer Engineering · USAL" },
-        { label: "In each page", value: "What it does and how it is built" },
       ],
     },
     about: {
