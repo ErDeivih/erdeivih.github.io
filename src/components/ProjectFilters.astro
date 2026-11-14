@@ -5,9 +5,9 @@ const t = useTranslations(locale);
 ---
 <div class="project-filters" role="group" aria-label={locale === "es" ? "Filtrar proyectos por estado" : "Filter projects by status"}>
   <button type="button" data-project-filter="all" aria-pressed="true">{locale === "es" ? "Todos" : "All"}</button>
-  <button type="button" data-project-filter="active" aria-pressed="false">{t.project.statuses.active}</button>
-  <button type="button" data-project-filter="complete" aria-pressed="false">{t.project.statuses.complete}</button>
-  <button type="button" data-project-filter="planned" aria-pressed="false">{t.project.statuses.planned}</button>
+  <button type="button" data-project-filter="active" aria-pressed="false">{locale === "es" ? "Activos" : "Active"}</button>
+  <button type="button" data-project-filter="complete" aria-pressed="false">{locale === "es" ? "Terminados" : "Complete"}</button>
+  <button type="button" data-project-filter="planned" aria-pressed="false">{locale === "es" ? "Próximos" : "Planned"}</button>
 </div>
 <p class="sr-only" aria-live="polite" data-filter-count></p>
 <script>
