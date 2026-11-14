@@ -111,7 +111,20 @@ for texto in ("En desarrollo", "En preparación"):
     if texto not in proyectos_html:
         fallos.append(f"/proyectos/: falta el estado «{texto}»")
 
-# 8) CV enlazado y PDF real
+# 8) formación: seis cursos y marcas de certificado/coste
+formacion_html = (DIST / "formacion" / "index.html").read_text(encoding="utf-8", errors="replace")
+CURSOS = [
+    "Introduction to Data Science", "Pandas", "Intro to Machine Learning", "Intro to SQL",
+    "Google Analytics 4", "DP-900",
+]
+for curso in CURSOS:
+    if curso not in formacion_html:
+        fallos.append(f"/formacion/: falta el curso «{curso}»")
+for texto in ("Certificado gratuito", "Badge gratuito al completarlo", "examen de pago"):
+    if texto not in formacion_html:
+        fallos.append(f"/formacion/: falta la marca «{texto}»")
+
+# 9) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
