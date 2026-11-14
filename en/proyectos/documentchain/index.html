@@ -15,6 +15,16 @@
 <h2 id="availability">Availability</h2>
 <p>The academic project is complete. <a href="https://github.com/ErDeivih/DocumentChain">The repository</a> contains the code and instructions to reproduce its environment.</p>
 <p>There is no deployed public application. It uses a development network and remains an academic prototype.</p>
+<h2 id="requirements-and-two-ways-to-install-it">Requirements and two ways to install it</h2>
+<p><strong>Manual route (the one tested here):</strong> Node 20 or later (tested with Node 24), PostgreSQL 16 and Git.
+The backend needs a database and a <code>.env</code> file with <code>DATABASE_URL</code>, the JWT secrets and the admin
+bootstrap secret; the frontend is Vite and consumes the API through <code>/api</code>.</p>
+<p><strong>Docker route (documented by the repository):</strong> Docker Desktop and Git; <code>docker compose up -d --build</code> starts the database, local chain, backend and frontend. On this machine the full Docker
+build did not finish, which is why the tested and documented route below is the manual one.</p>
+<p>The <strong>repository README</strong> (<a href="https://github.com/ErDeivih/DocumentChain#readme">github.com/ErDeivih/DocumentChain</a>)
+is the reference for exact installation and requirements. The README mentions two test users
+(<code>admin</code>/<code>Admin1234</code> and <code>david</code>/<code>David1234</code>); in the manual run tested here the database was empty
+and the account was created from the registration form.</p>
 <h2 id="how-to-try-it-locally">How to try it locally</h2>
 <p>The public repository contains the full application. These are the steps tested on 14/11/2026 to
 take the screenshots (Node 24 and PostgreSQL 16; Node 20 or later works):</p>

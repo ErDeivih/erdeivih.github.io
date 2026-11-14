@@ -15,6 +15,16 @@
 <h2 id="disponibilidad">Disponibilidad</h2>
 <p>El trabajo académico está terminado. <a href="https://github.com/ErDeivih/DocumentChain">El repositorio</a> contiene el código y las instrucciones para reproducir el entorno.</p>
 <p>No tiene una aplicación pública desplegada. Utiliza una red de desarrollo y su alcance es el de un prototipo académico.</p>
+<h2 id="requisitos-y-dos-formas-de-instalarlo">Requisitos y dos formas de instalarlo</h2>
+<p><strong>Ruta manual (la que se probó aquí):</strong> Node 20 o superior (probado con Node 24), PostgreSQL 16 y Git.
+El backend necesita una base de datos y un fichero <code>.env</code> con <code>DATABASE_URL</code>, los secretos JWT y el
+secreto de alta de administrador; el frontend es Vite y consume la API por <code>/api</code>.</p>
+<p><strong>Ruta Docker (la que documenta el repositorio):</strong> Docker Desktop y Git; <code>docker compose up -d --build</code> levanta base de datos, cadena local, backend y frontend. En esta máquina el build completo de
+Docker no terminó, por eso la ruta probada y documentada abajo es la manual.</p>
+<p>El <strong>README del repositorio</strong> (<a href="https://github.com/ErDeivih/DocumentChain#readme">github.com/ErDeivih/DocumentChain</a>)
+es la referencia de instalación y requisitos exactos. El README menciona dos usuarios de prueba
+(<code>admin</code>/<code>Admin1234</code> y <code>david</code>/<code>David1234</code>); en el arranque manual probado la base estaba vacía y la
+cuenta se creó desde el formulario de registro.</p>
 <h2 id="cómo-probarlo-en-local">Cómo probarlo en local</h2>
 <p>El repositorio público trae la aplicación completa. Estos pasos son los que se probaron el
 14/11/2026 para tomar las capturas (Node 24 y PostgreSQL 16; sirve Node 20 o superior):</p>
