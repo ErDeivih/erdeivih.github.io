@@ -98,6 +98,19 @@ if "Free" not in texto_en_formacion:
     fallos.append("/en/formacion/ no marca lo que es gratis")
 print(f"{'OK ' if not any('/en/' in f for f in fallos) else 'MAL'} secciones en inglés: proyectos en marcha y formación")
 
+# La portada debe contener formación y estado, y /proyectos/ los cuatro arreglos.
+_, portada_html, _ = descargar("/")
+texto_portada = portada_html.decode("utf-8", "replace")
+for texto in ("Cisco", "Kaggle", "En desarrollo", "DocumentChain", "cesta"):
+    if texto not in texto_portada:
+        fallos.append(f"la portada no contiene «{texto}»")
+_, proyectos_web, _ = descargar("/proyectos/")
+texto_proyectos_web = proyectos_web.decode("utf-8", "replace")
+for texto in ("Sistemas y aplicaciones que he construido, del dato a la interfaz", "Activos", "Ver proyecto", "390-"):
+    if texto not in texto_proyectos_web:
+        fallos.append(f"/proyectos/ no contiene «{texto}»")
+print(f"{'OK ' if not any('no contiene' in f for f in fallos) else 'MAL'} portada con Cisco/Kaggle/En desarrollo y /proyectos/ con los cuatro arreglos")
+
 if fallos:
     print(f"ROJO: {len(fallos)} problema(s)")
     for f in fallos:
