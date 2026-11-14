@@ -23,6 +23,7 @@ export const ui = {
       title: "Sobre mí",
       lead: "Soy ingeniero informático y estoy cursando el Máster en Ingeniería Informática en la Universidad de Salamanca. Me interesa construir software que funcione de verdad: aplicaciones, servicios y las piezas de sistema que hay detrás.",
       text: "Programo sobre todo en Java, TypeScript, C# y Python, y he trabajado con Node.js, React, Spring, PostgreSQL, Docker y Git. En los proyectos de este porfolio he montado la recolección de datos, el modelo, el backend, el frontend y el despliegue; algunos están publicados y otros solo funcionan en local, y lo digo en cada ficha. Los análisis de datos los hago como aprendizaje, no como especialidad. Inglés intermedio y francés básico.",
+      cv: "Descargar CV (PDF)",
       rows: [
         { label: "Formación", value: "Grado en Ingeniería Informática · Universidad de Salamanca (2025)" },
         { label: "Ahora", value: "Máster en Ingeniería Informática · USAL" },
@@ -108,6 +109,7 @@ export const ui = {
       title: "About me",
       lead: "I am a computer engineer studying the Master's in Computer Engineering at the University of Salamanca. I like building software that actually works: applications, services and the system pieces behind them.",
       text: "I code mainly in Java, TypeScript, C# and Python, and I have worked with Node.js, React, Spring, PostgreSQL, Docker and Git. In the projects in this portfolio I have built the data collection, the model, the backend, the frontend and the deployment; some are published and others only run locally, and each page says which. I do data analysis as a way of learning, not as a speciality. Intermediate English and basic French.",
+      cv: "Download CV (PDF)",
       rows: [
         { label: "Education", value: "BSc in Computer Engineering · University of Salamanca (2025)" },
         { label: "Now", value: "MSc in Computer Engineering · USAL" },
