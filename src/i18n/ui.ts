@@ -116,6 +116,9 @@ export const ui = {
       abrir: "Ver ficha",
       volver: "← Proyectos de datos",
       analisis: "Ver análisis rápidos",
+      pendienteUrl: "Pendiente: la URL del dataset y del repositorio se publican cuando Data School las entregue.",
+      dataset: "Dataset",
+      repositorio: "Repositorio",
     },
     certifications: {
       kicker: "Formación",
@@ -244,6 +247,9 @@ export const ui = {
       abrir: "Open sheet",
       volver: "← Data projects",
       analisis: "See quick analyses",
+      pendienteUrl: "Pending: the dataset and repository URLs will be published when Data School provides them.",
+      dataset: "Dataset",
+      repositorio: "Repository",
     },
     certifications: {
       kicker: "Learning",
