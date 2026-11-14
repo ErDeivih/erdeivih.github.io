@@ -2,12 +2,14 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
+import { cursos } from "../../data/formacion";
 import ProjectCard from "../../components/ProjectCard.astro";
 import { localePath, useTranslations } from "../../i18n/ui";
 
 export function getStaticPaths() { return [{ params: { locale: "en" } }]; }
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
+const idioma = locale === "en" ? "en" : "es";
 const projects = (await getCollection("projects", ({ data }) => data.type === "project" && (data.lang ?? "es") === locale))
   .sort((a, b) => a.data.order - b.data.order);
 const ELEGIDOS = ["documentchain", "facylf", "compra-alimentacion"];
@@ -45,6 +47,24 @@ const destacados = ELEGIDOS.flatMap((slug) => {
         <p class="mt-2 max-w-2xl text-lg text-muted">{t.experience.text}</p>
       </div>
       <a href="/David-Perez-Velasco-CV.pdf" class="button-primary">{t.experience.cv} <span class="ml-2" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+
+  <section id="formacion" class="mx-auto max-w-[88rem] px-5 py-16 sm:px-8 sm:py-20">
+    <div class="border-y border-foreground py-10">
+      <p class="kicker text-primary">{t.formacion.kicker}</p>
+      <h2 class="section-title mt-4">{t.formacion.title}<span class="text-primary">.</span></h2>
+      <p class="mt-4 max-w-2xl text-lg text-muted">{t.formacion.cursosIntro}</p>
+      <ul class="mt-6 grid gap-2 sm:grid-cols-2">
+        {cursos.map((curso) => (
+          <li class="flex items-baseline justify-between gap-3 border-t border-foreground pt-2">
+            <span><span class="font-bold">{curso.nombre[idioma]}</span><span class="block text-sm text-muted">{curso.entidad}</span></span>
+            <span class="text-right text-sm text-muted">{curso.coste[idioma]}</span>
+          </li>
+        ))}
+      </ul>
+      <a href={localePath(locale, "/formacion/")} class="button-secondary mt-6">{t.formacion.title} →</a>
     </div>
   </section>
 

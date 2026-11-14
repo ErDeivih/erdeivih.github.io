@@ -77,6 +77,7 @@ export const ui = {
       link: "Ver los análisis",
     },
     formacion: {
+      kicker: "Formación",
       title: "Formación",
       intro: "Estudios oficiales y cursos que estoy haciendo o tengo previstos. En cada uno digo qué certificado da y qué es gratis de verdad; el enlace lleva a la fuente.",
       academica: "Formación académica",
@@ -199,6 +200,7 @@ export const ui = {
       link: "See the analyses",
     },
     formacion: {
+      kicker: "Education",
       title: "Education",
       intro: "Official studies and courses I am taking or planning. Each one says which certificate it gives and what is actually free; the link goes to the source.",
       academica: "Academic education",
