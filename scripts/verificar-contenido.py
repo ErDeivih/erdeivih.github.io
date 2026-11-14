@@ -133,7 +133,23 @@ for prohibido in ("Salamanca · Máster", "Salamanca · Master"):
     if prohibido in inicio:
         fallos.append(f"la portada vuelve a mostrar la línea en versalitas «{prohibido}»")
 
-# 10) CV enlazado y PDF real
+# 10) cada ficha dice qué hice yo y qué no, en primera persona y en los dos idiomas
+for carpeta in sorted((SRC / "content" / "projects").iterdir()):
+    if not carpeta.is_dir():
+        continue
+    for nombre, marcas in (
+        ("index.mdx", ("Qué he hecho yo", "Qué no he hecho")),
+        ("index.en.mdx", ("What I built", "What I did not do")),
+    ):
+        ficha = carpeta / nombre
+        if not ficha.is_file():
+            continue
+        texto = ficha.read_text(encoding="utf-8", errors="replace")
+        for marca in marcas:
+            if marca not in texto:
+                fallos.append(f"{carpeta.name}/{nombre}: falta «{marca}»")
+
+# 11) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
