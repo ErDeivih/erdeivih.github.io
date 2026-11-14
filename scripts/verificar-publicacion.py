@@ -61,6 +61,26 @@ print(f"{'OK ' if code == 404 else 'MAL'} {code:3} /portfolio/ (debe dar 404)")
 if code != 404:
     fallos.append(f"/portfolio/ responde {code} (debe ser 404: el sitio vive en la raíz)")
 
+# Las dos secciones nuevas deben estar en la web, no solo en el build.
+_, proyectos_html, _ = descargar("/proyectos/")
+_, formacion_html, _ = descargar("/formacion/")
+texto_proyectos = proyectos_html.decode("utf-8", "replace")
+texto_formacion = formacion_html.decode("utf-8", "replace")
+MARCHA = ["Proyectos en marcha", "Lyfta (Garmin)", "Fondo Popular (FACYLF)", "Cesta", "CUE Digital",
+          "EntrenoLab", "OpoFuente", "Data School", "Datos · finanzas", "Datos · Fórmula 1", "Datos · fútbol"]
+CURSOS = ["Introduction to Data Science", "Pandas", "Intro to Machine Learning", "Intro to SQL",
+          "Google Analytics 4", "DP-900"]
+for texto in MARCHA:
+    if texto not in texto_proyectos:
+        fallos.append(f"/proyectos/ no muestra «{texto}»")
+for texto in CURSOS:
+    if texto not in texto_formacion:
+        fallos.append(f"/formacion/ no muestra el curso «{texto}»")
+for marca in ("Certificado gratuito", "Badge gratuito al completarlo", "examen de pago"):
+    if marca not in texto_formacion:
+        fallos.append(f"/formacion/ no muestra la marca «{marca}»")
+print(f"{'OK ' if not any('no muestra' in f for f in fallos) else 'MAL'} secciones: proyectos en marcha ({len(MARCHA)} líneas) y formación ({len(CURSOS)} cursos)")
+
 if fallos:
     print(f"ROJO: {len(fallos)} problema(s)")
     for f in fallos:
