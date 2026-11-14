@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-import { site } from "../config/site";
+import { site, social } from "../config/site";
 import { useTranslations } from "../i18n/ui";
 
 interface Props {
@@ -44,6 +44,23 @@ const socialImage = image === undefined ? new URL("/og.png", site.url) : image ?
     {socialImage && <meta name="twitter:image" content={socialImage} />}
     <meta name="theme-color" content="#f2efe7" />
     <script is:inline>document.documentElement.classList.add("js");</script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: site.name,
+      url: site.url,
+      jobTitle: "Business Analyst · Data Analyst junior",
+      description: desc,
+      alumniOf: { "@type": "CollegeOrUniversity", name: "Universidad de Salamanca" },
+      sameAs: [social.github, social.linkedin].filter(Boolean),
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: site.name,
+      url: site.url,
+      inLanguage: locale === "en" ? "en" : "es",
+    })} />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
 

@@ -29,6 +29,20 @@ if (project) {
 ---
 
 <BaseLayout title={project?.data.title} description={project?.data.description} image={project ? project.data.image ?? null : null}>
+  {project && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.data.title,
+      description: project.data.description,
+      url: new URL(`/proyectos/${slug}/`, "https://erdeivih.github.io").toString(),
+      image: project.data.image ? new URL(project.data.image, "https://erdeivih.github.io").toString() : undefined,
+      author: { "@type": "Person", name: "David Pérez Velasco" },
+      keywords: project.data.stack?.join(", "),
+      inLanguage: (locale as string) === "en" ? "en" : "es",
+    })} />
+  )}
+
   {project ? (
     <>
       <section style={`--project-accent:${project.data.color ?? "#3655f5"}`}>
