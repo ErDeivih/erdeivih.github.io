@@ -81,12 +81,29 @@ DEMOS = {
         ],
         "movil": "01-productos",
     },
+    "compra-alimentacion": {
+        "titulo": "Cesta",
+        "shots": [
+            ("01-compra", BASE + "cesta-demo/#/compra", None, "Búsqueda y comparación de la compra con precio por unidad."),
+            ("02-ofertas", BASE + "cesta-demo/#/compra/ofertas", None, "Ofertas de la semana con su precio de referencia."),
+            ("03-listas", BASE + "cesta-demo/#/compra/listas", None, "Listas de la compra guardadas, con lo que queda por coger."),
+        ],
+        "movil": "01-compra",
+    },
+    "munipay": {
+        "titulo": "MuniPay",
+        "shots": [
+            ("01-acceso", "https://multas-c2fed.web.app/", None, "Acceso a MuniPay desde el navegador."),
+        ],
+        "movil": "01-acceso",
+    },
 }
 
 
 def capturar(pagina, url, destino, ancho, alto, accion=None):
     pagina.set_viewport_size({"width": ancho, "height": alto})
-    pagina.goto(url, wait_until="networkidle", timeout=90000)
+    destino_url = url if url.startswith("http") else "https://erdeivih.github.io/" + url
+    pagina.goto(destino_url, wait_until="networkidle", timeout=90000)
     pagina.wait_for_timeout(1200)
     if accion:
         if accion.startswith("scroll:"):

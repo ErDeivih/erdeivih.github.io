@@ -175,39 +175,39 @@
   },
   "compra-alimentacion": {
     "titulo": "Cesta",
-    "fuente": "F:\\Proyectos\\cesta\\capturas (app local, 13/11/2026)",
+    "fuente": "demo publicada",
     "capturas": [
       {
         "archivo": "/projects/compra-alimentacion/01-compra.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\cesta\\capturas\\ui-r2-despues-compra-1440x900.png",
-        "viewport": "1440x900",
+        "url": "https://erdeivih.github.io/cesta-demo/#/compra",
+        "accion": null,
+        "viewport": "1280x900",
         "fecha": "2026-11-14",
-        "pie": "Búsqueda de la compra con precio por unidad y comparación entre cadenas."
+        "pie": "Búsqueda y comparación de la compra con precio por unidad."
       },
       {
-        "archivo": "/projects/compra-alimentacion/02-comparar.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\cesta\\capturas\\ui-r2-despues-comparar-1440x900.png",
-        "viewport": "1440x900",
+        "archivo": "/projects/compra-alimentacion/02-ofertas.png",
+        "url": "https://erdeivih.github.io/cesta-demo/#/compra/ofertas",
+        "accion": null,
+        "viewport": "1280x900",
         "fecha": "2026-11-14",
-        "pie": "Comparativa de la cesta entre supermercados con el ahorro calculado."
+        "pie": "Ofertas de la semana con su precio de referencia."
       },
       {
         "archivo": "/projects/compra-alimentacion/03-listas.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\cesta\\capturas\\ui-r2-despues-listas-1440x900.png",
-        "viewport": "1440x900",
+        "url": "https://erdeivih.github.io/cesta-demo/#/compra/listas",
+        "accion": null,
+        "viewport": "1280x900",
         "fecha": "2026-11-14",
-        "pie": "Listas guardadas de la compra semanal."
+        "pie": "Listas de la compra guardadas, con lo que queda por coger."
       },
       {
         "archivo": "/projects/compra-alimentacion/01-compra-390.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\cesta\\capturas\\ui-r2-despues-compra-390x844.png",
+        "url": "https://erdeivih.github.io/cesta-demo/#/compra",
+        "accion": null,
         "viewport": "390x844",
         "fecha": "2026-11-14",
-        "pie": "La compra en móvil: resultados y precio por unidad."
+        "pie": "Búsqueda y comparación de la compra con precio por unidad."
       }
     ]
   },
@@ -336,6 +336,58 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Acceso a la aplicación con la cuenta y el par de claves del usuario."
+      }
+    ]
+  },
+  "munipay": {
+    "titulo": "MuniPay",
+    "fuente": "demo publicada",
+    "capturas": [
+      {
+        "archivo": "/projects/munipay/01-acceso.png",
+        "url": "https://multas-c2fed.web.app/",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Acceso a MuniPay desde el navegador."
+      },
+      {
+        "archivo": "/projects/munipay/01-acceso-390.png",
+        "url": "https://multas-c2fed.web.app/",
+        "accion": null,
+        "viewport": "390x844",
+        "fecha": "2026-11-14",
+        "pie": "Acceso a MuniPay desde el navegador."
+      }
+    ]
+  },
+  "chollos": {
+    "titulo": "Chollos",
+    "fuente": "F:\\Proyectos\\chollos\\capturas (app local, 13/11/2026)",
+    "capturas": [
+      {
+        "archivo": "/projects/chollos/01-listado.png",
+        "url": null,
+        "origen": "ui-listado-escritorio-despues.png",
+        "viewport": "escritorio",
+        "fecha": "2026-11-13",
+        "pie": "Listado de la app con anuncios y comparación."
+      },
+      {
+        "archivo": "/projects/chollos/02-ficha.png",
+        "url": null,
+        "origen": "ui-ficha-escritorio-despues.png",
+        "viewport": "escritorio",
+        "fecha": "2026-11-13",
+        "pie": "Ficha de un anuncio con mediana y ahorro."
+      },
+      {
+        "archivo": "/projects/chollos/03-ficha-390.png",
+        "url": null,
+        "origen": "ui-ficha-390-despues.png",
+        "viewport": "390x844",
+        "fecha": "2026-11-13",
+        "pie": "La ficha en móvil."
       }
     ]
   }
