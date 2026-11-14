@@ -75,6 +75,10 @@ export const ui = {
       back: "← Volver al inicio",
       link: "Ver los análisis",
     },
+    marcha: {
+      title: "Proyectos en marcha",
+      intro: "Lo que está en desarrollo ahora mismo, más los análisis de datos que estoy empezando. Sin fechas ni promesas: cada línea dice en qué punto está.",
+    },
     datos: {
       title: "Proyectos de datos",
       intro: "Fichas de datos de Data School: cada una cuenta una pregunta, de dónde salen los datos, el proceso, el hallazgo, qué aprendí y los conceptos que se tocan.",
@@ -171,6 +175,10 @@ export const ui = {
       conclusion: "What I take away",
       back: "← Back to home",
       link: "See the analyses",
+    },
+    marcha: {
+      title: "Work in progress",
+      intro: "What is in development right now, plus the data analyses I am starting. No dates, no promises: each line says where it stands.",
     },
     datos: {
       title: "Data projects",
