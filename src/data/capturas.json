@@ -248,5 +248,95 @@
         "pie": "La sesión en móvil, con el peso real de cada serie."
       }
     ]
+  },
+  "panel": {
+    "titulo": "Panel de proyectos",
+    "fuente": "demo publicada",
+    "capturas": [
+      {
+        "archivo": "/projects/panel/01-panel.png",
+        "url": "https://erdeivih.github.io/panel/",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Panel de proyectos: qué está en pie, qué se puede abrir y cuándo caduca el estado."
+      },
+      {
+        "archivo": "/projects/panel/02-casos.png",
+        "url": "https://erdeivih.github.io/panel/casos.html",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Casos y ritmo de los proyectos, con su última comprobación."
+      },
+      {
+        "archivo": "/projects/panel/01-panel-390.png",
+        "url": "https://erdeivih.github.io/panel/",
+        "accion": null,
+        "viewport": "390x844",
+        "fecha": "2026-11-14",
+        "pie": "Panel de proyectos: qué está en pie, qué se puede abrir y cuándo caduca el estado."
+      }
+    ]
+  },
+  "impresion3d": {
+    "titulo": "Impresión 3D · escudos",
+    "fuente": "demo publicada",
+    "capturas": [
+      {
+        "archivo": "/projects/impresion3d/01-productos.png",
+        "url": "https://erdeivih.github.io/impresion3d-demo/",
+        "accion": "element:section[aria-labelledby='productos']",
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Las tres piezas con su precio: cuadro de 4 escudos, casco y medallón."
+      },
+      {
+        "archivo": "/projects/impresion3d/02-como.png",
+        "url": "https://erdeivih.github.io/impresion3d-demo/",
+        "accion": "element:section[aria-labelledby='como']",
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Cómo funciona: prueba antes de imprimir y solicitud sin pago."
+      },
+      {
+        "archivo": "/projects/impresion3d/01-productos-390.png",
+        "url": "https://erdeivih.github.io/impresion3d-demo/",
+        "accion": "element:section[aria-labelledby='productos']",
+        "viewport": "390x844",
+        "fecha": "2026-11-14",
+        "pie": "Las tres piezas con su precio: cuadro de 4 escudos, casco y medallón."
+      }
+    ]
+  },
+  "documentchain": {
+    "titulo": "DocumentChain (TFG)",
+    "fuente": "app local: backend + frontend arrancados con Node/Postgres (14/11/2026)",
+    "capturas": [
+      {
+        "archivo": "/projects/documentchain/01-portada.png",
+        "url": "http://127.0.0.1:5173/",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Portada del TFG: gestión documental con trazabilidad en blockchain."
+      },
+      {
+        "archivo": "/projects/documentchain/02-registro.png",
+        "url": "http://127.0.0.1:5173/register",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Registro: la contraseña cifra la clave privada RSA del usuario."
+      },
+      {
+        "archivo": "/projects/documentchain/03-acceso.png",
+        "url": "http://127.0.0.1:5173/login",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Acceso a la aplicación con la cuenta y el par de claves del usuario."
+      }
+    ]
   }
 }

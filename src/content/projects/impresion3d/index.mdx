@@ -1,0 +1,81 @@
+---
+type: project
+title: Impresión 3D · escudos
+description: 'Web de prelanzamiento del cuadro con los escudos de cuatro apellidos
+  en relieve: configurador con precio al instante, prueba antes de imprimir y solicitud
+  sin pago.'
+tagline: Convertir cuatro apellidos en un cuadro en relieve, con el precio cerrado
+  antes de pedir nada.
+demo: https://erdeivih.github.io/impresion3d-demo/
+image: /projects/impresion3d/01-productos.png
+imageAlt: Las tres piezas del catálogo de impresión 3D con su precio
+color: '#8a5a2b'
+status: planned
+year: '2026'
+role: 'Producto: web, catálogo, configurador y operación'
+highlight: '189 € IVA incluido con 56,70 € de señal: precio cerrado en la web y solicitud
+  de información que no cobra nada.'
+tags:
+- producto
+- precio
+- operación
+stack:
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
+order: 10
+featured: false
+captures:
+- src: /projects/impresion3d/01-productos.png
+  alt: Catálogo de las tres piezas con su precio
+  caption: 'Las tres piezas del catálogo con su precio: cuadro de cuatro escudos,
+    casco y medallón.'
+- src: /projects/impresion3d/02-como.png
+  alt: Sección de cómo funciona, con la prueba antes de imprimir
+  caption: 'Cómo funciona: prueba antes de imprimir y solicitud de información que
+    no cobra nada.'
+- src: /projects/impresion3d/01-productos-390.png
+  alt: El catálogo de piezas en un móvil
+  caption: 'El catálogo a 390 px: el precio y la pieza se leen sin desplazar la tabla.'
+lang: es
+---
+Web de prelanzamiento del cuadro con los escudos de cuatro apellidos en relieve: un producto
+físico que se vende con el precio claro y la prueba antes de imprimir.
+
+## El problema
+
+Un encargo de heráldica familiar se decide con dos preguntas: **cuánto cuesta** y **cómo sé que va a
+quedar bien**. La web resuelve las dos antes de que el cliente deje sus datos: precio cerrado y
+prueba antes de imprimir.
+
+## Qué hace
+
+- **Configurador**: cuatro escudos, tamaños y marcos con reglas de precio; el precio se calcula al
+  instante.
+- **Tres piezas**: cuadro de cuatro escudos (189 € IVA incluido), casco con lambrequines y medallón,
+  cada una con su tamaño y su precio.
+- **Solicitud sin pago**: el formulario de información no cobra nada ni reserva pedido; la señal
+  (56,70 €) solo se paga al diseñar.
+- **Prueba previa**: antes de imprimir se envía la prueba y no se sigue hasta que el cliente la
+  aprueba.
+
+## Datos y modelo
+
+El catálogo (escudos, tamaños, marcos y reglas del configurador) y la oferta pública viven en datos
+JSON; la web es estática y se publica en GitHub Pages. El precio se compone desde la oferta, no se
+escribe a mano en cada página.
+
+## Qué demuestra para un puesto de Business Analyst
+
+- **Producto y precio**: una oferta con precio cerrado, señal y resto, explicada sin letra pequeña.
+- **Reglas de negocio modeladas**: el configurador traduce escudos, tamaño y marco a un precio.
+- **Operación**: la web de prelanzamiento capta solicitudes sin cobrar y sin prometer una reserva.
+
+## Estado real
+
+**Hecho y comprobable:** demo pública con catálogo, configurador, precios y solicitud de información
+sin pago; el precio de la pieza principal aparece cerrado (189 € IVA incluido).
+
+**Pendiente:** la marca comercial aún no está decidida (la cabecera de la demo conserva un
+marcador de marca), los textos legales definitivos y la pasarela de pago real.

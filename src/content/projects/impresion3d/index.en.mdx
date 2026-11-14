@@ -1,0 +1,84 @@
+---
+type: project
+title: 3D printing · coats of arms
+description: 'Pre-launch site for a framed relief piece with four family coats of
+  arms: configurator with instant price, proof before printing and a request without
+  payment.'
+tagline: Turn four surnames into a relief frame with the price closed before asking
+  for anything.
+demo: https://erdeivih.github.io/impresion3d-demo/
+image: /projects/impresion3d/01-productos.png
+imageAlt: The three catalogue pieces with their price
+color: '#8a5a2b'
+status: planned
+year: '2026'
+role: 'Product: site, catalogue, configurator and operations'
+highlight: '€189 VAT included with a €56.70 deposit: closed price on the site and
+  an information request that charges nothing.'
+tags:
+- product
+- pricing
+- operations
+stack:
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
+order: 10
+featured: false
+captures:
+- src: /projects/impresion3d/01-productos.png
+  alt: Catalogue of the three pieces with their price
+  caption: 'The three catalogue pieces with their price: four-coat frame, helmet and
+    medallion.'
+- src: /projects/impresion3d/02-como.png
+  alt: How-it-works section with the proof before printing
+  caption: 'How it works: proof before printing and an information request that charges
+    nothing.'
+- src: /projects/impresion3d/01-productos-390.png
+  alt: The piece catalogue on a phone
+  caption: 'The catalogue at 390 px: price and piece readable without scrolling a
+    table.'
+lang: en
+---
+Pre-launch site for a framed relief piece with the coats of arms of four surnames: a physical
+product sold with a clear price and a proof before printing.
+
+## The problem
+
+A family heraldry commission is decided by two questions: **how much it costs** and **how I know it
+will look right**. The site answers both before the customer leaves their details: closed price and
+proof before printing.
+
+## What it does
+
+- **Configurator**: four coats of arms, sizes and frames with pricing rules; the price is calculated
+  on the spot.
+- **Three pieces**: four-coat frame (€189 VAT included), helmet with mantling and medallion, each
+  with its size and price.
+- **Request without payment**: the information form charges nothing and books no order; the deposit
+  (€56.70) is only paid when designing.
+- **Proof first**: before printing, the proof is sent and production only continues once the customer
+  approves it.
+
+## Data and data model
+
+The catalogue (coats, sizes, frames and configurator rules) and the public offer live in JSON data;
+the site is static and published on GitHub Pages. The price is derived from the offer, not typed by
+hand on each page.
+
+## What it shows for a Business Analyst role
+
+- **Product and pricing**: an offer with a closed price, deposit and remainder, explained without
+  small print.
+- **Business rules modelled**: the configurator turns coats, size and frame into a price.
+- **Operations**: the pre-launch site captures requests without charging and without promising a
+  booking.
+
+## Real status
+
+**Done and verifiable:** public demo with catalogue, configurator, prices and an information request
+that charges nothing; the main piece's price is closed (€189 VAT included).
+
+**Pending:** the commercial brand is not decided yet (the demo header still carries a brand
+placeholder), final legal texts and the real payment gateway.

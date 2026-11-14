@@ -18,8 +18,22 @@ stack:
 - React
 - Node.js
 - Docker
-order: 11
+order: 13
 featured: false
+image: /projects/documentchain/01-portada.png
+imageAlt: DocumentChain landing page with the blockchain document registry
+captures:
+- src: /projects/documentchain/01-portada.png
+  alt: DocumentChain landing page explaining blockchain document registry
+  caption: 'Final degree project landing page: document management with blockchain
+    traceability, access and registration.'
+- src: /projects/documentchain/02-registro.png
+  alt: DocumentChain account registration form
+  caption: 'Registration: the password encrypts the RSA private key that protects
+    the user''s documents.'
+- src: /projects/documentchain/03-acceso.png
+  alt: DocumentChain sign-in screen
+  caption: 'Application sign-in: user identity rests on their key pair and their account.'
 ---
 
 DocumentChain is my final degree project. It explores managing encrypted documents and recording versions, permissions and operations using Ethereum and IPFS.
@@ -47,3 +61,7 @@ The project combines client-side encryption, Solidity contracts and distributed 
 The academic project is complete. [The repository](https://github.com/ErDeivih/DocumentChain) contains the code and instructions to reproduce its environment.
 
 There is no deployed public application. It uses a development network and remains an academic prototype.
+
+## What it does and what it does not
+
+It runs a **local blockchain** for the demo: it is useful to study the registry, versioning and permissions flow, but it is not ready as an enterprise service as it stands. Exact installation steps and requirements are in the repository README.

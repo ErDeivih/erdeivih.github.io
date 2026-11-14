@@ -65,6 +65,22 @@ DEMOS = {
         ],
         "movil": "02-tierras",
     },
+    "panel": {
+        "titulo": "Panel de proyectos",
+        "shots": [
+            ("01-panel", BASE + "panel/", None, "Panel de proyectos: qué está en pie, qué se puede abrir y cuándo caduca el estado."),
+            ("02-casos", BASE + "panel/casos.html", None, "Casos y ritmo de los proyectos, con su última comprobación."),
+        ],
+        "movil": "01-panel",
+    },
+    "impresion3d": {
+        "titulo": "Impresión 3D · escudos",
+        "shots": [
+            ("01-productos", BASE + "impresion3d-demo/", "element:section[aria-labelledby='productos']", "Las tres piezas con su precio: cuadro de 4 escudos, casco y medallón."),
+            ("02-como", BASE + "impresion3d-demo/", "element:section[aria-labelledby='como']", "Cómo funciona: prueba antes de imprimir y solicitud sin pago."),
+        ],
+        "movil": "01-productos",
+    },
 }
 
 
@@ -73,8 +89,15 @@ def capturar(pagina, url, destino, ancho, alto, accion=None):
     pagina.goto(url, wait_until="networkidle", timeout=90000)
     pagina.wait_for_timeout(1200)
     if accion:
-        pagina.get_by_text(accion, exact=False).first.click(timeout=15000)
-        pagina.wait_for_timeout(1500)
+        if accion.startswith("scroll:"):
+            objetivo = pagina.get_by_text(accion[7:], exact=False).first
+            objetivo.scroll_into_view_if_needed(timeout=15000)
+        elif accion.startswith("element:"):
+            pagina.locator(accion[8:]).first.screenshot(path=str(destino))
+            return pagina.title()
+        else:
+            pagina.get_by_text(accion, exact=False).first.click(timeout=15000)
+        pagina.wait_for_timeout(1200)
     pagina.screenshot(path=str(destino), full_page=False)
     return pagina.title()
 
