@@ -51,7 +51,7 @@ export const ui = {
     projectsPage: {
       kicker: "Proyectos",
       title: "Proyectos",
-      intro: "Sistemas y aplicaciones que he construido, del dato a la interfaz.",
+      intro: "Nueve proyectos, siete con demo publicada y dos con capturas de la app real.",
     },
     project: {
       back: "← Todos los proyectos",
@@ -179,7 +179,7 @@ export const ui = {
     projectsPage: {
       kicker: "Projects",
       title: "Projects",
-      intro: "Systems and applications I have built, from the data to the interface.",
+      intro: "Nine projects: seven with a published demo and two with screenshots of the real app.",
     },
     project: {
       back: "← All projects",
