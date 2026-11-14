@@ -52,4 +52,19 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { projects };
+const datos = defineCollection({
+  // Fichas de datos (Data School). El cuerpo MDX usa seis secciones fijas:
+  // Pregunta → Datos → Proceso → Hallazgo → Qué aprendí → Conceptos.
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/datos" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    source: z.string().default("Data School"),
+    status: z.enum(["preparada", "en-revision", "publicada"]).default("preparada"),
+    date: z.string().optional(),
+    order: z.number().default(0),
+    concepts: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { projects, datos };

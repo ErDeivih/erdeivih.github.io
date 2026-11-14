@@ -56,7 +56,7 @@ for base in (SRC, DIST):
             fallos.append(f"{path.relative_to(ROOT)}: contiene «BI» suelto")
 
 # 3) páginas
-for ruta in ("index.html", "proyectos/index.html", "analisis/index.html",
+for ruta in ("index.html", "proyectos/index.html", "analisis/index.html", "datos/index.html", "datos/data-school-01/index.html",
              "en/index.html", "en/analisis/index.html", "David-Perez-Velasco-CV.pdf"):
     if not (DIST / ruta).exists():
         fallos.append(f"falta {ruta} en dist")
