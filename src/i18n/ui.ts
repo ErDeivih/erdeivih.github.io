@@ -57,6 +57,8 @@ export const ui = {
     analysis: {
       title: "Datos y análisis",
       intro: "Análisis cortos que hago para aprender: una pregunta concreta, datos reales y el cálculo hecho con NumPy. No es mi especialidad; es la parte de datos que uso cuando un proyecto la necesita.",
+      projectsTitle: "Proyectos de datos",
+      projectsIntro: "Los proyectos de los que salen estos análisis y en los que he montado la parte de datos de punta a punta.",
       question: "La pregunta",
       source: "De dónde salen los datos",
       method: "Qué hice",
@@ -132,6 +134,8 @@ export const ui = {
     analysis: {
       title: "Data and analysis",
       intro: "Short analyses I do to learn: one concrete question, real data and the work done with NumPy. It is not my speciality; it is the data side I use when a project needs it.",
+      projectsTitle: "Data projects",
+      projectsIntro: "The projects these analyses come from, where I built the data side end to end.",
       question: "The question",
       source: "Where the data comes from",
       method: "What I did",

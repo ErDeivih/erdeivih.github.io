@@ -18,6 +18,30 @@ export type Analisis = {
   stack: string[];
 };
 
+export type ProyectoDatos = {
+  slug: string;
+  es: { titulo: string; linea: string };
+  en: { titulo: string; linea: string };
+};
+
+export const proyectosDatos: ProyectoDatos[] = [
+  {
+    slug: "facylf",
+    es: { titulo: "Fondo Popular", linea: "Base de datos y web del fútbol federado de Castilla y León: recolección, modelo canónico y cobertura medida." },
+    en: { titulo: "Fondo Popular", linea: "Database and web front end for federated football in Castile and León: collection, canonical model and measured coverage." },
+  },
+  {
+    slug: "compra-alimentacion",
+    es: { titulo: "Cesta", linea: "Comparador de la compra semanal entre supermercados con precio por unidad y calidad del dato medida." },
+    en: { titulo: "Cesta", linea: "Weekly grocery comparison across supermarkets with unit price and measured data quality." },
+  },
+  {
+    slug: "data-school",
+    es: { titulo: "Data School", linea: "Portal de datos e IA con datasets con licencia, figuras con procedencia y pruebas detrás de cada cifra." },
+    en: { titulo: "Data School", linea: "Data and AI portal with licensed datasets, sourced figures and a test behind every number." },
+  },
+];
+
 export const analisis: Analisis[] = [
   {
     slug: "cobertura-fondo-popular",

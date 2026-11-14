@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { analisis } from "../../../data/analisis";
+import ProyectosDatos from "../../../components/ProyectosDatos.astro";
 import { useTranslations } from "../../../i18n/ui";
 export function getStaticPaths() { return [{ params: { locale: "en" } }]; }
 const locale = Astro.currentLocale ?? "en";
@@ -14,6 +15,8 @@ const idioma = locale === "en" ? "en" : "es";
       <h1 class="editorial-title">{t.analysis.title}<span class="text-primary">.</span></h1>
       <p class="mt-6 text-xl leading-snug text-muted">{t.analysis.intro}</p>
     </header>
+    <ProyectosDatos locale={locale} />
+
     <div class="mt-14 grid gap-16">
       {analisis.map((a) => {
         const texto = a[idioma];

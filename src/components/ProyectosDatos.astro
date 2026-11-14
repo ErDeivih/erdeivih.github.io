@@ -1,0 +1,21 @@
+---
+import { proyectosDatos } from "../data/analisis";
+import { localePath, useTranslations } from "../i18n/ui";
+interface Props { locale: string }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const idioma = locale === "en" ? "en" : "es";
+---
+<section class="mt-14" aria-labelledby="proyectos-datos">
+  <h2 id="proyectos-datos" class="section-title">{t.analysis.projectsTitle}<span class="text-primary">.</span></h2>
+  <p class="mt-4 max-w-2xl text-lg text-muted">{t.analysis.projectsIntro}</p>
+  <div class="mt-8 grid gap-6 md:grid-cols-3">
+    {proyectosDatos.map((p) => (
+      <a href={localePath(locale, `/proyectos/${p.slug}/`)} class="block border border-foreground bg-surface p-5 transition-transform hover:-translate-y-1">
+        <h3 class="text-2xl font-black tracking-[-.03em]">{p[idioma].titulo}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-muted">{p[idioma].linea}</p>
+        <span class="mt-4 inline-block font-mono text-[11px] font-bold uppercase tracking-wide text-primary">{t.project.card.view} →</span>
+      </a>
+    ))}
+  </div>
+</section>

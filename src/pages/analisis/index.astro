@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { analisis } from "../../data/analisis";
+import ProyectosDatos from "../../components/ProyectosDatos.astro";
 import { useTranslations } from "../../i18n/ui";
 const locale = "es";
 const t = useTranslations(locale);
@@ -13,6 +14,8 @@ const idioma = "es" as const;
       <h1 class="editorial-title">{t.analysis.title}<span class="text-primary">.</span></h1>
       <p class="mt-6 text-xl leading-snug text-muted">{t.analysis.intro}</p>
     </header>
+
+    <ProyectosDatos locale={locale} />
 
     <div class="mt-14 grid gap-16">
       {analisis.map((a) => {
