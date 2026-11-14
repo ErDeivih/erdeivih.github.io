@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { useTranslations } from "../../../i18n/ui";
+export async function getStaticPaths() {
+  const fichas = await getCollection("datos");
+  return fichas.map((ficha) => ({ params: { locale: "en", slug: ficha.id.split("/")[0] } }));
+}
+const locale = Astro.currentLocale ?? "en";
+const t = useTranslations(locale);
+const slug = Astro.params.slug!;
+const fichas = await getCollection("datos");
+const ficha = fichas.find((f) => f.id.split("/")[0] === slug);
+if (!ficha) throw new Error(`ficha ${slug} no encontrada`);
+const { Content } = await render(ficha);
+---
+
+<BaseLayout title={ficha.data.title} description={ficha.data.description}>
+  <section class="mx-auto max-w-[88rem] px-5 py-10 sm:px-8 sm:py-14">
+    <a href="/en/datos/" class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted underline-offset-4 hover:underline">{t.datos.volver}</a>
+    <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,47rem)_1fr]">
+      <article>
+        <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{ficha.data.source} · {t.datos.estado[ficha.data.status]}</p>
+        <h1 class="editorial-title mt-4">{ficha.data.title}<span class="text-primary">.</span></h1>
+        <p class="mt-5 max-w-2xl text-xl leading-snug text-muted">{ficha.data.description}</p>
+        <p class="mt-4 text-sm text-muted">This sheet is written in Spanish for now.</p>
+        <div class="prose-content mt-10"><Content /></div>
+      </article>
+      <aside class="h-fit border-t-8 border-primary bg-surface p-6">
+        <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{t.datos.estructuraTitulo}</p>
+        <ol class="mt-4 grid gap-2 text-sm">
+          {t.datos.secciones.map((s, i) => <li><span class="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span> {s}</li>)}
+        </ol>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
