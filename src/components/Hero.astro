@@ -19,10 +19,10 @@ const { hero } = useTranslations(locale);
           <a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="underline-offset-4 hover:underline">{hero.proof} →</a>
         </p>
       </div>
-      <div class="reveal flex flex-wrap gap-3 md:justify-end" style="transition-delay:.15s">
-        <a href={localePath(locale, "/proyectos/")} class="button-primary">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
-        <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary">{hero.downloadCv}</a>
-        <a href={social.github} target="_blank" rel="noopener" class="button-secondary">GitHub ↗</a>
+      <div class="reveal grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-end" style="transition-delay:.15s">
+        <a href={localePath(locale, "/proyectos/")} class="button-primary w-full justify-center md:w-auto">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
+        <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary w-full justify-center md:w-auto">{hero.downloadCv}</a>
+        <a href={social.github} target="_blank" rel="noopener" class="button-secondary col-span-2 w-full justify-center md:col-span-1 md:w-auto">GitHub ↗</a>
       </div>
     </div>
     <div class="reveal mt-16 grid border-y border-foreground sm:grid-cols-3" style="transition-delay:.2s">
