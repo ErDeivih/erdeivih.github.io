@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Copia el CV y su PDF (fuente: cv/) a public/ y les añade el icono del sitio."""
+"""Copia el CV bueno (el del Escritorio) al sitio como /David-Perez-Velasco-CV.pdf."""
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ORIGEN_HTML = ROOT.parent / "cv" / "cv-print.html"
-ORIGEN_PDF = ROOT.parent / "cv" / "CV.pdf"
-DESTINO_HTML = ROOT / "public" / "cv.html"
-DESTINO_PDF = ROOT / "public" / "David-Perez-Velasco-CV.pdf"
+ORIGEN = Path(r"C:\Users\David\OneDrive\Escritorio\David_Pérez_Velasco_CV.pdf")
+DESTINO = ROOT / "public" / "David-Perez-Velasco-CV.pdf"
 
-html = ORIGEN_HTML.read_text(encoding="utf-8")
-if 'rel="icon"' not in html:
-    html = html.replace('</title>', '</title>\n<link rel="icon" type="image/svg+xml" href="/favicon.svg">')
-DESTINO_HTML.write_text(html, encoding="utf-8", newline="\n")
-shutil.copyfile(ORIGEN_PDF, DESTINO_PDF)
-print("CV copiado a", DESTINO_HTML, "y", DESTINO_PDF)
+shutil.copyfile(ORIGEN, DESTINO)
+print("CV copiado:", DESTINO, DESTINO.stat().st_size, "bytes")

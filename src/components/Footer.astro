@@ -1,14 +1,8 @@
 ---
 import { site, social } from "../config/site";
 import { useTranslations } from "../i18n/ui";
-import datosEnlaces from "../data/enlaces.json";
-type Enlace = { slug: string; campo: string; url: string; code: number; comprobado: string };
-const enlaces = datosEnlaces as Enlace[];
 const locale = Astro.currentLocale ?? "es";
 const t = useTranslations(locale);
-const comprobado = enlaces.map((e) => e.comprobado).sort().at(-1) ?? null;
-const fechaCorta = comprobado ? new Date(comprobado).toLocaleDateString(locale === "en" ? "en-GB" : "es-ES", { day: "2-digit", month: "2-digit", year: "numeric" }) : null;
-const demosEnPie = enlaces.filter((e) => e.campo === "demo" && e.code === 200).length;
 ---
 
 <footer id="contacto" class="mt-24 bg-foreground text-background">
@@ -22,13 +16,12 @@ const demosEnPie = enlaces.filter((e) => e.campo === "demo" && e.code === 200).l
       <div class="flex flex-wrap gap-3">
         {social.email && <a href={social.email} class="button-secondary !border-background !text-background">Email ↗</a>}
         {social.linkedin && <a href={social.linkedin} target="_blank" rel="noopener" class="button-secondary !border-background !text-background">LinkedIn ↗</a>}
-        <a href="/cv.html" class="button-secondary !border-background !text-background">CV</a>
+        <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary !border-background !text-background">CV</a>
       </div>
     </div>
     <div class="mt-16 flex flex-wrap justify-between gap-4 border-t border-[#44443f] pt-5 font-mono text-[10px] uppercase tracking-wider text-[#8f8d85]">
       <p>© {new Date().getFullYear()} {site.name}</p>
       <p>{t.footer.madeWith}</p>
-      {fechaCorta && <p>{locale === "en" ? `Links and demos checked on ${fechaCorta} · ${demosEnPie} demos up` : `Enlaces y demos comprobados el ${fechaCorta} · ${demosEnPie} demos en pie`}</p>}
-    </div>
+          </div>
   </div>
 </footer>

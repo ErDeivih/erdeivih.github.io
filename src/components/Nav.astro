@@ -9,9 +9,8 @@ const localized = (href: string) => localePath(locale, href);
 const navItems = [
   { label: t.nav.projects, href: localized("/proyectos/") },
   { label: t.nav.about, href: localized("/#sobre-mi") },
-  { label: t.nav.certifications, href: localized("/#certificaciones") },
   { label: t.nav.contact, href: localized("/#contacto") },
-  { label: t.nav.cv, href: "/cv.html" },
+  { label: t.nav.cv, href: "/David-Perez-Velasco-CV.pdf" },
 ];
 const withPrefix = (loc: string) => {
   // Ruta actual sin el prefijo de idioma, y de ahí a la ruta en el idioma pedido.

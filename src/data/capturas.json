@@ -249,66 +249,6 @@
       }
     ]
   },
-  "panel": {
-    "titulo": "Panel de proyectos",
-    "fuente": "demo publicada",
-    "capturas": [
-      {
-        "archivo": "/projects/panel/01-panel.png",
-        "url": "https://erdeivih.github.io/panel/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Panel de proyectos: qué está en pie, qué se puede abrir y cuándo caduca el estado."
-      },
-      {
-        "archivo": "/projects/panel/02-casos.png",
-        "url": "https://erdeivih.github.io/panel/casos.html",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Casos y ritmo de los proyectos, con su última comprobación."
-      },
-      {
-        "archivo": "/projects/panel/01-panel-390.png",
-        "url": "https://erdeivih.github.io/panel/",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Panel de proyectos: qué está en pie, qué se puede abrir y cuándo caduca el estado."
-      }
-    ]
-  },
-  "impresion3d": {
-    "titulo": "Impresión 3D · escudos",
-    "fuente": "demo publicada",
-    "capturas": [
-      {
-        "archivo": "/projects/impresion3d/01-productos.png",
-        "url": "https://erdeivih.github.io/impresion3d-demo/",
-        "accion": "element:section[aria-labelledby='productos']",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Las tres piezas con su precio: cuadro de 4 escudos, casco y medallón."
-      },
-      {
-        "archivo": "/projects/impresion3d/02-como.png",
-        "url": "https://erdeivih.github.io/impresion3d-demo/",
-        "accion": "element:section[aria-labelledby='como']",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Cómo funciona: prueba antes de imprimir y solicitud sin pago."
-      },
-      {
-        "archivo": "/projects/impresion3d/01-productos-390.png",
-        "url": "https://erdeivih.github.io/impresion3d-demo/",
-        "accion": "element:section[aria-labelledby='productos']",
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Las tres piezas con su precio: cuadro de 4 escudos, casco y medallón."
-      }
-    ]
-  },
   "documentchain": {
     "titulo": "DocumentChain (TFG)",
     "fuente": "app local: backend + frontend arrancados con Node/Postgres (14/11/2026)",
@@ -358,66 +298,6 @@
         "viewport": "390x844",
         "fecha": "2026-11-14",
         "pie": "Acceso a MuniPay desde el navegador."
-      }
-    ]
-  },
-  "chollos": {
-    "titulo": "Chollos",
-    "fuente": "F:\\Proyectos\\chollos\\capturas (app local, 13/11/2026)",
-    "capturas": [
-      {
-        "archivo": "/projects/chollos/01-listado.png",
-        "url": null,
-        "origen": "ui-listado-escritorio-despues.png",
-        "viewport": "escritorio",
-        "fecha": "2026-11-13",
-        "pie": "Listado de la app con anuncios y comparación."
-      },
-      {
-        "archivo": "/projects/chollos/02-ficha.png",
-        "url": null,
-        "origen": "ui-ficha-escritorio-despues.png",
-        "viewport": "escritorio",
-        "fecha": "2026-11-13",
-        "pie": "Ficha de un anuncio con mediana y ahorro."
-      },
-      {
-        "archivo": "/projects/chollos/03-ficha-390.png",
-        "url": null,
-        "origen": "ui-ficha-390-despues.png",
-        "viewport": "390x844",
-        "fecha": "2026-11-13",
-        "pie": "La ficha en móvil."
-      }
-    ]
-  },
-  "cdmplab": {
-    "titulo": "CDMPLab",
-    "fuente": "demo publicada",
-    "capturas": [
-      {
-        "archivo": "/projects/cdmplab/01-acceso.png",
-        "url": "https://erdeivih.github.io/CDMPLab/auth/login",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Acceso a la pizarra táctica: la demo pide cuenta para entrar."
-      },
-      {
-        "archivo": "/projects/cdmplab/02-registro.png",
-        "url": "https://erdeivih.github.io/CDMPLab/auth/register",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Creación de cuenta en CDMPLab: solo correo y contraseña."
-      },
-      {
-        "archivo": "/projects/cdmplab/01-acceso-390.png",
-        "url": "https://erdeivih.github.io/CDMPLab/auth/login",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Acceso a la pizarra táctica: la demo pide cuenta para entrar."
       }
     ]
   }

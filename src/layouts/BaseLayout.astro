@@ -37,7 +37,7 @@ const socialImage = image === undefined ? new URL("/og.png", site.url) : image ?
     <meta property="og:locale" content={locale === "en" ? "en-US" : "es-ES"} />
     <meta property="og:site_name" content={site.name} />
     {socialImage && <meta property="og:image" content={socialImage} />}
-    {socialImage && <meta property="og:image:alt" content={title ?? "David Pérez Velasco — Business Analyst, datos y BI"} />}
+    {socialImage && <meta property="og:image:alt" content={title ?? "David Pérez Velasco — Ingeniero Informático"} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={desc} />
@@ -49,7 +49,7 @@ const socialImage = image === undefined ? new URL("/og.png", site.url) : image ?
       "@type": "Person",
       name: site.name,
       url: site.url,
-      jobTitle: "Business Analyst · Data Analyst junior",
+      jobTitle: "Ingeniero Informático",
       description: desc,
       alumniOf: { "@type": "CollegeOrUniversity", name: "Universidad de Salamanca" },
       sameAs: [social.github, social.linkedin].filter(Boolean),
