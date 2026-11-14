@@ -172,7 +172,7 @@ export const ui = {
     projectsHome: {
       kicker: "Projects",
       title: "Projects",
-      intro: "Applications and systems I have built. Each page explains what it solves, how it is built, real screenshots and where it stands.",
+      intro: "Nine projects: seven with a published demo and two with screenshots of the real app.",
       all: "View all projects",
       enMarcha: "See work in progress",
     },
