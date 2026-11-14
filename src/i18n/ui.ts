@@ -11,7 +11,7 @@ export const ui = {
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
       intro: "Ingeniero Informático (USAL, 2025) y estudiante del Máster en Ingeniería Informática. Java, TypeScript y Python; Spring, React y PostgreSQL. Busco mi primera oportunidad como desarrollador.",
-      proof: "En Cesta emparejé 4.804 productos entre seis cadenas con un 91,1 % de acierto comprobado con código de barras.",
+      proof: "En Cesta emparejé 4.804 productos entre seis cadenas con un 91,1 % de acierto comprobado con código de barras; la decisión está en el repositorio.",
       viewProjects: "Ver proyectos",
       downloadCv: "Descargar CV (PDF)",
       facts: [
@@ -135,7 +135,7 @@ export const ui = {
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
       intro: "Computer Engineer (USAL, 2025) and MSc in Computer Engineering student. Java, TypeScript and Python; Spring, React and PostgreSQL. Looking for my first opportunity as a developer.",
-      proof: "In Cesta I matched 4,804 products across six supermarket chains with 91.1% accuracy checked against barcodes.",
+      proof: "In Cesta I matched 4,804 products across six supermarket chains with 91.1% accuracy checked against barcodes; the decision is in the repository.",
       viewProjects: "View projects",
       downloadCv: "Download CV (PDF)",
       facts: [
