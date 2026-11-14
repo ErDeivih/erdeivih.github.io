@@ -1,121 +1,85 @@
 {
   "facylf": {
     "titulo": "Fondo Popular",
-    "fuente": "demo publicada",
+    "fuente": "demo publicada, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/facylf/01-inicio.png",
-        "url": "https://erdeivih.github.io/fondo-popular-demo/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Búsqueda de equipos, jugadores y clubes con acceso a las competiciones de la temporada."
+        "archivo": "/projects/facylf/390-inicio.png",
+        "alt": "Inicio de la demo con las competiciones de la temporada",
+        "pie": "Inicio de la demo móvil: competiciones de la temporada, sin scroll horizontal."
       },
       {
-        "archivo": "/projects/facylf/02-competiciones.png",
-        "url": "https://erdeivih.github.io/fondo-popular-demo/explorar/competiciones/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Selector de competiciones por temporada, categoría, modalidad y provincia."
+        "archivo": "/projects/facylf/390-competiciones.png",
+        "alt": "Selector de competiciones con filtros",
+        "pie": "El selector de competiciones a 390 px, con los filtros de temporada, categoría y provincia."
       },
       {
-        "archivo": "/projects/facylf/03-clasificacion.png",
-        "url": "https://erdeivih.github.io/fondo-popular-demo/explorar/competicion/3941/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Competición real con su clasificación: 1.ª División Provincial de Aficionados."
+        "archivo": "/projects/facylf/390-clasificacion.png",
+        "alt": "Clasificación de una competición con sus jornadas",
+        "pie": "Una competición real con su clasificación y sus jornadas, a 390 px."
       }
     ]
   },
   "entrenolab": {
     "titulo": "EntrenoLab",
-    "fuente": "demo publicada",
+    "fuente": "demo publicada, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/entrenolab/01-inicio.png",
-        "url": "https://erdeivih.github.io/entrenolab-demo/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Entrada a la demo real de EntrenoLab, sin registro ni pago."
+        "archivo": "/projects/entrenolab/390-inicio.png",
+        "alt": "Inicio de EntrenoLab con el club de ejemplo",
+        "pie": "El inicio de la demo en móvil, con el club de ejemplo y el resumen."
       },
       {
-        "archivo": "/projects/entrenolab/02-plantilla.png",
-        "url": "https://erdeivih.github.io/entrenolab-demo/",
-        "accion": "Probar con equipo de ejemplo",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Plantilla del club de ejemplo cargada desde la propia demo."
+        "archivo": "/projects/entrenolab/390-plantilla.png",
+        "alt": "Plantilla del club con minutos y partidos",
+        "pie": "La plantilla a 390 px, con minutos, partidos y estado de cada jugador."
       },
       {
-        "archivo": "/projects/entrenolab/03-sesiones.png",
-        "url": "https://erdeivih.github.io/entrenolab-demo/",
-        "accion": "Sesiones",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Sesiones de entrenamiento con sus bloques y su duración."
+        "archivo": "/projects/entrenolab/390-sesiones.png",
+        "alt": "Sesiones de entrenamiento del club",
+        "pie": "Las sesiones en móvil, con el catálogo de ejercicios y la sesión abierta."
       }
     ]
   },
   "data-school": {
     "titulo": "Data School",
-    "fuente": "demo publicada",
+    "fuente": "demo publicada, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/data-school/01-portada.png",
-        "url": "https://erdeivih.github.io/data-school-site/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Portada del portal con el índice por fases y el progreso de estudio."
+        "archivo": "/projects/data-school/390-portada.png",
+        "alt": "Portada de Data School con cifras y accesos",
+        "pie": "La portada de Data School en móvil, con las cifras y los accesos principales."
       },
       {
-        "archivo": "/projects/data-school/02-proyectos.png",
-        "url": "https://erdeivih.github.io/data-school-site/#/proyectos",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Catálogo de proyectos del portal con su estado y sus paquetes descargables."
+        "archivo": "/projects/data-school/390-proyectos.png",
+        "alt": "Catálogo de proyectos de Data School",
+        "pie": "El catálogo de proyectos a 390 px, con los filtros y las fichas."
       },
       {
-        "archivo": "/projects/data-school/03-aprender.png",
-        "url": "https://erdeivih.github.io/data-school-site/#/aprender",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Ruta de aprendizaje por fases, con horas y prerrequisitos."
+        "archivo": "/projects/data-school/390-aprender.png",
+        "alt": "Ruta de aprendizaje de Data School",
+        "pie": "La ruta de aprendizaje en móvil, con las paradas y su duración."
       }
     ]
   },
   "opofuente": {
     "titulo": "OpoFuente",
-    "fuente": "demo publicada",
+    "fuente": "demo publicada, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/opofuente/01-portada.png",
-        "url": "https://erdeivih.github.io/opofuente-demo/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Portada de la demo con las convocatorias y la cobertura del temario."
+        "archivo": "/projects/opofuente/390-portada.png",
+        "alt": "Portada de OpoFuente con la cobertura",
+        "pie": "La portada de OpoFuente en móvil, con la cobertura calculada del temario."
       },
       {
-        "archivo": "/projects/opofuente/02-cobertura.png",
-        "url": "https://erdeivih.github.io/opofuente-demo/#/cobertura",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Mapa de cobertura de los 40 temas: completos y pendientes."
+        "archivo": "/projects/opofuente/390-cobertura.png",
+        "alt": "Mapa de cobertura del temario",
+        "pie": "El mapa de cobertura a 390 px: temas completos, parciales y pendientes."
       },
       {
-        "archivo": "/projects/opofuente/03-practicas.png",
-        "url": "https://erdeivih.github.io/opofuente-demo/",
-        "accion": "Prácticas",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Lista de prácticas con su estado de avance."
+        "archivo": "/projects/opofuente/390-practicas.png",
+        "alt": "Práctica de preguntas con su fuente",
+        "pie": "La práctica en móvil: pregunta, respuesta y enlace a la fuente oficial."
       }
     ]
   },
@@ -130,158 +94,85 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Pantalla de hoy del cuaderno de campo, con los datos ficticios de la demo."
-      },
-      {
-        "archivo": "/projects/cuedigital/02-tierras.png",
-        "url": "https://erdeivih.github.io/cuedigital-demo/",
-        "accion": "Tierras",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Parcelas de la explotación con su cultivo y su superficie."
-      },
-      {
-        "archivo": "/projects/cuedigital/03-cuaderno.png",
-        "url": "https://erdeivih.github.io/cuedigital-demo/",
-        "accion": "Cuaderno",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Cuaderno guiado: qué toca hacer y a partir de cuándo."
       }
     ]
   },
   "compra-alimentacion": {
     "titulo": "Cesta",
-    "fuente": "demo publicada",
+    "fuente": "demo publicada, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/compra-alimentacion/01-compra.png",
-        "url": "https://erdeivih.github.io/cesta-demo/#/compra",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Búsqueda y comparación de la compra con precio por unidad."
+        "archivo": "/projects/compra-alimentacion/390-compra.png",
+        "alt": "Búsqueda de la compra con precio por unidad",
+        "pie": "La búsqueda de la demo en móvil: precio por unidad y comparación entre cadenas."
       },
       {
-        "archivo": "/projects/compra-alimentacion/02-listas.png",
-        "url": "https://erdeivih.github.io/cesta-demo/#/compra/listas",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Listas de la compra guardadas, con lo que queda por coger."
+        "archivo": "/projects/compra-alimentacion/390-listas.png",
+        "alt": "Listas de la compra guardadas",
+        "pie": "Listas guardadas de la compra semanal a 390 px, con lo que queda por coger."
       },
       {
-        "archivo": "/projects/compra-alimentacion/03-vacio.png",
-        "url": "https://erdeivih.github.io/cesta-demo/?demo=vacio#/compra/listas",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Estado vacío de la demo: no hay listas, pero el buscador sigue en pie."
-      },
-      {
-        "archivo": "/projects/compra-alimentacion/04-carga.png",
-        "url": "https://erdeivih.github.io/cesta-demo/?demo=carga#/compra/listas",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Estado de carga de la demo mientras se traen las listas."
-      },
-      {
-        "archivo": "/projects/compra-alimentacion/05-error.png",
-        "url": "https://erdeivih.github.io/cesta-demo/?demo=error#/compra/listas",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Estado de error de la demo, con opción de volver a intentarlo."
-      },
-      {
-        "archivo": "/projects/compra-alimentacion/01-compra-390.png",
-        "url": "https://erdeivih.github.io/cesta-demo/#/compra",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Búsqueda y comparación de la compra con precio por unidad."
+        "archivo": "/projects/compra-alimentacion/390-vacio.png",
+        "alt": "Estado vacío de Cesta con el buscador en pie",
+        "pie": "Estado vacío medido a 390 px: no hay listas y el buscador sigue disponible."
       }
     ]
   },
   "garmin": {
     "titulo": "Lyfta",
-    "fuente": "F:\\Proyectos\\garmin\\capturas (app local, 14/11/2026)",
+    "fuente": "app local, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/garmin/01-sesion.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\garmin\\capturas\\ui-sesion-1280-despues.png",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Sesión de fuerza con las series, sus pesos y el descanso en marcha."
+        "archivo": "/projects/garmin/390-sesion.png",
+        "alt": "Sesión de fuerza con los pesos por serie",
+        "pie": "La sesión en móvil: series, repeticiones y el peso que se enviará al reloj."
       },
       {
-        "archivo": "/projects/garmin/02-editor.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\garmin\\capturas\\ui-editor-1280-despues.png",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Editor del plan: ejercicios, series y pesos antes de enviarlo al reloj."
+        "archivo": "/projects/garmin/390-editor.png",
+        "alt": "Editor del plan de entrenamiento",
+        "pie": "El editor del plan a 390 px, con la estructura de la semana."
       },
       {
-        "archivo": "/projects/garmin/03-progreso.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\garmin\\capturas\\ui-progreso-1280-despues.png",
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Progreso de fuerza por ejercicio a partir del historial."
+        "archivo": "/projects/garmin/390-progreso.png",
+        "alt": "Progreso de fuerza por ejercicio",
+        "pie": "El progreso en móvil: la evolución del peso por ejercicio."
       }
     ]
   },
   "documentchain": {
     "titulo": "DocumentChain (TFG)",
-    "fuente": "app local: backend + frontend arrancados con Node/Postgres (14/11/2026)",
+    "fuente": "app local, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/documentchain/01-portada.png",
-        "url": "http://127.0.0.1:5173/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Portada del TFG: gestión documental con trazabilidad en blockchain."
+        "archivo": "/projects/documentchain/390-portada.png",
+        "alt": "Portada de DocumentChain",
+        "pie": "La portada del TFG a 390 px, con lo que hace y el acceso."
       },
       {
-        "archivo": "/projects/documentchain/02-registro.png",
-        "url": "http://127.0.0.1:5173/register",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Registro: la contraseña cifra la clave privada RSA del usuario."
+        "archivo": "/projects/documentchain/390-acceso.png",
+        "alt": "Acceso de DocumentChain",
+        "pie": "La pantalla de acceso a 390 px, con el formulario y la verificación."
       },
       {
-        "archivo": "/projects/documentchain/03-acceso.png",
-        "url": "http://127.0.0.1:5173/login",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Acceso a la aplicación con la cuenta y el par de claves del usuario."
+        "archivo": "/projects/documentchain/390-registro.png",
+        "alt": "Registro de DocumentChain",
+        "pie": "El registro en móvil, con la creación de cuenta y el aviso de correo."
       }
     ]
   },
   "munipay": {
     "titulo": "MuniPay",
-    "fuente": "demo publicada",
+    "fuente": "demo publicada, 390×844",
     "capturas": [
       {
-        "archivo": "/projects/munipay/01-acceso.png",
-        "url": "https://multas-c2fed.web.app/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Acceso a MuniPay desde el navegador."
+        "archivo": "/projects/munipay/390-acceso.png",
+        "alt": "Pantalla de acceso de MuniPay",
+        "pie": "La pantalla de acceso de MuniPay a 390 px."
       },
       {
-        "archivo": "/projects/munipay/01-acceso-390.png",
-        "url": "https://multas-c2fed.web.app/",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Acceso a MuniPay desde el navegador."
+        "archivo": "/projects/munipay/390-acceso-abajo.png",
+        "alt": "Acceso de MuniPay, parte inferior",
+        "pie": "La misma pantalla de acceso desplazada, con el aviso de privacidad."
       }
     ]
   }
