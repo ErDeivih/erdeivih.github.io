@@ -10,7 +10,7 @@ export const ui = {
     hero: {
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
-      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). En cada ficha cuento qué hace, cómo está hecho y qué falta.",
+      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). En cada ficha cuento qué hace, cómo está hecho y qué falta. Busco mi primera oportunidad como desarrollador.",
       viewProjects: "Ver proyectos",
       facts: [
         { label: "Formación", value: "Grado en Ingeniería Informática · USAL (2025)" },
@@ -22,7 +22,7 @@ export const ui = {
       kicker: "Sobre mí",
       title: "Sobre mí",
       lead: "Soy ingeniero informático y estoy cursando el Máster en Ingeniería Informática en la Universidad de Salamanca. Me interesa construir software que funcione de verdad: aplicaciones, servicios y las piezas de sistema que hay detrás.",
-      text: "Programo sobre todo en Java, TypeScript, C# y Python, y he trabajado con Node.js, React, Spring, PostgreSQL, Docker y Git. En los proyectos de este porfolio he montado la recolección de datos, el modelo, el backend, el frontend y el despliegue; algunos están publicados y otros solo funcionan en local, y lo digo en cada ficha. Los análisis de datos los hago como aprendizaje, no como especialidad.",
+      text: "Programo sobre todo en Java, TypeScript, C# y Python, y he trabajado con Node.js, React, Spring, PostgreSQL, Docker y Git. En los proyectos de este porfolio he montado la recolección de datos, el modelo, el backend, el frontend y el despliegue; algunos están publicados y otros solo funcionan en local, y lo digo en cada ficha. Los análisis de datos los hago como aprendizaje, no como especialidad. Inglés intermedio y francés básico.",
       principles: [
         { title: "Primero que funcione", text: "Prefiero una aplicación pequeña que se pueda usar a una maqueta grande. Si algo no está terminado, la ficha lo dice." },
         { title: "Entender lo que hay debajo", text: "Me interesa el recorrido completo: de dónde vienen los datos, cómo se guardan, qué hace el servidor y qué ve el usuario." },
@@ -87,7 +87,7 @@ export const ui = {
     hero: {
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
-      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). Each page explains what it does, how it is built and what is missing.",
+      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). Each page explains what it does, how it is built and what is missing. I am looking for my first opportunity as a developer.",
       viewProjects: "View projects",
       facts: [
         { label: "Education", value: "BSc in Computer Engineering · USAL (2025)" },
@@ -99,7 +99,7 @@ export const ui = {
       kicker: "About",
       title: "About me",
       lead: "I am a computer engineer studying the Master's in Computer Engineering at the University of Salamanca. I like building software that actually works: applications, services and the system pieces behind them.",
-      text: "I code mainly in Java, TypeScript, C# and Python, and I have worked with Node.js, React, Spring, PostgreSQL, Docker and Git. In the projects in this portfolio I have built the data collection, the model, the backend, the frontend and the deployment; some are published and others only run locally, and each page says which. I do data analysis as a way of learning, not as a speciality.",
+      text: "I code mainly in Java, TypeScript, C# and Python, and I have worked with Node.js, React, Spring, PostgreSQL, Docker and Git. In the projects in this portfolio I have built the data collection, the model, the backend, the frontend and the deployment; some are published and others only run locally, and each page says which. I do data analysis as a way of learning, not as a speciality. Intermediate English and basic French.",
       principles: [
         { title: "Working first", text: "I prefer a small application people can use to a big mock-up. If something is not finished, the page says so." },
         { title: "Understand what is underneath", text: "I care about the whole path: where the data comes from, how it is stored, what the server does and what the user sees." },
