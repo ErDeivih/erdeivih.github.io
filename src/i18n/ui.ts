@@ -10,7 +10,8 @@ export const ui = {
     hero: {
       availability: "Salamanca · Máster en Ingeniería Informática (USAL)",
       headline: "Ingeniero Informático",
-      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática. He construido los proyectos que ves aquí: software, sistemas y algún análisis de datos. Trabajo sobre todo en Java, TypeScript y Python, con Spring, React y PostgreSQL. En 2023 hice prácticas curriculares en NTT Data (Spring Framework, Git). Busco mi primera oportunidad como desarrollador.",
+      intro: "Ingeniero Informático (USAL, 2025) y estudiante del Máster en Ingeniería Informática. Java, TypeScript y Python; Spring, React y PostgreSQL. Busco mi primera oportunidad como desarrollador.",
+      proof: "En Cesta emparejé 4.804 productos entre seis cadenas con un 91,1 % de acierto comprobado con código de barras.",
       viewProjects: "Ver proyectos",
       downloadCv: "Descargar CV (PDF)",
       facts: [
@@ -133,7 +134,8 @@ export const ui = {
     hero: {
       availability: "Salamanca · Master's in Computer Engineering (USAL)",
       headline: "Computer Engineer",
-      intro: "Computer Engineer from the University of Salamanca (2025) and a student of the Master's in Computer Engineering. I have built the projects you see here: software, systems and some data analysis. I work mainly in Java, TypeScript and Python, with Spring, React and PostgreSQL. In 2023 I did a curricular internship at NTT Data (Spring Framework, Git). I am looking for my first opportunity as a developer.",
+      intro: "Computer Engineer (USAL, 2025) and MSc in Computer Engineering student. Java, TypeScript and Python; Spring, React and PostgreSQL. Looking for my first opportunity as a developer.",
+      proof: "In Cesta I matched 4,804 products across six supermarket chains with 91.1% accuracy checked against barcodes.",
       viewProjects: "View projects",
       downloadCv: "Download CV (PDF)",
       facts: [

@@ -13,7 +13,12 @@ const { hero } = useTranslations(locale);
       {hero.headline}<span class="text-primary">.</span>
     </h1>
     <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,30rem)] md:items-end">
-      <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
+      <div>
+        <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
+        <p id="prueba" class="reveal mt-5 max-w-2xl border-l-4 border-primary pl-4 text-base font-semibold" style="transition-delay:.12s">
+          <a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="underline-offset-4 hover:underline">{hero.proof} →</a>
+        </p>
+      </div>
       <div class="reveal flex flex-wrap gap-3 md:justify-end" style="transition-delay:.15s">
         <a href={localePath(locale, "/proyectos/")} class="button-primary">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
         <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary">{hero.downloadCv}</a>
