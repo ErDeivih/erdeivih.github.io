@@ -13,6 +13,7 @@ const fichas = (await getCollection("datos")).sort((a, b) => a.data.order - b.da
       <h1 class="editorial-title">{t.datos.title}<span class="text-primary">.</span></h1>
       <p class="mt-6 text-xl leading-snug text-muted">{t.datos.intro}</p>
       <p class="mt-4 text-sm text-muted">{t.datos.estructura}</p>
+      <p class="mt-2 text-sm text-muted">{t.datos.preparacion}</p>
     </header>
 
     <div class="mt-12 grid gap-6 md:grid-cols-3">
