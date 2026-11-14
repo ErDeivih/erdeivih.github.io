@@ -149,7 +149,22 @@ for carpeta in sorted((SRC / "content" / "projects").iterdir()):
             if marca not in texto:
                 fallos.append(f"{carpeta.name}/{nombre}: falta «{marca}»")
 
-# 11) CV enlazado y PDF real
+# 11) enlace solo si hay demo; si no, capturas reales
+for carpeta in sorted((SRC / "content" / "projects").iterdir()):
+    if not carpeta.is_dir():
+        continue
+    ficha = carpeta / "index.mdx"
+    if not ficha.is_file():
+        continue
+    texto = ficha.read_text(encoding="utf-8", errors="replace")
+    tiene_demo = bool(re.search(r'^demo:\s*\S+', texto, re.M))
+    capturas = len(re.findall(r'^\s*- src:', texto, re.M))
+    if not tiene_demo and capturas < 2:
+        fallos.append(f"{carpeta.name}: sin demo y con menos de 2 capturas ({capturas})")
+    if re.search(r'^demo:\s*$', texto, re.M):
+        fallos.append(f"{carpeta.name}: campo demo vacío")
+
+# 12) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
