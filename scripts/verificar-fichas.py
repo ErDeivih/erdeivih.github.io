@@ -37,7 +37,12 @@ def estado(url):
 
 def main():
     fallos = []
-    for path in sorted(CONTENIDO.glob("*/index.mdx")):
+    cache_http = {}
+    # enlaces.json: lo que la publicación comprobó de verdad
+    import json
+    enlaces = json.loads((ROOT / "src" / "data" / "enlaces.json").read_text(encoding="utf-8"))
+    verificados = {(e["url"], e["campo"]) for e in enlaces if e.get("code") == 200}
+    for path in sorted(CONTENIDO.glob("*/index.mdx")) + sorted(CONTENIDO.glob("*/index.en.mdx")):
         m = FM.match(path.read_text(encoding="utf-8"))
         if not m:
             continue
@@ -61,15 +66,20 @@ def main():
                 fallos.append(f"{slug}: captura {i} sin texto alternativo")
             if not c.get("caption"):
                 fallos.append(f"{slug}: captura {i} sin pie de foto")
+        idioma = "en" if path.name.endswith(".en.mdx") else "es"
         for campo in ("demo", "repo"):
             url = d.get(campo)
             if not url:
                 continue
-            code = estado(url)
+            if url not in cache_http:
+                cache_http[url] = estado(url)
+            code = cache_http[url]
             marca = "OK " if code == 200 else "MAL"
-            print(f"  {marca} {code} {campo:4} {slug:20} {url}")
+            print(f"  {marca} {code} {campo:4} {slug:20} [{idioma}] {url}")
             if code != 200:
-                fallos.append(f"{slug}: {campo} responde {code} ({url})")
+                fallos.append(f"{slug} [{idioma}]: {campo} responde {code} ({url})")
+            elif (url, campo) not in verificados:
+                fallos.append(f"{slug} [{idioma}]: {campo} no figura como verificado en enlaces.json")
         print(f"  ficha {slug:20} estado={status:9} capturas={len(caps)} imagen={'sí' if imagen else 'no'}")
     print()
     if fallos:
