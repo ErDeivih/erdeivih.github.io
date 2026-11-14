@@ -15,6 +15,20 @@
 <h2 id="disponibilidad">Disponibilidad</h2>
 <p>El trabajo académico está terminado. <a href="https://github.com/ErDeivih/DocumentChain">El repositorio</a> contiene el código y las instrucciones para reproducir el entorno.</p>
 <p>No tiene una aplicación pública desplegada. Utiliza una red de desarrollo y su alcance es el de un prototipo académico.</p>
+<h2 id="cómo-probarlo-en-local">Cómo probarlo en local</h2>
+<p>El repositorio público trae la aplicación completa. Estos pasos son los que se probaron el
+14/11/2026 para tomar las capturas (Node 24 y PostgreSQL 16; sirve Node 20 o superior):</p>
+<ol>
+<li><strong>Base de datos</strong>: un PostgreSQL con una base <code>documentchain</code> y un usuario con permiso.</li>
+<li><strong>Backend</strong>: <code>cd backend &amp;&amp; npm ci</code>; copiar <code>.env.example</code> a <code>.env</code> y ajustar <code>DATABASE_URL</code>;
+<code>npx prisma generate</code>, <code>npx prisma db push</code>, <code>npm run build</code>, <code>node dist/index.js</code> (puerto 3000).</li>
+<li><strong>Frontend</strong>: <code>cd frontend &amp;&amp; npm ci</code> y <code>node node_modules/vite/bin/vite.js --host 127.0.0.1</code>
+(puerto 5173, con proxy <code>/api</code> al backend).</li>
+<li>Abrir <code>http://127.0.0.1:5173/</code> y crear una cuenta desde el registro.</li>
+</ol>
+<p>También incluye <code>docker compose</code> para levantar todo junto; en esta máquina el build completo de
+Docker no terminó, así que la ruta probada y documentada es la de arriba. La instalación paso a paso
+con requisitos exactos vive en el README del repositorio.</p>
 <h2 id="qué-hace-y-qué-no">Qué hace y qué no</h2>
 <p>Despliega una <strong>blockchain local</strong> para la demostración: sirve para estudiar el flujo de registro, versiones y permisos, pero no está preparada como servicio empresarial tal como está. La instalación y los requisitos exactos están en el README del repositorio.</p></article><aside class="h-fit border-t-8 border-primary bg-surface p-6"><p class="kicker text-muted">La idea clave</p><p class="mt-3 text-xl font-bold leading-snug">Prototipo académico terminado, con código y documentación disponibles en GitHub.</p></aside></div><div role="tabpanel" data-panel="teoria" hidden class="grid gap-10 py-10 lg:grid-cols-[minmax(0,47rem)_1fr] lg:py-16"><article class="prose-content"><h2 id="separar-el-documento-de-su-registro">Separar el documento de su registro</h2>
 <p>El TFG estudia cómo conservar documentos cifrados y registrar sus versiones y permisos mediante varias piezas que se coordinan entre sí.</p>

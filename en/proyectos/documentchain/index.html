@@ -15,6 +15,20 @@
 <h2 id="availability">Availability</h2>
 <p>The academic project is complete. <a href="https://github.com/ErDeivih/DocumentChain">The repository</a> contains the code and instructions to reproduce its environment.</p>
 <p>There is no deployed public application. It uses a development network and remains an academic prototype.</p>
+<h2 id="how-to-try-it-locally">How to try it locally</h2>
+<p>The public repository contains the full application. These are the steps tested on 14/11/2026 to
+take the screenshots (Node 24 and PostgreSQL 16; Node 20 or later works):</p>
+<ol>
+<li><strong>Database</strong>: a PostgreSQL instance with a <code>documentchain</code> database and a user with permissions.</li>
+<li><strong>Backend</strong>: <code>cd backend &amp;&amp; npm ci</code>; copy <code>.env.example</code> to <code>.env</code> and adjust <code>DATABASE_URL</code>;
+<code>npx prisma generate</code>, <code>npx prisma db push</code>, <code>npm run build</code>, <code>node dist/index.js</code> (port 3000).</li>
+<li><strong>Frontend</strong>: <code>cd frontend &amp;&amp; npm ci</code> and <code>node node_modules/vite/bin/vite.js --host 127.0.0.1</code>
+(port 5173, proxying <code>/api</code> to the backend).</li>
+<li>Open <code>http://127.0.0.1:5173/</code> and create an account from the registration form.</li>
+</ol>
+<p>It also ships a <code>docker compose</code> setup to run everything together; on this machine the full Docker
+build did not finish, so the tested and documented path is the one above. Exact step-by-step
+installation and requirements live in the repository README.</p>
 <h2 id="what-it-does-and-what-it-does-not">What it does and what it does not</h2>
 <p>It runs a <strong>local blockchain</strong> for the demo: it is useful to study the registry, versioning and permissions flow, but it is not ready as an enterprise service as it stands. Exact installation steps and requirements are in the repository README.</p></article><aside class="h-fit border-t-8 border-primary bg-surface p-6"><p class="kicker text-muted">The key idea</p><p class="mt-3 text-xl font-bold leading-snug">A completed academic prototype, with code and documentation on GitHub.</p></aside></div><div role="tabpanel" data-panel="teoria" hidden class="grid gap-10 py-10 lg:grid-cols-[minmax(0,47rem)_1fr] lg:py-16"><article class="prose-content"><h2 id="separate-documents-from-their-records">Separate documents from their records</h2>
 <p>The degree project explores keeping encrypted documents and recording versions and permissions through coordinated components.</p>
