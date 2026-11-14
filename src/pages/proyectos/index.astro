@@ -13,7 +13,7 @@ const projects = (await getCollection("projects", ({ data }) => data.type === "p
 
 <BaseLayout title={t.projectsPage.title} description={t.projectsPage.intro}>
   <section class="mx-auto max-w-[88rem] px-5 py-8 sm:px-8 sm:py-16">
-    <header class="grid gap-5 border-b border-foreground pb-3 md:grid-cols-[1fr_minmax(18rem,36rem)] md:items-end">
+    <header class="grid gap-4 border-b border-foreground pb-2 md:grid-cols-[1fr_minmax(18rem,36rem)] md:items-end">
       <div><p class="kicker text-primary">{t.projectsPage.kicker} / {String(projects.length).padStart(2, "0")}</p><h1 class="editorial-title mt-3">{t.projectsPage.title}</h1></div>
       <p class="text-xl text-muted">{t.projectsPage.intro}</p>
     </header>
