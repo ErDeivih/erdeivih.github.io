@@ -85,6 +85,8 @@ export const ui = {
       cursosIntro: "Cursos gratuitos que quiero completar. Marco lo que dan gratis y lo que no, sin prometer certificados que no existen.",
       estado: { "en-curso": "En curso", prevista: "Prevista", terminado: "Terminada" },
       cv: "Ver el CV completo (PDF)",
+      certificadoLabel: "Certificado",
+      costeLabel: "Coste",
       volver: "← Volver al inicio",
     },
     marcha: {
@@ -198,6 +200,8 @@ export const ui = {
       cursosIntro: "Free courses I want to complete. I mark what is free and what is not, without promising certificates that do not exist.",
       estado: { "en-curso": "In progress", prevista: "Planned", terminado: "Completed" },
       cv: "See the full CV (PDF)",
+      certificadoLabel: "Certificate",
+      costeLabel: "Cost",
       volver: "← Back to home",
     },
     marcha: {
