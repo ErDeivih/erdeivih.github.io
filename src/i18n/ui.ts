@@ -41,6 +41,7 @@ export const ui = {
       title: "Proyectos",
       intro: "Aplicaciones y sistemas que he construido. En cada ficha cuento qué resuelve, cómo está hecho, las capturas reales y en qué punto está.",
       all: "Ver todos los proyectos",
+      enMarcha: "Ver proyectos en marcha",
     },
     projectsPage: {
       kicker: "Proyectos",
@@ -151,6 +152,7 @@ export const ui = {
       title: "Projects",
       intro: "Applications and systems I have built. Each page explains what it solves, how it is built, real screenshots and where it stands.",
       all: "View all projects",
+      enMarcha: "See work in progress",
     },
     projectsPage: {
       kicker: "Projects",

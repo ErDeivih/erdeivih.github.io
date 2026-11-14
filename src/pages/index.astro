@@ -29,6 +29,7 @@ const destacados = projects.filter((p) => p.data.featured);
       {destacados.map((project, index) => <ProjectCard project={project.data} slug={project.id.split("/")[0]} index={index} />)}
     </div>
     <a href={localePath("es", "/proyectos/")} class="button-secondary mt-10">{t.projectsHome.all} →</a>
+    <a href={localePath(locale, "/proyectos/#en-marcha")} class="button-secondary mt-10 ml-3">{t.projectsHome.enMarcha} →</a>
   </section>
 
 
