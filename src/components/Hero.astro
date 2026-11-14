@@ -8,7 +8,6 @@ const { hero } = useTranslations(locale);
 
 <section id="inicio" class="border-b border-foreground">
   <div class="mx-auto max-w-[88rem] px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20">
-    <p class="reveal border-b border-foreground pb-4 font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{hero.availability}</p>
     <h1 class="editorial-title reveal mt-8 max-w-[13ch]" style="transition-delay:.05s">
       {hero.headline}<span class="text-primary">.</span>
     </h1>
@@ -28,7 +27,7 @@ const { hero } = useTranslations(locale);
     <div class="reveal mt-16 grid border-y border-foreground sm:grid-cols-3" style="transition-delay:.2s">
       {hero.facts.map((fact, i) => (
         <div class:list={["py-4 sm:px-5", i > 0 && "border-t border-foreground sm:border-l sm:border-t-0"]}>
-          <p class="kicker text-muted">{fact.label}</p>
+          <p class="text-sm font-bold text-muted">{fact.label}</p>
           <p class="mt-1 text-lg font-bold">{fact.value}</p>
         </div>
       ))}
