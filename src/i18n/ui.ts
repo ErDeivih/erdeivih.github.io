@@ -44,14 +44,14 @@ export const ui = {
     projectsHome: {
       kicker: "Proyectos",
       title: "Proyectos",
-      intro: "Aplicaciones y sistemas que he construido. En cada ficha cuento qué resuelve, cómo está hecho, las capturas reales y en qué punto está.",
+      intro: "Nueve proyectos, siete con demo publicada y dos con capturas de la app real.",
       all: "Ver todos los proyectos",
       enMarcha: "Ver proyectos en marcha",
     },
     projectsPage: {
       kicker: "Proyectos",
       title: "Proyectos",
-      intro: "Nueve proyectos, siete con demo publicada y dos con capturas de la app real.",
+      intro: "Sistemas y aplicaciones que he construido, del dato a la interfaz.",
     },
     project: {
       back: "← Todos los proyectos",
@@ -179,7 +179,7 @@ export const ui = {
     projectsPage: {
       kicker: "Projects",
       title: "Projects",
-      intro: "Nine projects: seven with a published demo and two with screenshots of the real app.",
+      intro: "Systems and applications I have built, from the data to the interface.",
     },
     project: {
       back: "← All projects",
