@@ -2,34 +2,84 @@
 type: "project"
 lang: "en"
 title: "CUE Digital"
-description: "A field notebook and a project for managing farm land, work and resources."
-tagline: "Organise farm activity in one application."
+description: "A digital field notebook for a farm: mandatory records, validations that block illegal entries and regulatory traceability."
+tagline: "Record what the law requires in a farm field notebook and refuse to save an illegal entry."
+demo: "https://erdeivih.github.io/cuedigital-demo/"
+image: "/projects/cuedigital.png"
+imageAlt: "CUE Digital screen for recording a job: plots with their crop and area, and the type of work"
 color: "#c29e6c"
 status: "active"
 year: "2026"
-role: "Personal project"
-highlight: "The field notebook is the starting point; farm management and the interface are being expanded."
-stack: ["Python", "FastAPI", "SQLite", "Farm management"]
-order: 4
-featured: true
+role: "Personal project: product, data and development"
+highlight: "Validations that block an illegal entry and explain what is missing; 6,116 Python tests and 1,322 JavaScript tests."
+tags: ["data model", "data quality", "traceability"]
+stack: ["Python", "FastAPI", "SQLite", "PostgreSQL", "AutoFirma"]
+order: 8
+featured: false
 ---
 
-CUE Digital began as a field notebook and is growing into a management tool for farmers. The aim is to bring farm information together without searching through paper records and spreadsheets.
+CUE Digital is a farm's field notebook. It records what the regulation requires, blocks an illegal
+entry and explains in plain Spanish what is missing before an inspection arrives.
 
-## The field notebook
+## The problem
 
-The application starts with recording activity and farm information. The notebook is the basis for broader management features.
+The digital field notebook stops being optional: fertiliser records from 1 January 2026, a fertiliser
+plan from 1 September 2026, electronic records of applied products from 1 January 2027 and the end of
+paper records on 31 December 2026.
 
-## Farm management
+The app is designed for a farmer with no IT background. A mistake in the dose, in the applicator's
+licence or in the waiting days becomes a penalty, and an unsigned notebook proves nothing in an
+inspection.
 
-The planned scope includes fields, work, expenses, machinery and contacts. These areas are under development; not all are available yet.
+## What it does
 
-I am also studying information preparation for agricultural subsidies and official exchange formats. That integration still needs to be completed and checked.
+- **Mandatory records:** treatments (product, dose, area, pest, justification, applicator, machine and
+  weather conditions), fertilisers with pure-nutrient calculation, field work, irrigation and harvest.
+- **Blocks illegal entries and explains what to do:** product without a label number or withdrawn,
+  dose above the label, more hectares than the plot, expired applicator licence, expired machine
+  inspection, harvesting before the waiting days or a product not allowed in organic farming.
+- **Warns about expiries** before it is too late: licence, machine inspection and containers.
+- **A PDF paper notebook** that is produced even with missing data, with a final sheet of what is
+  missing, and a CSV export ready for Excel.
+- **Notebook signature** with AutoFirma and the fingerprint recalculated on every request.
+- **Plots from SIGPAC** and from the regional government's notebook, without typing references, plus
+  invoice reading from PDF or photo.
 
-## A simpler interface
+## Data and data model
 
-I am revising the interface to make everyday tasks easier: finding a field, recording work and reviewing completed activity. This is a priority before presenting a broader version.
+- **Scope and isolation:** the farm identifier is on every business table, which is what isolates one
+  farmer from another.
+- **Nothing is deleted:** entries are cancelled with a reason and a trace remains in the audit table.
+- **Frozen history:** label data is copied into the entry, so correcting a product sheet never changes
+  a historical entry.
+- **Geometry as WKT text**, so the same code works on SQLite and PostgreSQL.
+- **Legal calculations isolated** with their own tests: waiting days, pure nutrient, doses and validity
+  periods.
+- **Separate texts**, with a test that checks no jargon a farmer would not say has slipped in.
+- **Official sources with a fingerprint:** the government catalogues and interfaces are stored with
+  their SHA-256 so it can be proven they are the official ones.
 
-## Availability
+## What it shows for a Business Analyst role
 
-The project is in development, with no public demo linked yet. The first sample will use fictional farm data.
+- **Data models and Data Marts:** a per-farm relational model with isolation, audit and frozen history.
+- **Data quality and debugging:** validations that block illegal entries, plain-language messages and
+  tolerance for what is unknown, without invented negative answers.
+- **Regulatory requirements and traceability:** obligations cited article by article with a BOE link,
+  and tests that check the dates do not go stale.
+- **Systems integration:** SIGPAC, the regional notebook, the administration interface, AutoFirma and
+  CAdES, all with an official source and fingerprint.
+- **KPIs and metrics:** notebook completeness calculated from the data (what is missing and why), not
+  typed by hand.
+
+## Real state
+
+**Done and verifiable:** mandatory records, validations, signature with fingerprint and checked CAdES,
+plots from SIGPAC and the regional notebook, invoices and the official interface client. The public
+demo was verified on 2026-11-10 with five plots in Salamanca and an always-visible demo notice; data
+typed there stays in the browser. The full app runs locally with SQLite by default and PostgreSQL
+documented. 6,116 Python tests and 1,322 JavaScript tests in the project suite.
+
+**Pending:** the import JSON is not sent to the government yet: the catalogue values, access to the
+integration environment and the domain certificate are missing. The CAdES trust chain is not checked,
+the app sends no email and the expansion into full farm management is still in development. Tests with
+real farmers are still needed. There is no public repository: the cited remote returns 404.

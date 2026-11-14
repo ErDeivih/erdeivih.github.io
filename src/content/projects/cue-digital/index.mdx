@@ -1,34 +1,87 @@
 ---
 type: "project"
 title: "CUE Digital"
-description: "Cuaderno de campo y proyecto de gestión de parcelas, trabajos y recursos de una explotación agrícola."
-tagline: "Organizar la actividad de la explotación en una misma aplicación."
+description: "Cuaderno de campo digital para una explotación agrícola: registro obligatorio, validaciones que impiden el apunte ilegal y trazabilidad normativa."
+tagline: "Registrar lo que la ley obliga en el cuaderno de campo agrícola y no dejar guardar un apunte ilegal."
+demo: "https://erdeivih.github.io/cuedigital-demo/"
+image: "/projects/cuedigital.png"
+imageAlt: "Pantalla de CUE Digital para apuntar un trabajo: parcelas con su cultivo y superficie y los tipos de labor"
 color: "#c29e6c"
 status: "active"
 year: "2026"
-role: "Proyecto personal"
-highlight: "El cuaderno de campo es la base; la gestión agrícola y la interfaz siguen ampliándose."
-stack: ["Python","FastAPI","SQLite","Gestión agrícola"]
-order: 4
-featured: true
+role: "Proyecto personal: producto, datos y desarrollo"
+highlight: "Validaciones que impiden guardar un apunte ilegal y explican qué falta; 6.116 pruebas de Python y 1.322 de JavaScript."
+tags: ["modelo de datos", "calidad de datos", "trazabilidad"]
+stack: ["Python", "FastAPI", "SQLite", "PostgreSQL", "AutoFirma"]
+order: 8
+featured: false
 ---
 
-CUE Digital comenzó como un cuaderno de campo y está creciendo hacia una herramienta de gestión para agricultores. La idea es reunir la información de la explotación y poder consultarla sin buscar entre papeles y hojas de cálculo.
+CUE Digital es el cuaderno de campo de una explotación agrícola. Registra lo que la normativa obliga,
+impide guardar un apunte ilegal y explica en castellano qué falta antes de que llegue una inspección.
 
-## El cuaderno de campo
+## El problema
 
-La aplicación parte del registro de la actividad y de la información de la explotación. El cuaderno es la base sobre la que se está ampliando el resto de la gestión.
+El cuaderno de campo digital deja de ser opcional: registro de abonos desde el 1 de enero de 2026,
+plan de abonado desde el 1 de septiembre de 2026, registro electrónico de productos aplicados desde el
+1 de enero de 2027 y fin del registro en papel el 31 de diciembre de 2026.
 
-## Gestión de la explotación
+El programa está pensado para que lo use un agricultor que no sabe de informática. Un error en la
+dosis, en el carné del aplicador o en los días de espera se convierte en sanción, y un cuaderno sin
+firmar no prueba nada en una inspección.
 
-El alcance previsto incluye parcelas, trabajos, gastos, maquinaria y contactos. Estas áreas se están desarrollando; no todas están disponibles todavía.
+## Qué hace
 
-También estoy estudiando la preparación de información para la PAC y los formatos oficiales de intercambio. Esa integración sigue pendiente de completar y comprobar.
+- **Registro obligatorio:** tratamientos (producto, dosis, superficie, plaga, justificación,
+  aplicador, máquina y condiciones del tiempo), abonos con cálculo del abono puro, labores, riego y
+  cosecha.
+- **Impide guardar algo ilegal y explica qué hacer:** producto sin número de etiqueta o retirado,
+  dosis por encima de la etiqueta, más hectáreas que la parcela, carné caducado, ITV caducada,
+  cosechar sin respetar los días de espera o producto no permitido en ecológico.
+- **Avisa de lo que caduca** antes de que sea tarde: carné, ITV y botes.
+- **Cuaderno en papel en PDF** que sale aunque falten datos, con hoja final de lo pendiente, y
+  exportación a CSV preparada para Excel.
+- **Firma del cuaderno** con AutoFirma y huella recalculada en cada consulta.
+- **Tierras desde el SIGPAC** y desde el cuaderno de la Junta, sin teclear referencias, y lectura de
+  facturas desde PDF o foto.
 
-## Una interfaz más sencilla
+## Datos y modelo
 
-Estoy revisando la interfaz para facilitar las tareas habituales: encontrar una parcela, anotar un trabajo y consultar qué se ha hecho. Esa mejora es una prioridad antes de presentar una versión más amplia.
+- **Alcance y aislamiento:** el identificador de explotación va en todas las tablas de negocio y es lo
+  que aísla a un agricultor de otro.
+- **Nada se borra:** los apuntes se anulan con un motivo y queda rastro en la auditoría.
+- **Histórico congelado:** los datos de la etiqueta se copian al apunte, para que corregir una ficha
+  de producto no cambie un apunte histórico.
+- **Geometría como texto WKT**, para que el mismo código funcione en SQLite y PostgreSQL.
+- **Cálculos legales aislados** con pruebas propias: días de espera, abono puro, dosis y vigencias.
+- **Textos separados**, con un test que comprueba que no se ha colado jerga que un agricultor no
+  diría.
+- **Fuentes oficiales con huella:** los catálogos e interfaces de la Junta se guardan con su SHA-256
+  para poder demostrar que son los oficiales.
 
-## Disponibilidad
+## Qué demuestra para un puesto de Business Analyst
 
-El proyecto está en desarrollo y no tiene una demo pública enlazada. La primera muestra utilizará datos de una explotación ficticia.
+- **Modelos de datos y Data Marts:** modelo relacional por explotación con aislamiento, auditoría e
+  histórico congelado.
+- **Calidad y depuración de datos:** validaciones que impiden guardar lo ilegal, mensajes en
+  castellano y tolerancia a lo que no se sabe, sin negativas inventadas.
+- **Requisitos normativos y trazabilidad:** obligaciones citadas artículo por artículo con enlace al
+  BOE y pruebas que comprueban que las fechas no se quedan viejas.
+- **Integración de sistemas:** SIGPAC, cuaderno de la Junta, interfaz de la administración, AutoFirma
+  y CAdES, todo con fuente oficial y huella.
+- **KPIs y métricas:** estado de completitud del cuaderno calculado (lo que falta y por qué), no
+  escrito a mano.
+
+## Estado real
+
+**Hecho y comprobable:** registro obligatorio, validaciones, firma con huella y CAdES comprobado,
+tierras desde el SIGPAC y desde el cuaderno de la Junta, facturas y cliente de la interfaz oficial.
+Demo pública verificada el 10/11/2026 con cinco parcelas de Salamanca y aviso de demo siempre visible;
+los datos que se apuntan se quedan en el navegador. App completa local con SQLite por defecto y
+PostgreSQL documentado. 6.116 pruebas de Python y 1.322 de JavaScript en la suite del proyecto.
+
+**Pendiente:** el JSON de importación todavía no se manda a la Junta: falta el valor de los catálogos,
+el alta en el entorno de integración y el certificado de dominio. La cadena de confianza de la firma
+CAdES no se comprueba, el programa no manda correos y la ampliación hacia la gestión integral de la
+explotación sigue en desarrollo. Faltan pruebas con agricultores reales. No hay repositorio público:
+el remoto citado responde 404.

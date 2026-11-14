@@ -1,0 +1,76 @@
+---
+type: "project"
+title: "Lyfta"
+description: "App móvil de entrenamiento de fuerza que envía al reloj Garmin el plan con pesos por serie y guarda el historial editable."
+tagline: "Un plan de fuerza con pesos por serie que viaja al reloj Garmin y vuelve como historial editable."
+image: "/projects/garmin.png"
+imageAlt: "Sesión de fuerza en Lyfta con las series de press de banca, sus pesos y repeticiones y el descanso en marcha"
+color: "#0e7490"
+status: "active"
+year: "2026"
+role: "Proyecto personal: producto, integración y despliegue"
+highlight: "Planificar, enviar al reloj, entrenar y corregir el peso real, con 51 pruebas de frontend y 21 de contrato."
+tags: ["modelo de datos", "KPIs", "integración"]
+stack: ["React", "TypeScript", "FastAPI", "SQLite", "Connect IQ"]
+order: 12
+featured: false
+---
+
+Lyfta es una app móvil para entrenar fuerza con un reloj Garmin. El plan con los pesos de cada serie
+sale de la app, llega al reloj y vuelve convertido en un historial que se puede corregir.
+
+## El problema
+
+Garmin Connect está pensado para correr y para el entrenamiento de fuerza general. Para progresar por
+series (aproximación a 60 kg, trabajo a 65, tope a 70) obliga a crear el entrenamiento en el móvil,
+esperar a que sincronice y acabar tecleando el peso de cada serie en el reloj, o entrenar a ciegas.
+Al terminar, las series se pierden en un registro genérico y no hay forma cómoda de corregir el peso
+real.
+
+## Qué hace
+
+- **Planifica** con pesos por serie y guardado automático.
+- **Envía** el entrenamiento al reloj desde la app, con estado pendiente, enviado o error y guía de
+  sincronización.
+- **Entrena sin teclear** en la muñeca: las series ya llevan su peso y sus repeticiones.
+- **Guarda** la sesión con los pesos correctos, el total en kilos y el reparto muscular.
+- **Corrige después de entrenar** y deja la sesión en el historial.
+- **Consulta** historial, actividades y análisis del reloj, calendario semanal y rutas.
+
+## Datos y modelo
+
+- **Backend:** FastAPI con SQLAlchemy asíncrono y SQLite, migraciones idempotentes y 21 guiones de
+  contrato sobre una base efímera.
+- **Integración con Garmin:** API de Garmin Connect y app de reloj propia en Connect IQ (Monkey C)
+  para el Forerunner 255, con mapeo de ejercicios, envío del workout con objetivos por serie, series
+  idempotentes desde el reloj y un modo `dry_run` para validar sin tocar la cuenta.
+- **Una cuenta de Garmin por backend**, porque los tokens se renuevan al usarse; queda documentado
+  para no invalidar la sesión.
+- **El plan manda sobre la última marca:** si el plan dice 60/65/70, la sesión arranca con 60/65/70.
+- **Uso sin conexión:** la app es instalable y guarda el borrador de la sesión en el móvil.
+
+## Qué demuestra para un puesto de Business Analyst
+
+- **KPIs y métricas:** pesos por serie, total en kilos y reparto muscular por sesión, con historial
+  comparable.
+- **Modelos de datos:** backend relacional con migraciones idempotentes y contrato de API probado.
+- **Integraciones y sistemas:** API de Garmin Connect y app de reloj, con `dry_run` y series
+  idempotentes.
+- **Informes y cuadros de mando:** historial de sesiones, análisis de actividades y calendario
+  semanal.
+- **Calidad y verificación:** 51 pruebas de frontend y 21 de contrato, regresión visual con 0 píxeles
+  distintos y 52 pares de contraste AA comprobados.
+- **Decisiones de producto documentadas:** una URL y un origen, un backend por cuenta, el plan manda
+  sobre la última marca y privacidad primero.
+
+## Estado real
+
+**Hecho y comprobable:** funcionando desde el 9 de noviembre de 2026, con plan con pesos por serie,
+envío a Garmin, entrenamiento, guardado con los pesos correctos, corrección posterior, historial,
+actividades, análisis del reloj, calendario semanal y rutas. Capturas a 390 × 844 contra el
+despliegue real, con informe versionado.
+
+**Pendiente:** falta la prueba física con el Forerunner 255 puesto (el envío está probado en modo de
+validación), activar HTTPS en la red privada para instalar la app en Android y medir el detector de
+repeticiones con series reales. No hay demo pública ni repositorio público: el despliegue es un
+servidor doméstico privado y se enseña en directo.

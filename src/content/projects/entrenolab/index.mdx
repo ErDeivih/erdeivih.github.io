@@ -1,0 +1,70 @@
+---
+type: "project"
+title: "EntrenoLab"
+description: "Gestión de un club de fútbol base en una sola fuente de verdad: plantilla, partidos, multas y sesiones desde el móvil o la tablet."
+tagline: "Juntar plantilla, partidos, multas y sesiones de un club de fútbol base en una sola fuente de verdad, usable desde el campo."
+demo: "https://erdeivih.github.io/entrenolab-demo/"
+color: "#274c77"
+status: "active"
+year: "2026"
+role: "Proyecto comercial propio: producto, datos y desarrollo"
+highlight: "Demo pública con multiusuario, RLS por entrenador y planes con límites comprobados en el servidor."
+tags: ["modelo de datos", "KPIs", "RLS"]
+stack: ["Angular", "TypeScript", "Supabase", "PostgreSQL", "RLS"]
+order: 6
+featured: true
+---
+
+EntrenoLab reúne el club, los equipos, la gestión deportiva y la preparación de sesiones en una app
+que funciona en móvil y tablet. La app interna del club es otra ficha (CDMPLab); esta demo es el
+producto comercial.
+
+## El problema
+
+Los entrenadores amateur de fútbol base gestionan el club con hojas de cálculo, notas y grupos de
+WhatsApp. No hay una sola fuente de verdad: los minutos de un jugador quedan en una hoja, las multas
+en otra y las sesiones en un cuaderno, y nada de eso se puede consultar desde el campo.
+
+## Qué hace
+
+- **Multiusuario real:** registro y login, club de ejemplo y aislamiento por entrenador verificado
+  contra el backend.
+- **Gestión deportiva:** plantilla, partidos con minutos, goles y tarjetas, y multas con sus tipos.
+- **Preparación de sesiones:** catálogo de ejercicios, constructor de ejercicio a página completa y
+  sesión guardada con ese ejercicio.
+- **Planes y límites:** gratis 1 club y 1 equipo, pro 3 y 5, club 10 y 20, comprobados en servidor y
+  no solo en la interfaz.
+
+## Datos y modelo
+
+- Modelo relacional `clubs` → `teams` → `players`.
+- `club_matches` → `club_match_players`, con minutos, goles y tarjetas por jugador y partido.
+- `club_fines` y `club_fine_types` para las multas, y `club_custom_stats` para estadísticas propias.
+- Tablas `demo_*` aisladas para la demo pública, con reseteo diario y autenticación propia.
+- PostgreSQL en Supabase con **RLS por entrenador** y **RPC transaccionales** para guardar el club;
+  los límites de plan se comprueban en el servidor.
+- Catálogo de 66 fichas: 26 originales y 40 adaptadas del EBOOK-100.
+
+## Qué demuestra para un puesto de Business Analyst
+
+- **Modelos de datos y Data Marts:** club → equipo → jugador y partido → jugador-partido, con tablas
+  de multas y estadísticas propias.
+- **KPIs y métricas:** minutos, goles y tarjetas por jugador y partido; multas por tipo; planes y sus
+  límites.
+- **Informes y cuadros de mando:** panel de club con plantilla, partidos, multas y sesiones en una
+  sola pantalla.
+- **Calidad y verificación:** RLS y RPC en servidor, límites comprobados fuera de la interfaz y 1.746
+  pruebas unitarias.
+
+## Estado real
+
+**Hecho y comprobable:** demo pública funcional de principio a fin, con registro y login, planes,
+club de ejemplo, plantilla, partidos con minutos, multas, catálogo, constructor de ejercicio y
+sesión guardada. Flujo completo con 10 de 10 comprobaciones en navegador real a 390 px; 9 de 9 sobre
+el backend real de Supabase, incluido el aislamiento entre usuarios; 1.746 pruebas unitarias y 7 de
+7 pruebas E2E de gestión responsive.
+
+**Pendiente:** no es un SaaS en producción: no hay pasarela de pago real (los planes son simulados)
+ni SMTP propio, y los datos de la demo se reinician cada 24 horas. La app multiusuario con URL
+pública está preparada y pendiente de despliegue. El catálogo público no incluye 306 fichas de
+terceros por licencia, y no se usan datos de menores ni datos personales.

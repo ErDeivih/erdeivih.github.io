@@ -1,0 +1,78 @@
+---
+type: "project"
+title: "Data School"
+description: "Portal de datos e IA con material verificado y un catálogo ordenado: cada ficha con código ejecutado y cada dataset con licencia y procedencia."
+tagline: "Un portal de datos e IA donde cada cifra publicada tiene código ejecutado y una prueba detrás."
+demo: "https://erdeivih.github.io/data-school-site/"
+repo: "https://github.com/ErDeivih/data-school-site"
+image: "/projects/data-school.png"
+imageAlt: "Informe de Data School con gráficos de población y PIB per cápita de cinco economías, 2000 frente a 2023"
+color: "#1d6fa3"
+status: "active"
+year: "2026"
+role: "Proyecto personal: producto, contenido, datos y pruebas"
+highlight: "459 fichas con código ejecutado y un índice de aprendizaje con prerrequisitos."
+tags: ["ETL", "modelo de datos", "calidad de datos", "KPIs"]
+stack: ["Markdown + YAML", "Node.js", "Playwright", "PWA", "Python"]
+order: 3
+featured: true
+---
+
+Data School tiene dos partes: un portal de estudio y práctica de datos e IA, y el catálogo ordenado
+del contenido que lo alimenta. La regla es la misma en las dos: nada entra sin código ejecutado,
+licencia y una prueba que lo respalde.
+
+## El problema
+
+Aprender datos e IA es fácil de empezar y difícil de demostrar: los cursos se quedan en vídeos y
+los proyectos en libretas que nadie puede abrir. El material propio estaba repartido en cinco
+orígenes distintos, con contenido duplicado y sin una regla común de licencias, datos ni pruebas.
+
+## Qué hace
+
+- **Publica** un portal con 459 fichas, paquetes descargables con verificador propio y un índice de
+  aprendizaje con horas y prerrequisitos; incluye búsqueda con sinónimos.
+- **Ordena el catálogo**: 32 fuentes comprobadas con licencia, coste, idioma y estado; 15 solo
+  admiten enlace y resumen propio, así que no se copian.
+- **Publica datos propios**: 10 datasets sintéticos con licencia CC0-1.0, checksum SHA-256, generador
+  con semilla fija y perfil de calidad.
+- **Comprueba**: un verificador de enlaces con tarea semanal y documentos de decisión
+  (`ESPECIFICACION.md`, `DECISIONES.md`, `DOCTRINA-CALIDAD.md`) donde queda registrado qué entra y
+  qué se descarta.
+
+## Datos y modelo
+
+- **Modelo del portal:** fichas ↔ fases ↔ rutas ↔ prerrequisitos; proyectos con paquete, rúbrica e
+  hitos; paquetes con bytes y `sha256` verificados.
+- **13 fases** (`f00`–`f12`), de fundamentos matemáticos a comunicación y carrera. Cada ficha lleva
+  frontmatter con `id`, `titulo`, `fase`, `nivel`, `rutas`, `prerequisitos`, `tags`, `resumen` y
+  `fuentes`.
+- **Figuras con procedencia:** 350 scripts de Python generan 370 SVG y cada figura apunta a su
+  fuente.
+- **Regla de entrada:** todo concepto con código ejecutado; todo dataset con licencia y procedencia.
+- **Controles automáticos:** comprobaciones de usabilidad, espaciado, biblioteca, descargas y
+  funcionamiento sin conexión; validación de ZIP contra el manifiesto.
+- **Calidad del dato:** 10/10 CSV cargan, 63/63 columnas y tipos correctos, 0 nulos y 0 duplicados;
+  82 enlaces comprobados (79 vivos, 3 redirigen, 0 caídos).
+
+## Qué demuestra para un puesto de Business Analyst
+
+- **Modelos de datos y Data Marts:** relación fichas–fases–rutas–prerrequisitos, paquetes con
+  `sha256` y datasets con ficha y perfil de calidad.
+- **ETL:** Markdown y YAML convertidos en HTML semántico, índice de búsqueda, glosario, datasets y
+  manifiesto para uso sin conexión.
+- **KPIs y cobertura:** cobertura medida por fase y por dataset, con recuento de comprobaciones en
+  cada control automático.
+- **Calidad y depuración:** validación de ZIP contra manifiesto, 0 nulos y 0 duplicados en los CSV,
+  comprobador de enlaces y corrección documentada de una cifra errónea (las fuentes «solo enlace»
+  son 15, no 11).
+
+## Estado real
+
+**Hecho y comprobable:** portal publicado en GitHub Pages con índice, buscador y paquetes
+descargables; catálogo consolidado y medido a partir de cinco orígenes; controles automáticos en
+verde. Sin GitHub Actions: todo se ejecuta en local.
+
+**Pendiente:** 9 campos legales del titular que el propio portal marca por rellenar, tema oscuro en
+obras, diez fichas de proyecto por completar y una métrica de uso real (descargas y sesiones) que
+convierta la cobertura en impacto.

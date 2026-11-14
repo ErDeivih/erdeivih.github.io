@@ -1,36 +1,76 @@
 ---
 type: "project"
 title: "OpoFuente"
-description: "Aplicación para organizar apuntes, practicar preguntas y revisar errores al estudiar oposiciones."
-tagline: "Tener el material de estudio y las preguntas en un mismo sitio."
+description: "Temario y práctica de una oposición de informática C1 con la cobertura calculada desde el contenido y cada respuesta enlazada a su fuente oficial."
+tagline: "Un temario y su práctica medidos por cobertura, para saber qué falta por estudiar y de dónde sale cada respuesta."
+demo: "https://erdeivih.github.io/opofuente-demo/"
+repo: "https://github.com/ErDeivih/opofuente-demo"
+image: "/projects/opofuente.png"
+imageAlt: "Temario de OpoFuente con los bloques y temas de la oposición y el avance de estudio por bloque"
 color: "#9aaacf"
 status: "active"
 year: "2026"
-role: "Proyecto personal"
-highlight: "Biblioteca, búsqueda y sesiones de preguntas; la versión pública está pendiente."
-stack: ["Apuntes","Banco de preguntas","Sesiones de estudio","Búsqueda"]
+role: "Proyecto personal: contenido, producto y desarrollo"
+highlight: "Cobertura calculada desde el contenido: 17 de 40 temas completos, 23 pendientes señalados y 0 temas de relleno."
+tags: ["KPIs", "calidad de datos", "trazabilidad"]
+stack: ["React", "TypeScript", "FastAPI", "SQLite FTS5", "Playwright"]
 order: 5
 featured: true
 ---
 
-OpoFuente es una herramienta para organizar el estudio de oposiciones. Reúne documentos, apuntes y preguntas para pasar de consultar un tema a practicarlo y revisar los errores.
+OpoFuente es un temario de oposición de informática C1 con su práctica. No es un curso ni una app
+genérica: es el programa común de 40 temas, con un mapa de cobertura y las preguntas enlazadas a la
+fuente oficial.
 
-## Organizar los apuntes
+## El problema
 
-Permite importar material y reunirlo en una biblioteca. La búsqueda recupera información de los documentos y mantiene referencias al origen para poder volver al texto que se está estudiando.
+Preparar una oposición de informática C1 es estudiar un temario común de 40 temas repartido entre
+leyes, sistemas, redes y seguridad, con convocatorias distintas que comparten casi todo el programa.
+El opositor no sabe qué le falta, estudiar no es practicar y la información oficial está fuera del
+apunte.
 
-## Practicar y repasar
+## Qué hace
 
-El banco de preguntas permite hacer sesiones de práctica y revisar los fallos. La aplicación también permite exportar información del repaso.
+- **Portada** con las 12 convocatorias C1 a las que sirve el temario común, más el perfil TAI.
+- **Mapa de cobertura** de los 40 temas con dos sellos por tema: apuntes (completos, solo resumen o
+  pendiente) y práctica (con práctica o pendiente).
+- **Índice** con avance por bloque, búsqueda por código o título y filtros por apuntes y práctica.
+- **Práctica** con corrección al momento, ficha de pregunta y enlace al texto consolidado del BOE.
+- **Progreso del visitante** en el navegador, sin registro.
 
-El material y los formatos disponibles dependen del perfil de oposición. El proyecto incluye trabajo sobre TAI y Guardia Civil, y la cobertura se está revisando por separado.
+## Datos y modelo
 
-## Lo que estoy preparando
+- **Modelo:** currículo de 40 temas en 5 bloques. Cada tema declara apuntes y práctica, y el estado
+  de cobertura se **calcula desde el contenido**, no se escribe a mano.
+- **Contenido actual:** 17 temas con apuntes completos, 17 prácticas de 10 preguntas (170 preguntas)
+  y 23 temas pendientes señalados como tales.
+- **Convocatorias:** 12 convocatorias C1 en JSON, con estado (por confirmar o cerrada) y enlace
+  oficial al BOE.
+- **Trazabilidad:** cada tema tiene su fuente oficial; cada pregunta tiene respuesta razonada y,
+  cuando cita un artículo, enlace al texto consolidado.
+- **Derechos:** decisión registrada de no publicar material de academia o de terceros; solo queda
+  como referencia interna.
 
-Estoy mejorando la lectura de apuntes, la organización del repaso y los formatos de examen. Las sesiones de preguntas actuales todavía no equivalen a un simulador completo de examen oficial.
+## Qué demuestra para un puesto de Business Analyst
 
-También queda por preparar una muestra con material que se pueda compartir públicamente.
+- **KPIs y métricas:** cobertura por tema y por bloque calculada desde el contenido: 17 de 40 temas,
+  23 pendientes y 0 temas «solo resumen».
+- **Calidad y depuración de datos:** estado derivado del contenido, sin filas de relleno, y enlaces
+  oficiales comprobados.
+- **Requisitos y alcance:** un temario común documentado en decisiones (D-005, D-021) en lugar de una
+  app sin límites.
+- **Informes y cuadros de mando:** mapa de cobertura con dos sellos por tema y avance por bloque.
+- **Trazabilidad de la información:** cada tema con fuente y cada pregunta con respuesta y enlace al
+  texto oficial.
 
-## Disponibilidad
+## Estado real
 
-La aplicación está en desarrollo y aún no tiene un enlace público de acceso.
+**Hecho y comprobable:** demo estática publicada y funcional de principio a fin, con 20 de 20
+comprobaciones con Playwright contra la URL pública (portada, convocatorias, 40 temas, cobertura,
+sellos, búsqueda, filtros, corrección con enlace al BOE y persistencia en el navegador). 517 pruebas
+unitarias de backend y 225 de frontend, con sus comprobaciones de tipos y estilo en verde.
+
+**Pendiente:** es una demo estática, sin backend, cuentas ni sincronización: el progreso vive en el
+navegador. Quedan 23 temas por completar, la medición de sesiones reales de práctica y la app
+completa con backend en una URL pública. El temario TAI recuperado y los PDF de apoyo son referencia
+interna privada y no se publican por derechos de terceros.

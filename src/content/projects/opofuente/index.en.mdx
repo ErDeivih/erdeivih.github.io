@@ -2,36 +2,75 @@
 type: "project"
 lang: "en"
 title: "OpoFuente"
-description: "An application for organising notes, practising questions and reviewing mistakes for civil service exams."
-tagline: "Keep study material and practice questions together."
+description: "A syllabus and practice app for a C1 IT civil-service exam, with coverage calculated from the content and every answer linked to its official source."
+tagline: "A syllabus and its practice measured by coverage, so you know what is left to study and where each answer comes from."
+demo: "https://erdeivih.github.io/opofuente-demo/"
+repo: "https://github.com/ErDeivih/opofuente-demo"
+image: "/projects/opofuente.png"
+imageAlt: "OpoFuente syllabus view with the exam blocks and topics and study progress by block"
 color: "#9aaacf"
 status: "active"
 year: "2026"
-role: "Personal project"
-highlight: "A library, search and practice sessions; the public version is pending."
-stack: ["Notes", "Question bank", "Study sessions", "Search"]
+role: "Personal project: content, product and development"
+highlight: "Coverage calculated from the content: 17 of 40 topics complete, 23 flagged as pending and 0 filler topics."
+tags: ["KPIs", "data quality", "traceability"]
+stack: ["React", "TypeScript", "FastAPI", "SQLite FTS5", "Playwright"]
 order: 5
 featured: true
 ---
 
-OpoFuente is a study tool for civil service exams. It brings documents, notes and questions together so you can move from reading a topic to practising it and reviewing mistakes.
+OpoFuente is a C1 IT civil-service syllabus with its practice. It is not a course or a generic app: it
+is the common 40-topic programme, with a coverage map and questions linked to their official source.
 
-## Organise notes
+## The problem
 
-Import material into a library. Search retrieves information from documents and keeps source references so you can return to the text you are studying.
+Preparing a C1 IT civil-service exam means studying a common 40-topic syllabus spread across law,
+systems, networks and security, with different calls that share almost the whole programme. The
+candidate does not know what is missing, studying is not practising and the official information
+sits outside the notes.
 
-## Practise and review
+## What it does
 
-The question bank supports practice sessions and reviewing errors. Review information can also be exported.
+- **Home page** with the 12 C1 calls served by the common syllabus, plus the TAI profile.
+- **Coverage map** of the 40 topics with two marks per topic: notes (complete, summary only or
+  pending) and practice (with practice or pending).
+- **Index** with progress by block, search by code or title and filters by notes and practice.
+- **Practice** with instant marking, a question page and a link to the consolidated BOE text.
+- **Visitor progress** stored in the browser, without an account.
 
-Available material and formats depend on the exam profile. The project includes work on TAI and Guardia Civil, with coverage being reviewed separately.
+## Data and data model
 
-## Current work
+- **Model:** a curriculum of 40 topics in 5 blocks. Each topic declares notes and practice, and the
+  coverage state is **calculated from the content**, never typed by hand.
+- **Current content:** 17 topics with complete notes, 17 practice sets of 10 questions (170 questions)
+  and 23 topics explicitly flagged as pending.
+- **Calls:** 12 C1 calls in JSON, with their state (to be confirmed or closed) and an official BOE
+  link.
+- **Traceability:** each topic has its official source; each question has a reasoned answer and, when
+  it cites an article, a link to the consolidated text.
+- **Rights:** a recorded decision not to publish academy or third-party material; it stays as
+  internal reference only.
 
-I am improving note reading, revision organisation and exam formats. Current question sessions are not yet a complete official exam simulator.
+## What it shows for a Business Analyst role
 
-A sample with publicly shareable material still needs to be prepared.
+- **KPIs and metrics:** coverage per topic and block calculated from the content: 17 of 40 topics, 23
+  pending and 0 "summary only" topics.
+- **Data quality and debugging:** state derived from the content, with no filler rows, and checked
+  official links.
+- **Requirements and scope:** a documented common syllabus (decisions D-005 and D-021) instead of an
+  unbounded app.
+- **Reports and dashboards:** a coverage map with two marks per topic and progress by block.
+- **Information traceability:** every topic with a source and every question with an answer and a link
+  to the official text.
 
-## Availability
+## Real state
 
-The application is in development and does not yet have a public access link.
+**Done and verifiable:** the static demo is published and works end to end, passing 20 of 20 Playwright
+checks against the public URL (home, calls, 40 topics, coverage, marks, search, filters, marking with
+a BOE link and browser persistence). 517 backend unit tests and 225 frontend unit tests, with type and
+style checks green.
+
+**Pending:** it is a static demo, with no backend, accounts or sync: progress lives in the browser.
+23 topics remain, real practice sessions are not measured yet and the full app with a backend has no
+public URL. The recovered TAI syllabus and the supporting PDFs are private internal reference and are
+not published because of third-party rights.

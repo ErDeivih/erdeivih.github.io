@@ -1,0 +1,84 @@
+---
+type: "project"
+title: "Chollos"
+description: "Buscador de segunda mano que separa los chollos del ruido: descarta anuncios antes de puntuar y compara cada precio con la mediana de sus comparables."
+tagline: "Separar los anuncios de segunda mano que sí son chollo del ruido, comparando cada precio con la mediana de sus comparables."
+image: "/projects/chollos.png"
+imageAlt: "Listado de Chollos con equipos y componentes comparados con anuncios parecidos y el ahorro calculado"
+color: "#0f766e"
+status: "active"
+year: "2026"
+role: "Proyecto personal: datos, panel y operación"
+highlight: "Cada pasada publica descargados, descartes por regla, valorados y ahorro, con el histórico de cada anuncio."
+tags: ["ETL", "calidad de datos", "KPIs"]
+stack: ["Python", "FastAPI", "SQLite", "Pydantic", "selectolax"]
+order: 4
+featured: true
+---
+
+Chollos es un buscador personal de segunda mano. Recoge anuncios de cuatro verticales, descarta el
+ruido antes de puntuar, compara el precio con la mediana de comparables y deja una lista corta con
+su ficha. No compra: informa y deja decidir.
+
+## El problema
+
+En segunda mano, la mayor parte de lo que aparece no es un chollo: son accesorios, piezas, anuncios
+repetidos, precios de hace un mes o directamente estafas. Lo bueno se pierde entre cientos de
+resultados, y ninguna plataforma compara el precio con el mercado ni avisa de si el anuncio está
+fresco.
+
+## Qué hace
+
+1. **Recoge** anuncios de cuatro verticales: motos de unos 500 €, coches por menos de 2.000 €,
+   componentes de PC y mini PCs.
+2. **Descarta** el ruido antes de puntuar: accesorios, piezas y anuncios repetidos.
+3. **Compara** el precio con la **mediana de comparables** (mismo producto, misma familia y
+   generación), con descuento topado para detectar precios imposibles y un nivel de confianza.
+4. **Mira** el riesgo del vendedor y la frescura del anuncio.
+5. **Publica** una lista corta con ficha, historial y marca de mínimo visto, un resumen diario en un
+   fichero y una exportación CSV.
+6. **Opera** con una tarea diaria de Windows oculta, con log legible y sin notificaciones.
+
+## Datos y modelo
+
+- **Fuentes:** 12 definiciones de fuente activas, con respeto de `robots.txt` y ritmo por dominio;
+  extracción de HTML, JSON embebido y API, normalización a un contrato común y deduplicación.
+- **Almacén:** SQLite con anuncios, precios, valoraciones y ejecuciones, más el crudo comprimido para
+  poder reprocesar sin volver a descargar.
+- **Contrato de datos y criterios:** `ALCANCE-COMPRA.md` define qué es un chollo, `DATOS.md` fija el
+  contrato y `DOCTRINA-CALIDAD.md` qué se considera terminado.
+- **Métricas por pasada** en `metricas-chollos.json`: descargados, descartes por regla, valorados,
+  uso de IA, veredictos y ahorro.
+- **Histórico por anuncio:** serie de observaciones, mínimo visto con fecha y aviso de vuelta al
+  mínimo.
+
+## Qué demuestra para un puesto de Business Analyst
+
+- **KPIs y métricas:** descargados, descartes por regla, valorados, veredictos y ahorro en cada
+  pasada, con histórico.
+- **Calidad y depuración de datos:** deduplicación, descarte por regla antes de puntuar, contrato de
+  datos y doctrina de calidad.
+- **ETL:** 12 fuentes, extracción de HTML, JSON y API, normalización a un contrato común y crudo
+  conservado para reprocesar.
+- **Modelos de datos y Data Marts:** histórico de observaciones por anuncio, mínimos y tabla de
+  valoraciones.
+- **Informes y cuadros de mando:** panel con contadores por vertical, vista semanal, ficha con
+  historial y exportación CSV.
+- **Análisis de precios:** referencia por mediana de comparables, descuento con tope y nivel de
+  confianza.
+
+## Estado real
+
+**Hecho y comprobable:** panel local funcional de principio a fin, con datos frescos, exportación CSV,
+resumen diario automático y tarea diaria programada. Pasada completa medida: 4.779 anuncios vistos,
+2.321 nuevos y 10.040 valorados, con 264 € de ahorro estimado en 28 minutos. Flujo verificado el
+10/11/2026 (panel, filtro por «mejor descuento real», ficha con historial y CSV) y 325 pruebas en
+verde.
+
+**Pendiente:** no tiene demo pública ni repositorio público (acceso bajo petición): la demo es local
+y la ficha se apoya en capturas y cifras. Dos enlaces activos de Milanuncios devuelven 403 al cliente
+automatizado y se dejan sin retirar porque un corte no prueba que el anuncio no exista. Queda
+comparar el mínimo entre anuncios del mismo modelo y resolver la integración con eBay en producción.
+
+El número de anuncios vistos frente a los pocos activos es el comportamiento esperado del filtro, no
+una métrica de crecimiento.

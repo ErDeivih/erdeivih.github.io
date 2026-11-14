@@ -3,9 +3,9 @@ export const site = {
   // Nombre real de la persona. "ErDeivih" se usa solo para lo que es de GitHub.
   name: "David Pérez Velasco",
   brand: "David",
-  title: "David Pérez Velasco — Proyectos y desarrollo",
+  title: "David Pérez Velasco — Business Analyst · Datos y BI",
   description:
-    "Proyectos de David Pérez Velasco: fútbol, datos, compra y alimentación, gestión agrícola y herramientas de estudio.",
+    "Portfolio de David Pérez Velasco, ingeniero informático: proyectos de datos y BI con fuentes, modelos de datos, procesos de carga, KPIs e informes. En busca de prácticas de Business Analyst.",
   author: "David Pérez Velasco",
   lang: "es",
   locale: "es-ES",

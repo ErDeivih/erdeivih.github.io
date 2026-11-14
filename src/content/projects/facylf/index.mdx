@@ -1,38 +1,84 @@
 ---
 type: "project"
-title: "FACyLF"
-description: "Consulta de fútbol federado con resultados, estadísticas e informes de equipos y jugadores."
-tagline: "Reunir los datos de las federaciones para estudiar equipos y preparar rivales."
+title: "Fondo Popular"
+description: "Base de datos y web de consulta del fútbol federado de Castilla y León: recolección, modelo canónico, agregados y cobertura medida."
+tagline: "Convertir los portales de la federación en una base de datos consultable del fútbol federado de Castilla y León."
+demo: "https://erdeivih.github.io/fondo-popular-demo/"
+image: "/projects/fondo-popular.png"
+imageAlt: "Portada de Fondo Popular con la búsqueda de equipos, competiciones de Castilla y León y los partidos con resultado"
 color: "#7a1f2b"
 status: "active"
 year: "2026"
-role: "Proyecto personal"
-highlight: "Consulta de competiciones y estadísticas; la cobertura y los informes siguen creciendo."
-stack: ["TypeScript","SQLite","Ingesta de datos","Analítica de fútbol"]
-order: 2
+role: "Proyecto personal: datos, ETL y web"
+highlight: "15 temporadas recolectadas; 98/98 tablas idénticas entre la base publicada y el canónico."
+tags: ["ETL", "modelo de datos", "calidad de datos", "KPIs"]
+stack: ["ETL", "PostgreSQL", "SQLite", "Next.js", "Selenium"]
+order: 1
 featured: true
 ---
 
-FACyLF reúne datos del fútbol federado que suelen estar repartidos entre calendarios, clasificaciones y actas. Empezó en Castilla y León y se ha ampliado a otras federaciones autonómicas.
+Fondo Popular (nombre interno y de repositorio, **FACyLF**) reúne en una base de datos canónica el
+fútbol federado de Castilla y León, fútbol sala incluido, y publica una web para consultarlo:
+clasificaciones, calendarios, resultados, alineaciones, goleadores y trayectorias.
 
-El objetivo es consultar una competición, seguir a un equipo y preparar informes de rivales o jugadores a partir de la información disponible.
+## El problema
 
-## Consultar el fútbol federado
+Los calendarios, jornadas, clasificaciones y actas viven en portales HTML de la federación, con una
+página por temporada, y los nombres de club y equipo cambian entre fuentes. Sin una base canónica,
+preguntas como «¿cuántos partidos de la temporada 2014-15 tienen acta?» exigen abrir decenas de
+pestañas y no se pueden comprobar.
 
-La aplicación permite explorar temporadas, competiciones, jornadas y partidos, además de fichas de clubes, equipos y jugadores. Incluye resultados, clasificaciones y primeras métricas de evolución.
+## Qué hace
 
-## Recoger y mantener los datos
+- **Recolecta** los portales con Selenium y Chrome headless, con una cola SQLite por federación
+  (trabajos, actas y peticiones) que reintenta y se reanuda.
+- **Importa** a PostgreSQL con un importador idempotente: un corte no pierde trabajo ni duplica datos.
+- **Publica** con dos puertas de cotejo: la base publicada debe coincidir con la canónica.
+- **Sirve una web** con búsqueda, selector de provincia, competiciones, clasificaciones, actas,
+  historial de jugador y rankings.
+- **Opera** con una tarea diaria; en el camino feliz imprime una sola línea con la cobertura.
 
-Los recolectores recuperan información de cada federación. La recogida continúa desde donde se quedó y conserva las actas originales para poder corregir su lectura sin descargarlas otra vez.
+## Datos y modelo
 
-Cada federación mantiene sus datos separados. Las estadísticas dependen de la cobertura recogida, que todavía se está ampliando.
+El modelo separa esquemas, que es la parte más cercana a un Data Mart:
 
-## Trabajo en curso
+| Esquema | Contenido |
+|---|---|
+| `core` | modelo canónico: competiciones, grupos, partidos, actas, clubes, equipos-temporada e inscripciones |
+| `analytics` | agregados: clasificaciones, rankings y trayectorias |
+| `source` | evidencia de la ingesta de origen |
+| `app` y `ops` | usuarios y operación |
 
-Estoy incorporando más temporadas y competiciones, mejorando el tiempo de respuesta de las consultas y dando una forma más útil a los informes.
+- Entidades distintas para **club**, **equipo-temporada** e **inscripción**, para no mezclar la
+  entidad con su participación en una competición.
+- Cada dato conserva procedencia y marcas de tiempo; migraciones versionadas y roles de solo lectura.
+- Volumen actual: 15 temporadas (2012-13 a 2026-27), 867 competiciones, 3.961 grupos, 328.100
+  partidos y 312.897 actas.
+- **KPI de cobertura:** una edición es «completa» cuando todos sus grupos tienen el checkpoint
+  correspondiente. Hay 206 de 867 completas (23,8 %); la tabla por temporada se publica y se
+  actualiza sola.
+- **Calidad:** el comprobador de codificación detecta doble codificación y UTF-8 inválido (0
+  problemas en Castilla y León); la idempotencia se demuestra con recuentos antes y después; la
+  última publicación cotejó 98/98 tablas y 123.601.068 filas idénticas.
 
-La versión pública se centrará en resultados y estadísticas, sin fotografías de jugadores.
+## Qué demuestra para un puesto de Business Analyst
 
-## Disponibilidad
+- **Modelos de datos y Data Marts:** esquemas separados y entidades que distinguen el club de su
+  inscripción en una competición.
+- **ETL:** recolección, cola con reanudación, importación idempotente y publicación con cotejo.
+- **KPIs:** una definición única de «edición completa» y cobertura medida por temporada y grupo,
+  no por intuición.
+- **Calidad de dato:** comprobador de codificación, presupuestos de consulta y pruebas de contrato
+  contra el canónico.
 
-La aplicación todavía no tiene un acceso público enlazado. La preparación del despliegue y de los informes forma parte del desarrollo actual.
+## Estado real
+
+**Hecho y comprobable:** demo estática publicada con datos reales de la temporada 2026-27, app
+completa en servidor propio con todas las temporadas y pipeline diario programado.
+
+**Pendiente:** 178 ediciones no son recuperables con las fuentes actuales y el resto sigue en
+recolección; faltan cuadros de mando de calidad de dato para la operación y una métrica de uso real
+del portal.
+
+El nombre FACyLF se mantiene en el repositorio y en el código; de cara al público el producto se
+llama Fondo Popular.

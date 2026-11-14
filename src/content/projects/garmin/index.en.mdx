@@ -1,0 +1,74 @@
+---
+type: "project"
+lang: "en"
+title: "Lyfta"
+description: "A mobile strength-training app that sends a per-set weight plan to a Garmin watch and keeps an editable history."
+tagline: "A strength plan with per-set weights that travels to the Garmin watch and comes back as an editable history."
+image: "/projects/garmin.png"
+imageAlt: "Lyfta strength session with bench-press sets, their weights and reps, and the rest timer running"
+color: "#0e7490"
+status: "active"
+year: "2026"
+role: "Personal project: product, integration and deployment"
+highlight: "Plan, send to the watch, train and correct the real weight, with 51 frontend tests and 21 contract tests."
+tags: ["data model", "KPIs", "integration"]
+stack: ["React", "TypeScript", "FastAPI", "SQLite", "Connect IQ"]
+order: 12
+featured: false
+---
+
+Lyfta is a mobile app for strength training with a Garmin watch. The plan with each set's weight
+leaves the app, reaches the watch and comes back as a history that can be corrected.
+
+## The problem
+
+Garmin Connect is built for running and for general strength training. To progress by sets (a 60 kg
+warm-up, 65 kg working set, 70 kg top set) it forces you to create the workout on the phone, wait for
+it to sync and end up typing each set's weight on the watch, or train blind. Afterwards the sets are
+lost in a generic log and there is no convenient way to correct the real weight.
+
+## What it does
+
+- **Plans** with per-set weights and automatic saving.
+- **Sends** the workout to the watch from the app, with pending, sent or error state and sync guidance.
+- **Trains without typing** on the wrist: sets already carry their weight and reps.
+- **Saves** the session with the correct weights, the total in kilos and the muscle split.
+- **Corrects after training** and keeps the session in the history.
+- **Browses** history, activities and watch analysis, a weekly calendar and routes.
+
+## Data and data model
+
+- **Backend:** FastAPI with async SQLAlchemy and SQLite, idempotent migrations and 21 contract scripts
+  against an ephemeral database.
+- **Garmin integration:** the Garmin Connect API and a custom Connect IQ (Monkey C) watch app for the
+  Forerunner 255, with exercise mapping, workouts carrying per-set targets, idempotent sets sent from
+  the watch and a `dry_run` mode to validate without touching the account.
+- **One Garmin account per backend**, because tokens rotate when used; this is documented so it does
+  not invalidate the session.
+- **The plan overrides the last mark:** if the plan says 60/65/70, the session starts at 60/65/70.
+- **Offline use:** the app is installable and keeps the session draft on the phone.
+
+## What it shows for a Business Analyst role
+
+- **KPIs and metrics:** weights per set, total kilos and muscle split per session, with a comparable
+  history.
+- **Data models:** a relational backend with idempotent migrations and a tested API contract.
+- **Integrations and systems:** the Garmin Connect API and a watch app, with `dry_run` and idempotent
+  sets.
+- **Reports and dashboards:** session history, activity analysis and a weekly calendar.
+- **Quality and verification:** 51 frontend tests and 21 contract tests, a visual regression with 0
+  differing pixels and 52 checked AA contrast pairs.
+- **Documented product decisions:** one URL and one origin, one backend per account, the plan over the
+  last mark and privacy first.
+
+## Real state
+
+**Done and verifiable:** working since 2026-11-09, with per-set weight planning, sending to Garmin,
+training, saving the session with the correct weights, correcting it afterwards, history, activities,
+watch analysis, a weekly calendar and routes. Screenshots at 390 × 844 against the real deployment,
+with a versioned report.
+
+**Pending:** the physical test with the Forerunner 255 on the wrist (sending is tested in validation
+mode), enabling HTTPS on the private network to install the app on Android and measuring the rep
+detector with real sets. There is no public demo and no public repository: the deployment is a
+private home server and is shown live.

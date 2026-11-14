@@ -1,0 +1,83 @@
+---
+type: "project"
+lang: "en"
+title: "Chollos"
+description: "A second-hand deal finder that separates bargains from noise: it discards listings before scoring and compares each price with the median of its comparables."
+tagline: "Sort genuine second-hand bargains from the noise by comparing each price with the median of its comparables."
+image: "/projects/chollos.png"
+imageAlt: "Chollos listing with computers and components compared against similar ads and the calculated saving"
+color: "#0f766e"
+status: "active"
+year: "2026"
+role: "Personal project: data, panel and operations"
+highlight: "Every pass publishes downloads, rule-based discards, valued listings and savings, with each listing's history."
+tags: ["ETL", "data quality", "KPIs"]
+stack: ["Python", "FastAPI", "SQLite", "Pydantic", "selectolax"]
+order: 4
+featured: true
+---
+
+Chollos is a personal second-hand search tool. It collects listings from four verticals, discards
+noise before scoring, compares each price with the median of its comparables and leaves a short list
+with its detail page. It does not buy: it informs and lets the user decide.
+
+## The problem
+
+On second-hand marketplaces, most of what appears is not a bargain: accessories, spare parts,
+duplicated listings, month-old prices or outright scams. The good ones get lost among hundreds of
+results, and no platform compares the price with the market or warns whether a listing is fresh.
+
+## What it does
+
+1. **Collects** listings from four verticals: motorcycles around €500, cars under €2,000, PC
+   components and mini PCs.
+2. **Discards** noise before scoring: accessories, parts and duplicated listings.
+3. **Compares** the price with the **median of comparables** (same product, family and generation),
+   with a capped discount to catch impossible prices and a confidence level.
+4. **Checks** seller risk and listing freshness.
+5. **Publishes** a short list with each listing's page, history and lowest-price mark, a daily summary
+   file and a CSV export.
+6. **Runs** as a hidden daily Windows task, with a readable log and no notifications.
+
+## Data and data model
+
+- **Sources:** 12 active source definitions, respecting `robots.txt` and per-domain pacing; extraction
+  from HTML, embedded JSON and APIs, normalised into a shared contract and deduplicated.
+- **Store:** SQLite with listings, prices, valuations and runs, plus compressed raw data so it can be
+  reprocessed without downloading again.
+- **Data contract and criteria:** `ALCANCE-COMPRA.md` defines what a bargain is, `DATOS.md` fixes the
+  contract and `DOCTRINA-CALIDAD.md` defines what "finished" means.
+- **Per-pass metrics** in `metricas-chollos.json`: downloads, discards by rule, valued listings, AI
+  usage, verdicts and savings.
+- **Per-listing history:** a series of observations, the lowest price seen with its date and a
+  return-to-low warning.
+
+## What it shows for a Business Analyst role
+
+- **KPIs and metrics:** downloads, discards by rule, valued listings, verdicts and savings on every
+  pass, with history.
+- **Data quality and debugging:** deduplication, rule-based discards before scoring, a data contract
+  and a quality doctrine.
+- **ETL:** 12 sources, HTML, JSON and API extraction, normalisation into a shared contract and raw
+  data kept for reprocessing.
+- **Data models and Data Marts:** per-listing observation history, minima and a valuation table.
+- **Reports and dashboards:** a panel with per-vertical counters, a weekly view, a listing page with
+  history and CSV export.
+- **Price analysis:** a median-of-comparables reference, a capped discount and a confidence level.
+
+## Real state
+
+**Done and verifiable:** a local panel that works end to end, with fresh data, CSV export, an
+automatic daily summary and a scheduled daily task. A measured full pass: 4,779 listings seen, 2,321
+new and 10,040 valued, with €264 of estimated savings in 28 minutes. The flow was verified on
+2026-11-10 (panel, "best real discount" filter, listing page with history and CSV) and 325 tests are
+green.
+
+**Pending:** there is no public demo and no public repository (access on request): the demo is local
+and this page relies on screenshots and figures. Two active Milanuncios links return 403 to the
+automated client and are deliberately kept, because an interruption does not prove the listing is
+gone. Comparing the lowest price across listings of the same model and finishing the eBay production
+integration remain open.
+
+The number of listings seen compared with the few active ones is the filter working as intended, not
+a growth metric.

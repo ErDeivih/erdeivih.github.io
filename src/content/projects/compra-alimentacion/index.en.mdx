@@ -1,37 +1,80 @@
 ---
 type: "project"
 lang: "en"
-title: "Groceries and meal planning"
-description: "Supermarket comparisons and grocery lists, with recipes and meal planning in development."
-tagline: "Compare prices and plan groceries around what you usually cook."
+title: "Cesta"
+description: "A weekly grocery comparison across six supermarkets: price per unit, price history and measured data quality."
+tagline: "Compare the weekly shop across six supermarkets by price per unit, without counting conditional offers as a discount."
+image: "/projects/cesta.png"
+imageAlt: "Milk search in Cesta with 40 results, price per unit and supermarket comparison"
 color: "#b5c98a"
 status: "active"
 year: "2026"
-role: "Personal project"
-highlight: "Comparisons, lists and favourites form the basis for connecting recipes and weekly groceries."
-stack: ["Price comparison", "Grocery lists", "Recipes", "Planning"]
-order: 3
+role: "Personal project: data, pipeline, backend and frontend"
+highlight: "Cross-chain matching with a measured precision of 91.1% over 4,804 barcode-verified pairs."
+tags: ["ETL", "data quality", "KPIs"]
+stack: ["Python", "Polars", "DuckDB", "PostgreSQL", "FastAPI"]
+order: 2
 featured: true
 ---
 
-This project brings together tools I am developing for groceries and food. I want to connect price comparison with home recipes and weekly meal planning.
+Cesta answers one concrete question: "this shopping list — where is it cheapest, and how much do I
+save?". Without inventing prices, without counting conditional offers as a real discount and without
+comparing euros per kilo with euros per litre.
 
-## Compare and make a list
+## The problem
 
-The grocery application collects supermarket products and prices through scraping. It supports comparisons, grocery lists and favourite products.
+Doing the weekly shop well is a data decision that nobody solves from a phone today: six chains,
+prices that change daily, formats that are not comparable (a one-litre carton is not a 33 cl can),
+offers that only apply with a loyalty card and a history the shopper cannot consult. The chains offer
+no consumer API, so the only lawful route is collecting the public catalogue and working with it
+carefully.
 
-Matching equivalent products is an important part of the work: pack size and unit price matter as much as the price on the label.
+## What it does
 
-## Recipes and meal tracking
+- **Shopping list** with an estimated price, products by aisle and suggestions.
+- **Comparison** with savings, breakdown and a bar per chain; price per unit on every line.
+- **History**: lowest price seen with its date, and a warning when a product returns to its low.
+- **Suggestions** to repeat the previous shop and **CSV export** of the list.
+- **Daily pass** at 06:00 that publishes the day's result; the app runs in Docker and starts with a
+  double click on `Cesta.cmd`.
 
-Recipe and calorie tracking applications are in development. The next step is to connect them to ingredients and products in the comparison tool.
+## Data and data model
 
-## Weekly groceries
+- **Store:** a working SQLite database, Parquet and DuckDB for analysis and PostgreSQL for the API.
+- **Collection:** HTTP with `httpx` and `curl-cffi`, plus a real browser for Alcampo's WAF; a daily
+  pass orchestrated locally.
+- **Product identity:** by **EAN** when available (48.5% of the catalogue) and by matching rules when
+  not. Precision is measured against barcode truth: **91.1%** over 4,804 pairs.
+- **Comparison unit:** euros per kilo or per litre on every line, so a carton is not compared with a
+  can.
+- **Explicit rules:** card, coupon or online-only offers are not subtracted; a missing value is
+  declared as a gap, never filled with zeros.
+- **Measured volume:** 6 chains, 65 days and 2,866,370 history rows; 39,164 comparable products with
+  a price and 8,846 priced in two or more chains.
+- **KPI per chain and day:** coverage, freshness, comparability and quality, each with its number
+  and verdict.
 
-The idea is to turn your regular meals into weekly ingredients and quantities, then use available prices to organise the purchase.
+## What it shows for a Business Analyst role
 
-Preferences and calorie goals still need to be connected; the project is not yet an integrated planner.
+- **KPIs and metrics:** daily coverage and freshness, comparability per chain and a quality figure
+  per date.
+- **Data quality and debugging:** identity by EAN, unit rules, coverage guards and a measured — not
+  estimated — matching precision.
+- **ETL:** six sources collected, normalised into a shared contract and published into a daily
+  history.
+- **Data models and Data Marts:** price history, comparable catalogue and comparison aggregates.
+- **Reports and decisions:** a home page with the basket cost, a per-chain comparison and a product
+  sheet with history. On the example basket of 8 products, the possible saving is €6.78 (−28%)
+  against the most expensive chain.
 
-## Availability
+## Real state
 
-The combined project is in development and has no public version yet. I am connecting its parts and working on showing price update dates and availability.
+**Done and verifiable:** functional end to end, checked on 2026-11-10 against the production app and
+the day's real catalogue (enter, list, compare, suggestions and CSV export), with the automated flow
+passing 11 of 11 steps and the daily pass published. 1,502 Python tests, 269 web component tests and
+404 JavaScript logic tests are green.
+
+**Pending:** it is a local-first app, so with the PC switched off there is no app; the phone connects
+through Tailscale. It has no public demo and no public repository (it holds personal and collected
+data): access is on request and this page relies on screenshots and figures. Three product decisions,
+a scheduled database backup and a weekly budget with price-rise alerts are still open.
