@@ -124,7 +124,13 @@ for texto in ("Certificado gratuito", "Badge gratuito al completarlo", "examen d
     if texto not in formacion_html:
         fallos.append(f"/formacion/: falta la marca «{texto}»")
 
-# 9) CV enlazado y PDF real
+# 9) la línea en versalitas de Salamanca no vuelve
+inicio = (DIST / "index.html").read_text(encoding="utf-8", errors="replace")
+for prohibido in ("Salamanca · Máster", "Salamanca · Master"):
+    if prohibido in inicio:
+        fallos.append(f"la portada vuelve a mostrar la línea en versalitas «{prohibido}»")
+
+# 10) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
