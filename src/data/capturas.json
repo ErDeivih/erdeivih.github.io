@@ -83,20 +83,6 @@
       }
     ]
   },
-  "cuedigital": {
-    "titulo": "CUE Digital",
-    "fuente": "demo publicada",
-    "capturas": [
-      {
-        "archivo": "/projects/cuedigital/01-hoy.png",
-        "url": "https://erdeivih.github.io/cuedigital-demo/",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Pantalla de hoy del cuaderno de campo, con los datos ficticios de la demo."
-      }
-    ]
-  },
   "compra-alimentacion": {
     "titulo": "Cesta",
     "fuente": "demo publicada, 390×844",
@@ -173,6 +159,20 @@
         "archivo": "/projects/munipay/390-acceso-abajo.png",
         "alt": "Acceso de MuniPay, parte inferior",
         "pie": "La misma pantalla de acceso desplazada, con el aviso de privacidad."
+      }
+    ]
+  },
+  "cue-digital": {
+    "titulo": "CUE Digital",
+    "fuente": "demo publicada",
+    "capturas": [
+      {
+        "archivo": "/projects/cuedigital/01-hoy.png",
+        "url": "https://erdeivih.github.io/cuedigital-demo/",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Pantalla de hoy del cuaderno de campo, con los datos ficticios de la demo."
       }
     ]
   }
