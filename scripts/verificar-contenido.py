@@ -87,7 +87,18 @@ else:
     if "pendiente del visto bueno" not in texto_pres.lower():
         fallos.append("PRESENTACION.md no está marcada como pendiente del visto bueno")
 
-# 6) CV
+# 6) fichas de datos: tres huecos con la estructura fija de seis secciones
+fichas = sorted((SRC / "content" / "datos").glob("*/index.mdx"))
+if len(fichas) != 3:
+    fallos.append(f"fichas de datos: {len(fichas)} (se esperan 3)")
+SECCIONES = ["Pregunta", "Datos", "Proceso", "Hallazgo", "Qué aprendí", "Conceptos"]
+for ficha in fichas:
+    texto = ficha.read_text(encoding="utf-8", errors="replace")
+    for seccion in SECCIONES:
+        if f"## {seccion}" not in texto:
+            fallos.append(f"{ficha.relative_to(ROOT)}: falta la sección «{seccion}»")
+
+# 7) CV
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
