@@ -98,7 +98,20 @@ for ficha in fichas:
         if f"## {seccion}" not in texto:
             fallos.append(f"{ficha.relative_to(ROOT)}: falta la sección «{seccion}»")
 
-# 7) CV enlazado y PDF real
+# 7) proyectos en marcha: la sección debe estar y no inventar fechas
+proyectos_html = (DIST / "proyectos" / "index.html").read_text(encoding="utf-8", errors="replace")
+EN_MARCHA = [
+    "Proyectos en marcha", "Lyfta (Garmin)", "Fondo Popular (FACYLF)", "Cesta", "CUE Digital",
+    "EntrenoLab", "OpoFuente", "Data School", "Datos · finanzas", "Datos · Fórmula 1", "Datos · fútbol",
+]
+for texto in EN_MARCHA:
+    if texto not in proyectos_html:
+        fallos.append(f"/proyectos/: falta «{texto}» en la sección de proyectos en marcha")
+for texto in ("En desarrollo", "En preparación"):
+    if texto not in proyectos_html:
+        fallos.append(f"/proyectos/: falta el estado «{texto}»")
+
+# 8) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
