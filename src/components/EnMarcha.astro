@@ -13,7 +13,7 @@ const idioma = locale === "en" ? "en" : "es";
     {enMarcha.map((p) => (
       <li class="border-t border-foreground pt-4">
         <div class="flex items-baseline justify-between gap-3">
-          <a href={p.href} class="inline-flex min-h-11 items-center text-xl font-black tracking-[-.03em] hover:text-primary">{p.nombre}</a>
+          <a href={p.href} class="inline-flex min-h-11 items-center text-xl font-black tracking-[-.03em] hover:text-primary">{p.nombre[idioma]}</a>
           <span class="shrink-0 font-mono text-[10px] font-bold uppercase tracking-wide text-muted">{p.estado[idioma]}</span>
         </div>
         <p class="mt-2 text-sm leading-relaxed text-muted">{p.linea[idioma]}</p>
