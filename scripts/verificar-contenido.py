@@ -61,7 +61,24 @@ for ruta in ("index.html", "proyectos/index.html", "analisis/index.html",
     if not (DIST / ruta).exists():
         fallos.append(f"falta {ruta} en dist")
 
-# 4) CV
+# 4) imágenes: todo fichero de public/projects y public/analisis debe estar referenciado
+referenciados = set()
+for path in list(SRC.rglob("*.mdx")) + list(SRC.rglob("*.ts")) + list(SRC.rglob("*.astro")):
+    if "node_modules" in str(path):
+        continue
+    texto = path.read_text(encoding="utf-8", errors="replace")
+    referenciados.update(re.findall(r'"(/(?:projects|analisis)/[^"]+)"', texto))
+for carpeta in ("projects", "analisis"):
+    for fichero in (ROOT / "public" / carpeta).rglob("*"):
+        if fichero.is_file():
+            rel = "/" + fichero.relative_to(ROOT / "public").as_posix()
+            if rel not in referenciados:
+                fallos.append(f"imagen sin referencia en el contenido: {rel}")
+for rel in referenciados:
+    if not (ROOT / "public" / rel.lstrip("/")).is_file():
+        fallos.append(f"imagen referenciada y ausente: {rel}")
+
+# 5) CV
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
