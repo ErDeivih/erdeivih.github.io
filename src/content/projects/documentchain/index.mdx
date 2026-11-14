@@ -63,6 +63,21 @@ El trabajo académico está terminado. [El repositorio](https://github.com/ErDei
 
 No tiene una aplicación pública desplegada. Utiliza una red de desarrollo y su alcance es el de un prototipo académico.
 
+## Requisitos y dos formas de instalarlo
+
+**Ruta manual (la que se probó aquí):** Node 20 o superior (probado con Node 24), PostgreSQL 16 y Git.
+El backend necesita una base de datos y un fichero `.env` con `DATABASE_URL`, los secretos JWT y el
+secreto de alta de administrador; el frontend es Vite y consume la API por `/api`.
+
+**Ruta Docker (la que documenta el repositorio):** Docker Desktop y Git; `docker compose up -d
+--build` levanta base de datos, cadena local, backend y frontend. En esta máquina el build completo de
+Docker no terminó, por eso la ruta probada y documentada abajo es la manual.
+
+El **README del repositorio** ([github.com/ErDeivih/DocumentChain](https://github.com/ErDeivih/DocumentChain#readme))
+es la referencia de instalación y requisitos exactos. El README menciona dos usuarios de prueba
+(`admin`/`Admin1234` y `david`/`David1234`); en el arranque manual probado la base estaba vacía y la
+cuenta se creó desde el formulario de registro.
+
 ## Cómo probarlo en local
 
 El repositorio público trae la aplicación completa. Estos pasos son los que se probaron el
