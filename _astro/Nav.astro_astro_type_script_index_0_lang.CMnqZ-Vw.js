@@ -1,0 +1,1 @@
+document.addEventListener(`click`,e=>{(e.target instanceof Element?e.target.closest(`a`):null)?.closest(`details`)?.removeAttribute(`open`);let t=e.target instanceof Element?e.target.closest(`[data-lang-switch]`):null;if(t)try{localStorage.setItem(`lang`,t.dataset.langSwitch||``)}catch{}});
