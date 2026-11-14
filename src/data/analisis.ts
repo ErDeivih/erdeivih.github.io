@@ -84,6 +84,26 @@ export const analisis: Analisis[] = [
     },
   },
   {
+    slug: "ventas-tienda-dia-semana",
+    imagen: "/analisis/ventas-tienda-dia-semana.png",
+    alt: "Ingresos por tienda y gasto medio por día de la semana en una tienda de barrio",
+    stack: ["Python", "NumPy", "pandas", "matplotlib"],
+    es: {
+      titulo: "Ventas de una tienda por día de la semana",
+      pregunta: "¿Qué días vende más una tienda de barrio y cuánto pesa cada tienda en el total?",
+      fuente: "Dataset CC0 de Data School: 180 días de ventas de tres tiendas entre enero y junio de 2026.",
+      metodo: "Con NumPy sumé los ingresos por tienda y calculé la media por día de la semana agrupando las fechas.",
+      conclusion: "Las tres tiendas venden parecido (entre 62 y 65 k€ en seis meses), pero el día pesa: sábado y domingo son los mejores (1.331 € y 1.180 € de media) y el martes el peor (809 €). El fin de semana concentra la caja.",
+    },
+    en: {
+      titulo: "Store sales by day of the week",
+      pregunta: "Which days does a neighbourhood shop sell more, and how much does each store weigh in the total?",
+      fuente: "CC0 dataset from Data School: 180 days of sales for three stores between January and June 2026.",
+      metodo: "With NumPy I summed revenue per store and computed the average per weekday by grouping the dates.",
+      conclusion: "The three stores sell similarly (between €62k and €65k in six months), but the day matters: Saturday and Sunday are the best (€1,331 and €1,180 on average) and Tuesday the worst (€809). The weekend concentrates the takings.",
+    },
+  },
+  {
     slug: "cartera-rentabilidad-volatilidad",
     imagen: "/analisis/cartera-rentabilidad-volatilidad.png",
     alt: "Crecimiento de 1 euro invertido en seis activos durante 60 meses, con rentabilidad y volatilidad anualizadas",

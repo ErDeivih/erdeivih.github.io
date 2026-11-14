@@ -117,4 +117,32 @@ ax.set_title(f"Cartera: 1 € invertido en cada activo ({len(meses)} meses)", lo
 ax.legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.10), fontsize=10.5)
 guardar(fig, "cartera-rentabilidad-volatilidad.png")
 
+# 4) Ventas por tienda y día de la semana (dataset CC0 de Data School)
+v = pd.read_csv(DATOS / "ventas-mensuales.csv")
+ingresos = v["ingresos"].to_numpy(dtype=float)
+tiendas = v["tienda"].to_numpy()
+dias = pd.to_datetime(v["fecha"]).dt.dayofweek.to_numpy()
+nombres_dias = ["lun", "mar", "mié", "jue", "vie", "sáb", "dom"]
+totales_tienda = np.array([ingresos[tiendas == t].sum() for t in np.unique(tiendas)])
+medias_dia = np.array([ingresos[dias == d].mean() for d in range(7)])
+etiquetas_tienda = [str(t) for t in np.unique(tiendas)]
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5.8), gridspec_kw={"width_ratios": [1, 1.35]})
+barras = ax1.bar(etiquetas_tienda, totales_tienda, color=[SECUNDARIO, PRIMARIO, ACENTO], width=0.66)
+for barra, valor in zip(barras, totales_tienda):
+    ax1.text(barra.get_x() + barra.get_width() / 2, valor * 0.5, f"{valor/1000:.1f}".replace(".", ",") + " k€", ha="center", color="white", fontweight="bold", fontsize=12)
+ax1.set_title("Ingresos por tienda · 6 meses", loc="left", fontsize=14)
+ax1.set_ylabel("ingresos (€)")
+ax1.set_ylim(0, totales_tienda.max() * 1.12)
+colores_dia = [SUAVE if d < 5 else PRIMARIO for d in range(7)]
+ax2.bar(nombres_dias, medias_dia, color=colores_dia, width=0.7)
+ax2.set_title("Ingreso medio por día de la semana", loc="left", fontsize=14)
+ax2.set_ylabel("ingresos medios (€)")
+ax2.set_ylim(0, medias_dia.max() * 1.18)
+for i, valor in enumerate(medias_dia):
+    ax2.text(i, valor + medias_dia.max() * 0.03, f"{valor:,.0f}".replace(",", "."), ha="center", fontsize=10)
+fig.suptitle(f"Ventas de tres tiendas de barrio: {ingresos.sum():,.0f} € en {len(v)} días de registro".replace(",", "."), x=0.01, ha="left", fontsize=15)
+fig.tight_layout()
+guardar(fig, "ventas-tienda-dia-semana.png")
+
 print("Gráficos generados en", OUT)
