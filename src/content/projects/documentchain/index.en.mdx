@@ -62,6 +62,22 @@ The academic project is complete. [The repository](https://github.com/ErDeivih/D
 
 There is no deployed public application. It uses a development network and remains an academic prototype.
 
+## How to try it locally
+
+The public repository contains the full application. These are the steps tested on 14/11/2026 to
+take the screenshots (Node 24 and PostgreSQL 16; Node 20 or later works):
+
+1. **Database**: a PostgreSQL instance with a `documentchain` database and a user with permissions.
+2. **Backend**: `cd backend && npm ci`; copy `.env.example` to `.env` and adjust `DATABASE_URL`;
+   `npx prisma generate`, `npx prisma db push`, `npm run build`, `node dist/index.js` (port 3000).
+3. **Frontend**: `cd frontend && npm ci` and `node node_modules/vite/bin/vite.js --host 127.0.0.1`
+   (port 5173, proxying `/api` to the backend).
+4. Open `http://127.0.0.1:5173/` and create an account from the registration form.
+
+It also ships a `docker compose` setup to run everything together; on this machine the full Docker
+build did not finish, so the tested and documented path is the one above. Exact step-by-step
+installation and requirements live in the repository README.
+
 ## What it does and what it does not
 
 It runs a **local blockchain** for the demo: it is useful to study the registry, versioning and permissions flow, but it is not ready as an enterprise service as it stands. Exact installation steps and requirements are in the repository README.

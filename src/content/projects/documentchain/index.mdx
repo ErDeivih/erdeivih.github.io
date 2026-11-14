@@ -63,6 +63,22 @@ El trabajo académico está terminado. [El repositorio](https://github.com/ErDei
 
 No tiene una aplicación pública desplegada. Utiliza una red de desarrollo y su alcance es el de un prototipo académico.
 
+## Cómo probarlo en local
+
+El repositorio público trae la aplicación completa. Estos pasos son los que se probaron el
+14/11/2026 para tomar las capturas (Node 24 y PostgreSQL 16; sirve Node 20 o superior):
+
+1. **Base de datos**: un PostgreSQL con una base `documentchain` y un usuario con permiso.
+2. **Backend**: `cd backend && npm ci`; copiar `.env.example` a `.env` y ajustar `DATABASE_URL`;
+   `npx prisma generate`, `npx prisma db push`, `npm run build`, `node dist/index.js` (puerto 3000).
+3. **Frontend**: `cd frontend && npm ci` y `node node_modules/vite/bin/vite.js --host 127.0.0.1`
+   (puerto 5173, con proxy `/api` al backend).
+4. Abrir `http://127.0.0.1:5173/` y crear una cuenta desde el registro.
+
+También incluye `docker compose` para levantar todo junto; en esta máquina el build completo de
+Docker no terminó, así que la ruta probada y documentada es la de arriba. La instalación paso a paso
+con requisitos exactos vive en el README del repositorio.
+
 ## Qué hace y qué no
 
 Despliega una **blockchain local** para la demostración: sirve para estudiar el flujo de registro, versiones y permisos, pero no está preparada como servicio empresarial tal como está. La instalación y los requisitos exactos están en el README del repositorio.
