@@ -10,7 +10,10 @@ export const ui = {
     hero: {
       headline: "Ingeniero Informático",
       intro: "Ingeniero Informático (USAL, 2025) y estudiante del Máster en Ingeniería Informática. Java, TypeScript y Python; Spring, React y PostgreSQL. Busco mi primera oportunidad como desarrollador.",
-      proof: "En Cesta desarrollé el emparejamiento entre seis cadenas: 91,1 % de precisión sobre 4.804 pares verificados con código de barras.",
+      featuredLabel: "Proyecto destacado",
+      featuredName: "Cesta",
+      featuredStack: "Python · Polars · DuckDB · PostgreSQL · FastAPI",
+      proof: "Emparejamiento entre seis cadenas: 91,1 % de precisión sobre 4.804 pares verificados con código de barras.",
       viewProjects: "Ver proyectos",
       downloadCv: "CV (PDF)",
       facts: [
@@ -133,7 +136,10 @@ export const ui = {
     hero: {
       headline: "Computer Engineer",
       intro: "Computer Engineer (USAL, 2025) and MSc in Computer Engineering student. Java, TypeScript and Python; Spring, React and PostgreSQL. Looking for my first opportunity as a developer.",
-      proof: "In Cesta I built the matching across six chains: 91.1% precision over 4,804 pairs checked against barcodes.",
+      featuredLabel: "Featured project",
+      featuredName: "Cesta",
+      featuredStack: "Python · Polars · DuckDB · PostgreSQL · FastAPI",
+      proof: "Matching across six chains: 91.1% precision over 4,804 pairs checked against barcodes.",
       viewProjects: "View projects",
       downloadCv: "CV (PDF)",
       facts: [

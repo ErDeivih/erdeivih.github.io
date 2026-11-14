@@ -14,9 +14,14 @@ const { hero } = useTranslations(locale);
     <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,30rem)] md:items-end">
       <div>
         <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
-        <p id="prueba" class="reveal mt-5 max-w-2xl border-l-4 border-primary pl-4 text-base font-semibold" style="transition-delay:.12s">
-          <a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="underline-offset-4 hover:underline">{hero.proof} →</a>
-        </p>
+        <div id="prueba" class="reveal mt-5 max-w-2xl border-l-4 border-primary pl-4" style="transition-delay:.12s">
+          <p class="text-sm font-bold text-muted">{hero.featuredLabel}</p>
+          <a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="mt-1 block underline-offset-4 hover:underline">
+            <span class="text-xl font-black tracking-[-.02em]">{hero.featuredName}</span>
+            <span class="mt-1 block font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{hero.featuredStack}</span>
+            <span class="mt-2 block text-base font-semibold">{hero.proof} →</span>
+          </a>
+        </div>
       </div>
       <div class="reveal grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-end" style="transition-delay:.15s">
         <a href={localePath(locale, "/proyectos/")} class="button-primary w-full justify-center md:w-auto">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
