@@ -390,5 +390,35 @@
         "pie": "La ficha en móvil."
       }
     ]
+  },
+  "cdmplab": {
+    "titulo": "CDMPLab",
+    "fuente": "demo publicada",
+    "capturas": [
+      {
+        "archivo": "/projects/cdmplab/01-acceso.png",
+        "url": "https://erdeivih.github.io/CDMPLab/auth/login",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Acceso a la pizarra táctica: la demo pide cuenta para entrar."
+      },
+      {
+        "archivo": "/projects/cdmplab/02-registro.png",
+        "url": "https://erdeivih.github.io/CDMPLab/auth/register",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Creación de cuenta en CDMPLab: solo correo y contraseña."
+      },
+      {
+        "archivo": "/projects/cdmplab/01-acceso-390.png",
+        "url": "https://erdeivih.github.io/CDMPLab/auth/login",
+        "accion": null,
+        "viewport": "390x844",
+        "fecha": "2026-11-14",
+        "pie": "Acceso a la pizarra táctica: la demo pide cuenta para entrar."
+      }
+    ]
   }
 }

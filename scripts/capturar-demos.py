@@ -97,6 +97,14 @@ DEMOS = {
         ],
         "movil": "01-acceso",
     },
+    "cdmplab": {
+        "titulo": "CDMPLab",
+        "shots": [
+            ("01-acceso", BASE + "CDMPLab/auth/login", None, "Acceso a la pizarra táctica: la demo pide cuenta para entrar."),
+            ("02-registro", BASE + "CDMPLab/auth/register", None, "Creación de cuenta en CDMPLab: solo correo y contraseña."),
+        ],
+        "movil": "01-acceso",
+    },
 }
 
 
