@@ -149,7 +149,7 @@ section[id], footer[id] { scroll-margin-top: 6rem; }
 @media(max-width: 640px) {
   .project-grid { grid-template-columns: minmax(0,1fr); }
   .project-grid .project-card { padding: 1rem; }
-  .project-grid .project-card .project-visual { min-height: 8.5rem; height: 9.5rem; }
+  .project-grid .project-card .project-visual { min-height: 10rem; height: 11.5rem; }
   .project-grid .project-card h2 { font-size: 1.7rem; }
   .project-grid .project-card .mt-7 { padding-top: 1rem; }
 }
