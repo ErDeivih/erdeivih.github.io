@@ -85,8 +85,10 @@ DEMOS = {
         "titulo": "Cesta",
         "shots": [
             ("01-compra", BASE + "cesta-demo/#/compra", None, "Búsqueda y comparación de la compra con precio por unidad."),
-            ("02-ofertas", BASE + "cesta-demo/#/compra/ofertas", None, "Ofertas de la semana con su precio de referencia."),
-            ("03-listas", BASE + "cesta-demo/#/compra/listas", None, "Listas de la compra guardadas, con lo que queda por coger."),
+            ("02-listas", BASE + "cesta-demo/#/compra/listas", None, "Listas de la compra guardadas, con lo que queda por coger."),
+            ("03-vacio", BASE + "cesta-demo/?demo=vacio#/compra/listas", None, "Estado vacío de la demo: no hay listas, pero el buscador sigue en pie."),
+            ("04-carga", BASE + "cesta-demo/?demo=carga#/compra/listas", None, "Estado de carga de la demo mientras se traen las listas."),
+            ("05-error", BASE + "cesta-demo/?demo=error#/compra/listas", None, "Estado de error de la demo, con opción de volver a intentarlo."),
         ],
         "movil": "01-compra",
     },

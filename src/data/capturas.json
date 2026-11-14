@@ -162,20 +162,44 @@
         "pie": "Búsqueda y comparación de la compra con precio por unidad."
       },
       {
-        "archivo": "/projects/compra-alimentacion/02-ofertas.png",
-        "url": "https://erdeivih.github.io/cesta-demo/#/compra/ofertas",
-        "accion": null,
-        "viewport": "1280x900",
-        "fecha": "2026-11-14",
-        "pie": "Ofertas de la semana con su precio de referencia."
-      },
-      {
-        "archivo": "/projects/compra-alimentacion/03-listas.png",
+        "archivo": "/projects/compra-alimentacion/02-listas.png",
         "url": "https://erdeivih.github.io/cesta-demo/#/compra/listas",
         "accion": null,
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Listas de la compra guardadas, con lo que queda por coger."
+      },
+      {
+        "archivo": "/projects/compra-alimentacion/03-vacio.png",
+        "url": "https://erdeivih.github.io/cesta-demo/?demo=vacio#/compra/listas",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Estado vacío de la demo: no hay listas, pero el buscador sigue en pie."
+      },
+      {
+        "archivo": "/projects/compra-alimentacion/04-carga.png",
+        "url": "https://erdeivih.github.io/cesta-demo/?demo=carga#/compra/listas",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Estado de carga de la demo mientras se traen las listas."
+      },
+      {
+        "archivo": "/projects/compra-alimentacion/05-error.png",
+        "url": "https://erdeivih.github.io/cesta-demo/?demo=error#/compra/listas",
+        "accion": null,
+        "viewport": "1280x900",
+        "fecha": "2026-11-14",
+        "pie": "Estado de error de la demo, con opción de volver a intentarlo."
+      },
+      {
+        "archivo": "/projects/compra-alimentacion/01-compra-390.png",
+        "url": "https://erdeivih.github.io/cesta-demo/#/compra",
+        "accion": null,
+        "viewport": "390x844",
+        "fecha": "2026-11-14",
+        "pie": "Búsqueda y comparación de la compra con precio por unidad."
       }
     ]
   },

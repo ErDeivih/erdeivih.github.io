@@ -28,15 +28,22 @@ order: 2
 featured: true
 captures:
 - src: /projects/compra-alimentacion/01-compra.png
-  alt: Grocery search with unit price comparison
+  alt: Grocery search with unit price and comparison
   caption: 'The demo search: unit price and cross-chain comparison.'
-- src: /projects/compra-alimentacion/02-ofertas.png
-  alt: Weekly offers with their reference price
-  caption: Offers with their reference price, without counting conditional offers
-    as a discount.
-- src: /projects/compra-alimentacion/03-listas.png
+- src: /projects/compra-alimentacion/02-listas.png
   alt: Saved shopping lists with what is still missing
-  caption: Saved weekly shopping lists with what is still to pick.
+  caption: Saved weekly lists with what is still to pick.
+- src: /projects/compra-alimentacion/03-vacio.png
+  alt: 'Cesta empty state: no lists but search still available'
+  caption: 'Empty state measured at 390 px: ''No lists yet'' with the search box in
+    place.'
+- src: /projects/compra-alimentacion/04-carga.png
+  alt: Cesta loading state while lists are fetched
+  caption: 'Loading state: ''Loading your lists…''; the typeahead waits until a list
+    exists.'
+- src: /projects/compra-alimentacion/05-error.png
+  alt: Cesta error state with a retry button
+  caption: 'Error state: ''I couldn''t fetch your lists'' with a retry button.'
 demo: https://erdeivih.github.io/cesta-demo/
 repo: https://github.com/ErDeivih/cesta
 ---
@@ -93,7 +100,7 @@ carefully.
 
 ## Real state
 
-**Public demo:** published and verified on 14/11/2026 at [cesta-demo](https://erdeivih.github.io/cesta-demo/). The screenshots in this page come from the real app running locally, with the same flow as the demo.
+**Published demo:** [cesta-demo](https://erdeivih.github.io/cesta-demo/) (verified 200 on 14/11/2026). It covers the four states —normal, empty, loading and error— served by the demo itself via `?demo=vacio`, `?demo=carga` and `?demo=error`; measured at 390 px with no horizontal scroll and no covered controls (0/14, 0/5, 0/0 and 0/1).
 
 **Done and verifiable:** functional end to end, checked on 2026-11-10 against the production app and
 the day's real catalogue (enter, list, compare, suggestions and CSV export), with the automated flow

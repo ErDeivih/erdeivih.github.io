@@ -27,14 +27,22 @@ order: 2
 featured: true
 captures:
 - src: /projects/compra-alimentacion/01-compra.png
-  alt: Búsqueda y comparación de la compra con precio por unidad
+  alt: Búsqueda de la compra con precio por unidad y comparación
   caption: 'La búsqueda de la demo: precio por unidad y comparación entre cadenas.'
-- src: /projects/compra-alimentacion/02-ofertas.png
-  alt: Ofertas de la semana con su precio de referencia
-  caption: Ofertas con su precio de referencia, sin contar como descuento las condicionadas.
-- src: /projects/compra-alimentacion/03-listas.png
+- src: /projects/compra-alimentacion/02-listas.png
   alt: Listas de la compra guardadas con lo que queda por coger
   caption: Listas guardadas de la compra semanal, con lo que queda por coger.
+- src: /projects/compra-alimentacion/03-vacio.png
+  alt: 'Estado vacío de Cesta: sin listas pero con buscador'
+  caption: 'Estado vacío medido a 390 px: «No tienes ninguna lista» y el buscador
+    en pie.'
+- src: /projects/compra-alimentacion/04-carga.png
+  alt: Estado de carga de Cesta mientras se traen las listas
+  caption: 'Estado de carga: «Cargando tus listas…»; el typeahead espera a tener lista.'
+- src: /projects/compra-alimentacion/05-error.png
+  alt: Estado de error de Cesta con opción de reintentar
+  caption: 'Estado de error: «No he podido traer tus listas» y botón para volver a
+    intentarlo.'
 demo: https://erdeivih.github.io/cesta-demo/
 repo: https://github.com/ErDeivih/cesta
 ---
@@ -93,7 +101,7 @@ catálogo público y trabajar con él con criterio.
 
 ## Estado real
 
-**Demo pública:** publicada y verificada el 14/11/2026 en [cesta-demo](https://erdeivih.github.io/cesta-demo/). Las capturas de esta ficha son de la app real en local, con el mismo recorrido que la demo.
+**Demo publicada:** [cesta-demo](https://erdeivih.github.io/cesta-demo/) (verificada 200 el 14/11/2026). Cubre los cuatro estados —normal, vacío, carga y error— servidos por la propia demo con `?demo=vacio`, `?demo=carga` y `?demo=error`; medidos a 390 px sin scroll horizontal y sin controles tapados (0/14, 0/5, 0/0 y 0/1).
 
 **Hecho y comprobable:** funcional de punta a punta, comprobado el 10/11/2026 contra la app de
 producción y el catálogo real del día (entrar, lista, comparativa, sugerencias y exportar CSV), con
