@@ -4,6 +4,7 @@ sale de la app, llega al reloj y vuelve convertido en un historial que se puede 
 <p><strong>Qué es.</strong> Una app de entrenamiento de fuerza que envía al reloj Garmin el plan con los pesos de cada serie y devuelve el entrenamiento como historial editable.</p>
 <p><strong>Para qué sirve.</strong> Para planificar la sesión en el móvil, entrenarla en el reloj y corregir después el peso real que se ha levantado.</p>
 <p><strong>Qué he hecho yo.</strong> El modelo de datos del plan y del historial, la app en React y TypeScript, la API en FastAPI, la integración con Connect IQ y el despliegue privado.</p>
+<p><strong>Decisión que puedo señalar:</strong> El envío al reloj se prueba primero en modo de validación, con el plan serializado: no se toca el Garmin hasta que el mensaje es correcto.</p>
 <p><strong>Qué no he hecho.</strong> Falta la prueba física con el Forerunner 255 puesto: el envío está probado en modo de validación. La app es privada, no está en tiendas y no tiene cuentas de usuario.</p>
 <h2 id="el-problema">El problema</h2>
 <p>Garmin Connect está pensado para correr y para el entrenamiento de fuerza general. Para progresar por

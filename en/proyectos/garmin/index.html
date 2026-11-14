@@ -4,6 +4,7 @@ leaves the app, reaches the watch and comes back as a history that can be correc
 <p><strong>What it is.</strong> A strength-training app that sends the per-set weight plan to a Garmin watch and returns the workout as an editable history.</p>
 <p><strong>What it is for.</strong> To plan the session on the phone, train it on the watch and correct the real weight lifted afterwards.</p>
 <p><strong>What I built.</strong> The plan and history data model, the React and TypeScript app, the FastAPI API, the Connect IQ integration and the private deployment.</p>
+<p><strong>Decision I can point to:</strong> Sending to the watch is first tested in validation mode with the serialised plan: the Garmin is not touched until the message is correct.</p>
 <p><strong>What I did not do.</strong> The physical test with the Forerunner 255 is still missing: sending is tested in validation mode. The app is private, not in any store and has no user accounts.</p>
 <h2 id="the-problem">The problem</h2>
 <p>Garmin Connect is built for running and for general strength training. To progress by sets (a 60 kg

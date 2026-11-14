@@ -5,6 +5,7 @@ standings, fixtures, results, line-ups, top scorers and player histories.</p>
 <p><strong>What it is.</strong> A canonical database of federated football and futsal in Castile and León, with a web front end to query it: standings, fixtures, match reports, top scorers and player histories.</p>
 <p><strong>What it is for.</strong> To answer questions that today take dozens of federation portals: how many matches have a report, which teams have played at national level or how a table has changed.</p>
 <p><strong>What I built.</strong> Collection with Selenium and a resumable SQLite queue, the idempotent PostgreSQL importer, the <code>core</code>, <code>analytics</code>, <code>source</code> and <code>ops</code> schemas, the aggregate projection and the web front end. Also the publishing step with a check: the published database is compared table by table with the canonical one.</p>
+<p><strong>Decision I can point to:</strong> The collector stores every page in a SQLite queue before parsing, and the importer uses natural keys: if it stops halfway, it can be resumed without duplicating rows.</p>
 <p><strong>What I did not do.</strong> The data is not mine: the federation publishes it. I do not include club crests without permission and the full application is not public; what is published is a static demo with real data.</p>
 <h2 id="the-problem">The problem</h2>
 <p>Fixtures, matchdays, standings and match reports live on federation HTML portals, with one page per

@@ -5,6 +5,7 @@ with a sample club.</p>
 <p><strong>What it is.</strong> An app to manage a youth football club: squad, matches and minutes, fines, exercise catalogue and sessions.</p>
 <p><strong>What it is for.</strong> To bring into one source of truth what today lives in spreadsheets, notes and messaging groups, usable from the pitch.</p>
 <p><strong>What I built.</strong> The whole product: a multi-club data model with per-coach permissions, a Supabase backend with RLS, an Angular front end and the demo with a sample club.</p>
+<p><strong>Decision I can point to:</strong> Per-coach permissions live in PostgreSQL RLS, not in the frontend: even calling the API directly, a coach cannot see another club.</p>
 <p><strong>What I did not do.</strong> There is no real payment gateway: plans are simulated. A real club’s data is private and is not published.</p>
 <h2 id="the-problem">The problem</h2>
 <p>Amateur youth-football coaches run the club on spreadsheets, notes and WhatsApp groups. There is no

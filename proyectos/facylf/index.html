@@ -5,6 +5,7 @@ clasificaciones, calendarios, resultados, alineaciones, goleadores y trayectoria
 <p><strong>Qué es.</strong> Una base de datos canónica del fútbol y el fútbol sala federado de Castilla y León, con una web para consultarla: clasificaciones, calendarios, actas, goleadores y trayectorias.</p>
 <p><strong>Para qué sirve.</strong> Para responder preguntas que hoy exigen abrir decenas de portales de federación: cuántos partidos tienen acta, qué equipos han jugado en categoría nacional o cómo ha cambiado una clasificación.</p>
 <p><strong>Qué he hecho yo.</strong> La recolección con Selenium y una cola SQLite reanudable, el importador idempotente a PostgreSQL, los esquemas <code>core</code>, <code>analytics</code>, <code>source</code> y <code>ops</code>, la proyección de agregados y la web. También la publicación con cotejo: la base publicada se compara tabla a tabla con la canónica.</p>
+<p><strong>Decisión que puedo señalar:</strong> El recolector guarda cada página en una cola SQLite antes de parsearla y el importador usa claves naturales: si se corta a mitad, se relanza y no duplica nada.</p>
 <p><strong>Qué no he hecho.</strong> Los datos no son míos: los publica la federación. No incluyo escudos sin permiso del club y la aplicación completa no está abierta al público; lo que está publicado es una demo estática con datos reales.</p>
 <h2 id="el-problema">El problema</h2>
 <p>Los calendarios, jornadas, clasificaciones y actas viven en portales HTML de la federación, con una

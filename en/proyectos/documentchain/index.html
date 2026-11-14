@@ -3,6 +3,7 @@
 <p><strong>What it is.</strong> My final degree project: document management with blockchain and IPFS. Documents are encrypted on the client, versions and permissions are recorded in contracts and the content is stored off-chain.</p>
 <p><strong>What it is for.</strong> To study and demonstrate how a document is registered and how its version and access trail is kept. <strong>It is not ready for business use as it stands</strong>: the network is local and there is no external audit.</p>
 <p><strong>What I built.</strong> The architecture, the Solidity contracts, client-side encryption, the Node backend, the React front end and the Docker environment with Hardhat and IPFS.</p>
+<p><strong>Decision I can point to:</strong> The document is encrypted on the client and only the hash, versions and permissions go on-chain: the content is never published.</p>
 <p><strong>What I did not do.</strong> It is not deployed, it has not passed a security audit and it has no real users. Requirements and installation are in the repository README.</p>
 <h2 id="a-documents-journey">A document’s journey</h2>
 <p>Files are encrypted before being stored in IPFS. Ethereum contracts record version and permission information, while a web application lets users view and manage documents.</p>

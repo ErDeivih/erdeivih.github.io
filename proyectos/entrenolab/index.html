@@ -5,6 +5,7 @@ recorrido completo con un club de ejemplo.</p>
 <p><strong>Qué es.</strong> Una app para gestionar un club de fútbol base: plantilla, partidos y minutos, multas, catálogo de ejercicios y sesiones.</p>
 <p><strong>Para qué sirve.</strong> Para juntar en una sola fuente de verdad lo que hoy vive en hojas de cálculo, notas y grupos de mensajería, y usarlo desde el campo.</p>
 <p><strong>Qué he hecho yo.</strong> El producto completo: modelo de datos multi-club con permisos por entrenador, backend sobre Supabase con RLS, frontend en Angular y la demo con un club de ejemplo.</p>
+<p><strong>Decisión que puedo señalar:</strong> Los permisos por entrenador viven en RLS de PostgreSQL, no en el frontend: aunque alguien llame a la API directamente, no ve otro club.</p>
 <p><strong>Qué no he hecho.</strong> No hay pasarela de pago real: los planes son simulados. Los datos de un club real son privados y no se publican.</p>
 <h2 id="el-problema">El problema</h2>
 <p>Los entrenadores amateur de fútbol base gestionan el club con hojas de cálculo, notas y grupos de
