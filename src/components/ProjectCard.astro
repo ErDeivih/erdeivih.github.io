@@ -27,13 +27,13 @@ const statusLabel = t.project.statuses[project.status as keyof typeof t.project.
       </div>
       {project.status === "planned" && <p class="mt-4 inline-flex border border-foreground bg-panel px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">{t.project.plannedNote}</p>}
       <h2 class="mt-5 text-4xl font-black tracking-[-.055em] sm:text-6xl">{project.title}</h2>
+      <p class="mt-4"><a href={localePath(locale, `/proyectos/${slug}/`)} class="button-primary min-h-11 px-4">{t.project.card.view} →</a></p>
       <ul class="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] font-bold uppercase tracking-wide text-muted">
         {project.stack?.slice(0, 4).map(item => <li>{item}</li>)}
       </ul>
       {project.tagline && <p class="mt-4 max-w-xl text-xl leading-snug text-muted">{project.tagline}</p>}
       {project.highlight && <p class="mt-5 border-l-4 pl-4 font-mono text-sm" style={`border-color:${project.color ?? "#f0522d"}`}>{project.highlight}</p>}
       <div class="mt-7 flex flex-wrap gap-3">
-        <a href={localePath(locale, `/proyectos/${slug}/`)} class="button-primary">{t.project.card.view}</a>
         {project.demo && <a href={project.demo} target="_blank" rel="noopener" class="button-secondary">{t.project.demo}</a>}
       </div>
     </div>
