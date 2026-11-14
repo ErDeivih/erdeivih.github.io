@@ -18,7 +18,7 @@ const { hero } = useTranslations(locale);
     <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,30rem)] md:items-end">
       <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
       <div class="reveal flex flex-wrap gap-3 md:justify-end" style="transition-delay:.15s">
-        <a href={localePath(locale, "/proyectos/")} class="button-primary">{hero.viewProjects} <span aria-hidden="true">↘</span></a>
+        <a href={localePath(locale, "/proyectos/")} class="button-primary">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
         <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary">Descargar CV ↓</a>
         <a href={social.github} target="_blank" rel="noopener" class="button-secondary">GitHub ↗</a>
       </div>

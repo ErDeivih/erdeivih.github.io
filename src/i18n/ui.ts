@@ -11,7 +11,7 @@ export const ui = {
       eyebrow: "David Pérez Velasco · Business Analyst / datos y BI",
       availability: "Abierto a prácticas · 2026",
       headline: "Datos y BI",
-      intro: "Soy David Pérez Velasco, ingeniero informático. Busco mis primeras prácticas como Business Analyst para trabajar en modelos de datos, procesos de carga, KPIs e informes. Aquí reúno los proyectos con los que practico, su estado real y lo que queda pendiente.",
+      intro: "Ingeniero informático. Busco mis primeras prácticas como Business Analyst para trabajar en modelos de datos, procesos de carga, KPIs e informes. Aquí están los proyectos con los que practico, su estado real y lo que queda pendiente.",
       viewProjects: "Ver proyectos",
       facts: [
         { label: "Objetivo", value: "Prácticas de Business Analyst" },
@@ -77,7 +77,7 @@ export const ui = {
       eyebrow: "David Pérez Velasco · Business Analyst / data & BI",
       availability: "Open to internships · 2026",
       headline: "Data and BI",
-      intro: "I'm David Pérez Velasco, a computer engineer. I'm looking for my first Business Analyst internship to work on data models, loading processes, KPIs and reports. This is where I collect the projects I practise with, their real status and what still needs work.",
+      intro: "Computer engineer looking for my first Business Analyst internship: data models, loading processes, KPIs and reports. These are the projects I practise with, their real status and what still needs work.",
       viewProjects: "View projects",
       facts: [
         { label: "Goal", value: "Business Analyst internship" },
