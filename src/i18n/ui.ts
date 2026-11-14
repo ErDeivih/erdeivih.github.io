@@ -46,7 +46,7 @@ export const ui = {
     projectsPage: {
       kicker: "Proyectos",
       title: "Proyectos",
-      intro: "Aplicaciones y sistemas que he construido, de la base de datos a la interfaz. Puedes filtrar por estado y abrir cada ficha.",
+      intro: "Aplicaciones y sistemas que he construido, de la base de datos a la interfaz.",
     },
     project: {
       back: "← Todos los proyectos",
@@ -168,7 +168,7 @@ export const ui = {
     projectsPage: {
       kicker: "Projects",
       title: "Projects",
-      intro: "Applications and systems I have built, from the database to the interface. You can filter by status and open each page.",
+      intro: "Applications and systems I have built, from the database to the interface.",
     },
     project: {
       back: "← All projects",

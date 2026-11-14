@@ -142,8 +142,8 @@ section[id], footer[id] { scroll-margin-top: 6rem; }
 .project-grid .project-card .mt-7 { margin-top: auto; padding-top: 1.5rem; }
 .project-grid .project-card-planned { background: var(--color-panel); }
 .status-badge { border: 1px solid var(--color-border); padding: .3rem .55rem; font-size: .65rem; background: var(--color-background); }
-.project-filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem; }
-.project-filters button { cursor: pointer; border: 1px solid var(--color-border); border-radius: 2rem; padding: .6rem 1rem; min-height: 2.75rem; font-size: .85rem; }
+.project-filters { display: flex; flex-wrap: nowrap; gap: .45rem; margin-top: .9rem; overflow-x: auto; padding-bottom: .25rem; }
+.project-filters button { cursor: pointer; border: 1px solid var(--color-border); border-radius: 2rem; padding: .4rem .7rem; min-height: 2.5rem; font-size: .78rem; white-space: nowrap; }
 .project-filters button[aria-pressed="true"] { background: var(--color-foreground); color: var(--color-background); }
 .project-card[hidden] { display: none; }
 @media(max-width: 640px) {
