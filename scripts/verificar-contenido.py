@@ -24,6 +24,9 @@ PROYECTOS = {
 RETIRADOS = {"panel", "impresion3d", "cdmplab", "chollos", "airport-fx"}
 FRASES = [
     "Business Analyst", "Data Analyst", "business analyst", "inteligencia de negocio",
+    "Datos y BI",
+    "Business Analyst /",
+    "prácticas como Business",
     "enlaces y demos comprobados", "Enlaces y demos comprobados",
 ]
 # «BI» suelto, no dentro de palabras como «BIBLIOTECA»

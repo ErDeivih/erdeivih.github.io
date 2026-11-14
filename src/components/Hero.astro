@@ -11,6 +11,7 @@ const { hero } = useTranslations(locale);
     <h1 class="editorial-title reveal mt-4 max-w-[13ch] sm:mt-8" style="transition-delay:.05s">
       {hero.headline}<span class="text-primary">.</span>
     </h1>
+    <p class="reveal mt-3 font-mono text-xs font-bold tracking-wide text-muted" style="transition-delay:.07s">{hero.stackLine}</p>
     <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,30rem)] md:items-end">
       <div>
         <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
