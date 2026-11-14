@@ -98,12 +98,23 @@ for ficha in fichas:
         if f"## {seccion}" not in texto:
             fallos.append(f"{ficha.relative_to(ROOT)}: falta la sección «{seccion}»")
 
-# 7) CV
+# 7) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
 if "/David-Perez-Velasco-CV.pdf" not in html:
     fallos.append("ninguna página enlaza el PDF del CV")
+if 'href="/David-Perez-Velasco-CV.pdf"' not in (DIST / "index.html").read_text(encoding="utf-8", errors="replace"):
+    fallos.append("la portada no enlaza el PDF del CV")
+if 'href="/David-Perez-Velasco-CV.pdf"' not in (DIST / "404.html").read_text(encoding="utf-8", errors="replace"):
+    fallos.append("la página 404 no enlaza el PDF del CV")
+cv = ROOT / "public" / "David-Perez-Velasco-CV.pdf"
+if not cv.is_file():
+    fallos.append("falta public/David-Perez-Velasco-CV.pdf")
+elif not cv.read_bytes().startswith(b"%PDF-"):
+    fallos.append("public/David-Perez-Velasco-CV.pdf no es un PDF")
+elif cv.stat().st_size < 100_000:
+    fallos.append(f"el PDF del CV parece vacío ({cv.stat().st_size} bytes)")
 
 if fallos:
     print(f"ROJO: {len(fallos)} problema(s)")
