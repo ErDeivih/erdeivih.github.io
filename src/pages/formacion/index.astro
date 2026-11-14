@@ -24,7 +24,7 @@ const idioma = "es" as const;
               <p class="mt-1 text-sm text-muted">{item.entidad}</p>
             </div>
             <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{t.formacion.estado[item.estado]}</p>
-            <p class="text-sm text-muted sm:col-span-2">**{t.formacion.certificadoLabel}:** {item.certificado[idioma]} · **{t.formacion.costeLabel}:** {item.coste[idioma]}</p>
+            <p class="text-sm text-muted sm:col-span-2"><strong>{t.formacion.certificadoLabel}:</strong> {item.certificado[idioma]} · <strong>{t.formacion.costeLabel}:</strong> {item.coste[idioma]}</p>
           </li>
         ))}
       </ul>
@@ -45,7 +45,7 @@ const idioma = "es" as const;
               <p class="mt-1 text-sm text-muted">{item.entidad}</p>
             </div>
             <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{t.formacion.estado[item.estado]}</p>
-            <p class="text-sm text-muted sm:col-span-2">**{t.formacion.certificadoLabel}:** {item.certificado[idioma]} · **{t.formacion.costeLabel}:** {item.coste[idioma]}</p>
+            <p class="text-sm text-muted sm:col-span-2"><strong>{t.formacion.certificadoLabel}:</strong> {item.certificado[idioma]} · <strong>{t.formacion.costeLabel}:</strong> {item.coste[idioma]}</p>
           </li>
         ))}
       </ul>
