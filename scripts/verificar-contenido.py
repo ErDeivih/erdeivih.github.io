@@ -78,7 +78,16 @@ for rel in referenciados:
     if not (ROOT / "public" / rel.lstrip("/")).is_file():
         fallos.append(f"imagen referenciada y ausente: {rel}")
 
-# 5) CV
+# 5) presentación escrita y marcada como pendiente
+presentacion = ROOT.parent / "PRESENTACION.md"
+if not presentacion.exists():
+    fallos.append("falta PRESENTACION.md en la raíz del proyecto")
+else:
+    texto_pres = presentacion.read_text(encoding="utf-8", errors="replace")
+    if "pendiente del visto bueno" not in texto_pres.lower():
+        fallos.append("PRESENTACION.md no está marcada como pendiente del visto bueno")
+
+# 6) CV
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")

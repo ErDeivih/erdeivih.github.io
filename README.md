@@ -8,6 +8,11 @@ El sitio enseña software y sistemas que ha construido, con capturas reales, enl
 responde 200 y el estado honesto de cada proyecto. Tiene una sección aparte de **datos y análisis**
 con tres análisis hechos con NumPy.
 
+## Presentación
+
+La presentación propuesta (ingeniero informático, USAL 2025 + Máster en curso, sin business
+analyst) está escrita y marcada como **pendiente de visto bueno** en `../PRESENTACION.md`.
+
 ## Estructura
 
 - `/` portada; `/proyectos/` archivo; `/proyectos/<slug>/` ficha de cada proyecto.
