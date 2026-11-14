@@ -54,6 +54,8 @@ clasificaciones, calendarios, resultados, alineaciones, goleadores y trayectoria
 
 **Qué he hecho yo.** La recolección con Selenium y una cola SQLite reanudable, el importador idempotente a PostgreSQL, los esquemas `core`, `analytics`, `source` y `ops`, la proyección de agregados y la web. También la publicación con cotejo: la base publicada se compara tabla a tabla con la canónica.
 
+**Decisión que puedo señalar:** El recolector guarda cada página en una cola SQLite antes de parsearla y el importador usa claves naturales: si se corta a mitad, se relanza y no duplica nada.
+
 **Qué no he hecho.** Los datos no son míos: los publica la federación. No incluyo escudos sin permiso del club y la aplicación completa no está abierta al público; lo que está publicado es una demo estática con datos reales.
 
 ## El problema

@@ -54,6 +54,8 @@ standings, fixtures, results, line-ups, top scorers and player histories.
 
 **What I built.** Collection with Selenium and a resumable SQLite queue, the idempotent PostgreSQL importer, the `core`, `analytics`, `source` and `ops` schemas, the aggregate projection and the web front end. Also the publishing step with a check: the published database is compared table by table with the canonical one.
 
+**Decision I can point to:** The collector stores every page in a SQLite queue before parsing, and the importer uses natural keys: if it stops halfway, it can be resumed without duplicating rows.
+
 **What I did not do.** The data is not mine: the federation publishes it. I do not include club crests without permission and the full application is not public; what is published is a static demo with real data.
 
 ## The problem

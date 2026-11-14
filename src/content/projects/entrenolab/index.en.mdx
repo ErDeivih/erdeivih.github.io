@@ -51,6 +51,8 @@ with a sample club.
 
 **What I built.** The whole product: a multi-club data model with per-coach permissions, a Supabase backend with RLS, an Angular front end and the demo with a sample club.
 
+**Decision I can point to:** Per-coach permissions live in PostgreSQL RLS, not in the frontend: even calling the API directly, a coach cannot see another club.
+
 **What I did not do.** There is no real payment gateway: plans are simulated. A real club's data is private and is not published.
 
 ## The problem
