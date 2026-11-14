@@ -67,7 +67,7 @@ for path in list(SRC.rglob("*.mdx")) + list(SRC.rglob("*.ts")) + list(SRC.rglob(
     if "node_modules" in str(path):
         continue
     texto = path.read_text(encoding="utf-8", errors="replace")
-    referenciados.update(re.findall(r'"(/(?:projects|analisis)/[^"]+)"', texto))
+    referenciados.update(re.findall(r'/(?:projects|analisis)/[A-Za-z0-9._/-]+', texto))
 for carpeta in ("projects", "analisis"):
     for fichero in (ROOT / "public" / carpeta).rglob("*"):
         if fichero.is_file():

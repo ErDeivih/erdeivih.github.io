@@ -26,14 +26,6 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Competición real con su clasificación: 1.ª División Provincial de Aficionados."
-      },
-      {
-        "archivo": "/projects/facylf/01-inicio-390.png",
-        "url": "https://erdeivih.github.io/fondo-popular-demo/",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Búsqueda de equipos, jugadores y clubes con acceso a las competiciones de la temporada."
       }
     ]
   },
@@ -94,14 +86,6 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Ruta de aprendizaje por fases, con horas y prerrequisitos."
-      },
-      {
-        "archivo": "/projects/data-school/01-portada-390.png",
-        "url": "https://erdeivih.github.io/data-school-site/",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Portada del portal con el índice por fases y el progreso de estudio."
       }
     ]
   },
@@ -132,14 +116,6 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Lista de prácticas con su estado de avance."
-      },
-      {
-        "archivo": "/projects/opofuente/01-portada-390.png",
-        "url": "https://erdeivih.github.io/opofuente-demo/",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Portada de la demo con las convocatorias y la cobertura del temario."
       }
     ]
   },
@@ -200,14 +176,6 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Listas de la compra guardadas, con lo que queda por coger."
-      },
-      {
-        "archivo": "/projects/compra-alimentacion/01-compra-390.png",
-        "url": "https://erdeivih.github.io/cesta-demo/#/compra",
-        "accion": null,
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "Búsqueda y comparación de la compra con precio por unidad."
       }
     ]
   },
@@ -238,14 +206,6 @@
         "viewport": "1280x900",
         "fecha": "2026-11-14",
         "pie": "Progreso de fuerza por ejercicio a partir del historial."
-      },
-      {
-        "archivo": "/projects/garmin/01-sesion-390.png",
-        "url": null,
-        "origen": "F:\\Proyectos\\garmin\\capturas\\ui-sesion-390-despues.png",
-        "viewport": "390x844",
-        "fecha": "2026-11-14",
-        "pie": "La sesión en móvil, con el peso real de cada serie."
       }
     ]
   },
