@@ -61,6 +61,7 @@ const destacados = projects.filter((p) => p.data.featured);
           ))}
         </dl>
         <p class="mt-8"><a href="/David-Perez-Velasco-CV.pdf" class="button-secondary">{t.about.cv}</a></p>
+        <p class="mt-4"><a href={localePath(locale, "/formacion/")} class="inline-flex min-h-11 items-center font-mono text-[11px] font-bold uppercase tracking-wide underline underline-offset-4 hover:text-primary">{t.formacion.title} →</a></p>
         <div class="mt-10 grid gap-6 sm:grid-cols-3">
           {t.about.principles.map((item, index) => (
             <div class="border-t border-foreground pt-4">

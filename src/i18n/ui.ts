@@ -75,6 +75,15 @@ export const ui = {
       back: "← Volver al inicio",
       link: "Ver los análisis",
     },
+    formacion: {
+      title: "Formación",
+      intro: "Estudios oficiales y cursos que estoy haciendo o tengo previstos. En cada uno digo qué certificado da y qué es gratis de verdad; el enlace lleva a la fuente.",
+      academica: "Formación académica",
+      cursos: "Cursos en curso o previstos",
+      cursosIntro: "Cursos gratuitos que quiero completar. Marco lo que dan gratis y lo que no, sin prometer certificados que no existen.",
+      estado: { "en-curso": "En curso", prevista: "Prevista", terminado: "Terminada" },
+      volver: "← Volver al inicio",
+    },
     marcha: {
       title: "Proyectos en marcha",
       intro: "Lo que está en desarrollo ahora mismo, más los análisis de datos que estoy empezando. Sin fechas ni promesas: cada línea dice en qué punto está.",
@@ -175,6 +184,15 @@ export const ui = {
       conclusion: "What I take away",
       back: "← Back to home",
       link: "See the analyses",
+    },
+    formacion: {
+      title: "Education",
+      intro: "Official studies and courses I am taking or planning. Each one says which certificate it gives and what is actually free; the link goes to the source.",
+      academica: "Academic education",
+      cursos: "Courses in progress or planned",
+      cursosIntro: "Free courses I want to complete. I mark what is free and what is not, without promising certificates that do not exist.",
+      estado: { "en-curso": "In progress", prevista: "Planned", terminado: "Completed" },
+      volver: "← Back to home",
     },
     marcha: {
       title: "Work in progress",

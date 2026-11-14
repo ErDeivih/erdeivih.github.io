@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { academica, cursos } from "../../data/formacion";
+import { useTranslations } from "../../i18n/ui";
+const locale = "es";
+const t = useTranslations(locale);
+const idioma = "es" as const;
+---
+
+<BaseLayout title={t.formacion.title} description={t.formacion.intro}>
+  <section class="mx-auto max-w-[88rem] px-5 py-12 sm:px-8 sm:py-16">
+    <header class="max-w-3xl">
+      <h1 class="editorial-title">{t.formacion.title}<span class="text-primary">.</span></h1>
+      <p class="mt-6 text-xl leading-snug text-muted">{t.formacion.intro}</p>
+    </header>
+
+    <section class="mt-14" aria-labelledby="academica">
+      <h2 id="academica" class="section-title">{t.formacion.academica}<span class="text-primary">.</span></h2>
+      <ul class="mt-8 grid gap-6">
+        {academica.map((item) => (
+          <li class="grid gap-2 border-t border-foreground pt-4 sm:grid-cols-[1fr_auto] sm:items-baseline">
+            <div>
+              <p class="text-xl font-black tracking-[-.02em]">{item.nombre[idioma]}</p>
+              <p class="mt-1 text-sm text-muted">{item.entidad}</p>
+            </div>
+            <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{t.formacion.estado[item.estado]}</p>
+            <p class="text-sm text-muted sm:col-span-2">{item.certificado[idioma]} · {item.coste[idioma]}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mt-16" aria-labelledby="cursos">
+      <h2 id="cursos" class="section-title">{t.formacion.cursos}<span class="text-primary">.</span></h2>
+      <p class="mt-4 max-w-2xl text-lg text-muted">{t.formacion.cursosIntro}</p>
+      <ul class="mt-8 grid gap-6">
+        {cursos.map((item) => (
+          <li class="grid gap-2 border-t border-foreground pt-4 sm:grid-cols-[1fr_auto] sm:items-baseline">
+            <div>
+              <p class="text-xl font-black tracking-[-.02em]">
+                {item.url ? <a href={item.url} target="_blank" rel="noopener" class="hover:text-primary">{item.nombre[idioma]} ↗</a> : item.nombre[idioma]}
+              </p>
+              <p class="mt-1 text-sm text-muted">{item.entidad}</p>
+            </div>
+            <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{t.formacion.estado[item.estado]}</p>
+            <p class="text-sm text-muted sm:col-span-2">{item.certificado[idioma]} · {item.coste[idioma]}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <p class="mt-14"><a href="/" class="button-secondary">{t.formacion.volver}</a></p>
+  </section>
+</BaseLayout>
