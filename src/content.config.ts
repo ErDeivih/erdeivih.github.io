@@ -68,6 +68,8 @@ const datos = defineCollection({
     datasetUrl: z.url().optional(),
     repoUrl: z.url().optional(),
     casoUrl: z.url().optional(),
+    clave: z.string().optional(),
+    claveEn: z.string().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
   }),
