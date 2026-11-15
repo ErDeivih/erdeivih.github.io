@@ -20,9 +20,11 @@ const fichas = (await getCollection("datos")).sort((a, b) => a.data.order - b.da
       {fichas.map((ficha) => (
         <a href={`/datos/${ficha.id.split("/")[0]}/`} class="block border border-foreground bg-surface p-6 transition-transform hover:-translate-y-1">
           <p class="font-mono text-[11px] font-bold uppercase tracking-wide text-muted">{t.datos.estado[ficha.data.status]}</p>
+          {ficha.data.image && <img src={ficha.data.image} alt={ficha.data.imageAlt ?? ficha.data.title} class="mt-3 w-full border border-foreground" />}
           <h2 class="mt-3 text-2xl font-black tracking-[-.03em]">{ficha.data.title}</h2>
           <p class="mt-3 text-sm leading-relaxed text-muted">{ficha.data.description}</p>
-          <span class="mt-5 inline-block font-mono text-[11px] font-bold uppercase tracking-wide text-primary">{t.datos.abrir} →</span>
+          <span class="mt-5 block font-mono text-[11px] font-bold uppercase tracking-wide text-primary">{t.datos.abrir} →</span>
+          {ficha.data.casoUrl && <a href={ficha.data.casoUrl} target="_blank" rel="noopener" class="mt-2 inline-block text-sm underline underline-offset-4 hover:text-primary">{t.datos.caso} ↗</a>}
         </a>
       ))}
     </div>
