@@ -94,7 +94,7 @@ else:
 fichas = sorted((SRC / "content" / "datos").glob("*/index.mdx"))
 if len(fichas) != 3:
     fallos.append(f"fichas de datos: {len(fichas)} (se esperan 3)")
-SECCIONES = ["Pregunta", "Datos", "Proceso", "Hallazgo", "Qué aprendí", "Conceptos"]
+SECCIONES = ["Qué hace", "Para qué sirve", "Fases", "Stack"]
 for ficha in fichas:
     texto = ficha.read_text(encoding="utf-8", errors="replace")
     for seccion in SECCIONES:

@@ -1,45 +1,48 @@
 ---
-title: "La factura de la luz"
-description: "Ficha de datos en preparación sobre finanzas: ingresos, gastos y ahorro con un dataset de Data School."
-source: "Data School"
-status: "publicada"
+title: La factura de la luz
+description: 'Ficha de datos en preparación sobre finanzas: ingresos, gastos y ahorro
+  con un dataset de Data School.'
+source: Data School
+status: publicada
 order: 1
-concepts: ["Series temporales", "Granularidad", "Media y mediana", "Correlación"]
-clave: "La hora más barata fue las 4:00 (82,22 €/MWh) frente a una media de 112,14 €/MWh en 2.184 precios horarios del PVPC."
-claveEn: "The cheapest hour was 4:00 (€82.22/MWh) against an average of €112.14/MWh across 2,184 hourly PVPC prices."
-casoUrl: "https://erdeivih.github.io/data-school-site/casos/finanzas.html"
-image: "/datos/data-school-01/390-finanzas.png"
-imageAlt: "Ficha de la factura de la luz con precios horarios del PVPC"
+concepts:
+- Series temporales
+- Granularidad
+- Media y mediana
+- Correlación
+clave: La hora más barata fue las 4:00 (82,22 €/MWh) frente a una media de 112,14
+  €/MWh en 2.184 precios horarios del PVPC.
+claveEn: The cheapest hour was 4:00 (€82.22/MWh) against an average of €112.14/MWh
+  across 2,184 hourly PVPC prices.
+casoUrl: https://erdeivih.github.io/data-school-site/casos/finanzas.html
+image: /datos/data-school-01/390-finanzas.png
+imageAlt: Ficha de la factura de la luz con precios horarios del PVPC
+stack:
+- Python
+- pandas
+- HTML
+- REE API
 ---
 
+# La factura de la luz
 
-## Qué he hecho yo
+## Qué hace
 
-He montado la ficha con **2.184 precios horarios del PVPC** del primer trimestre de 2024 publicados por Red Eléctrica: comprobé que había 91 días completos, agregué por mes y por hora del día, puse media y mediana juntas, simulé 270 kWh al mes y publiqué el HTML autónomo con sus gráficas y la huella del fichero.
+Analiza **2.184 precios horarios del PVPC** del primer trimestre de 2024 y calcula a qué hora conviene consumir.
 
-## Qué no he hecho
+## Para qué sirve
 
-Los precios son de **REE**, no míos; se citan y no se tocan. Tampoco puedo demostrar la causa solar o eólica: este conjunto no trae generación, así que la página lo dice y no lo afirma. La página del caso ya separa **qué he hecho** y **qué no he hecho**, y añade los **conceptos usados**.
-## Pregunta
+Para decidir cuándo poner la lavadora o la calefacción y ver cuánto pesa **cuándo** se gasta, no solo cuánto.
 
-Hueco preparado: esta sección se rellena cuando llegue la ficha de Data School.
+## Fases
 
-## Datos
+- **Hecho:** descarga y validación de 2.184 filas (91 días × 24 h), agregación por mes y hora, media y mediana, simulación de 270 kWh y página HTML con las gráficas.
+- **Pendiente:** término de potencia e impuestos; la causa solar o eólica no se puede afirmar porque el CSV no trae generación.
 
-Hueco preparado: esta sección se rellena cuando llegue la ficha de Data School.
+## Stack
 
-## Proceso
-
-Hueco preparado: esta sección se rellena cuando llegue la ficha de Data School.
-
-## Hallazgo
-
-Hueco preparado: esta sección se rellena cuando llegue la ficha de Data School.
+- Python · pandas · HTML autónomo · API de REE
 
 ## Qué aprendí
 
-Hueco preparado: esta sección se rellena cuando llegue la ficha de Data School.
-
-## Conceptos
-
-Hueco preparado: esta sección se rellena cuando llegue la ficha de Data School.
+Con 2.184 precios horarios, la hora más barata fue las **4:00 (82,22 €/MWh)** frente a una media de **112,14 €/MWh**: cuándo se gasta pesa tanto como cuánto.
