@@ -15,6 +15,11 @@ const { hero } = useTranslations(locale);
     <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(18rem,30rem)] md:items-end">
       <div>
         <p class="reveal max-w-2xl text-xl leading-snug text-muted sm:text-2xl" style="transition-delay:.1s">{hero.intro}</p>
+      <div class="reveal grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-end" style="transition-delay:.15s">
+        <a href={localePath(locale, "/proyectos/")} class="button-primary w-full justify-center md:w-auto">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
+        <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary w-full justify-center md:w-auto">{hero.downloadCv}</a>
+        <a href={social.github} target="_blank" rel="noopener" class="col-span-2 inline-flex min-h-11 items-center justify-center text-sm underline underline-offset-4 hover:text-primary md:col-span-1">GitHub ↗</a>
+      </div>
         <div id="prueba" class="reveal mt-5 max-w-2xl border-l-4 border-primary pl-4" style="transition-delay:.12s">
           <p class="text-sm font-bold text-muted">{hero.featuredLabel}</p>
           <p class="mt-1 text-xl font-black tracking-[-.02em]">{hero.featuredName}</p>
@@ -22,11 +27,6 @@ const { hero } = useTranslations(locale);
           <p class="mt-2 text-base font-semibold">{hero.proof}</p>
           <p class="mt-2"><a href={localePath(locale, "/proyectos/compra-alimentacion/")} class="inline-flex min-h-11 items-center font-bold underline underline-offset-4 hover:text-primary">{hero.featuredCta}</a></p>
         </div>
-      </div>
-      <div class="reveal grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-end" style="transition-delay:.15s">
-        <a href={localePath(locale, "/proyectos/")} class="button-primary w-full justify-center md:w-auto">{hero.viewProjects} <span class="ml-2" aria-hidden="true">↘</span></a>
-        <a href="/David-Perez-Velasco-CV.pdf" class="button-secondary w-full justify-center md:w-auto">{hero.downloadCv}</a>
-        <a href={social.github} target="_blank" rel="noopener" class="col-span-2 inline-flex min-h-11 items-center justify-center text-sm underline underline-offset-4 hover:text-primary md:col-span-1">GitHub ↗</a>
       </div>
     </div>
     <div class="reveal mt-16 grid border-y border-foreground sm:grid-cols-2" style="transition-delay:.2s">

@@ -8,6 +8,7 @@ const { pathname } = Astro.url;
 const localized = (href: string) => localePath(locale, href);
 const navItems = [
   { label: t.nav.projects, href: localized("/proyectos/") },
+  { label: t.datos.title, href: localized("/datos/") },
   { label: t.experience.title, href: localized("/#experiencia") },
   { label: t.nav.about, href: localized("/#sobre-mi") },
   { label: t.nav.contact, href: localized("/#contacto") },

@@ -10,7 +10,7 @@ export const ui = {
     hero: {
       headline: "Ingeniero Informático",
       stackLine: "Java · TypeScript · Python",
-      intro: "Ingeniero Informático por la Universidad de Salamanca (2025), cursando el Máster en Ingeniería Informática en la USAL. Construyo software de principio a fin: backend, datos y despliegue. Aquí enseño los proyectos de datos con su pregunta, sus datos y lo que falta. Java, TypeScript y Python; Spring, React y PostgreSQL.",
+      intro: "Ingeniero Informático por la Universidad de Salamanca (2025), cursando el Máster en Ingeniería Informática. Construyo software de principio a fin: backend, datos y despliegue. Aquí enseño tres proyectos de datos con su pregunta, sus datos y lo que falta.",
       featuredLabel: "Proyecto destacado",
       featuredName: "Cesta",
       featuredStack: "Python · Polars · DuckDB · PostgreSQL · FastAPI",
@@ -107,9 +107,9 @@ export const ui = {
     },
     datos: {
       title: "Proyectos de datos",
-      intro: "Fichas de datos de Data School: cada una cuenta una pregunta, de dónde salen los datos, el proceso, el hallazgo, qué aprendí y los conceptos que se tocan.",
+      intro: "Tres fichas de datos de Data School: cada una cuenta una pregunta, de dónde salen los datos, cómo se calculó y lo que falta.",
       estructura: "Estructura fija: pregunta → datos → proceso → hallazgo → qué aprendí → conceptos.",
-      preparacion: "Las tres fichas están en preparación: la estructura ya está fijada y el contenido se irá publicando. No hay fechas.",
+      preparacion: "Las tres están publicadas con datos reales; las que dependen de un dataset nuevo lo dicen en sus fases.",
       estructuraTitulo: "Estructura de la ficha",
       secciones: ["Qué hace", "Para qué sirve", "Fases", "Stack"],
       estado: { preparada: "En preparación", "en-revision": "En revisión", publicada: "Publicada" },
@@ -142,7 +142,7 @@ export const ui = {
     hero: {
       headline: "Computer Engineer",
       stackLine: "Java · TypeScript · Python",
-      intro: "Computer Engineer from the University of Salamanca (2025), studying the Master's in Computer Engineering at USAL. I build software end to end: backend, data and deployment. Here I show the data projects with their question, their data and what is missing. Java, TypeScript and Python; Spring, React and PostgreSQL.",
+      intro: "Computer Engineer from the University of Salamanca (2025), studying the Master's in Computer Engineering. I build software end to end: backend, data and deployment. Here I show three data projects with their question, their data and what is missing.",
       featuredLabel: "Featured project",
       featuredName: "Cesta",
       featuredStack: "Python · Polars · DuckDB · PostgreSQL · FastAPI",
@@ -239,9 +239,9 @@ export const ui = {
     },
     datos: {
       title: "Data projects",
-      intro: "Data School data sheets: each one covers a question, where the data comes from, the process, the finding, what I learned and the concepts involved.",
+      intro: "Three Data School data sheets: each one covers a question, where the data comes from, how it was computed and what is missing.",
       estructura: "Fixed structure: question → data → process → finding → what I learned → concepts.",
-      preparacion: "The three sheets are in preparation: the structure is fixed and the content will be published as it is written. No dates.",
+      preparacion: "All three are published with real data; any that need a new dataset say so in their phases.",
       estructuraTitulo: "Sheet structure",
       secciones: ["What it does", "What it is for", "Phases", "Stack"],
       estado: { preparada: "In preparation", "en-revision": "In review", publicada: "Published" },

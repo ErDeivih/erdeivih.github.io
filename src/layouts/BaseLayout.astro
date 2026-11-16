@@ -18,7 +18,7 @@ const t = useTranslations(locale);
 const fullTitle = title ? `${title} · ${site.name}` : t.metaTitle;
 const desc = description ?? t.metaDescription;
 const canonical = new URL(Astro.url.pathname, site.url);
-const socialImage = image === undefined ? new URL("/og.png", site.url) : image ? new URL(image, site.url) : null;
+const socialImage = image === undefined ? new URL("/og.jpg", site.url) : image ? new URL(image, site.url) : null;
 ---
 
 <!doctype html>
