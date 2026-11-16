@@ -57,6 +57,14 @@ for ruta, fichero in PAGINAS:
     elif real != esperado:
         fallos.append(f"{ruta} no sirve el build publicado (sha distinto)")
 
+# Proyectos retirados: no deben existir en la web publicada (impresion3d incluido).
+RETIRADOS = ("panel", "impresion3d", "cdmplab", "chollos", "airport-fx")
+for slug in RETIRADOS:
+    code, _, _ = descargar(f"/proyectos/{slug}/")
+    if code != 404:
+        fallos.append(f"/proyectos/{slug}/ responde {code} (debe ser 404)")
+print(f"{'OK ' if not any('debe ser 404' in f for f in fallos) else 'MAL'} proyectos retirados: {len(RETIRADOS)} en 404 (incluye impresion3d)")
+
 # La raíz es el sitio: /portfolio/ no debe existir.
 code, _, _ = descargar("/portfolio/")
 print(f"{'OK ' if code == 404 else 'MAL'} {code:3} /portfolio/ (debe dar 404)")
