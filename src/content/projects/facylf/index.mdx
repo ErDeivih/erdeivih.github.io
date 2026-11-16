@@ -40,6 +40,8 @@ captures:
   alt: Clasificación de una competición con sus jornadas
   caption: Una competición real con su clasificación y sus jornadas, a 390 px.
 repo: https://github.com/ErDeivih/facylf
+clave: 'Base canónica del fútbol federado de Castilla y León: 867 competiciones, clasificaciones
+  y actas con cobertura medida.'
 ---
 
 Fondo Popular (nombre interno y de repositorio, **FACyLF**) reúne en una base de datos canónica el
@@ -97,6 +99,12 @@ El modelo separa esquemas, que es la parte más cercana a un Data Mart:
 - **Calidad:** el comprobador de codificación detecta doble codificación y UTF-8 inválido (0
   problemas en Castilla y León); la idempotencia se demuestra con recuentos antes y después; la
   última publicación cotejó 98/98 tablas y 123.601.068 filas idénticas.
+
+## Fases
+
+- **Hecho:** recolección con Selenium, cola SQLite reanudable e importador idempotente a PostgreSQL.
+- **Hecho:** esquemas `core`, `analytics`, `source` y `ops`, agregados y web de consulta; demo estática publicada con datos reales.
+- **Pendiente:** abrir la aplicación completa al público y resolver escudos y derechos de imagen.
 
 ## Qué he aprendido con este proyecto
 

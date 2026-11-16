@@ -25,6 +25,7 @@ const projects = defineCollection({
       year: z.string().optional(),
       role: z.string().optional(),
       highlight: z.string().optional(),
+      clave: z.string().optional(),
       status: z
         .enum(["active", "maintained", "paused", "planned", "archived", "complete"])
         .default("active"),

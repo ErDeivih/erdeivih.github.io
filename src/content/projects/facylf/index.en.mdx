@@ -40,6 +40,8 @@ captures:
   alt: Clasificación de una competición con sus jornadas
   caption: A real competition with its table and matchdays at 390 px.
 repo: https://github.com/ErDeivih/facylf
+clave: 'Canonical database of federated football in Castile and León: 867 competitions,
+  tables and match reports with measured coverage.'
 ---
 
 Fondo Popular (internal and repository name, **FACyLF**) brings federated football in Castile and
@@ -97,6 +99,12 @@ The model separates schemas, which is the part closest to a real Data Mart:
 - **Quality:** the encoding checker catches double encoding and invalid UTF-8 (0 problems in Castile
   and León); idempotency is shown with before/after counts; the last publication reconciled 98/98
   tables and 123,601,068 identical rows.
+
+## Phases
+
+- **Done:** Selenium collection, resumable SQLite queue and idempotent PostgreSQL importer.
+- **Done:** `core`, `analytics`, `source` and `ops` schemas, aggregates and the query front end; static demo published with real data.
+- **Pending:** opening the full application to the public and settling crests and image rights.
 
 ## What I learned building it
 
