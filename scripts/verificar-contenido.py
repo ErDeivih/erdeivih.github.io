@@ -164,7 +164,15 @@ for carpeta in sorted((SRC / "content" / "projects").iterdir()):
     if re.search(r'^demo:\s*$', texto, re.M):
         fallos.append(f"{carpeta.name}: campo demo vacío")
 
-# 12) CV enlazado y PDF real
+# 12) impresion3d no puede volver a aparecer (ni en enlaces ni en sitemap)
+for html in DIST.rglob("*.html"):
+    if "impresion3d" in html.read_text(encoding="utf-8", errors="replace").lower():
+        fallos.append(f"{html.relative_to(DIST)} menciona impresion3d")
+for sitemap in DIST.glob("sitemap*.xml"):
+    if "impresion3d" in sitemap.read_text(encoding="utf-8", errors="replace").lower():
+        fallos.append(f"{sitemap.name} incluye impresion3d")
+
+# 13) CV enlazado y PDF real
 html = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in DIST.rglob("*.html"))
 if "/cv.html" in html:
     fallos.append("queda un enlace a /cv.html")
