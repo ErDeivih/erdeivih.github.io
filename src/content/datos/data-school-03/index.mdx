@@ -1,39 +1,40 @@
 ---
-title: Fútbol
-description: 'Ficha de datos en preparación sobre fútbol: partidos, goles y xG de
-  un dataset de Data School.'
+title: El gol en el fútbol de Castilla y León
+description: '321.326 partidos con marcador de Castilla y León (2012–2026): 6,07 goles
+  por partido y +0,435 de ventaja local.'
 source: Data School
-status: preparada
+status: publicada
 order: 3
 concepts: []
 stack:
 - Python
 - pandas
-- NumPy
-image: /datos/data-school-03/390-ficha.png
-imageAlt: Ficha del proyecto de fútbol en el porfolio
+- FACYLF
+image: /datos/data-school-03/390-futbol.png
+imageAlt: Ficha de fútbol con los goles por jornada y la ventaja local
+casoUrl: https://erdeivih.github.io/data-school-site/casos/futbol.html
 ---
-> **Pendiente:** Data School está escribiendo esta ficha. Aquí queda la estructura y lo que ya se sabe; **donde falta el dato, no se inventa**.
-
 ## Qué hace
 
-**Pendiente de la ficha de Data School:** cuando entreguen el dataset se escribe aquí el alcance real.
-
-Ficha para analizar partidos, goles y xG de un dataset de Data School.
+Cuenta **321.326 partidos** con marcador de Castilla y León entre 2012-13 y 2026-27: **6,07 goles por partido** y **+0,435** de ventaja para el local.
 
 ## Para qué sirve
 
-Para comparar equipos y jugadores por lo que generan, no solo por el marcador.
+Para comparar goles por jornada y ventaja de campo sin que la mezcla de categorías falsee la lectura.
 
 ## Fases
 
-- **Preparado:** hueco, estructura y apartado en el porfolio.
-- **Pendiente:** Data School aún no ha entregado el dataset ni la URL del caso (comprobado 404 hoy).
+- **Hecho:** base canónica de FACYLF, comprobación de que los 321.326 partidos tienen marcador, agregados por jornada y página con el proceso.
+- **Pendiente:** solo el **23,8 %** de las ediciones tienen todos sus grupos completos; no se rellenan las jornadas que faltan.
 
 ## Decisión técnica
 
-Pendiente: la decisión se tomará con el dataset de Data School, cuando exista. No se inventa el criterio antes de ver los datos.
+Usar solo partidos con marcador y separar categorías: la caída de goles al final de temporada es, sobre todo, un efecto de mezclar prebenjamines con aficionados.
 
 ## Stack
 
-- Python · pandas · NumPy
+- Python · pandas · base FACYLF
+
+## Enlace
+
+[Ver la ficha del caso](https://erdeivih.github.io/data-school-site/casos/futbol.html) (comprobado 200).

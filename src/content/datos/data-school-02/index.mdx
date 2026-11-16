@@ -1,39 +1,41 @@
 ---
-title: Fórmula 1
-description: 'Ficha de datos en preparación sobre Fórmula 1: telemetría, frenadas
-  y tiempos de vuelta de un dataset de Data School.'
+title: ¿Cuánto se gana adelantando?
+description: '26.313 filas piloto-carrera de 1.169 carreras (1950–2026): cuánto cambia
+  la parrilla desde la salida hasta la meta.'
 source: Data School
-status: preparada
+status: publicada
 order: 2
 concepts: []
 stack:
 - Python
 - pandas
-- matplotlib
-image: /datos/data-school-02/390-ficha.png
-imageAlt: Ficha del proyecto de Fórmula 1 en el porfolio
+- API jolpica
+image: /datos/data-school-02/390-f1.png
+imageAlt: Ficha de Fórmula 1 con la parrilla y los cambios de posición
+casoUrl: https://erdeivih.github.io/data-school-site/casos/f1.html
 ---
-> **Pendiente:** Data School está escribiendo esta ficha. Aquí queda la estructura y lo que ya se sabe; **donde falta el dato, no se inventa**.
-
 ## Qué hace
 
-**Pendiente de la ficha de Data School:** cuando entreguen el dataset se escribe aquí el alcance real.
-
-Ficha para analizar telemetría y tiempos de vuelta de un dataset de Data School.
+Mide cuánto cambia el orden de la parrilla desde la salida hasta la meta con **26.313 filas piloto-carrera** de 1.169 carreras y 77 temporadas.
 
 ## Para qué sirve
 
-Para comparar pilotos y coches por sector, frenada y ritmo de carrera.
+Para saber cuánto ayuda salir delante y separar ese efecto de los abandonos: **52,3 %** del movimiento lo producen coches que no acaban.
 
 ## Fases
 
-- **Preparado:** hueco, estructura y apartado en el porfolio.
-- **Pendiente:** Data School aún no ha entregado el dataset ni la URL del caso (comprobado 404 hoy).
+- **Hecho:** descarga paginada de la API, JSON en crudo con huella, normalización a piloto-carrera y validación de filas (26.313 − 89 coches dobles − 266 salidas desde el pit lane).
+- **Hecho:** página con el resultado y el proceso.
+- **Pendiente:** la primera vuelta no se mide; la fuente no trae la posición al paso por la vuelta 1.
 
 ## Decisión técnica
 
-Pendiente: la decisión se tomará con el dataset de Data School, cuando exista. No se inventa el criterio antes de ver los datos.
+Separar «todos los que salen» de «solo los que llegan»: si se mezclan, los abandonos se cuentan como pérdida de posiciones y el resultado engaña.
 
 ## Stack
 
-- Python · pandas · matplotlib
+- Python · pandas · API jolpica
+
+## Enlace
+
+[Ver la ficha del caso](https://erdeivih.github.io/data-school-site/casos/f1.html) (comprobado 200).
