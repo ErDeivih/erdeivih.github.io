@@ -37,6 +37,10 @@ Para decidir cuándo poner la lavadora o la calefacción y ver cuánto pesa **cu
 - **Hecho:** descarga y validación de 2.184 filas (91 días × 24 h), agregación por mes y hora, media y mediana, simulación de 270 kWh y página HTML con las gráficas.
 - **Pendiente:** término de potencia e impuestos; la causa solar o eólica no se puede afirmar porque el CSV no trae generación.
 
+## Decisión técnica
+
+Comparo media y mediana y valido que hay 2.184 filas (91 días × 24 h) antes de agregar. Sin ese control, una hora mal medida cambia la conclusión.
+
 ## Stack
 
 - Python · pandas · HTML autónomo · API de REE
