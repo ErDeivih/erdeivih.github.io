@@ -10,7 +10,7 @@ export const ui = {
     hero: {
       headline: "Ingeniero Informático",
       stackLine: "Java · TypeScript · Python",
-      intro: "Ingeniero Informático por la Universidad de Salamanca (2025) y estudiante del Máster en Ingeniería Informática en la USAL. Construyo software de principio a fin: backend, datos y despliegue. Me interesa el análisis de datos como herramienta, y estoy formándome en ello.",
+      intro: "Ingeniero Informático por la Universidad de Salamanca (2025), cursando el Máster en Ingeniería Informática en la USAL. Construyo software de principio a fin: backend, datos y despliegue. Aquí enseño los proyectos de datos con su pregunta, sus datos y lo que falta. Java, TypeScript y Python; Spring, React y PostgreSQL.",
       featuredLabel: "Proyecto destacado",
       featuredName: "Cesta",
       featuredStack: "Python · Polars · DuckDB · PostgreSQL · FastAPI",
@@ -142,7 +142,7 @@ export const ui = {
     hero: {
       headline: "Computer Engineer",
       stackLine: "Java · TypeScript · Python",
-      intro: "Computer Engineer from the University of Salamanca (2025), studying the Master's in Computer Engineering at USAL. I build software end to end: backend, data and deployment. I am interested in data analysis as a tool, and I am training in it.",
+      intro: "Computer Engineer from the University of Salamanca (2025), studying the Master's in Computer Engineering at USAL. I build software end to end: backend, data and deployment. Here I show the data projects with their question, their data and what is missing. Java, TypeScript and Python; Spring, React and PostgreSQL.",
       featuredLabel: "Featured project",
       featuredName: "Cesta",
       featuredStack: "Python · Polars · DuckDB · PostgreSQL · FastAPI",
